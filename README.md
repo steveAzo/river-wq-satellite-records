@@ -2,6 +2,8 @@
 
 Code and data for the paper by Kofi Sarpong Adu-Manu and Stephen Kwaku Azongo (Department of Computer Science, University of Ghana), submitted to Environmental Modelling & Software.
 
+**Archive:** Azongo, S. K. (2026). river-wq-satellite-records, version v1.0.0. Zenodo. https://doi.org/10.5281/zenodo.23617665 (see `CITATION.cff`).
+
 **The question:** what does a river water-quality record within the USGS "excellent" accuracy rating cost in bytes, and how can it be delivered over one-way satellite IoT links that sell a few 23-byte messages a day and lose some of them without notice?
 
 **The answer, in brief (USGS 2024, pre-registered; all seven hypotheses held):**
