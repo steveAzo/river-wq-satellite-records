@@ -1,0 +1,33 @@
+\section{Conclusions}
+\label{sec:conclusion}
+
+This study measured what a regulatory-grade water-quality record costs and how it can be delivered over the one-way, message-limited satellite links that reach remote rivers. On 39 USGS sites over two years, a record within the USGS excellent-record tolerance needed a median of \needMedConf{} bytes per day and at most \needMsgMaxConf{} messages of 23 bytes. Delivered without protection, such a record was guaranteed on only \gRelIndPct{} of days at a message loss of 30\%. Protected by an erasure code or by repetition, it was guaranteed on more than 80\% of days at the same loss with six messages per day, and on most sites within a week when a node buffered its data. A 28-day pilot was sufficient to choose the plan at \sizeSuff{} of sites. All seven pre-registered hypotheses held on a sealed confirmation year.
+
+For agencies monitoring rivers such as those affected by illegal mining in Ghana, the result means that a credible continuous record does not require a high-capacity link. It requires the right bytes, protected against loss, on a plan sized from local data. Future work should measure message loss on operational satellite services, run the encoder on field hardware, and extend the guarantee to the event alarms that operators need in real time.
+
+\section*{Software and data availability}
+The software that produced every result is described below:
+\begin{itemize}
+  \item Name of software: guaranteed-record toolkit (encoder, Reed--Solomon code, loss channels, delivery designs, buffered simulation, analysis scripts, and unit tests).
+  \item Developers: Stephen Kwaku Azongo and Kofi Sarpong Adu-Manu.
+  \item Contact: Kofi Sarpong Adu-Manu, Department of Computer Science, University of Ghana.
+  \item Year first available: 2026.
+  \item Hardware required: a standard desktop computer.
+  \item Software required: Python 3.13 with NumPy, pandas, and Matplotlib.
+  \item Program language: Python.
+  \item Program size: approximately \progLines{} lines.
+  \item Availability and cost: free; to be archived with a DOI on Zenodo upon acceptance, and available from the authors in the meantime.
+\end{itemize}
+The USGS data are public \citep{usgs2016nwis}. The InWaterSense data are available under a CC BY 4.0 licence \citep{ahmedi2022data}. The Weija data belong to the deployment team and are available from the corresponding author on reasonable request.
+
+\section*{CRediT authorship contribution statement}
+Kofi Sarpong Adu-Manu: Conceptualization, Supervision, Resources, Writing -- review \& editing. Stephen Kwaku Azongo: Methodology, Software, Formal analysis, Investigation, Data curation, Visualization, Writing -- original draft.
+
+\section*{Declaration of competing interest}
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Funding}
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
+
+\section*{Acknowledgements}
+The authors thank the operators of the USGS National Water Information System, the InWaterSense project, and the Weija deployment team for making their data available.

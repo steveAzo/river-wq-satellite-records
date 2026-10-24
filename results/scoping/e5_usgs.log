@@ -1,0 +1,32 @@
+2023-01-01 25
+2023-02-01 24
+2023-03-01 25
+2023-04-01 27
+2023-05-01 29
+2023-06-01 31
+2023-07-01 36
+2023-08-01 33
+2023-09-01 34
+2023-10-01 34
+2023-11-01 32
+2023-12-01 28
+
+(a) median over sites: share of site-days whose WHOLE record is within tolerance | median daily max error
+order  greedy  stride_nf
+frac                    
+0.05    0.527      0.120
+0.10    0.922      0.349
+0.20    0.997      0.606
+order  greedy  stride_nf
+frac                    
+0.05     0.95       2.19
+0.10     0.50       1.25
+0.20     0.35       0.81
+
+(b) pooled budget, 364 days with >= 20 sites (median sites/day 31); means over days
+             within                                 days_ok                               worst_max                           
+scheme equal_greedy equal_stride pooled_greedy equal_greedy equal_stride pooled_greedy equal_greedy equal_stride pooled_greedy
+frac                                                                                                                          
+0.05          0.955        0.924         0.989        0.587        0.277         0.698        3.572       12.434         1.057
+0.10          0.992        0.976         1.000        0.878        0.438         1.000        1.855        9.193         0.583
+0.20          0.999        0.991         1.000        0.985        0.641         1.000        0.957        6.816         0.380

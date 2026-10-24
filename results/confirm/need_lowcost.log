@@ -1,0 +1,4 @@
+0 71
+71 site-days, 2 sites, tolerance excellent
+bytes/day: median 39 p90 84 p99 306 max 306; share of raw: median 0.116 p90 0.209
+23-B messages/day: median 2 p90 4 p99 15 max 15

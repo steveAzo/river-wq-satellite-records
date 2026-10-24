@@ -1,0 +1,13 @@
+0
+50
+100
+150
+200
+250
+
+300 site-days. Greedy worst error non-monotone in 294 of them.
+      opt_med  greedy_med  ratio_med  ratio_p90  opt_ok  greedy_ok
+frac                                                              
+0.05    1.000       1.500      1.439      1.831   0.497      0.300
+0.10    0.663       0.961      1.434      1.757   0.780      0.603
+0.20    0.375       0.513      1.398      1.724   0.930      0.873

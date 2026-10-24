@@ -1,0 +1,25 @@
+2023-01-01
+2023-01-31
+2023-03-02
+2023-04-01
+2023-05-01
+2023-05-31
+2023-06-30
+2023-07-30
+2023-08-29
+2023-09-28
+2023-10-28
+2023-11-27
+2023-12-27
+
+10977 site-days, tolerance set usgs
+Need to keep the whole day within tolerance, scaled to a 10-min 4-parameter node (B/day): median 36, p90 108, p99 288, max 594  (raw full data 1,296 B/day)
+As a fraction of the full backlog: median 0.031, p90 0.094, p99 0.250
+Share of site-days whose need exceeds the TTN daily budget: {'SF7': 0.0, 'SF8': 0.0, 'SF9': 0.0, 'SF10': 0.0, 'SF11': 0.0, 'SF12': 0.0}
+Per-site median need, range over sites: 0-198 B/day; p99/median within a site, median over sites 2.7
+  Delaware: days on which >= 2 sites are in their own top-10% need: 0.040 (independent: 0.052)
+  Illinois: days on which >= 2 sites are in their own top-10% need: 0.169 (independent: 0.081)
+  Klamath: days on which >= 2 sites are in their own top-10% need: 0.071 (independent: 0.028)
+  McKenzie: days on which >= 2 sites are in their own top-10% need: 0.003 (independent: 0.010)
+  Tualatin: days on which >= 2 sites are in their own top-10% need: 0.026 (independent: 0.052)
+  Clackamas: days on which >= 2 sites are in their own top-10% need: 0.014 (independent: 0.028)

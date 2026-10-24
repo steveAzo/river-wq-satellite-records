@@ -1,0 +1,28 @@
+Delaware
+Illinois
+Klamath
+McKenzie
+Tualatin
+Clackamas
+
+Means over chain-days (all chains):
+             within                                 days_ok                                pool_max                           
+scheme equal_greedy equal_stride pooled_greedy equal_greedy equal_stride pooled_greedy equal_greedy equal_stride pooled_greedy
+frac                                                                                                                          
+0.05          0.868        0.817         0.895        0.318        0.140         0.251        3.307        7.263         1.865
+0.10          0.964        0.936         0.977        0.621        0.262         0.735        1.607        4.810         1.065
+0.20          0.994        0.977         0.998        0.913        0.370         0.952        0.896        3.459         0.595
+
+Median pool max error (tolerance units) per chain at 10 %:
+scheme     equal_greedy  equal_stride  pooled_greedy  n_days
+chain                                                       
+Clackamas          1.50          3.61           1.00     362
+Delaware           1.52          3.50           1.00     364
+Illinois           1.92          4.26           1.01     361
+Klamath            1.34          6.81           0.96     364
+McKenzie           0.98          1.99           0.87     356
+Tualatin           1.00          1.88           0.88     361
+
+Share of chain-days where the pool's worst value is within tolerance, at 10 % / 20 %:
+0.1 {'equal_greedy': 0.28, 'equal_stride': 0.025, 'pooled_greedy': 0.658}
+0.2 {'equal_greedy': 0.788, 'equal_stride': 0.062, 'pooled_greedy': 0.934}

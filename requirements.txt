@@ -1,0 +1,10 @@
+# Python 3.13. Versions used for every result in the paper.
+numpy==2.3.3
+pandas==2.3.3
+matplotlib==3.10.8
+pytest==9.0.3
+# scoping experiment E4 (satellite passes) only
+sgp4==2.27
+# Word copy of the manuscript (src/paper/fix_word.py) only
+python-docx==1.2.0
+lxml==5.3.1

@@ -1,0 +1,35 @@
+\section{Data and study design}
+\label{sec:study}
+
+\subsection{Data}
+The main data were approved instantaneous values from \nSites{} USGS river sites in New Jersey, Pennsylvania, Illinois, and Oregon \citep{usgs2016nwis}, recorded every 15 minutes at \nSitesFifteen{} sites, every 30 minutes at \nSitesThirty{} sites, and every 5 minutes and every hour at one site each. Dissolved oxygen was used in mg/L, the unit of the accuracy rating. A site-day was used when every gap within it spanned at most two readings; such gaps were bridged linearly. The year 2023 (\nDaysDev{} site-days) served for development and 2024 (\nDaysConf{} site-days, \nDaysAllFour{} with all four parameters) for confirmation. Two low-cost deployments were added: node 1 of the InWaterSense network on the Sitnica River, Kosovo \citep{ahmedi2022,ahmedi2022data}, and the Weija intake deployment in Ghana \citep{adumanu2020}. InWaterSense reports dissolved oxygen in percent saturation, which was converted to mg/L with the freshwater solubility of \citet{benson1984} at the measured temperature. Readings flagged as implausible by earlier cleaning were removed. For Weija, only temperature and conductivity were used, because its pH record was not physically plausible. Both low-cost records contain many gaps, which left \nDaysInws{} and \nDaysWeija{} complete site-days.
+
+\subsection{Pre-registered study}
+The study followed a written plan. All design choices were made on the 2023 data: the repetition count $r$, the code dimension $K$, and the share of messages used by tag practice were tuned for each plan, loss model, and loss probability on half of a stratified sample of 780 site-days, and reported on the other half. The plan, the tuned parameters, and the code were then frozen and checksummed, and the hypotheses in Table~\ref{tab:hyp} were fixed. Only then were the 2024 data opened, once, after their checksums had been verified; the low-cost deployments had not been used for any choice either. The confirmatory runs applied the frozen parameters without change.
+
+\subsection{Metrics}
+The following metrics were used:
+\begin{itemize}
+  \item Guaranteed share $G$: the share of site-days whose whole record was within tolerance, averaged over 30 random loss realisations per site-day.
+  \item Certified share: the share of readings that the server could certify (Section~\ref{sec:model}).
+  \item Buffered target: for RQ2, the share of a site's days that were guaranteed within seven days; a site met the target when this share reached 90\%.
+  \item Plan choice: for RQ4, the plan selected from the first 28 days of a year as the smallest plan that met the buffered target there under independent loss with $p = 0.3$, compared with the smallest plan that met it over the rest of the year. A safety factor on the pilot needs was tuned on 2023 and came out at \sizeSafety{}, which means no inflation.
+\end{itemize}
+Because site-days of one site are not independent, uncertainty was estimated with a site-clustered bootstrap: the \nSites{} sites were resampled with replacement \nBoot{} times, and 95\% percentile intervals are reported for the headline statistics.
+
+\subsection{Sensitivity analyses}
+The plan also listed sensitivity analyses, which were run after confirmation and are exploratory. They covered the USGS rating of a good record (temperature 0.5\,\textdegree C, specific conductance 10\%, dissolved oxygen 0.5\,mg/L or 10\%, pH 0.5) \citep{wagner2006}, 19-byte messages with six values, and coarser sampling, obtained by keeping every second or fourth reading. Two tolerance margins were added: 0.975 times the tolerance, which absorbs the quantiser, and half the tolerance, which leaves the other half of the error budget to the sensor. Two simpler encoders, of the kind used in process data historians and supervisory control systems, were also measured: greedy online segmentation, which extends each segment as far as the tolerance allows before keeping its last reading, and deadband reporting, which sends a reading whenever it leaves the tolerance band around the last value sent.
+
+\begin{table}[t]
+\centering
+\caption{Pre-registered hypotheses and their outcome on the 2024 confirmation data.}
+\label{tab:hyp}
+\small
+\begin{tabularx}{\textwidth}{@{}lXrl@{}}
+\toprule
+ & Hypothesis & Result & Outcome \\
+\midrule
+\tableinput{tables/hypotheses.tex}
+\bottomrule
+\end{tabularx}
+\end{table}

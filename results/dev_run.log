@@ -1,0 +1,65 @@
+10978 dev site-days; sample 780
+encoded 0
+encoded 100
+encoded 200
+encoded 300
+encoded 400
+encoded 500
+encoded 600
+encoded 700
+Q1_iid_p0.1 {'mds': 0, 'srdl_style': 2}
+Q1_iid_p0.3 {'mds': 0, 'srdl_style': 0}
+Q1_iid_p0.5 {'mds': 0, 'srdl_style': 0}
+Q1_gilbert_p0.1 {'mds': 0, 'srdl_style': 1}
+Q1_gilbert_p0.3 {'mds': 0, 'srdl_style': 3}
+Q1_gilbert_p0.5 {'mds': 0, 'srdl_style': 1}
+Q6_iid_p0.1 {'repeat': 0, 'mds': 3, 'srdl_style': 1}
+Q6_iid_p0.3 {'repeat': 1, 'mds': 2, 'srdl_style': 1}
+Q6_iid_p0.5 {'repeat': 1, 'mds': 1, 'srdl_style': 0}
+Q6_gilbert_p0.1 {'repeat': 0, 'mds': 2, 'srdl_style': 1}
+Q6_gilbert_p0.3 {'repeat': 1, 'mds': 1, 'srdl_style': 1}
+Q6_gilbert_p0.5 {'repeat': 1, 'mds': 1, 'srdl_style': 1}
+Q12_iid_p0.1 {'repeat': 1, 'mds': 6, 'srdl_style': 0}
+Q12_iid_p0.3 {'repeat': 2, 'mds': 3, 'srdl_style': 0}
+Q12_iid_p0.5 {'repeat': 3, 'mds': 2, 'srdl_style': 0}
+Q12_gilbert_p0.1 {'repeat': 1, 'mds': 4, 'srdl_style': 0}
+Q12_gilbert_p0.3 {'repeat': 2, 'mds': 2, 'srdl_style': 0}
+Q12_gilbert_p0.5 {'repeat': 3, 'mds': 2, 'srdl_style': 0}
+Q24_iid_p0.1 {'repeat': 1, 'mds': 3, 'srdl_style': 1}
+Q24_iid_p0.3 {'repeat': 3, 'mds': 3, 'srdl_style': 1}
+Q24_iid_p0.5 {'repeat': 3, 'mds': 2, 'srdl_style': 1}
+Q24_gilbert_p0.1 {'repeat': 1, 'mds': 3, 'srdl_style': 1}
+Q24_gilbert_p0.3 {'repeat': 3, 'mds': 2, 'srdl_style': 1}
+Q24_gilbert_p0.5 {'repeat': 3, 'mds': 1, 'srdl_style': 1}
+
+Mean G (share of test site-days fully within tolerance), iid loss:
+design    mds  raw_periodic  reliable_opt  repeat  srdl_style
+Q  p                                                         
+1  0.1  0.556         0.101         0.559     NaN       0.126
+   0.3  0.443         0.090         0.448     NaN       0.111
+   0.5  0.335         0.079         0.330     NaN       0.094
+6  0.1  0.958         0.449         0.691   0.934       0.548
+   0.3  0.897         0.275         0.340   0.853       0.424
+   0.5  0.801         0.167         0.180   0.709       0.293
+12 0.1  0.994         0.523         0.680   0.971       0.599
+   0.3  0.973         0.312         0.347   0.941       0.579
+   0.5  0.941         0.189         0.194   0.867       0.504
+24 0.1  0.997         0.603         0.705   0.993       0.801
+   0.3  0.997         0.372         0.372   0.973       0.547
+   0.5  0.986         0.226         0.214   0.928       0.352
+
+Mean G, bursty (Gilbert, mean burst 3) loss:
+design    mds  raw_periodic  reliable_opt  repeat  srdl_style
+Q  p                                                         
+1  0.1  0.556         0.099         0.557     NaN       0.126
+   0.3  0.443         0.092         0.449     NaN       0.112
+   0.5  0.336         0.081         0.337     NaN       0.094
+6  0.1  0.913         0.490         0.796   0.915       0.537
+   0.3  0.812         0.321         0.468   0.807       0.411
+   0.5  0.730         0.184         0.219   0.701       0.288
+12 0.1  0.971         0.565         0.757   0.965       0.588
+   0.3  0.939         0.338         0.406   0.925       0.549
+   0.5  0.891         0.190         0.200   0.857       0.477
+24 0.1  0.996         0.608         0.734   0.992       0.811
+   0.3  0.986         0.362         0.379   0.971       0.557
+   0.5  0.970         0.212         0.204   0.932       0.349

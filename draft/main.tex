@@ -1,0 +1,53 @@
+\documentclass[preprint,12pt,authoryear]{elsarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+% Times for text and mathematics: the PDF and the Word copy (Times New Roman) share one typeface
+\usepackage{mathptmx}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\setlist{nosep,leftmargin=*}
+% let floats stand near their first mention (the defaults pushed Tables 3 and 4 pages away)
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.6}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{3}
+\setcounter{totalnumber}{4}
+\input{numbers}
+% primitive input, expandable inside tabularx (\input is not)
+\makeatletter\newcommand{\tableinput}[1]{\@@input #1 }\makeatother
+
+\journal{Environmental Modelling \& Software}
+
+\begin{document}
+\begin{frontmatter}
+
+\title{A regulatory-grade river water-quality record in a few satellite messages a day}
+
+\author[ug]{Kofi Sarpong Adu-Manu\corref{cor}}
+\author[ug]{Stephen Kwaku Azongo}
+\cortext[cor]{Corresponding author.}
+\affiliation[ug]{organization={Department of Computer Science, University of Ghana},
+  city={Legon, Accra}, country={Ghana}}
+
+\input{sec_abstract}
+
+\end{frontmatter}
+
+\input{sec_intro}
+\input{sec_related}
+\input{sec_model}
+\input{sec_study}
+\input{sec_results}
+\input{sec_discussion}
+\input{sec_conclusion}
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{refs}
+
+\end{document}

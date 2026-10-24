@@ -1,0 +1,21 @@
+12221 site-days; sample 780
+6 iid 0.1
+6 iid 0.3
+6 iid 0.5
+6 gilbert 0.1
+6 gilbert 0.3
+6 gilbert 0.5
+
+Mean G, iid loss (usgs2024_V6):
+design    mds  raw_periodic  reliable_opt  repeat  srdl_style
+Q p                                                          
+6 0.1   0.950         0.448         0.693   0.915       0.440
+  0.3   0.877         0.276         0.345   0.814       0.362
+  0.5   0.766         0.163         0.184   0.674       0.288
+
+Mean G, gilbert loss (usgs2024_V6):
+design    mds  raw_periodic  reliable_opt  repeat  srdl_style
+Q p                                                          
+6 0.1   0.894         0.481         0.797   0.894       0.430
+  0.3   0.777         0.321         0.473   0.771       0.347
+  0.5   0.702         0.187         0.228   0.669       0.263

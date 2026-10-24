@@ -1,0 +1,30 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Guidance for monitoring agencies}
+The results translate into five recommendations for remote river monitoring over satellite IoT:
+\begin{enumerate}
+  \item Send the guaranteed record, not the readings. A day within the USGS excellent-record tolerance needed a median of \needMedConf{} bytes, which is approximately one fiftieth of the raw readings. Evenly spaced readings at the same size violated the tolerance on most days at every loss probability tested (Table~\ref{tab:delivery}).
+  \item Protect the record against loss. The design that is optimal on a reliable link guaranteed only \gRelIndPct{} of days at a loss probability of 0.3, and more capacity did not repair it. At that loss probability, repetition and an erasure code both raised the guaranteed share above 80\%. The code is preferable where records are larger, as at the low-cost sites, and repetition is a simpler choice where they are small.
+  \item Size the plan for the loss process. With buffering, six messages per day sufficed at \poolSixIndPct{} of sites under independent loss, but bursty loss required 12. A single message per day was insufficient at almost every site.
+  \item Choose the plan from a pilot, with a margin for season. A 28-day pilot selected an adequate plan at \sizeSuff{} of sites. Most shortfalls occurred where the pilot fell in a low-need period; therefore, a pilot in the season of greatest variation, or one tier of margin, is advisable.
+  \item Do not rank parameters by assumed stability. Temperature consumed the largest share of the guaranteed record (\parShareTemp{}); thus, fixed priority classes that treat it as a baseline would degrade the record where it is most demanding.
+\end{enumerate}
+
+Neither satellite contact time nor energy was the binding constraint. An orbit propagation of the Kin\'eis constellation over the Weija site gave approximately \passesWeija{} passes per day above 25\textdegree{} elevation, each lasting a median of \passMinWeija{} minutes. The module draws 500\,mA at 5\,V while transmitting a message for less than one second \citep{kineis2023kim1}; therefore, six messages per day cost at most 15\,J. The constraint was the message quota, which is the quantity this study optimised. Where a terrestrial community LoRaWAN network is available, its fair-use limit of 30 seconds of airtime per day \citep{ttn2026fup} allows approximately \ttnSFtwelve{} bytes per day even at the slowest data rate, more than the largest daily need observed; the scarcity addressed here is therefore specific to satellite plans.
+
+\subsection{Relation to earlier work}
+The encoder and the code are established techniques \citep{imai1988,soroush2008,reed1960}, and budgeted compression of sensor history, including allocation of bandwidth towards the node with the largest error, was proposed for multi-hop sensor networks \citep{deligiannakis2007}. The findings of this study qualify that line of work for one-way links: the design that is best when every message arrives was the worst of the guaranteed-record designs once messages could be lost. They also qualify current satellite-tag practice \citep{boehme2009,photopoulou2015}, which fixes the number of points rather than the accuracy; by construction, such a scheme spends capacity on quiet days and cannot guarantee the tolerance on active ones. Freshness-oriented scheduling \citep{yates2021,talli2026} addresses a different objective, the latest value, which a guaranteed record covers as a special case.
+
+\subsection{Limitations}
+The results carry the following limitations:
+\begin{itemize}
+  \item Message plans: the tiers of 1 to 96 messages per day were illustrative; the message size and the one-way link followed the module datasheet \citep{kineis2023kim1}, but commercial plans differ between providers and change over time.
+  \item Loss: no measured loss rate was available for the service; therefore, loss probabilities and burstiness were swept. Field measurements could narrow the plan recommendation.
+  \item Hardware: the study was trace-driven. The encoder has an exact algorithm in time linear in the number of readings \citep{imai1988}, a day of four parameters at 10-minute sampling occupies approximately 1.2\,kB, and a Reed--Solomon code over GF($2^8$) needs only table look-ups \citep{reed1960}; all of this suits a microcontroller, but neither was run on a node.
+  \item Sensor error: the guarantee bounds the error added by the encoder, not the error of the sensor. A sensor that already uses part of the USGS error budget leaves less for the encoder; reserving half of the budget for the sensor raised the median need to \sensHalfMed{} bytes per day (Section~\ref{sec:sens}).
+  \item Tag practice: the baseline modelled the pseudo-random resending of satellite-linked tags within one day. Real tags rotate a buffer over several days, which adds a form of repetition across days that was not modelled.
+  \item Tolerances: the USGS rating defines accuracy relative to the measured record. Other agencies use other limits, and the guarantee refers to the sensor readings, not to the river itself; sensor errors are outside its scope.
+  \item Low-cost deployments: both records had many gaps, which left \nDaysInws{} and \nDaysWeija{} complete days. Their results are indicative.
+  \item Day boundaries: the reconstruction of a day starts from the previous day's last value. A lost anchor weakens the guarantee of the following day until a new value arrives.
+\end{itemize}

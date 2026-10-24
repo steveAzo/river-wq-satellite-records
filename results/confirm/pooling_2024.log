@@ -1,0 +1,5 @@
+usgs2024: 39 sites
+  share of sites with G7 >= 0.9, iid p=0.3, Q=6: 0.897 (35/39)
+  share of sites with G7 >= 0.9, gilbert p=0.3, Q=12: 0.897 (35/39)
+  share of sites with G7 >= 0.9, gilbert p=0.3, Q=6: 0.436 (17/39)
+  RQ4 (s = 1.0): sufficient 0.846; over-provision <= 1 tier 1.000
