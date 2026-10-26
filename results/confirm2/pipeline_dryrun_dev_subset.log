@@ -1,0 +1,197 @@
+>> src/data/seal.py verify C:/Users/User/AppData/Local/Temp/claude/c--Users-User-Desktop-WSN-M/9c11e923-7ad0-4df1-98e1-d656bae18c67/scratchpad/pipetest.md5
+4/4 checksums OK
+plans results/pipetest/plans/03072655.pkl
+plans results/pipetest/plans/01427510.pkl
+plans results/pipetest/plans/11509500.pkl
+plans results/pipetest/plans/14206694.pkl
+>> src/p3/need2.py C:/Users/User/AppData/Local/Temp/claude/c--Users-User-Desktop-WSN-M/9c11e923-7ad0-4df1-98e1-d656bae18c67/scratchpad/pipetest pipetest 3
+done results/pipetest/need2/03072655.csv
+done results/pipetest/need2/01427510.csv
+done results/pipetest/need2/11509500.csv
+done results/pipetest/need2/14206694.csv
+== pipetest: record days 1,276, sites 4 ==
+  all record days                        n= 1,276  bytes med   21 p90   42 p99  100 max  207 | value_share 2.43% byte_share 4.49% | msgs med 2 p99 7 max 14 (raw >= 32) | one msg 19.9%
+  four-parameter days (primary)          n= 1,076  bytes med   21 p90   44 p99  102 max  207 | value_share 2.34% byte_share 4.33% | msgs med 2 p99 7 max 14 (raw >= 32) | one msg 17.9%
+  fewer-parameter days                   n=   200  bytes med   21 p90   33 p99   51 max   72 | value_share 2.43% byte_share 4.49% | msgs med 2 p99 4 max 5 (raw >= 24) | one msg 30.5%
+  site-equal (four-parameter, median of site medians): bytes 24, value_share 2.60%, byte_share 4.81%
+  four-parameter, all channels 15 min    n=   877  bytes med   24 p90   45 p99  105 max  207 | value_share 2.08% byte_share 3.85% | msgs med 2 p99 7 max 14 (raw >= 32) | one msg 19.6%
+  four-parameter, all channels 30 min    n=   199  bytes med   21 p90   24 p99   27 max   30 | value_share 3.65% byte_share 6.73% | msgs med 2 p99 2 max 2 (raw >= 16) | one msg 10.6%
+  example: 10-min four-parameter node, 576 readings/day: raw >= 936 B (>= 47 messages)
+>> src/p3/cohort_exact.py C:/Users/User/AppData/Local/Temp/claude/c--Users-User-Desktop-WSN-M/9c11e923-7ad0-4df1-98e1-d656bae18c67/scratchpad/pipetest pipetest 3
+done results/pipetest/cohort_exact/03072655.csv
+done results/pipetest/cohort_exact/14206694.csv
+done results/pipetest/cohort_exact/01427510.csv
+done results/pipetest/cohort_exact/11509500.csv
+1,076 four-parameter days at 4 sites
+>> src/p3/run_robust.py C:/Users/User/AppData/Local/Temp/claude/c--Users-User-Desktop-WSN-M/9c11e923-7ad0-4df1-98e1-d656bae18c67/scratchpad/pipetest pipetest 20 3
+done results/pipetest/robust/11509500.csv
+done results/pipetest/robust/03072655.csv
+done results/pipetest/robust/01427510.csv
+done results/pipetest/robust/14206694.csv
+6,640 rows; days {'test': 3320, 'tune': 3320}; inexact rows 0
+>> src/p3/run_env.py C:/Users/User/AppData/Local/Temp/claude/c--Users-User-Desktop-WSN-M/9c11e923-7ad0-4df1-98e1-d656bae18c67/scratchpad/pipetest pipetest 3
+done results/pipetest/env/03072655_days.csv
+done results/pipetest/env/01427510_days.csv
+done results/pipetest/env/14206694_days.csv
+done results/pipetest/env/11509500_days.csv
+1076 days at 4 sites; 935 7-day windows
+>> src/p3/robustness.py C:/Users/User/AppData/Local/Temp/claude/c--Users-User-Desktop-WSN-M/9c11e923-7ad0-4df1-98e1-d656bae18c67/scratchpad/pipetest pipetest 3
+done results/pipetest/robust9/11509500_glitch.csv
+done results/pipetest/robust9/03072655_glitch.csv
+done results/pipetest/robust9/01427510_glitch.csv
+done results/pipetest/robust9/14206694_glitch.csv
+days: 40
+
+Corruption (independent erasure p = 0.3), means per day and draw; false_cert_total summed:
+                        G_cert    cert  crc_fails  header_rejects  decode_tries  false_cert
+Q  design   corruption                                                                     
+6  rec_code ber_1e-2    0.1667  0.2242     1.0013          0.6346        1.7821           0
+            ber_1e-3    0.9128  0.9427     0.1987          0.0654        0.6487           0
+            ber_1e-4    0.9526  0.9774     0.0333          0.0064        0.4897           0
+            msg_10pct   0.9321  0.9585     0.0654          0.1321        0.5577           0
+            none        0.9564  0.9805     0.0000          0.0000        0.4615           0
+   rec_rep  ber_1e-2    0.1282  0.2747     2.4090          0.6808        0.0000           0
+            ber_1e-3    0.8026  0.9030     0.3026          0.0731        0.0000           0
+            ber_1e-4    0.8910  0.9529     0.0346          0.0179        0.0000           0
+            msg_10pct   0.8615  0.9344     0.1269          0.1487        0.0000           0
+            none        0.9013  0.9582     0.0000          0.0000        0.0000           0
+12 rec_code ber_1e-2    0.3638  0.3893     1.0025          1.2963       10.3412           0
+            ber_1e-3    0.9762  0.9858     0.2138          0.1463        1.0725           0
+            ber_1e-4    0.9988  0.9989     0.0262          0.0162        0.5875           0
+            msg_10pct   0.9912  0.9938     0.1075          0.2562        0.7812           0
+            none        0.9988  0.9989     0.0000          0.0000        0.5538           0
+   rec_rep  ber_1e-2    0.2688  0.4633     3.9950          1.3662        0.0000           0
+            ber_1e-3    0.9362  0.9774     0.3938          0.1462        0.0000           0
+            ber_1e-4    0.9650  0.9900     0.0512          0.0200        0.0000           0
+            msg_10pct   0.9538  0.9865     0.1362          0.3100        0.0000           0
+            none        0.9700  0.9916     0.0000          0.0000        0.0000           0
+
+Glitches (perfect delivery):
+        days  planned  bound  full  extra_values  censored   cert  false_cert
+kind k                                                                       
+in   1    40      1.0    1.0   1.0         2.225     0.000  1.000           0
+     3    40      1.0    1.0   1.0         7.125     0.000  1.000           0
+out  1    40      1.0    1.0   1.0         2.450     1.000  0.997           0
+     3    40      1.0    1.0   1.0         7.000     2.975  0.990           0
+>> src/p3/stats.py pipetest confirm
+C:\Users\User\Desktop\WSN_M\Paper3\src\p3\stats.py:36: RuntimeWarning: invalid value encountered in divide
+  return float(n.sum() / d.sum()), ci(n[idx].sum(1) / d[idx].sum(1))
+C:\Users\User\Desktop\WSN_M\Paper3\src\p3\stats.py:36: RuntimeWarning: invalid value encountered in divide
+  return float(n.sum() / d.sum()), ci(n[idx].sum(1) / d[idx].sum(1))
+C:\Users\User\Desktop\WSN_M\Paper3\src\p3\stats.py:36: RuntimeWarning: invalid value encountered in divide
+  return float(n.sum() / d.sum()), ci(n[idx].sum(1) / d[idx].sum(1))
+C:\Users\User\Desktop\WSN_M\Paper3\src\p3\stats.py:36: RuntimeWarning: invalid value encountered in divide
+  return float(n.sum() / d.sum()), ci(n[idx].sum(1) / d[idx].sum(1))
+C:\Users\User\Desktop\WSN_M\Paper3\src\p3\stats.py:36: RuntimeWarning: invalid value encountered in divide
+  return float(n.sum() / d.sum()), ci(n[idx].sum(1) / d[idx].sum(1))
+C:\Users\User\Desktop\WSN_M\Paper3\src\p3\stats.py:36: RuntimeWarning: invalid value encountered in divide
+  return float(n.sum() / d.sum()), ci(n[idx].sum(1) / d[idx].sum(1))
+C:\Users\User\Desktop\WSN_M\Paper3\src\p3\stats.py:36: RuntimeWarning: invalid value encountered in divide
+  return float(n.sum() / d.sum()), ci(n[idx].sum(1) / d[idx].sum(1))
+C:\Users\User\Desktop\WSN_M\Paper3\src\p3\stats.py:36: RuntimeWarning: invalid value encountered in divide
+  return float(n.sum() / d.sum()), ci(n[idx].sum(1) / d[idx].sum(1))
+C:\Users\User\Desktop\WSN_M\Paper3\src\p3\stats.py:36: RuntimeWarning: invalid value encountered in divide
+  return float(n.sum() / d.sum()), ci(n[idx].sum(1) / d[idx].sum(1))
+C:\Users\User\Desktop\WSN_M\Paper3\src\p3\stats.py:36: RuntimeWarning: invalid value encountered in divide
+  return float(n.sum() / d.sum()), ci(n[idx].sum(1) / d[idx].sum(1))
+C:\Users\User\Desktop\WSN_M\Paper3\src\p3\stats.py:36: RuntimeWarning: invalid value encountered in divide
+  return float(n.sum() / d.sum()), ci(n[idx].sum(1) / d[idx].sum(1))
+C:\Users\User\Desktop\WSN_M\Paper3\src\p3\stats.py:36: RuntimeWarning: invalid value encountered in divide
+  return float(n.sum() / d.sum()), ci(n[idx].sum(1) / d[idx].sum(1))
+
+RQ1: four-parameter record days n = 1,076 at 4 sites (site-clustered 95% intervals)
+  median bytes per day             21.0 (18.0 to 30.0)
+  90th percentile bytes            43.5 (30.0 to 48.0)
+  99th percentile bytes            102.0 (53.9 to 135.0)
+  median value share               0.0234 (0.0182 to 0.0312)
+  median byte share                0.0433 (0.0337 to 0.0577)
+  share of days in one message     0.1794 (0.0845 to 0.2946)
+
+RQ3 full cohort (exact): 1,076 four-parameter days at 4 sites
+  Q  6 iid_p0.1         rec_code 0.975 (0.956 to 0.999); rec_rep 0.959 (0.942 to 0.986); every_k 0.194 (0.085 to 0.296); tag 0.108 (0.045 to 0.166); code-rec_rep 0.016 (0.007 to 0.025); code-every_k 0.781 (0.671 to 0.900); code-tag 0.868 (0.795 to 0.940)
+      site means of the code: min 0.948, median 0.987, max 1.000
+  Q  6 iid_p0.3         rec_code 0.938 (0.917 to 0.972); rec_rep 0.867 (0.824 to 0.923); every_k 0.043 (0.019 to 0.065); tag 0.075 (0.031 to 0.116); code-rec_rep 0.071 (0.041 to 0.104); code-every_k 0.895 (0.868 to 0.923); code-tag 0.863 (0.811 to 0.903)
+      site means of the code: min 0.917, median 0.936, max 0.990
+  Q  6 iid_p0.5         rec_code 0.810 (0.760 to 0.874); rec_rep 0.689 (0.608 to 0.764); every_k 0.006 (0.002 to 0.009); tag 0.040 (0.016 to 0.062); code-rec_rep 0.121 (0.091 to 0.153); code-every_k 0.804 (0.756 to 0.865); code-tag 0.770 (0.734 to 0.816)
+      site means of the code: min 0.733, median 0.817, max 0.901
+  Q  6 gilbert_p0.3_b3  rec_code 0.863 (0.839 to 0.891); rec_rep 0.846 (0.818 to 0.881); every_k 0.118 (0.052 to 0.180); tag 0.072 (0.030 to 0.111); code-rec_rep 0.017 (0.011 to 0.024); code-every_k 0.744 (0.697 to 0.796); code-tag 0.791 (0.753 to 0.822)
+      site means of the code: min 0.831, median 0.865, max 0.910
+  Q  6 gilbert_p0.3_b6  rec_code 0.794 (0.777 to 0.816); rec_rep 0.791 (0.772 to 0.813); every_k 0.177 (0.077 to 0.269); tag 0.076 (0.031 to 0.117); code-rec_rep 0.004 (0.002 to 0.005); code-every_k 0.618 (0.535 to 0.706); code-tag 0.719 (0.679 to 0.752)
+      site means of the code: min 0.771, median 0.796, max 0.829
+  Q 12 iid_p0.1         rec_code 0.999 (0.996 to 1.000); rec_rep 0.992 (0.985 to 1.000); every_k 0.180 (0.115 to 0.257); tag 0.121 (0.050 to 0.186); code-rec_rep 0.006 (0.000 to 0.011); code-every_k 0.819 (0.743 to 0.885); code-tag 0.878 (0.811 to 0.950)
+      site means of the code: min 0.996, median 1.000, max 1.000
+  Q 12 iid_p0.3         rec_code 0.994 (0.987 to 1.000); rec_rep 0.969 (0.955 to 0.991); every_k 0.011 (0.006 to 0.020); tag 0.114 (0.047 to 0.177); code-rec_rep 0.025 (0.009 to 0.034); code-every_k 0.983 (0.975 to 0.992); code-tag 0.879 (0.813 to 0.950)
+      site means of the code: min 0.984, median 0.998, max 1.000
+  Q 12 iid_p0.5         rec_code 0.973 (0.960 to 0.992); rec_rep 0.901 (0.868 to 0.945); every_k 0.000 (0.000 to 0.001); tag 0.091 (0.038 to 0.141); code-rec_rep 0.071 (0.039 to 0.100); code-every_k 0.972 (0.959 to 0.992); code-tag 0.881 (0.823 to 0.938)
+      site means of the code: min 0.954, median 0.978, max 0.997
+  Q 12 gilbert_p0.3_b3  rec_code 0.978 (0.972 to 0.987); rec_rep 0.964 (0.954 to 0.980); every_k 0.085 (0.052 to 0.126); tag 0.104 (0.043 to 0.161); code-rec_rep 0.014 (0.007 to 0.018); code-every_k 0.893 (0.858 to 0.926); code-tag 0.874 (0.817 to 0.935)
+      site means of the code: min 0.970, median 0.979, max 0.990
+  Q 12 gilbert_p0.3_b6  rec_code 0.924 (0.917 to 0.933); rec_rep 0.919 (0.911 to 0.931); every_k 0.193 (0.127 to 0.268); tag 0.092 (0.038 to 0.142); code-rec_rep 0.005 (0.003 to 0.007); code-every_k 0.731 (0.663 to 0.796); code-tag 0.832 (0.785 to 0.882)
+      site means of the code: min 0.915, median 0.925, max 0.939
+
+  sampled-day contrasts and sample vs full agreement (Q = 6):
+        channel                                    contrast  estimate    lo    hi  n_days
+       iid_p0.1                          rec_code - fixed_K     0.057 0.014 0.099      80
+       iid_p0.1                         rec_code - reliable     0.448 0.431 0.465      80
+       iid_p0.1 rec_code sample mean (vs full cohort in hi)     0.968 0.968 0.975      80
+       iid_p0.3                          rec_code - fixed_K     0.085 0.052 0.118      80
+       iid_p0.3                         rec_code - reliable     0.816 0.779 0.852      80
+       iid_p0.3 rec_code sample mean (vs full cohort in hi)     0.933 0.933 0.938      80
+       iid_p0.5                          rec_code - fixed_K     0.206 0.168 0.245      80
+       iid_p0.5                         rec_code - reliable     0.790 0.757 0.852      80
+       iid_p0.5 rec_code sample mean (vs full cohort in hi)     0.806 0.806 0.810      80
+gilbert_p0.3_b3                          rec_code - fixed_K     0.114 0.087 0.142      80
+gilbert_p0.3_b3                         rec_code - reliable     0.539 0.518 0.566      80
+gilbert_p0.3_b3 rec_code sample mean (vs full cohort in hi)     0.857 0.857 0.863      80
+gilbert_p0.3_b6                          rec_code - fixed_K     0.099 0.072 0.125      80
+gilbert_p0.3_b6                         rec_code - reliable     0.316 0.304 0.333      80
+gilbert_p0.3_b6 rec_code sample mean (vs full cohort in hi)     0.788 0.788 0.794      80
+
+  Season (Q = 6, record-first code): monthly mean G_cert, independent / bursty p = 0.3
+    month               1      2      3      4      5      6      7      8      9      10     11     12
+    iid_p0.3         0.995  0.993  0.989  0.978  0.969  0.918  0.874  0.831  0.921  0.973  0.970  0.994
+    gilbert_p0.3_b3  0.938  0.926  0.911  0.893  0.881  0.844  0.799  0.766  0.843  0.890  0.891  0.939
+    iid_p0.3: site clusters 0.938 (0.917 to 0.972); site x month blocks 0.938 (0.898 to 0.967)
+    gilbert_p0.3_b3: site clusters 0.863 (0.839 to 0.891); site x month blocks 0.863 (0.826 to 0.890)
+
+RQ2 (daily record-first code; a day is certified within 7 days iff its block decodes; exact):
+  iid_p0.3         Q  1: 0/4 sites 0.0% (0.0% to 0.0%)
+  iid_p0.3         Q  6: 4/4 sites 100.0% (100.0% to 100.0%)
+  iid_p0.3         Q 12: 4/4 sites 100.0% (100.0% to 100.0%)
+  iid_p0.3         Q 24: 4/4 sites 100.0% (100.0% to 100.0%)
+  iid_p0.3         Q 96: 4/4 sites 100.0% (100.0% to 100.0%)
+  gilbert_p0.3_b3  Q  1: 0/4 sites 0.0% (0.0% to 0.0%)
+  gilbert_p0.3_b3  Q  6: 1/4 sites 25.0% (0.0% to 75.0%)
+  gilbert_p0.3_b3  Q 12: 4/4 sites 100.0% (100.0% to 100.0%)
+  gilbert_p0.3_b3  Q 24: 4/4 sites 100.0% (100.0% to 100.0%)
+  gilbert_p0.3_b3  Q 96: 4/4 sites 100.0% (100.0% to 100.0%)
+
+RQ4 (pilot of 28 days starting in each month; threshold T tuned on even sites; exact):
+  planning iid_p0.3: T = 0.9; 38 site-pilots at 4 test sites: sufficient 100.0% (100.0% to 100.0%), over-provision <= 1 tier 97.4% (93.0% to 100.0%); sufficient by pilot month: min 1.00 (1), max 1.00
+  planning gilbert_p0.3_b3: T = 0.9; 38 site-pilots at 4 test sites: sufficient 60.5% (35.4% to 88.0%), over-provision <= 1 tier 100.0% (100.0% to 100.0%); sufficient by pilot month: min 0.00 (1), max 1.00
+
+Step 8 contrasts (Q = 6; rates pooled over days; paired by day; site-clustered intervals):
+    cond                          outcome  estimate    lo    hi  events  n_days
+ perfect     DO miss rate, code - every_k     0.000   NaN   NaN     1.0    1076
+ perfect         DO miss rate, code - tag     1.000   NaN   NaN     1.0    1076
+ perfect     pH miss rate, code - every_k     0.216   NaN   NaN    74.0    1076
+ perfect         pH miss rate, code - tag     0.270   NaN   NaN    74.0    1076
+ perfect     EC miss rate, code - every_k    -0.685   NaN   NaN    54.0    1076
+ perfect         EC miss rate, code - tag    -0.648   NaN   NaN    54.0    1076
+ perfect DO decided share, code - every_k     0.624 0.424 0.838     NaN    1076
+iid_p0.3     DO miss rate, code - every_k     0.000   NaN   NaN     1.0    1076
+iid_p0.3         DO miss rate, code - tag     0.450   NaN   NaN     1.0    1076
+iid_p0.3     pH miss rate, code - every_k     0.194   NaN   NaN    74.0    1076
+iid_p0.3         pH miss rate, code - tag     0.299   NaN   NaN    74.0    1076
+iid_p0.3     EC miss rate, code - every_k    -0.639   NaN   NaN    54.0    1076
+iid_p0.3         EC miss rate, code - tag    -0.601   NaN   NaN    54.0    1076
+iid_p0.3 DO decided share, code - every_k     0.768 0.674 0.869     NaN    1076
+id                                                                             hypothesis       estimate            lo            hi  pass
+C1                                                 median record bytes, upper bound <= 30           21.0          18.0          30.0  True
+C2                               false certificates and wrong three-valued decisions == 0              0             0             0  True
+C3                                                 code - repetition, lower bound >= 0.03       0.071241      0.040912      0.103791  True
+C4                                      code - channel-blind fixed K, lower bound >= 0.05       0.084599       0.05159      0.117608  True
+C5                                  code - tag and code - every k-th, lower bounds >= 0.5  0.863 / 0.895 0.811 / 0.868 0.903 / 0.923  True
+C6                                     Q = 12 G_cert >= 0.95 (iid / bursty), lower bounds  0.994 / 0.978 0.987 / 0.972 1.000 / 0.987  True
+C7 EC pulses missed (upper <= -0.3) and DO days decided (lower >= 0.3), code - every k-th -0.685 / 0.624   nan / 0.424   nan / 0.838 False
+C8                                       28-day pilot sufficient >= 0.75 (point estimate)            1.0           1.0           1.0  True

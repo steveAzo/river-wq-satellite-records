@@ -1,0 +1,10 @@
+stage,count
+sites,39
+sites with 4 parameters,34
+candidate site-days,13252
+dropped: gap > 2 readings in a kept channel,2266
+  of which some channel complete,1432
+dropped: no anchor,8
+eligible site-days,10978
+"eligible, 4 parameters",9625
+"eligible, < 4 parameters",1353

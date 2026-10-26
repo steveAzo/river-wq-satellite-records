@@ -1,0 +1,54 @@
+{
+ "1": {
+  "mds": {
+   "minimax": 0,
+   "mean": 0
+  },
+  "tag": {
+   "minimax": 0,
+   "mean": 0
+  }
+ },
+ "6": {
+  "mds": {
+   "minimax": 2,
+   "mean": 2
+  },
+  "repeat": {
+   "minimax": 0,
+   "mean": 0
+  },
+  "tag": {
+   "minimax": 1,
+   "mean": 1
+  }
+ },
+ "12": {
+  "mds": {
+   "minimax": 3,
+   "mean": 3
+  },
+  "repeat": {
+   "minimax": 2,
+   "mean": 2
+  },
+  "tag": {
+   "minimax": 0,
+   "mean": 0
+  }
+ },
+ "24": {
+  "mds": {
+   "minimax": 2,
+   "mean": 3
+  },
+  "repeat": {
+   "minimax": 3,
+   "mean": 3
+  },
+  "tag": {
+   "minimax": 1,
+   "mean": 1
+  }
+ }
+}

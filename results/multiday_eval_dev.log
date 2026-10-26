@@ -1,0 +1,116 @@
+sites: 38 (19 tuning, 19 test); chosen: {'buf_rec': {1: '0.33', 6: '1.00', 12: '0.67', 24: '0.33', 96: '0.33'}, 'tag_multi': {1: '2', 6: '4', 12: '6', 24: '6', 96: '6'}}
+byte-checked rows: 6270 (all matched the decoding rule)
+
+G7 (pooled over four-parameter days of the 19 test sites):
+channel                  iid_p0.1  iid_p0.3  iid_p0.5  gilbert_p0.1_b3  gilbert_p0.3_b3  gilbert_p0.5_b3  gilbert_p0.3_b6
+Q  design                                                                                                                
+1  buf_rec (chosen rho)     0.095     0.066     0.043            0.098            0.073            0.046            0.075
+   buf_rec (rho = 1)        0.096     0.067     0.042            0.099            0.073            0.048            0.075
+   daily_rec                0.196     0.153     0.109            0.196            0.155            0.112            0.153
+   rep_multi_rec            0.199     0.151     0.104            0.200            0.152            0.105            0.153
+   tag_multi (chosen m)     0.010     0.007     0.004            0.010            0.007            0.004            0.007
+   tag_multi_rec            0.184     0.142     0.102            0.184            0.143            0.103            0.142
+6  buf_rec (chosen rho)     0.953     0.881     0.734            0.933            0.823            0.690            0.772
+   buf_rec (rho = 1)        0.953     0.881     0.734            0.933            0.823            0.690            0.772
+   daily_rec                0.956     0.892     0.744            0.926            0.829            0.697            0.769
+   rep_multi_rec            0.873     0.767     0.609            0.881            0.791            0.632            0.800
+   tag_multi (chosen m)     0.124     0.080     0.039            0.124            0.080            0.041            0.081
+   tag_multi_rec            0.744     0.655     0.528            0.741            0.647            0.522            0.639
+12 buf_rec (chosen rho)     1.000     0.989     0.948            0.993            0.968            0.919            0.912
+   buf_rec (rho = 1)        0.997     0.987     0.951            0.992            0.966            0.921            0.913
+   daily_rec                0.997     0.988     0.951            0.991            0.967            0.921            0.915
+   rep_multi_rec            0.969     0.929     0.837            0.971            0.938            0.851            0.944
+   tag_multi (chosen m)     0.334     0.233     0.121            0.333            0.233            0.122            0.231
+   tag_multi_rec            0.920     0.869     0.776            0.919            0.867            0.770            0.861
+24 buf_rec (chosen rho)     1.000     1.000     0.999            1.000            0.999            0.994            0.987
+   buf_rec (rho = 1)        1.000     1.000     0.997            1.000            0.999            0.994            0.987
+   daily_rec                1.000     1.000     0.997            1.000            0.999            0.994            0.987
+   rep_multi_rec            0.998     0.991     0.965            0.998            0.993            0.968            0.994
+   tag_multi (chosen m)     0.521     0.479     0.375            0.521            0.477            0.373            0.473
+   tag_multi_rec            0.986     0.972     0.935            0.986            0.972            0.935            0.970
+96 buf_rec (chosen rho)     1.000     1.000     1.000            1.000            1.000            1.000            1.000
+   buf_rec (rho = 1)        1.000     1.000     1.000            1.000            1.000            1.000            1.000
+   daily_rec                1.000     1.000     1.000            1.000            1.000            1.000            1.000
+   rep_multi_rec            1.000     1.000     1.000            1.000            1.000            1.000            1.000
+   tag_multi (chosen m)     0.547     0.547     0.547            0.547            0.547            0.547            0.547
+   tag_multi_rec            1.000     1.000     1.000            1.000            1.000            1.000            1.000
+
+G1 (pooled over four-parameter days of the 19 test sites):
+channel                  iid_p0.1  iid_p0.3  iid_p0.5  gilbert_p0.1_b3  gilbert_p0.3_b3  gilbert_p0.5_b3  gilbert_p0.3_b6
+Q  design                                                                                                                
+1  buf_rec (chosen rho)     0.036     0.028     0.020            0.036            0.028            0.020            0.028
+   buf_rec (rho = 1)        0.036     0.028     0.020            0.036            0.028            0.020            0.028
+   daily_rec                0.196     0.153     0.109            0.196            0.155            0.112            0.153
+   rep_multi_rec            0.024     0.019     0.013            0.024            0.019            0.013            0.019
+   tag_multi (chosen m)     0.000     0.000     0.000            0.000            0.000            0.000            0.000
+   tag_multi_rec            0.026     0.020     0.015            0.026            0.021            0.015            0.021
+6  buf_rec (chosen rho)     0.934     0.876     0.733            0.906            0.812            0.687            0.754
+   buf_rec (rho = 1)        0.934     0.876     0.733            0.906            0.812            0.687            0.754
+   daily_rec                0.956     0.892     0.744            0.926            0.829            0.697            0.769
+   rep_multi_rec            0.306     0.204     0.125            0.322            0.231            0.142            0.245
+   tag_multi (chosen m)     0.002     0.001     0.000            0.002            0.001            0.001            0.002
+   tag_multi_rec            0.152     0.119     0.085            0.152            0.118            0.083            0.118
+12 buf_rec (chosen rho)     0.983     0.979     0.946            0.978            0.959            0.917            0.903
+   buf_rec (rho = 1)        0.997     0.987     0.951            0.991            0.966            0.921            0.912
+   daily_rec                0.997     0.988     0.951            0.991            0.967            0.921            0.915
+   rep_multi_rec            0.581     0.388     0.241            0.617            0.448            0.280            0.477
+   tag_multi (chosen m)     0.003     0.002     0.001            0.003            0.002            0.001            0.002
+   tag_multi_rec            0.308     0.245     0.178            0.306            0.242            0.178            0.241
+24 buf_rec (chosen rho)     0.983     0.983     0.983            0.983            0.983            0.980            0.972
+   buf_rec (rho = 1)        1.000     1.000     0.997            1.000            0.999            0.994            0.987
+   daily_rec                1.000     1.000     0.997            1.000            0.999            0.994            0.987
+   rep_multi_rec            0.828     0.624     0.434            0.869            0.696            0.481            0.730
+   tag_multi (chosen m)     0.022     0.012     0.005            0.023            0.013            0.006            0.014
+   tag_multi_rec            0.535     0.442     0.334            0.531            0.439            0.331            0.432
+96 buf_rec (chosen rho)     1.000     1.000     1.000            1.000            1.000            1.000            1.000
+   buf_rec (rho = 1)        1.000     1.000     1.000            1.000            1.000            1.000            1.000
+   daily_rec                1.000     1.000     1.000            1.000            1.000            1.000            1.000
+   rep_multi_rec            0.995     0.967     0.891            0.997            0.975            0.902            0.982
+   tag_multi (chosen m)     0.383     0.285     0.159            0.381            0.283            0.161            0.279
+   tag_multi_rec            0.941     0.900     0.819            0.941            0.898            0.817            0.894
+
+sites (of test sites) with G7 >= 0.9, independent p = 0.3 / bursty p = 0.3:
+channel                  gilbert_p0.3_b3  iid_p0.3
+Q  design                                         
+1  buf_rec (chosen rho)              0.0       0.0
+   buf_rec (rho = 1)                 0.0       0.0
+   daily_rec                         0.0       0.0
+   rep_multi_rec                     0.0       0.0
+   tag_multi (chosen m)              0.0       0.0
+   tag_multi_rec                     0.0       0.0
+6  buf_rec (chosen rho)              5.0      13.0
+   buf_rec (rho = 1)                 5.0      13.0
+   daily_rec                         5.0      13.0
+   rep_multi_rec                     6.0       5.0
+   tag_multi (chosen m)              0.0       0.0
+   tag_multi_rec                     2.0       3.0
+12 buf_rec (chosen rho)             19.0      19.0
+   buf_rec (rho = 1)                19.0      19.0
+   daily_rec                        19.0      19.0
+   rep_multi_rec                    15.0      14.0
+   tag_multi (chosen m)              0.0       0.0
+   tag_multi_rec                    11.0      11.0
+24 buf_rec (chosen rho)             19.0      19.0
+   buf_rec (rho = 1)                19.0      19.0
+   daily_rec                        19.0      19.0
+   rep_multi_rec                    19.0      19.0
+   tag_multi (chosen m)              0.0       0.0
+   tag_multi_rec                    17.0      17.0
+96 buf_rec (chosen rho)             19.0      19.0
+   buf_rec (rho = 1)                19.0      19.0
+   daily_rec                        19.0      19.0
+   rep_multi_rec                    19.0      19.0
+   tag_multi (chosen m)              4.0       4.0
+   tag_multi_rec                    19.0      19.0
+
+buf_rec (chosen rho) delay and backlog, independent p = 0.3:
+ Q variant    G1    G2    G7   Gev  delay_med  delay_p95  backlog_p95  backlog_max  dropped
+ 1    0.33 0.028 0.036 0.066 0.245       30.0       63.0        168.0        460.0     3018
+ 6    1.00 0.876 0.879 0.881 0.884        1.0        1.0          0.0         73.0        0
+12    0.67 0.979 0.988 0.989 0.989        1.0        1.0          0.0         13.0        0
+24    0.33 0.983 0.998 1.000 1.000        1.0        1.0          0.0         13.0        0
+96    0.33 1.000 1.000 1.000 1.000        1.0        1.0          0.0          0.0        0
+
+RQ4 (planning channel iid_p0.3): threshold T tuned on even sites = 0.99; on 19 test sites: sufficient 0.895, over-provision <= 1 tier 1.000
+
+RQ4 (planning channel gilbert_p0.3_b3): threshold T tuned on even sites = 0.99; on 19 test sites: sufficient 1.000, over-provision <= 1 tier 1.000

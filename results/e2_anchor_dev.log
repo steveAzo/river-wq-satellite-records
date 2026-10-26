@@ -1,0 +1,7 @@
+E2 at Q = 6, p = 0.3: 234 day pairs at 38 sites
+                need_self  need_chain  Gcert_self  Gcert_chain  Gok_self  Gok_chain  chain_lost_anchor
+loss    design                                                                                        
+gilbert mds        10.387       9.584       0.668        0.576     0.669      0.642              0.135
+        repeat     10.387       9.584       0.643        0.559     0.647      0.628              0.124
+iid     mds        10.387       9.584       0.762        0.737     0.762      0.766              0.060
+        repeat     10.387       9.584       0.618        0.529     0.627      0.611              0.125

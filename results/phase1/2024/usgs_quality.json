@@ -1,0 +1,326 @@
+[
+  {
+    "file": "01021050_2024-01-01_2024-12-31.csv",
+    "raw_values": 135607,
+    "approved_values": 135607,
+    "timestamps": 34855,
+    "median_step_min": 15.0,
+    "segments": 13,
+    "complete_T_EC_DO_pH": 31102
+  },
+  {
+    "file": "01433500_2024-01-01_2024-12-31.csv",
+    "raw_values": 140034,
+    "approved_values": 140034,
+    "timestamps": 35450,
+    "median_step_min": 15.0,
+    "segments": 3,
+    "complete_T_EC_DO_pH": 34498
+  },
+  {
+    "file": "02110704_2024-01-01_2024-12-31.csv",
+    "raw_values": 139690,
+    "approved_values": 132218,
+    "timestamps": 33226,
+    "median_step_min": 15.0,
+    "segments": 5,
+    "complete_T_EC_DO_pH": 32544
+  },
+  {
+    "file": "02171645_2024-01-01_2024-12-31.csv",
+    "raw_values": 136923,
+    "approved_values": 136923,
+    "timestamps": 34942,
+    "median_step_min": 15.0,
+    "segments": 7,
+    "complete_T_EC_DO_pH": 32116
+  },
+  {
+    "file": "02203873_2024-01-01_2024-12-31.csv",
+    "raw_values": 138452,
+    "approved_values": 138452,
+    "timestamps": 35100,
+    "median_step_min": 15.0,
+    "segments": 4,
+    "complete_T_EC_DO_pH": 33229
+  },
+  {
+    "file": "02207135_2024-01-01_2024-12-31.csv",
+    "raw_values": 140325,
+    "approved_values": 140325,
+    "timestamps": 35117,
+    "median_step_min": 15.0,
+    "segments": 3,
+    "complete_T_EC_DO_pH": 34975
+  },
+  {
+    "file": "02207160_2024-01-01_2024-12-31.csv",
+    "raw_values": 139042,
+    "approved_values": 139042,
+    "timestamps": 34771,
+    "median_step_min": 15.0,
+    "segments": 4,
+    "complete_T_EC_DO_pH": 34730
+  },
+  {
+    "file": "02217643_2024-01-01_2024-12-31.csv",
+    "raw_values": 136455,
+    "approved_values": 136455,
+    "timestamps": 35117,
+    "median_step_min": 15.0,
+    "segments": 3,
+    "complete_T_EC_DO_pH": 32099
+  },
+  {
+    "file": "02344673_2024-01-01_2024-12-31.csv",
+    "raw_values": 138882,
+    "approved_values": 120767,
+    "timestamps": 35063,
+    "median_step_min": 15.0,
+    "segments": 8,
+    "complete_T_EC_DO_pH": 15925
+  },
+  {
+    "file": "02413205_2024-01-01_2024-12-31.csv",
+    "raw_values": 131570,
+    "approved_values": 131570,
+    "timestamps": 34362,
+    "median_step_min": 15.0,
+    "segments": 11,
+    "complete_T_EC_DO_pH": 28589
+  },
+  {
+    "file": "04027000_2024-01-01_2024-12-31.csv",
+    "raw_values": 120660,
+    "approved_values": 120660,
+    "timestamps": 31549,
+    "median_step_min": 15.0,
+    "segments": 16,
+    "complete_T_EC_DO_pH": 28648
+  },
+  {
+    "file": "04213500_2024-01-01_2024-12-31.csv",
+    "raw_values": 138462,
+    "approved_values": 138462,
+    "timestamps": 34999,
+    "median_step_min": 15.0,
+    "segments": 2,
+    "complete_T_EC_DO_pH": 33499
+  },
+  {
+    "file": "04231600_2024-01-01_2024-12-31.csv",
+    "raw_values": 139751,
+    "approved_values": 139751,
+    "timestamps": 34952,
+    "median_step_min": 15.0,
+    "segments": 4,
+    "complete_T_EC_DO_pH": 34905
+  },
+  {
+    "file": "05545750_2024-01-01_2024-12-31.csv",
+    "raw_values": 132039,
+    "approved_values": 132039,
+    "timestamps": 34132,
+    "median_step_min": 15.0,
+    "segments": 12,
+    "complete_T_EC_DO_pH": 29782
+  },
+  {
+    "file": "06711565_2024-01-01_2024-12-31.csv",
+    "raw_values": 135265,
+    "approved_values": 135265,
+    "timestamps": 34261,
+    "median_step_min": 15.0,
+    "segments": 6,
+    "complete_T_EC_DO_pH": 33117
+  },
+  {
+    "file": "06887500_2024-01-01_2024-12-31.csv",
+    "raw_values": 164817,
+    "approved_values": 164817,
+    "timestamps": 33075,
+    "median_step_min": 15.0,
+    "segments": 7,
+    "complete_T_EC_DO_pH": 32567
+  },
+  {
+    "file": "06889110_2024-01-01_2024-12-31.csv",
+    "raw_values": 148895,
+    "approved_values": 148895,
+    "timestamps": 30055,
+    "median_step_min": 15.0,
+    "segments": 14,
+    "complete_T_EC_DO_pH": 29506
+  },
+  {
+    "file": "06892350_2024-01-01_2024-12-31.csv",
+    "raw_values": 165099,
+    "approved_values": 165099,
+    "timestamps": 33047,
+    "median_step_min": 15.0,
+    "segments": 11,
+    "complete_T_EC_DO_pH": 32928
+  },
+  {
+    "file": "07109500_2024-01-01_2024-12-31.csv",
+    "raw_values": 129852,
+    "approved_values": 129852,
+    "timestamps": 33350,
+    "median_step_min": 15.0,
+    "segments": 13,
+    "complete_T_EC_DO_pH": 30412
+  },
+  {
+    "file": "07143672_2024-01-01_2024-12-31.csv",
+    "raw_values": 123657,
+    "approved_values": 123657,
+    "timestamps": 25231,
+    "median_step_min": 15.0,
+    "segments": 23,
+    "complete_T_EC_DO_pH": 24293
+  },
+  {
+    "file": "07144100_2024-01-01_2024-12-31.csv",
+    "raw_values": 167771,
+    "approved_values": 167771,
+    "timestamps": 33576,
+    "median_step_min": 15.0,
+    "segments": 17,
+    "complete_T_EC_DO_pH": 33521
+  },
+  {
+    "file": "07332622_2024-01-01_2024-12-31.csv",
+    "raw_values": 135393,
+    "approved_values": 135393,
+    "timestamps": 34344,
+    "median_step_min": 15.0,
+    "segments": 15,
+    "complete_T_EC_DO_pH": 32458
+  },
+  {
+    "file": "08049500_2024-01-01_2024-12-31.csv",
+    "raw_values": 134474,
+    "approved_values": 134474,
+    "timestamps": 35010,
+    "median_step_min": 15.0,
+    "segments": 21,
+    "complete_T_EC_DO_pH": 29565
+  },
+  {
+    "file": "08052700_2024-01-01_2024-12-31.csv",
+    "raw_values": 139436,
+    "approved_values": 139436,
+    "timestamps": 35101,
+    "median_step_min": 15.0,
+    "segments": 1,
+    "complete_T_EC_DO_pH": 34269
+  },
+  {
+    "file": "08052745_2024-01-01_2024-12-31.csv",
+    "raw_values": 130863,
+    "approved_values": 130863,
+    "timestamps": 33798,
+    "median_step_min": 15.0,
+    "segments": 37,
+    "complete_T_EC_DO_pH": 30689
+  },
+  {
+    "file": "08057000_2024-01-01_2024-12-31.csv",
+    "raw_values": 137220,
+    "approved_values": 137220,
+    "timestamps": 34859,
+    "median_step_min": 15.0,
+    "segments": 10,
+    "complete_T_EC_DO_pH": 33635
+  },
+  {
+    "file": "08069500_2024-01-01_2024-12-31.csv",
+    "raw_values": 139778,
+    "approved_values": 139778,
+    "timestamps": 35097,
+    "median_step_min": 15.0,
+    "segments": 3,
+    "complete_T_EC_DO_pH": 34490
+  },
+  {
+    "file": "08375300_2024-01-01_2024-12-31.csv",
+    "raw_values": 116360,
+    "approved_values": 116360,
+    "timestamps": 29849,
+    "median_step_min": 15.0,
+    "segments": 5,
+    "complete_T_EC_DO_pH": 27104
+  },
+  {
+    "file": "09070500_2024-01-01_2024-12-31.csv",
+    "raw_values": 137866,
+    "approved_values": 137866,
+    "timestamps": 34641,
+    "median_step_min": 15.0,
+    "segments": 3,
+    "complete_T_EC_DO_pH": 33949
+  },
+  {
+    "file": "09085150_2024-01-01_2024-12-31.csv",
+    "raw_values": 416849,
+    "approved_values": 416849,
+    "timestamps": 104397,
+    "median_step_min": 5.0,
+    "segments": 5,
+    "complete_T_EC_DO_pH": 103752
+  },
+  {
+    "file": "09163500_2024-01-01_2024-12-31.csv",
+    "raw_values": 139700,
+    "approved_values": 139700,
+    "timestamps": 35121,
+    "median_step_min": 15.0,
+    "segments": 2,
+    "complete_T_EC_DO_pH": 34413
+  },
+  {
+    "file": "09261000_2024-01-01_2024-12-31.csv",
+    "raw_values": 139343,
+    "approved_values": 139343,
+    "timestamps": 35074,
+    "median_step_min": 15.0,
+    "segments": 4,
+    "complete_T_EC_DO_pH": 34128
+  },
+  {
+    "file": "09510000_2024-01-01_2024-12-31.csv",
+    "raw_values": 162790,
+    "approved_values": 131611,
+    "timestamps": 33976,
+    "median_step_min": 15.0,
+    "segments": 9,
+    "complete_T_EC_DO_pH": 31161
+  },
+  {
+    "file": "10129900_2024-01-01_2024-12-31.csv",
+    "raw_values": 136581,
+    "approved_values": 136581,
+    "timestamps": 34511,
+    "median_step_min": 15.0,
+    "segments": 45,
+    "complete_T_EC_DO_pH": 33153
+  },
+  {
+    "file": "375350097262800_2024-01-01_2024-12-31.csv",
+    "raw_values": 148602,
+    "approved_values": 148602,
+    "timestamps": 30005,
+    "median_step_min": 15.0,
+    "segments": 10,
+    "complete_T_EC_DO_pH": 29283
+  },
+  {
+    "file": "391953108130201_2024-01-01_2024-12-31.csv",
+    "raw_values": 134671,
+    "approved_values": 134671,
+    "timestamps": 35027,
+    "median_step_min": 15.0,
+    "segments": 7,
+    "complete_T_EC_DO_pH": 29646
+  }
+]

@@ -1,0 +1,49 @@
+done results/dev/need2/01388000.csv
+done results/dev/need2/01400500.csv
+done results/dev/need2/01438500.csv
+done results/dev/need2/01427510.csv
+done results/dev/need2/01402000.csv
+done results/dev/need2/01463500.csv
+done results/dev/need2/01458500.csv
+done results/dev/need2/01465798.csv
+done results/dev/need2/014670261.csv
+done results/dev/need2/01467087.csv
+done results/dev/need2/01473900.csv
+done results/dev/need2/01474500.csv
+done results/dev/need2/01473500.csv
+done results/dev/need2/01475530.csv
+done results/dev/need2/01477050.csv
+done results/dev/need2/03072655.csv
+done results/dev/need2/03075070.csv
+done results/dev/need2/03081000.csv
+done results/dev/need2/03083500.csv
+done results/dev/need2/05420400.csv
+done results/dev/need2/05537980.csv
+done results/dev/need2/05543010.csv
+done results/dev/need2/05553700.csv
+done results/dev/need2/05559900.csv
+done results/dev/need2/11509370.csv
+done results/dev/need2/05586300.csv
+done results/dev/need2/11509500.csv
+done results/dev/need2/14162500.csv
+done results/dev/need2/11510700.csv
+done results/dev/need2/14163900.csv
+done results/dev/need2/14203500.csv
+done results/dev/need2/14206694.csv
+done results/dev/need2/14206241.csv
+done results/dev/need2/14207200.csv
+done results/dev/need2/14209710.csv
+done results/dev/need2/14210000.csv
+done results/dev/need2/01467200.csv
+done results/dev/need2/420853121505500.csv
+done results/dev/need2/14211010.csv
+== dev: record days 12,674, sites 39 ==
+  all record days                        n=12,674  bytes med   24 p90   51 p99  111 max  225 | value_share 2.60% byte_share 4.81% | msgs med 2 p99 8 max 15 (raw >= 32) | one msg 25.2%
+  four-parameter days (primary)          n=10,342  bytes med   27 p90   54 p99  114 max  219 | value_share 2.60% byte_share 4.81% | msgs med 2 p99 8 max 15 (raw >= 32) | one msg 19.0%
+  fewer-parameter days                   n= 2,332  bytes med   15 p90   33 p99   89 max  225 | value_share 2.08% byte_share 3.85% | msgs med 1 p99 6 max 15 (raw >= 24) | one msg 52.9%
+  site-equal (four-parameter, median of site medians): bytes 27, value_share 2.73%, byte_share 5.05%
+  four-parameter, all channels 15 min    n= 6,657  bytes med   27 p90   57 p99  111 max  219 | value_share 2.34% byte_share 4.33% | msgs med 2 p99 8 max 15 (raw >= 32) | one msg 16.4%
+  four-parameter, all channels 30 min    n= 2,354  bytes med   21 p90   48 p99  138 max  210 | value_share 3.65% byte_share 6.73% | msgs med 2 p99 10 max 14 (raw >= 16) | one msg 31.6%
+  four-parameter, all channels 5 min     n=   339  bytes med   27 p90   42 p99   56 max   63 | value_share 0.78% byte_share 1.44% | msgs med 2 p99 4 max 5 (raw >= 94) | one msg 18.3%
+  four-parameter, all channels 60 min    n=   360  bytes med   36 p90   48 p99   78 max   87 | value_share 12.50% byte_share 23.08% | msgs med 3 p99 6 max 6 (raw >= 8) | one msg 2.5%
+  example: 10-min four-parameter node, 576 readings/day: raw >= 936 B (>= 47 messages)

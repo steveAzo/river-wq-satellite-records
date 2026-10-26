@@ -1,0 +1,82 @@
+done results/dev/robust_bytes/01388000.csv
+done results/dev/robust_bytes/01400500.csv
+done results/dev/robust_bytes/01402000.csv
+done results/dev/robust_bytes/01427510.csv
+done results/dev/robust_bytes/01438500.csv
+done results/dev/robust_bytes/01458500.csv
+done results/dev/robust_bytes/01463500.csv
+done results/dev/robust_bytes/01465798.csv
+done results/dev/robust_bytes/014670261.csv
+done results/dev/robust_bytes/01467087.csv
+done results/dev/robust_bytes/01473500.csv
+done results/dev/robust_bytes/01474500.csv
+done results/dev/robust_bytes/01473900.csv
+done results/dev/robust_bytes/01467200.csv
+done results/dev/robust_bytes/01475530.csv
+done results/dev/robust_bytes/01477050.csv
+done results/dev/robust_bytes/03072655.csv
+done results/dev/robust_bytes/03075070.csv
+done results/dev/robust_bytes/03081000.csv
+done results/dev/robust_bytes/03083500.csv
+done results/dev/robust_bytes/05420400.csv
+done results/dev/robust_bytes/05537980.csv
+done results/dev/robust_bytes/05543010.csv
+done results/dev/robust_bytes/05553700.csv
+done results/dev/robust_bytes/05559900.csv
+done results/dev/robust_bytes/05586300.csv
+done results/dev/robust_bytes/11509370.csv
+done results/dev/robust_bytes/11509500.csv
+done results/dev/robust_bytes/14162500.csv
+done results/dev/robust_bytes/11510700.csv
+done results/dev/robust_bytes/14163900.csv
+done results/dev/robust_bytes/14206241.csv
+done results/dev/robust_bytes/14203500.csv
+done results/dev/robust_bytes/14206694.csv
+done results/dev/robust_bytes/14207200.csv
+done results/dev/robust_bytes/14209710.csv
+done results/dev/robust_bytes/14210000.csv
+done results/dev/robust_bytes/14211010.csv
+done results/dev/robust_bytes/420853121505500.csv
+380 test days
+
+Q = 6, G_cert:
+channel        iid_p0.1  iid_p0.3  iid_p0.5  gilbert_p0.1_b3  gilbert_p0.3_b3  gilbert_p0.5_b3  gilbert_p0.3_b6
+design                                                                                                         
+every_k           0.175     0.042     0.006            0.244            0.111            0.021            0.162
+mds_fixed         0.833     0.775     0.543            0.793            0.673            0.512            0.631
+mds_rec           0.970     0.909     0.739            0.939            0.833            0.699            0.774
+reliable          0.520     0.123     0.017            0.727            0.321            0.066            0.474
+rep_block_rec     0.935     0.799     0.604            0.886            0.699            0.535            0.675
+rep_rec           0.933     0.804     0.607            0.931            0.807            0.634            0.769
+repeat_fixed      0.809     0.632     0.359            0.790            0.649            0.428            0.627
+rlnc_rec          0.970     0.908     0.738            0.938            0.833            0.699            0.774
+tag               0.155     0.108     0.057            0.151            0.107            0.058            0.109
+tag_rec           0.801     0.701     0.539            0.769            0.634            0.501            0.615
+
+Q = 6, G_ok:
+channel        iid_p0.1  iid_p0.3  iid_p0.5  gilbert_p0.1_b3  gilbert_p0.3_b3  gilbert_p0.5_b3  gilbert_p0.3_b6
+design                                                                                                         
+every_k           0.257     0.142     0.058            0.268            0.155            0.066            0.182
+mds_fixed         0.833     0.776     0.545            0.794            0.673            0.513            0.632
+mds_rec           0.970     0.909     0.739            0.939            0.833            0.699            0.774
+reliable          0.606     0.214     0.061            0.749            0.367            0.107            0.493
+rep_block_rec     0.935     0.799     0.604            0.886            0.699            0.535            0.675
+rep_rec           0.933     0.804     0.607            0.931            0.807            0.634            0.769
+repeat_fixed      0.810     0.640     0.371            0.791            0.652            0.436            0.629
+rlnc_rec          0.970     0.908     0.738            0.938            0.833            0.699            0.774
+tag               0.156     0.116     0.068            0.153            0.113            0.069            0.114
+tag_rec           0.801     0.701     0.539            0.769            0.634            0.501            0.615
+
+Q = 6, cert:
+channel        iid_p0.1  iid_p0.3  iid_p0.5  gilbert_p0.1_b3  gilbert_p0.3_b3  gilbert_p0.5_b3  gilbert_p0.3_b6
+design                                                                                                         
+every_k           0.294     0.221     0.154            0.296            0.227            0.157            0.229
+mds_fixed         0.833     0.791     0.615            0.801            0.701            0.574            0.653
+mds_rec           0.978     0.938     0.804            0.949            0.867            0.760            0.799
+reliable          0.870     0.658     0.454            0.877            0.672            0.470            0.678
+rep_block_rec     0.967     0.905     0.784            0.929            0.819            0.716            0.762
+rep_rec           0.966     0.908     0.787            0.951            0.876            0.772            0.813
+repeat_fixed      0.825     0.752     0.609            0.807            0.727            0.608            0.678
+rlnc_rec          0.978     0.937     0.804            0.948            0.867            0.760            0.799
+tag               0.165     0.142     0.111            0.160            0.132            0.104            0.127
+tag_rec           0.917     0.858     0.741            0.888            0.791            0.694            0.742

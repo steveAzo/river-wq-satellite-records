@@ -1,0 +1,93 @@
+
+RQ1: four-parameter record days n = 10,342 at 38 sites (site-clustered 95% intervals)
+  median bytes per day             27.0 (21.0 to 30.0)
+  90th percentile bytes            54.0 (45.0 to 60.0)
+  99th percentile bytes            114.0 (93.0 to 132.0)
+  median value share               0.0260 (0.0234 to 0.0312)
+  median byte share                0.0481 (0.0433 to 0.0577)
+  share of days in one message     0.1901 (0.1389 to 0.2437)
+
+RQ3 full cohort (exact): 10,342 four-parameter days at 38 sites
+  Q  6 iid_p0.1         rec_code 0.965 (0.946 to 0.982); rec_rep 0.935 (0.910 to 0.958); every_k 0.171 (0.134 to 0.209); tag 0.137 (0.092 to 0.186); code-rec_rep 0.030 (0.021 to 0.039); code-every_k 0.794 (0.756 to 0.831); code-tag 0.828 (0.776 to 0.875)
+      site means of the code: min 0.828, median 0.993, max 1.000
+  Q  6 iid_p0.3         rec_code 0.905 (0.873 to 0.934); rec_rep 0.813 (0.770 to 0.853); every_k 0.038 (0.030 to 0.046); tag 0.096 (0.064 to 0.130); code-rec_rep 0.092 (0.075 to 0.109); code-every_k 0.867 (0.839 to 0.892); code-tag 0.809 (0.772 to 0.843)
+      site means of the code: min 0.614, median 0.926, max 0.999
+  Q  6 iid_p0.5         rec_code 0.754 (0.707 to 0.798); rec_rep 0.628 (0.572 to 0.681); every_k 0.005 (0.004 to 0.006); tag 0.051 (0.034 to 0.069); code-rec_rep 0.126 (0.112 to 0.139); code-every_k 0.748 (0.703 to 0.792); code-tag 0.703 (0.665 to 0.739)
+      site means of the code: min 0.338, median 0.767, max 0.984
+  Q  6 gilbert_p0.3_b3  rec_code 0.835 (0.808 to 0.860); rec_rep 0.811 (0.780 to 0.840); every_k 0.104 (0.082 to 0.127); tag 0.092 (0.062 to 0.124); code-rec_rep 0.024 (0.019 to 0.029); code-every_k 0.731 (0.710 to 0.750); code-tag 0.743 (0.713 to 0.772)
+      site means of the code: min 0.592, median 0.847, max 0.960
+  Q  6 gilbert_p0.3_b6  rec_code 0.775 (0.755 to 0.794); rec_rep 0.770 (0.748 to 0.790); every_k 0.155 (0.121 to 0.190); tag 0.096 (0.065 to 0.131); code-rec_rep 0.005 (0.004 to 0.007); code-every_k 0.620 (0.593 to 0.645); code-tag 0.679 (0.648 to 0.708)
+      site means of the code: min 0.596, median 0.783, max 0.879
+  Q 12 iid_p0.1         rec_code 0.998 (0.996 to 0.999); rec_rep 0.989 (0.982 to 0.995); every_k 0.166 (0.137 to 0.195); tag 0.154 (0.103 to 0.208); code-rec_rep 0.009 (0.005 to 0.014); code-every_k 0.831 (0.803 to 0.860); code-tag 0.844 (0.789 to 0.895)
+      site means of the code: min 0.980, median 1.000, max 1.000
+  Q 12 iid_p0.3         rec_code 0.991 (0.984 to 0.996); rec_rep 0.952 (0.932 to 0.969); every_k 0.010 (0.008 to 0.012); tag 0.146 (0.098 to 0.197); code-rec_rep 0.039 (0.026 to 0.053); code-every_k 0.981 (0.974 to 0.986); code-tag 0.845 (0.791 to 0.892)
+      site means of the code: min 0.943, median 0.999, max 1.000
+  Q 12 iid_p0.5         rec_code 0.959 (0.942 to 0.974); rec_rep 0.858 (0.821 to 0.892); every_k 0.000 (0.000 to 0.000); tag 0.116 (0.078 to 0.157); code-rec_rep 0.101 (0.079 to 0.124); code-every_k 0.959 (0.941 to 0.974); code-tag 0.843 (0.800 to 0.881)
+      site means of the code: min 0.825, median 0.978, max 1.000
+  Q 12 gilbert_p0.3_b3  rec_code 0.971 (0.962 to 0.978); rec_rep 0.950 (0.936 to 0.964); every_k 0.078 (0.064 to 0.093); tag 0.132 (0.089 to 0.179); code-rec_rep 0.020 (0.014 to 0.027); code-every_k 0.892 (0.880 to 0.904); code-tag 0.838 (0.791 to 0.880)
+      site means of the code: min 0.908, median 0.977, max 0.997
+  Q 12 gilbert_p0.3_b6  rec_code 0.915 (0.907 to 0.923); rec_rep 0.908 (0.898 to 0.918); every_k 0.179 (0.148 to 0.208); tag 0.117 (0.079 to 0.159); code-rec_rep 0.007 (0.005 to 0.009); code-every_k 0.737 (0.712 to 0.762); code-tag 0.798 (0.759 to 0.833)
+      site means of the code: min 0.840, median 0.919, max 0.960
+
+  sampled-day contrasts and sample vs full agreement (Q = 6):
+        channel                                    contrast  estimate    lo    hi  n_days
+       iid_p0.1                          rec_code - fixed_K     0.137 0.082 0.197     380
+       iid_p0.1                         rec_code - reliable     0.446 0.435 0.455     380
+       iid_p0.1 rec_code sample mean (vs full cohort in hi)     0.971 0.971 0.965     380
+       iid_p0.3                          rec_code - fixed_K     0.130 0.096 0.166     380
+       iid_p0.3                         rec_code - reliable     0.787 0.759 0.814     380
+       iid_p0.3 rec_code sample mean (vs full cohort in hi)     0.905 0.905 0.905     380
+       iid_p0.5                          rec_code - fixed_K     0.194 0.175 0.213     380
+       iid_p0.5                         rec_code - reliable     0.725 0.676 0.773     380
+       iid_p0.5 rec_code sample mean (vs full cohort in hi)     0.741 0.741 0.754     380
+gilbert_p0.3_b3                          rec_code - fixed_K     0.155 0.125 0.187     380
+gilbert_p0.3_b3                         rec_code - reliable     0.513 0.490 0.535     380
+gilbert_p0.3_b3 rec_code sample mean (vs full cohort in hi)     0.833 0.833 0.835     380
+gilbert_p0.3_b6                          rec_code - fixed_K     0.144 0.111 0.179     380
+gilbert_p0.3_b6                         rec_code - reliable     0.298 0.283 0.314     380
+gilbert_p0.3_b6 rec_code sample mean (vs full cohort in hi)     0.775 0.775 0.775     380
+
+  Season (Q = 6, record-first code): monthly mean G_cert, independent / bursty p = 0.3
+    month               1      2      3      4      5      6      7      8      9      10     11     12
+    iid_p0.3         0.956  0.958  0.943  0.911  0.927  0.853  0.809  0.839  0.874  0.938  0.945  0.943
+    gilbert_p0.3_b3  0.902  0.894  0.872  0.841  0.847  0.780  0.744  0.768  0.797  0.860  0.874  0.890
+    iid_p0.3: site clusters 0.905 (0.873 to 0.934); site x month blocks 0.905 (0.889 to 0.919)
+    gilbert_p0.3_b3: site clusters 0.835 (0.808 to 0.860); site x month blocks 0.835 (0.821 to 0.847)
+
+RQ2 (daily record-first code; a day is certified within 7 days iff its block decodes; exact):
+  iid_p0.3         Q  1: 0/38 sites 0.0% (0.0% to 0.0%)
+  iid_p0.3         Q  6: 25/38 sites 65.8% (50.0% to 78.9%)
+  iid_p0.3         Q 12: 38/38 sites 100.0% (100.0% to 100.0%)
+  iid_p0.3         Q 24: 38/38 sites 100.0% (100.0% to 100.0%)
+  iid_p0.3         Q 96: 38/38 sites 100.0% (100.0% to 100.0%)
+  gilbert_p0.3_b3  Q  1: 0/38 sites 0.0% (0.0% to 0.0%)
+  gilbert_p0.3_b3  Q  6: 9/38 sites 23.7% (10.5% to 36.8%)
+  gilbert_p0.3_b3  Q 12: 38/38 sites 100.0% (100.0% to 100.0%)
+  gilbert_p0.3_b3  Q 24: 38/38 sites 100.0% (100.0% to 100.0%)
+  gilbert_p0.3_b3  Q 96: 38/38 sites 100.0% (100.0% to 100.0%)
+
+RQ4 (pilot of 28 days starting in each month; threshold T tuned on even sites; exact):
+  planning iid_p0.3: T = 0.9; 186 site-pilots at 19 test sites: sufficient 87.6% (77.2% to 96.6%), over-provision <= 1 tier 100.0% (100.0% to 100.0%); sufficient by pilot month: min 0.75 (11), max 1.00
+  planning gilbert_p0.3_b3: T = 0.9; 186 site-pilots at 19 test sites: sufficient 79.6% (68.6% to 89.7%), over-provision <= 1 tier 100.0% (100.0% to 100.0%); sufficient by pilot month: min 0.42 (12), max 1.00
+
+Step 8 contrasts (Q = 6; rates pooled over days; paired by day; site-clustered intervals):
+    cond                          outcome  estimate     lo     hi  events  n_days
+ perfect     DO miss rate, code - every_k    -0.109 -0.236  0.000   441.0   10342
+ perfect         DO miss rate, code - tag     0.023 -0.029  0.084   441.0   10342
+ perfect     pH miss rate, code - every_k     0.278  0.192  0.338   414.0   10342
+ perfect         pH miss rate, code - tag     0.295  0.222  0.336   414.0   10342
+ perfect     EC miss rate, code - every_k    -0.722 -0.833 -0.538   735.0   10342
+ perfect         EC miss rate, code - tag    -0.644 -0.757 -0.449   735.0   10342
+ perfect DO decided share, code - every_k     0.656  0.585  0.726     NaN   10342
+iid_p0.3     DO miss rate, code - every_k    -0.180 -0.269 -0.103   441.0   10342
+iid_p0.3         DO miss rate, code - tag    -0.121 -0.150 -0.071   441.0   10342
+iid_p0.3     pH miss rate, code - every_k     0.260  0.116  0.336   414.0   10342
+iid_p0.3         pH miss rate, code - tag     0.344  0.261  0.391   414.0   10342
+iid_p0.3     EC miss rate, code - every_k    -0.700 -0.789 -0.553   735.0   10342
+iid_p0.3         EC miss rate, code - tag    -0.597 -0.708 -0.408   735.0   10342
+iid_p0.3 DO decided share, code - every_k     0.762  0.733  0.790     NaN   10342
+
+Step 7 contrast (Q = 6, test sites; G7 pooled over four-parameter days; paired by site):
+  iid_p0.3         0.125 (0.094 to 0.156) (19 sites)
+  gilbert_p0.3_b3  0.037 (0.012 to 0.062) (19 sites)
+  gilbert_p0.3_b6  -0.031 (-0.060 to -0.001) (19 sites)

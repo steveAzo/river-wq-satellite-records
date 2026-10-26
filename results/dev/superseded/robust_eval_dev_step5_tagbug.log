@@ -1,0 +1,141 @@
+test days: 380, tuning days: 380
+
+== Q = 1: G_cert on test days (rows: design, rule; columns: true channel) ==
+channel           iid_p0.05  iid_p0.1  iid_p0.2  iid_p0.3  iid_p0.4  iid_p0.5  iid_p0.6  gilbert_p0.05_b3  gilbert_p0.1_b3  gilbert_p0.2_b3  gilbert_p0.3_b3  gilbert_p0.4_b3  gilbert_p0.5_b3  gilbert_p0.6_b3  gilbert_p0.3_b6
+design   rule                                                                                                                                                                                                                   
+every_k  none         0.025     0.024     0.021     0.018     0.016     0.013     0.011             0.025            0.024            0.021            0.018            0.016            0.013            0.011            0.018
+mds      minimax      0.182     0.173     0.154     0.134     0.115     0.096     0.077             0.182            0.173            0.154            0.134            0.115            0.096            0.077            0.134
+         oracle       0.182     0.173     0.154     0.134     0.115     0.096     0.077             0.182            0.173            0.154            0.134            0.115            0.096            0.077            0.134
+mds_rec  none         0.182     0.173     0.154     0.134     0.115     0.096     0.077             0.182            0.173            0.154            0.134            0.115            0.096            0.077            0.134
+reliable none         0.182     0.173     0.154     0.134     0.115     0.096     0.077             0.182            0.173            0.154            0.134            0.115            0.096            0.077            0.134
+rep_rec  none         0.182     0.173     0.154     0.134     0.115     0.096     0.077             0.182            0.173            0.154            0.134            0.115            0.096            0.077            0.134
+tag      minimax      0.025     0.024     0.021     0.018     0.016     0.013     0.011             0.025            0.024            0.021            0.018            0.016            0.013            0.011            0.018
+         oracle       0.025     0.024     0.021     0.018     0.016     0.013     0.011             0.025            0.024            0.021            0.018            0.016            0.013            0.011            0.018
+regret vs the fixed-K code tuned for the true channel (max, mean over 15 channels):
+                    max   mean
+design   rule                 
+every_k  none     0.158  0.115
+mds      mean     0.000  0.000
+         minimax  0.000  0.000
+mds_rec  none     0.000  0.000
+reliable none     0.000  0.000
+rep_rec  none     0.000  0.000
+tag      mean     0.158  0.115
+         minimax  0.158  0.115
+chosen parameters: {'mds': {'minimax': 0, 'mean': 0}, 'tag': {'minimax': 0, 'mean': 0}}
+
+== Q = 6: G_cert on test days (rows: design, rule; columns: true channel) ==
+channel           iid_p0.05  iid_p0.1  iid_p0.2  iid_p0.3  iid_p0.4  iid_p0.5  iid_p0.6  gilbert_p0.05_b3  gilbert_p0.1_b3  gilbert_p0.2_b3  gilbert_p0.3_b3  gilbert_p0.4_b3  gilbert_p0.5_b3  gilbert_p0.6_b3  gilbert_p0.3_b6
+design   rule                                                                                                                                                                                                                   
+every_k  none         0.244     0.176     0.087     0.039     0.015     0.005     0.001             0.288            0.247            0.172            0.107            0.057            0.022            0.004            0.160
+mds      minimax      0.834     0.833     0.820     0.775     0.685     0.548     0.381             0.813            0.790            0.739            0.679            0.604            0.509            0.381            0.630
+         oracle       0.943     0.930     0.851     0.775     0.685     0.548     0.442             0.902            0.857            0.739            0.679            0.604            0.509            0.417            0.630
+mds_rec  none         0.977     0.971     0.948     0.905     0.838     0.741     0.616             0.960            0.937            0.888            0.833            0.770            0.694            0.598            0.775
+reliable none         0.724     0.525     0.261     0.118     0.048     0.016     0.004             0.854            0.733            0.511            0.321            0.170            0.066            0.013            0.476
+rep_rec  none         0.960     0.936     0.876     0.802     0.712     0.609     0.495             0.957            0.930            0.873            0.806            0.728            0.633            0.513            0.768
+repeat   minimax      0.828     0.810     0.740     0.632     0.500     0.358     0.225             0.813            0.788            0.729            0.652            0.554            0.427            0.267            0.627
+         oracle       0.828     0.810     0.740     0.632     0.505     0.442     0.355             0.813            0.788            0.729            0.652            0.554            0.437            0.364            0.627
+tag      minimax      0.531     0.473     0.360     0.255     0.166     0.097     0.049             0.535            0.485            0.386            0.293            0.206            0.129            0.063            0.331
+         oracle       0.531     0.473     0.360     0.255     0.187     0.130     0.080             0.535            0.485            0.386            0.293            0.206            0.142            0.088            0.331
+regret vs the fixed-K code tuned for the true channel (max, mean over 15 channels):
+                    max   mean
+design   rule                 
+every_k  none     0.765  0.592
+mds      mean     0.108  0.033
+         minimax  0.108  0.033
+mds_rec  none    -0.034 -0.129
+reliable none     0.657  0.378
+rep_rec  none    -0.006 -0.072
+repeat   mean     0.217  0.104
+         minimax  0.217  0.104
+tag      mean     0.520  0.410
+         minimax  0.520  0.410
+chosen parameters: {'mds': {'minimax': 2, 'mean': 2}, 'repeat': {'minimax': 0, 'mean': 0}, 'tag': {'minimax': 3, 'mean': 3}}
+
+== Q = 12: G_cert on test days (rows: design, rule; columns: true channel) ==
+channel           iid_p0.05  iid_p0.1  iid_p0.2  iid_p0.3  iid_p0.4  iid_p0.5  iid_p0.6  gilbert_p0.05_b3  gilbert_p0.1_b3  gilbert_p0.2_b3  gilbert_p0.3_b3  gilbert_p0.4_b3  gilbert_p0.5_b3  gilbert_p0.6_b3  gilbert_p0.3_b6
+design   rule                                                                                                                                                                                                                   
+every_k  none         0.293     0.159     0.043     0.010     0.002     0.000     0.000             0.414            0.319            0.171            0.075            0.024            0.004            0.000            0.171
+mds      minimax      0.945     0.945     0.945     0.943     0.930     0.876     0.732             0.941            0.935            0.920            0.897            0.860            0.799            0.693            0.823
+         oracle       0.993     0.990     0.978     0.959     0.930     0.876     0.765             0.962            0.952            0.920            0.897            0.860            0.774            0.732            0.823
+mds_rec  none         0.995     0.995     0.994     0.991     0.982     0.961     0.909             0.992            0.989            0.981            0.970            0.953            0.927            0.886            0.913
+reliable none         0.553     0.300     0.081     0.020     0.005     0.001     0.000             0.785            0.603            0.322            0.142            0.046            0.009            0.001            0.322
+rep_rec  none         0.992     0.988     0.976     0.953     0.915     0.852     0.758             0.991            0.986            0.972            0.950            0.915            0.859            0.767            0.906
+repeat   minimax      0.834     0.834     0.830     0.815     0.773     0.690     0.555             0.832            0.829            0.819            0.800            0.764            0.697            0.571            0.752
+         oracle       0.967     0.941     0.915     0.848     0.773     0.690     0.555             0.964            0.932            0.904            0.852            0.764            0.697            0.571            0.810
+tag      minimax      0.578     0.566     0.529     0.470     0.388     0.288     0.181             0.567            0.545            0.496            0.437            0.367            0.284            0.186            0.421
+         oracle       0.706     0.566     0.529     0.470     0.388     0.288     0.181             0.762            0.616            0.496            0.437            0.367            0.284            0.186            0.421
+regret vs the fixed-K code tuned for the true channel (max, mean over 15 channels):
+                    max   mean
+design   rule                 
+every_k  none     0.949  0.782
+mds      mean     0.048  0.015
+         minimax  0.048  0.015
+mds_rec  none    -0.002 -0.068
+reliable none     0.939  0.681
+rep_rec  none     0.024 -0.025
+repeat   mean     0.210  0.134
+         minimax  0.210  0.134
+tag      mean     0.588  0.474
+         minimax  0.588  0.474
+chosen parameters: {'mds': {'minimax': 3, 'mean': 3}, 'repeat': {'minimax': 2, 'mean': 2}, 'tag': {'minimax': 1, 'mean': 1}}
+
+== Q = 24: G_cert on test days (rows: design, rule; columns: true channel) ==
+channel           iid_p0.05  iid_p0.1  iid_p0.2  iid_p0.3  iid_p0.4  iid_p0.5  iid_p0.6  gilbert_p0.05_b3  gilbert_p0.1_b3  gilbert_p0.2_b3  gilbert_p0.3_b3  gilbert_p0.4_b3  gilbert_p0.5_b3  gilbert_p0.6_b3  gilbert_p0.3_b6
+design   rule                                                                                                                                                                                                                   
+every_k  none         0.231     0.076     0.007     0.000     0.000     0.000     0.000             0.444            0.285            0.097            0.023            0.003            0.000            0.000            0.109
+mds      minimax      0.982     0.982     0.982     0.982     0.981     0.978     0.942             0.981            0.981            0.980            0.977            0.971            0.955            0.913            0.942
+         oracle       0.995     0.995     0.995     0.994     0.993     0.978     0.941             0.992            0.991            0.990            0.980            0.971            0.955            0.935            0.942
+mds_rec  none         1.000     1.000     1.000     0.999     0.997     0.995     0.991             1.000            1.000            0.999            0.998            0.996            0.993            0.988            0.987
+reliable none         0.371     0.145     0.029     0.008     0.003     0.001     0.000             0.680            0.447            0.172            0.056            0.016            0.004            0.001            0.185
+rep_rec  none         0.999     0.997     0.995     0.991     0.984     0.968     0.934             0.999            0.998            0.996            0.992            0.985            0.969            0.936            0.982
+repeat   minimax      0.945     0.945     0.945     0.942     0.930     0.888     0.783             0.945            0.945            0.943            0.940            0.927            0.890            0.790            0.921
+         oracle       0.994     0.987     0.972     0.942     0.930     0.888     0.783             0.993            0.987            0.971            0.940            0.927            0.890            0.790            0.921
+tag      minimax      0.585     0.580     0.559     0.518     0.455     0.367     0.256             0.584            0.577            0.552            0.509            0.448            0.365            0.258            0.497
+         oracle       0.710     0.580     0.559     0.518     0.455     0.367     0.256             0.775            0.577            0.552            0.509            0.448            0.365            0.258            0.497
+regret vs the fixed-K code tuned for the true channel (max, mean over 15 channels):
+                    max   mean
+design   rule                 
+every_k  none     0.993  0.891
+mds      mean     0.172  0.027
+         minimax  0.021  0.008
+mds_rec  none    -0.005 -0.020
+reliable none     0.990  0.835
+rep_rec  none     0.010 -0.005
+repeat   mean     0.158  0.065
+         minimax  0.158  0.065
+tag      mean     0.685  0.502
+         minimax  0.685  0.502
+chosen parameters: {'mds': {'minimax': 2, 'mean': 3}, 'repeat': {'minimax': 3, 'mean': 3}, 'tag': {'minimax': 0, 'mean': 0}}
+
+pilot-estimated configuration, mean G_cert loss vs oracle (max over channels):
+Q   design
+1   mds       0.000
+    tag       0.000
+6   mds       0.061
+    repeat    0.035
+    tag       0.012
+12  mds       0.034
+    repeat    0.024
+    tag       0.129
+24  mds       0.021
+    repeat    0.032
+    tag       0.192
+
+exact vs byte-simulated mean G_cert, same test days and variants (Step 4 run):
+  Q  6 gilbert p 0.3 every_k   exact 0.107  bytes 0.107  (n = 380)
+  Q  6 gilbert p 0.3 mds_3     exact 0.679  bytes 0.679  (n = 380)
+  Q  6 gilbert p 0.3 reliable  exact 0.321  bytes 0.324  (n = 380)
+  Q  6 gilbert p 0.3 repeat_2  exact 0.652  bytes 0.647  (n = 380)
+  Q  6 iid     p 0.3 every_k   exact 0.039  bytes 0.040  (n = 380)
+  Q  6 iid     p 0.3 mds_3     exact 0.775  bytes 0.780  (n = 380)
+  Q  6 iid     p 0.3 reliable  exact 0.118  bytes 0.116  (n = 380)
+  Q  6 iid     p 0.3 repeat_2  exact 0.632  bytes 0.636  (n = 380)
+  Q 12 gilbert p 0.3 every_k   exact 0.075  bytes 0.073  (n = 380)
+  Q 12 gilbert p 0.3 mds_4     exact 0.897  bytes 0.897  (n = 380)
+  Q 12 gilbert p 0.3 reliable  exact 0.142  bytes 0.143  (n = 380)
+  Q 12 gilbert p 0.3 repeat_3  exact 0.852  bytes 0.852  (n = 380)
+  Q 12 iid     p 0.3 every_k   exact 0.010  bytes 0.011  (n = 380)
+  Q 12 iid     p 0.3 mds_5     exact 0.959  bytes 0.960  (n = 380)
+  Q 12 iid     p 0.3 reliable  exact 0.020  bytes 0.020  (n = 380)
+  Q 12 iid     p 0.3 repeat_3  exact 0.848  bytes 0.847  (n = 380)

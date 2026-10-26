@@ -1,0 +1,86 @@
+Southeast: 74 sites pass rules 1, 2, and 4
+  02217643 PARKS CREEK AT LYLE FIELD RD NR JEFFERSO {'T': 366, 'EC': 351, 'DO': 357, 'pH': 352} SELECTED
+  02110704 WACCAMAW RIVER AT CONWAY MARINA AT CONWA {'T': 344, 'EC': 337, 'DO': 343, 'pH': 344} SELECTED
+  02203873 COBBS CREEK AT RAINBOW DR, NEAR DECATUR, {'T': 365, 'EC': 352, 'DO': 362, 'pH': 365} SELECTED
+  02171645 REDIV CANAL AT SANTEE RIVER NR ST STEPHE {'T': 364, 'EC': 333, 'DO': 362, 'pH': 363} SELECTED
+  02207135 LITTLE STONE MTN CR NEAR STONE MOUNTAIN, {'T': 366, 'EC': 364, 'DO': 366, 'pH': 366} SELECTED
+  02344673 FLAT CREEK DS OF LAKE AT PEACHTREE CITY, {'T': 364, 'EC': 363, 'DO': 364, 'pH': 366} SELECTED
+  02207160 STONE MOUNTAIN CREEK AT GA 124, NEAR LIT {'T': 362, 'EC': 362, 'DO': 363, 'pH': 362} SELECTED
+  02413205 LITTLE TALLAPOOSA R AT REAVESVILLE RD NR {'T': 357, 'EC': 346, 'DO': 302, 'pH': 355} SELECTED
+Mountain West: 37 sites pass rules 1, 2, and 4
+  09027100 FRASER RIVER AT TABERNASH, CO            {'T': 184, 'EC': 152, 'DO': 152, 'pH': 152} 
+  06427850 BELLE FOURCHE RIVER AT DEVILS TOWER, WY  {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  10129900 SILVER CREEK NEAR SILVER CREEK JUNCTION, {'T': 358, 'EC': 352, 'DO': 349, 'pH': 359} SELECTED
+  06711565 SOUTH PLATTE RIVER AT ENGLEWOOD, CO.     {'T': 354, 'EC': 343, 'DO': 350, 'pH': 358} SELECTED
+  09070500 COLORADO RIVER NEAR DOTSERO, CO          {'T': 360, 'EC': 354, 'DO': 360, 'pH': 357} SELECTED
+  391953108130201 ROAN CREEK AT DE BEQUE, CO.              {'T': 363, 'EC': 312, 'DO': 355, 'pH': 364} SELECTED
+  09114500 GUNNISON RIVER NEAR GUNNISON, CO.        {'T': 184, 'EC': 180, 'DO': 184, 'pH': 184} 
+  09071750 COLORADO RIVER ABOVE GLENWOOD SPRINGS, C {'T': 0, 'EC': 352, 'DO': 356, 'pH': 356} 
+  09085150 COLORADO R ABV SOUTH CANYON CR NR GLENWO {'T': 360, 'EC': 358, 'DO': 360, 'pH': 360} SELECTED
+  06729470 SOUTH BOULDER CR AT FOREBAY NR ELDORADO  {'T': 244, 'EC': 244, 'DO': 244, 'pH': 243} 
+  09034250 COLORADO RIVER AT WINDY GAP, NEAR GRANBY {'T': 153, 'EC': 153, 'DO': 153, 'pH': 153} 
+  07109500 ARKANSAS RIVER NEAR AVONDALE, CO.        {'T': 341, 'EC': 328, 'DO': 325, 'pH': 339} SELECTED
+  09163500 COLORADO RIVER NEAR COLORADO-UTAH STATE  {'T': 366, 'EC': 365, 'DO': 366, 'pH': 356} SELECTED
+  09261000 GREEN RIVER NEAR JENSEN, UT              {'T': 366, 'EC': 366, 'DO': 366, 'pH': 358} SELECTED
+Great Plains and upper Midwest: 38 sites pass rules 1, 2, and 4
+  06892495 CEDAR C NR DESOTO, KS                    {'T': 14, 'EC': 14, 'DO': 14, 'pH': 14} 
+  07144100 L ARKANSAS R NR SEDGWICK, KS             {'T': 349, 'EC': 350, 'DO': 350, 'pH': 350} SELECTED
+  04027000 BAD RIVER NEAR ODANAH, WI                {'T': 326, 'EC': 307, 'DO': 301, 'pH': 307} SELECTED
+  06892350 KANSAS R AT DESOTO, KS                   {'T': 344, 'EC': 343, 'DO': 343, 'pH': 342} SELECTED
+  06454100 Niobrara River at Agate, Nebr.           {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  375350097262800 L ARKANSAS R UPSTREAM OF ASR FAC NR SEDG {'T': 346, 'EC': 346, 'DO': 338, 'pH': 345} SELECTED
+  06889110 SOLDIER CREEK NR CORNING, KS             {'T': 310, 'EC': 311, 'DO': 303, 'pH': 307} SELECTED
+  06892513 MILL C AT JOHNSON DRIVE, SHAWNEE, KS     {'T': 14, 'EC': 14, 'DO': 14, 'pH': 14} 
+  06465500 Niobrara River near Verdel, Nebr.        {'T': 213, 'EC': 0, 'DO': 0, 'pH': 0} 
+  05545750 FOX RIVER NEAR NEW MUNSTER, WI           {'T': 353, 'EC': 348, 'DO': 330, 'pH': 351} SELECTED
+  07143672 L ARKANSAS R AT HWY 50 NR HALSTEAD, KS   {'T': 281, 'EC': 272, 'DO': 273, 'pH': 275} SELECTED
+  06887500 KANSAS R AT WAMEGO, KS                   {'T': 343, 'EC': 336, 'DO': 344, 'pH': 343} SELECTED
+Southwest and Texas: 31 sites pass rules 1, 2, and 4
+  08181500 Medina Rv at San Antonio, TX             {'T': 193, 'EC': 193, 'DO': 0, 'pH': 0} 
+  08317400 RIO GRANDE BELOW COCHITI DAM, NM         {'T': 286, 'EC': 337, 'DO': 270, 'pH': 204} 
+  09510000 VERDE RIVER BELOW BARTLETT DAM, AZ       {'T': 352, 'EC': 347, 'DO': 322, 'pH': 339} SELECTED
+  08377200 Rio Grande at Foster Rh nr Langtry, TX   {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  08069500 W Fk San Jacinto Rv nr Humble, TX        {'T': 317, 'EC': 313, 'DO': 317, 'pH': 311} SELECTED
+  08052745 Doe Br at US Hwy 380 nr Prosper, TX      {'T': 338, 'EC': 345, 'DO': 334, 'pH': 320} SELECTED
+  08052700 Little Elm Ck nr Aubrey, TX              {'T': 365, 'EC': 355, 'DO': 359, 'pH': 363} SELECTED
+  08057410 Trinity Rv bl Dallas, TX                 {'T': 346, 'EC': 329, 'DO': 335, 'pH': 0} 
+  07332605 Bois D'Arc Ck at HWY 56 nr Bonham, TX    {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  08211200 Nueces Rv at Bluntzer, TX                {'T': 343, 'EC': 340, 'DO': 343, 'pH': 0} 
+  08068000 W Fk San Jacinto Rv nr Conroe, TX        {'T': 350, 'EC': 350, 'DO': 350, 'pH': 0} 
+  08371500 Rio Grande abv Rio Conchos nr Presidio,  {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  07332622 Bois D'Arc Ck at FM 409 nr Honey Grove,  {'T': 352, 'EC': 352, 'DO': 335, 'pH': 351} SELECTED
+  08188060 San Antonio Rv at SH 72 nr Runge, TX     {'T': 196, 'EC': 196, 'DO': 196, 'pH': 196} 
+  08374200 Rio Grande bl Rio Conchos nr Presidio, T {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  08048000 W Fk Trinity Rv at Ft Worth, TX          {'T': 363, 'EC': 288, 'DO': 0, 'pH': 0} 
+  08065350 Trinity Rv nr Crockett, TX               {'T': 277, 'EC': 253, 'DO': 232, 'pH': 335} 
+  08380500 GALLINAS CREEK NEAR MONTEZUMA, NM        {'T': 227, 'EC': 225, 'DO': 226, 'pH': 227} 
+  08375300 Rio Grande at Rio Grande Village, Big Bn {'T': 308, 'EC': 308, 'DO': 307, 'pH': 298} SELECTED
+  08062500 Trinity Rv nr Rosser, TX                 {'T': 365, 'EC': 364, 'DO': 365, 'pH': 0} 
+  08049500 W Fk Trinity Rv at Grand Prairie, TX     {'T': 363, 'EC': 361, 'DO': 357, 'pH': 309} SELECTED
+  08067000 Trinity Rv at Liberty, TX                {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  08068500 Spring Ck nr Spring, TX                  {'T': 309, 'EC': 308, 'DO': 309, 'pH': 0} 
+  08188500 San Antonio Rv at Goliad, TX             {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  08449000 Devils Rv nr Juno, TX                    {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  08180800 Medina Rv nr Somerset, TX                {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  08181800 San Antonio Rv nr Elmendorf, TX          {'T': 366, 'EC': 366, 'DO': 364, 'pH': 0} 
+  08047050 Marys Ck at Benbrook, TX                 {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  08374510 Rio Grande Dws Santa Elena Canyon, BBNP, {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  08070200 E Fk San Jacinto Rv nr New Caney, TX     {'T': 100, 'EC': 100, 'DO': 100, 'pH': 0} 
+  08057000 Trinity Rv at Dallas, TX                 {'T': 363, 'EC': 354, 'DO': 354, 'pH': 356} SELECTED
+New England and New York: 15 sites pass rules 1, 2, and 4
+  0135749950 MOHAWK RIVER DIVERSION TO POWER PLANT AT {'T': 366, 'EC': 366, 'DO': 0, 'pH': 0} 
+  01376515 HUDSON RIVER AT PIER 84 AT NEW YORK NY   {'T': 324, 'EC': 291, 'DO': 0, 'pH': 0} 
+  01376520 HUDSON RIVER AT PIER 25 AT NEW YORK NY   {'T': 300, 'EC': 300, 'DO': 0, 'pH': 0} 
+  01376307 HUDSON RIVER AT WATER GRANT STREET AT YO {'T': 232, 'EC': 233, 'DO': 0, 'pH': 0} 
+  01184000 CONNECTICUT RIVER AT THOMPSONVILLE, CT   {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  01191000 NORTH BRANCH PARK RIVER AT HARTFORD, CT  {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  01433500 MONGAUP RIVER NEAR MONGAUP NY            {'T': 363, 'EC': 365, 'DO': 362, 'pH': 361} SELECTED
+  04213500 CATTARAUGUS CREEK AT GOWANDA NY          {'T': 364, 'EC': 346, 'DO': 364, 'pH': 364} SELECTED
+  01342732 MOHAWK RIVER AT ILION NY                 {'T': 157, 'EC': 157, 'DO': 0, 'pH': 0} 
+  04231600 GENESEE RIVER AT FORD STREET BRIDGE, ROC {'T': 363, 'EC': 363, 'DO': 363, 'pH': 362} SELECTED
+  01355475 MOHAWK RIVER AT REXFORD NY               {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  01354330 MOHAWK RIVER AT LOCK 8 NEAR SCHENECTADY  {'T': 310, 'EC': 260, 'DO': 0, 'pH': 0} 
+  01021050 St. Croix River at Milltown, Maine       {'T': 363, 'EC': 356, 'DO': 362, 'pH': 325} SELECTED
+  01302020 BRONX RIVER AT NY BOTANICAL GARDEN AT BR {'T': 332, 'EC': 331, 'DO': 0, 'pH': 0} 
+  0135980207 HUDSON RIVER NEAR SCHODACK LANDING NY    {'T': 332, 'EC': 345, 'DO': 0, 'pH': 0} 
+selected 36 sites: {'Great Plains and upper Midwest': 8, 'Mountain West': 8, 'New England and New York': 4, 'Southeast': 8, 'Southwest and Texas': 8}
