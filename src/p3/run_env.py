@@ -86,7 +86,7 @@ def run_site(args):
         return out_days
     site = os.path.basename(path)[:-4]
     P = pickle.load(open(f"results/{tag}/plans/{site}.pkl", "rb"))
-    rng = np.random.default_rng([SEED, 8, int(site[:15]) % 100000])
+    rng = np.random.default_rng([SEED, 8, re2.site_number(site) % 100000])
     rows, tmax = [], {}
     for rd in load_site_records(path):
         d = delivery.day_number(rd.day)
@@ -148,7 +148,8 @@ def main():
             print("done", o, flush=True)
     days = pd.concat([pd.read_csv(j[3], dtype={"site": str}) for j in jobs if os.path.getsize(j[3]) > 5])
     days.to_csv(f"results/{tag}/env_days.csv", index=False)
-    s7 = pd.concat([pd.read_csv(j[4], dtype={"site": str}) for j in jobs if os.path.getsize(j[4]) > 5])
+    parts = [pd.read_csv(j[4], dtype={"site": str}) for j in jobs if os.path.getsize(j[4]) > 5]
+    s7 = pd.concat(parts) if parts else pd.DataFrame(columns=["site", "window_end"])   # no seven-day window
     s7.to_csv(f"results/{tag}/env_7dadm.csv", index=False)
     print(f"{days[['site', 'day']].drop_duplicates().shape[0]} days at {days.site.nunique()} sites; "
           f"{s7[['site', 'window_end']].drop_duplicates().shape[0]} 7-day windows")

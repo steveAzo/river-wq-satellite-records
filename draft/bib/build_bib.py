@@ -32,13 +32,30 @@ DOIS = {
     "reed1960": "10.1137/0108018",
     "gilbert1960": "10.1002/j.1538-7305.1960.tb03959.x",
     "elliott1963": "10.1002/j.1538-7305.1963.tb00955.x",
-    "benson1984": "10.4319/lo.1984.29.3.0620",
     "duncan2020": "10.1155/2020/2378560",
     "albanese1996": "10.1109/18.556670",
     "talli2026": "10.48550/arXiv.2609.20569",
     "ramachandran2026": "10.48550/arXiv.2609.37995",
     "rathi2025": "10.48550/arXiv.2501.11984",
     "gandhi2009": "10.1145/1559845.1559926",
+    # added in the revision (2026-10-26; each DOI checked against its title)
+    "campbell2013": "10.1525/bio.2013.63.7.10",
+    "horsburgh2015": "10.1016/j.envsoft.2015.04.002",
+    "jakeman2006": "10.1016/j.envsoft.2006.01.004",
+    "hutton2016": "10.1002/2016WR019285",
+    "rode2016": "10.1021/acs.est.6b02155",
+    "appling2018": "10.1002/2017JG004140",
+    "luby2002": "10.1109/SFCS.2002.1181950",
+    "ho2006": "10.1109/TIT.2006.881746",
+    "field2007": "10.1111/j.1467-9868.2007.00593.x",
+    "orourke1981": "10.1145/358746.358758",
+    "zordan2014": "10.1145/2629660",
+    # added at the final check (2026-10-27; each DOI checked against its title)
+    "lin2019": "10.3390/en12132523",
+    "lin2025": "10.3390/s25010145",
+    "chaubey2022": "10.1109/TII.2022.3192966",
+    "essawy2020": "10.1016/j.envsoft.2020.104753",
+    "choi2021": "10.1016/j.envsoft.2020.104888",
 }
 
 MANUAL = r"""
@@ -51,6 +68,41 @@ MANUAL = r"""
   address     = {Reston, VA, USA},
   year        = {2006},
   doi         = {10.3133/tm1D3}
+}
+
+@techreport{epa1986gold,
+  author      = {{U.S. Environmental Protection Agency}},
+  title       = {Quality criteria for water 1986},
+  institution = {Office of Water Regulations and Standards},
+  number      = {EPA 440/5-86-001},
+  address     = {Washington, DC, USA},
+  year        = {1986}
+}
+
+@techreport{epa1986do,
+  author      = {{U.S. Environmental Protection Agency}},
+  title       = {Ambient water quality criteria for dissolved oxygen},
+  institution = {Office of Water Regulations and Standards},
+  number      = {EPA 440/5-86-003},
+  address     = {Washington, DC, USA},
+  year        = {1986}
+}
+
+@techreport{epa2003temp,
+  author      = {{U.S. Environmental Protection Agency}},
+  title       = {{EPA} Region 10 guidance for Pacific Northwest state and tribal temperature water quality standards},
+  institution = {Region 10 Office of Water},
+  number      = {EPA 910-B-03-002},
+  address     = {Seattle, WA, USA},
+  year        = {2003}
+}
+
+@misc{kineis2024formats,
+  author       = {{Kin\'eis}},
+  title        = {Distribution formats: {JSON} formats (help centre)},
+  howpublished = {\url{https://kineis.helpjuice.com/distribution-formats/json-formats}},
+  year         = {2024},
+  note         = {Accessed 25 October 2026}
 }
 
 @misc{usgs2016nwis,
@@ -71,13 +123,6 @@ MANUAL = r"""
   pages     = {71--86}
 }
 
-@inproceedings{desnoyers2005,
-  author    = {Desnoyers, Peter and Ganesan, Deepak and Li, Huan and Li, Ming and Shenoy, Prashant},
-  title     = {{PRESTO}: a predictive storage architecture for sensor networks},
-  booktitle = {Proceedings of the 10th Workshop on Hot Topics in Operating Systems (HotOS X)},
-  address   = {Santa Fe, NM, USA},
-  year      = {2005}
-}
 
 @misc{kineis2023kim1,
   author       = {{Kin\'eis}},
@@ -95,13 +140,6 @@ MANUAL = r"""
   doi          = {10.5281/zenodo.23617665}
 }
 
-@misc{ttn2026fup,
-  author       = {{The Things Network}},
-  title        = {Duty cycle and fair use policy},
-  howpublished = {\url{https://www.thethingsnetwork.org/docs/lorawan/duty-cycle/}},
-  year         = {2026},
-  note         = {Accessed 16 October 2026}
-}
 """
 
 

@@ -1,10 +1,9 @@
 cff-version: 1.2.0
 message: "If you use this software or data, please cite the archive below (and the paper, once published)."
-title: "river-wq-satellite-records: code, data, and results for 'A regulatory-grade river water-quality record in a few satellite messages a day'"
-version: v1.0.0
-doi: 10.5281/zenodo.23617665
-date-released: 2026-10-24
-license: CC-BY-4.0
+title: "river-wq-satellite-records: code, data, and results for 'Error-bounded reconstruction and loss-resilient delivery of river water-quality records over satellite IoT: A reproducible framework'"
+version: v2.0.0
+date-released: 2026-10-27
+license: MIT
 repository-code: "https://github.com/steveAzo/river-wq-satellite-records"
 authors:
   - family-names: Azongo

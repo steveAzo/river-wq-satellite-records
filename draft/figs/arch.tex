@@ -1,4 +1,4 @@
-% Fig. 1 (system overview), compiled on its own so that the PDF and the Word copy use the same drawing:
+% Fig. 1 (workflow), compiled on its own so that the PDF and the Word copy use the same drawing:
 % draft/build.sh builds figs/arch.pdf (for LaTeX) and figs/arch.png (for Word) from this file.
 \documentclass[border=2pt]{standalone}
 \usepackage[T1]{fontenc}
@@ -7,21 +7,27 @@
 \usetikzlibrary{positioning,arrows.meta,fit}
 \begin{document}
 \begin{tikzpicture}[
-  box/.style={draw, rounded corners=2pt, align=center, font=\small, minimum height=1.0cm, inner sep=4pt},
+  box/.style={draw, rounded corners=2pt, align=center, font=\small, minimum height=1.05cm, inner sep=4pt, text width=2.75cm},
   arr/.style={-{Stealth[length=2mm]}, thick}]
-\node[box] (s) {Sensors\\T, SC, DO, pH};
-\node[box, right=0.5cm of s] (b) {Day buffer};
-\node[box, right=0.5cm of b] (e) {Encoder:\\fewest values\\within $\tau\times$tol.};
-\node[box, right=0.5cm of e] (c) {Packing and\\erasure code\\($K$ of $Q$)};
-\node[box, below=1.1cm of c] (l) {One-way satellite link\\(loss probability $p$)};
-\node[box, left=0.5cm of l] (d) {Server: decode,\\reconstruct, certify};
-\node[box, left=0.5cm of d] (r) {Record and\\certified spans};
-\draw[arr] (s) -- (b);
-\draw[arr] (b) -- (e);
-\draw[arr] (e) -- (c);
-\draw[arr] (c) -- node[right, font=\footnotesize]{$Q$ messages/day} (l);
+% node
+\node[box] (s) {Sensor readings of one UTC day (T, SC, DO, pH)};
+\node[box, right=0.45cm of s] (e) {Encoder: fewest values keeping every reading within tolerance};
+\node[box, right=0.45cm of e] (f) {Frame: 23-B messages with day, positions, CRC};
+\node[box, right=0.45cm of f] (c) {Record-first code: $D_1$ data + $Q-D_1$ parity};
+% link
+\node[box, below=1.5cm of c, text width=3.1cm] (l) {One-way satellite link: messages lost without notice};
+% server
+\node[box, left=0.45cm of l] (d) {Decode: majority header, CRC-checked units, erasure decoding};
+\node[box, left=0.45cm of d] (r) {Reconstruct and certify spans from received positions only};
+\node[box, left=0.45cm of r] (u) {Decisions: certainly exceeded, certainly not, or undetermined};
+\draw[arr] (s) -- (e);
+\draw[arr] (e) -- (f);
+\draw[arr] (f) -- (c);
+\draw[arr] (c) -- node[right, pos=0.62, font=\footnotesize, align=left]{$Q$ messages\\per day} (l);
 \draw[arr] (l) -- (d);
 \draw[arr] (d) -- (r);
-\node[draw, dashed, rounded corners, inner sep=5pt, fit=(s)(b)(e)(c), label={[font=\footnotesize]above:Sensor node}] {};
+\draw[arr] (r) -- (u);
+\node[draw, dashed, rounded corners, inner sep=5pt, fit=(s)(e)(f)(c), label={[font=\footnotesize]above:Sensor node (knows the readings; never learns what arrived)}] {};
+\node[draw, dashed, rounded corners, inner sep=5pt, fit=(u)(r)(d), label={[font=\footnotesize]below:Server (knows only the bytes that arrived and the site profile)}] {};
 \end{tikzpicture}
 \end{document}

@@ -1,25 +1,24 @@
 \section{Conclusions}
 \label{sec:conclusion}
 
-This study measured what a regulatory-grade water-quality record costs and how it can be delivered over the one-way, message-limited satellite links that reach remote rivers. On 39 USGS sites over two years, a record within the USGS excellent-record tolerance needed a median of \needMedConf{} bytes per day and at most \needMsgMaxConf{} messages of 23 bytes. Delivered without protection, such a record was guaranteed on only \gRelIndPct{} of days at a message loss of 30\%. Protected by an erasure code or by repetition, it was guaranteed on more than 80\% of days at the same loss with six messages per day, and on most sites within a week when a node buffered its data. A 28-day pilot was sufficient to choose the plan at \sizeSuff{} of sites. All seven pre-registered hypotheses held on a sealed confirmation year.
+This study developed and evaluated a framework that delivers river water-quality records within a stated tolerance over one-way, message-priced satellite links, and that lets the server certify, from the bytes it received, which readings meet the tolerance. On \nSitesConf{} sealed confirmation sites, a four-parameter day needed a median of two 23-byte messages. With six messages per day and an independent loss of 30\%, the record-first code fully certified \gCodeIidConf{} of days without any knowledge of the loss process, more than repetition, a code of fixed dimension, and the transmission practice of satellite tags; with twelve messages per day it certified \gTwelveIidConf{} of days. Certified records never gave a wrong certain decision and detected conductance pulses that periodic and tag telemetry missed, but they do not resolve features finer than the tolerance. Six of eight frozen hypotheses held; the two that did not exposed a record cost slightly more variable than assumed and a residual integrity risk of the 16-bit check under heavy corruption, which a corroboration rule removed in an exploratory re-run.
 
-For agencies monitoring rivers such as those affected by illegal mining in Ghana, the result means that a credible continuous record does not require a high-capacity link. It requires the right bytes, protected against loss, on a plan sized from local data. Future work should measure message loss on operational satellite services, run the encoder on field hardware, and extend the guarantee to the event alarms that operators need in real time.
+For agencies that monitor rivers beyond terrestrial networks, the results mean that an accountable continuous record does not require a high-capacity link, provided that the node sends the right values and protects them as a whole, and that the plan is sized from local data. Future work should measure message loss on operational satellite services, run the encoder on field hardware, evaluate low-cost sensors in tropical rivers, tighten the tolerance near decision thresholds, and code across days.
 
 \section*{Software and data availability}
 The software that produced every result is described below:
 \begin{itemize}
-  \item Name of software: guaranteed-record toolkit (encoder, Reed--Solomon code, loss channels, delivery designs, buffered simulation, analysis scripts, and unit tests).
+  \item Name of software: river-wq-satellite-records (encoder, message frame, erasure and fountain codes, receiver and certificate, loss channels, analysis scripts, and unit tests).
   \item Developers: Stephen Kwaku Azongo and Kofi Sarpong Adu-Manu.
   \item Contact: Kofi Sarpong Adu-Manu, Department of Computer Science, University of Ghana.
   \item Year first available: 2026.
   \item Hardware required: a standard desktop computer.
-  \item Software required: Python 3.13 with NumPy, pandas, and Matplotlib.
+  \item Software required: Python 3.13 with NumPy 2.3, pandas 2.3, and Matplotlib 3.10 (exact versions in the repository's requirements file).
   \item Program language: Python.
-  \item Program size: approximately \progLines{} lines.
-  \item Availability and cost: free, under a CC BY 4.0 licence; archived on Zenodo \citep{azongo2026code} and developed at \url{https://github.com/steveAzo/river-wq-satellite-records}.
+  \item Program size: approximately \progLines{} lines, with \nTests{} unit tests, including golden byte vectors of the message frame.
+  \item Availability and cost: free, under the MIT licence for the code and a CC BY 4.0 licence for the derived data and results; developed at \url{https://github.com/steveAzo/river-wq-satellite-records} and archived on Zenodo \citep{azongo2026code}. The confirmation used the commit tagged confirm2-freeze; its freeze record lists the checksums of the code, the plan, and the sealed data.
 \end{itemize}
-The archive also holds the USGS and InWaterSense data as used, the frozen study plan with the checksums of the frozen code, and every result file from which the numbers, tables, and figures of this paper are generated.
-The USGS data are public \citep{usgs2016nwis}. The InWaterSense data are available under a CC BY 4.0 licence \citep{ahmedi2022data}. The Weija data belong to the deployment team and are available from the corresponding author on reasonable request.
+The repository also holds the cleaned USGS data as used, the plans and freeze records of both confirmation rounds, every result file from which the numbers, tables, and figures of this paper are generated, and a single command for each stage. The USGS data are public \citep{usgs2016nwis}; the raw downloads can be regenerated with the included scripts, and their checksums are recorded. The InWaterSense data are available under a CC BY 4.0 licence \citep{ahmedi2022data}. The Weija data belong to the deployment team and are available from the corresponding author on reasonable request; they are not in the repository.
 
 \section*{CRediT authorship contribution statement}
 Kofi Sarpong Adu-Manu: Conceptualization, Supervision, Resources, Writing -- review \& editing. Stephen Kwaku Azongo: Methodology, Software, Formal analysis, Investigation, Data curation, Visualization, Writing -- original draft.

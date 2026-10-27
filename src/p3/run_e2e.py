@@ -53,6 +53,12 @@ def evaluate(rd, sent, kind, p, draws, rng):
         {"worst": float(np.median([x["worst"] for x in o]))}
 
 
+def site_number(name):
+    """Seed component of a site: its USGS number, or a checksum of the name for other sources (low-cost nodes)."""
+    import zlib
+    return int(name[:15]) if name[:15].isdigit() else zlib.crc32(name.encode())
+
+
 def sample_site(path, n_per):
     days = [d for d in load_site_records(path) if len(d.channels) == 4]
     rng = np.random.default_rng([SEED, int(os.path.basename(path)[:-4][:15])])

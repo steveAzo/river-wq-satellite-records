@@ -2,32 +2,67 @@
 \label{sec:study}
 
 \subsection{Data}
-The main data were approved instantaneous values from \nSites{} USGS river sites in New Jersey, Pennsylvania, Illinois, and Oregon \citep{usgs2016nwis}, recorded every 15 minutes at \nSitesFifteen{} sites, every 30 minutes at \nSitesThirty{} sites, and every 5 minutes and every hour at one site each. Dissolved oxygen was used in mg/L, the unit of the accuracy rating. A site-day was used when every gap within it spanned at most two readings; such gaps were bridged linearly. The year 2023 (\nDaysDev{} site-days) served for development and 2024 (\nDaysConf{} site-days, \nDaysAllFour{} with all four parameters) for confirmation. Two low-cost deployments were added: node 1 of the InWaterSense network on the Sitnica River, Kosovo \citep{ahmedi2022,ahmedi2022data}, and the Weija intake deployment in Ghana \citep{adumanu2020}. InWaterSense reports dissolved oxygen in percent saturation, which was converted to mg/L with the freshwater solubility of \citet{benson1984} at the measured temperature. Readings flagged as implausible by earlier cleaning were removed. For Weija, only temperature and conductivity were used, because its pH record was not physically plausible. Both low-cost records contain many gaps, which left \nDaysInws{} and \nDaysWeija{} complete site-days.
-
-\subsection{Pre-registered study}
-The study followed a written plan. All design choices were made on the 2023 data: the repetition count $r$, the code dimension $K$, and the share of messages used by tag practice were tuned for each plan, loss model, and loss probability on half of a stratified sample of 780 site-days, and reported on the other half. The plan, the tuned parameters, and the code were then frozen and checksummed, and the hypotheses in Table~\ref{tab:hyp} were fixed. Only then were the 2024 data opened, once, after their checksums had been verified; the low-cost deployments had not been used for any choice either. The confirmatory runs applied the frozen parameters without change.
-
-\subsection{Metrics}
-The following metrics were used:
+\label{sec:data}
+All data were approved instantaneous values from the USGS National Water Information System \citep{usgs2016nwis}; dissolved oxygen was used in mg/L, the unit of the accuracy rating. Each parameter was used on its own sampling grid on each UTC day (5 to 60 minutes); a run of at most two missing readings with valid neighbours on both sides was bridged linearly, and any longer gap made that parameter-day ineligible. A record day carried the parameters that were eligible on that day. The primary cohort consisted of record days with all four parameters. Three data sets were used:
 \begin{itemize}
-  \item Guaranteed share $G$: the share of site-days whose whole record was within tolerance, averaged over 30 random loss realisations per site-day.
-  \item Certified share: the share of readings that the server could certify (Section~\ref{sec:model}).
-  \item Buffered target: for RQ2, the share of a site's days that were guaranteed within seven days; a site met the target when this share reached 90\%.
-  \item Plan choice: for RQ4, the plan selected from the first 28 days of a year as the smallest plan that met the buffered target there under independent loss with $p = 0.3$, compared with the smallest plan that met it over the rest of the year. A safety factor on the pilot needs was tuned on 2023 and came out at \sizeSafety{}, which means no inflation.
+  \item Development: calendar year 2023 at \nSitesDev{} sites in New Jersey, Pennsylvania, Illinois, and Oregon (\nDaysDevFour{} four-parameter days at \nSitesDevFour{} sites). Every design choice and every threshold was set on these data.
+  \item Confirmation: calendar year 2024 at \nSitesConf{} sites in five regions that the development sites do not represent (the Southeast, the Mountain West, the Great Plains and upper Midwest, the Southwest and Texas, and New England and New York; \nDaysConfFour{} four-parameter days at \nSitesConfFour{} sites). The sites were drawn at random from those whose USGS series catalogue covered 2024 for all four parameters and which had at least 250 approved daily values of each, using metadata and approval counts only.
+  \item Temporal re-test: calendar year 2024 at the development sites (\nDaysRetestFour{} four-parameter days). These data had been opened in an earlier round of this study and are reported as a re-test, not as confirmation.
 \end{itemize}
-Because site-days of one site are not independent, uncertainty was estimated with a site-clustered bootstrap: the \nSites{} sites were resampled with replacement \nBoot{} times, and 95\% percentile intervals are reported for the headline statistics.
-
-\subsection{Sensitivity analyses}
-The plan also listed sensitivity analyses, which were run after confirmation and are exploratory. They covered the USGS rating of a good record (temperature 0.5\,\textdegree C, specific conductance 10\%, dissolved oxygen 0.5\,mg/L or 10\%, pH 0.5) \citep{wagner2006}, 19-byte messages with six values, and coarser sampling, obtained by keeping every second or fourth reading. Two tolerance margins were added: 0.975 times the tolerance, which absorbs the quantiser, and half the tolerance, which leaves the other half of the error budget to the sensor. Two simpler encoders, of the kind used in process data historians and supervisory control systems, were also measured: greedy online segmentation, which extends each segment as far as the tolerance allows before keeping its last reading, and deadband reporting, which sends a reading whenever it leaves the tolerance band around the last value sent.
+Table~\ref{tab:cohort} summarises the cohorts. Supplementary Tables S1 and S2 list every site, and Supplementary Table S3 provides the flow from parameter-days to record days, including the days with fewer than four parameters.
 
 \begin{table}[t]
 \centering
-\caption{Pre-registered hypotheses and their outcome on the 2024 confirmation data.}
+\caption{Cohorts (four-parameter record days; sites with at least one such day).}
+\label{tab:cohort}
+\small
+\begin{tabularx}{\textwidth}{@{}Xrrrr@{}}
+\toprule
+Cohort & Sites & Days & Main interval & Median days per site \\
+\midrule
+\tableinput{tables/cohorts.tex}
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Loss models and message plans}
+\label{sec:channels}
+No measured loss rate was available for the target service; therefore, loss was modelled. Independent loss removed each message with probability $p$; a two-state Gilbert channel \citep{gilbert1960,elliott1963} lost every message in its bad state, with the same mean loss $p$ and mean bursts of three or six messages. Loss probabilities from 0.05 to 0.6 were evaluated, within the range studied for direct-to-satellite links \citep{tondo2021}; $p = 0.3$ is the reference. One loss process ran through all messages in order; thus, bursts could span midnight. Plans of 1, 6, 12, 24, and 96 messages per day were evaluated as illustrative tiers.
+
+\subsection{Environmental decision criteria}
+\label{sec:criteria}
+Four criteria common in regulatory practice were evaluated, with thresholds fixed before any design was compared:
+\begin{itemize}
+  \item Low dissolved oxygen: a daily minimum below 5.0\,mg/L \citep{epa1986do}.
+  \item pH out of range: any reading below 6.5 or above 9.0 \citep{epa1986gold}.
+  \item Warm water: a seven-day average of the daily maximum temperature (7DADM) above 20\,\textdegree C \citep{epa2003temp}, a criterion that requires several consecutive days.
+  \item Conductance pulse: a change of specific conductance by more than 10\% within one hour, as caused, for example, by a discharge (a criterion defined for this study).
+\end{itemize}
+For each criterion and day, the reconstruction was read in two ways: naively, by comparing it with the threshold, and with the three-valued rule of Section~\ref{sec:decisions}, using certified readings only. Both were compared with the full sensor record.
+
+\subsection{Development and confirmation}
+\label{sec:procedure}
+The study proceeded in two stages:
+\begin{enumerate}
+  \item Development (2023): the framework was developed and tested on the development sites, including the channel-blind parameters of the baselines (chosen by minimax regret over six channels on half of the sampled days) and the threshold of the plan-sizing rule.
+  \item Confirmation (2024, new sites): eight hypotheses with numerical thresholds (Table~\ref{tab:hyp}), the analysis plan, and the software were frozen and checksummed, the repository was tagged, and the freeze record was committed; only then were the sealed confirmation data opened, once, after their checksums had been verified.
+\end{enumerate}
+The confirmation run was interrupted twice by the end of a computing session and resumed with the same frozen command; finished per-site results were reused and none was inspected before the run was complete. An earlier version of the method had been confirmed on the 2024 data of the development sites; because the method changed in response to a review, those data now serve only as a temporal re-test.
+
+\subsection{Outcomes and statistics}
+\label{sec:stats}
+The primary outcome was $G_{\mathrm{cert}}$, the probability that a day is fully certified at the server (Section~\ref{sec:cert}). For the record-first code and repetition, $G_{\mathrm{cert}}$ of a day depends only on its record size, the plan, and the loss model, and was computed exactly on every day by forward recursions over the channel state; designs whose content depends on the plan were evaluated on a stratified sample of 20 days per site. The exact probabilities agreed with byte-level simulation, in which every message was built, lost, decoded, and certified from its bytes: over 525 combinations of design, plan, and loss model, the mean absolute difference was 0.0014 and the largest 0.011, within the simulation error. Environmental decisions and corruption tests used 20 loss draws per day. Each outcome has its own unit: four-parameter record days for cost, delivery, and decisions (\nDaysConfFour{} on the confirmation sites); 720 sampled days (20 per site) for designs whose content depends on the plan; sites for the 90\% target; site-pilots for plan sizing (\sizePilotsConf{}); and \nDaysCorrConf{} sampled days for the corruption tests.
+
+Days within a site are not independent; therefore, 95\% intervals were obtained from 2,000 bootstrap resamples of sites \citep{field2007}, with differences between designs computed on the same days. A bootstrap over site-by-month blocks, run as a sensitivity analysis for season, gave a narrower interval for the main estimate (\gCodeIidBlockCI{}, against \gCodeIidConfCI{}); site clustering is therefore the conservative choice reported throughout. A hypothesis passed when its interval lay entirely on the stated side of its threshold (Table~\ref{tab:hyp}). The eight hypotheses are reported jointly without adjustment because each threshold is a substantive margin rather than a test of no effect; all other analyses are descriptive.
+
+\begin{table}[t]
+\centering
+\caption{Confirmatory hypotheses (frozen before the confirmation data were opened) and their outcome on the \nSitesConf{} confirmation sites.}
 \label{tab:hyp}
 \small
-\begin{tabularx}{\textwidth}{@{}lXrl@{}}
+\begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{3.7cm}l@{}}
 \toprule
- & Hypothesis & Result & Outcome \\
+ & Hypothesis & Threshold & Result (95\% interval) & Outcome \\
 \midrule
 \tableinput{tables/hypotheses.tex}
 \bottomrule

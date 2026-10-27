@@ -33,9 +33,9 @@ re-test, not a blind confirmation. Therefore:
 | 9 | Robustness: corruption (bit flips caught by CRC), out-of-range/clipping, clock drift/day rollover misassociation, outage days, sensor dropout; restrict claims where untestable | M18 | done (docs/ROBUSTNESS_RESULTS.md) |
 | 10 | Complexity and resources: measured CPU/RAM of encoder for 5/10/15/60-min days; implement/verify a lower-memory selector or state the exact complexity; RS encode cost; energy per report from message count and modem datasheet (no hardware: stated) | M12, E8 | done (docs/RESOURCES_RESULTS.md) |
 | 11 | Statistics: every outcome with its denominator; paired cluster bootstrap for all headline contrasts (esp. code vs repetition); multi-seed tier choice; seed and season-block uncertainty; all site-days where feasible (RAM 3.7 GB, <= 3 workers) | M17 | done (docs/STATS_RESULTS.md) |
-| 12 | Freeze the revised plan, assemble and seal the new-river cohort, run confirmation once | M13, M15, E6 | todo |
-| 13 | Manuscript: new title, abstract, claim language (no "regulatory-grade", no "guaranteed" without condition), contribution matrix (Table A), workflow figure (Fig. A), Figs B–D, Tables B–C, "pre-specified and checksum-frozen", seven families/eight tests, sample-size notes, related work (environmental compression, data-quality flags, uncertainty-aware telemetry, mission protocols, EM&S transparency), discussion limits, software availability (commit, environment, one command, code vs data licence, Weija restrictions) | M1, M2, M15, Sec. 7, Sec. 8 | todo |
-| 14 | Venue check (EM&S if Step 8 shows clear environmental value; else Elsevier Internet of Things), Writing-rule sweep, Word copy | Sec. 2, Sec. 10 | todo |
+| 12 | Freeze the revised plan, assemble and seal the new-river cohort, run confirmation once | M13, M15, E6 | done: 6 of 8 supported (docs/CONFIRM2_RESULTS.md) |
+| 13 | Manuscript: new title, abstract, claim language (no "regulatory-grade", no "guaranteed" without condition), contribution matrix (Table A), workflow figure (Fig. A), Figs B–D, Tables B–C, "pre-specified and checksum-frozen", seven families/eight tests, sample-size notes, related work (environmental compression, data-quality flags, uncertainty-aware telemetry, mission protocols, EM&S transparency), discussion limits, software availability (commit, environment, one command, code vs data licence, Weija restrictions) | M1, M2, M15, Sec. 7, Sec. 8 | done: draft v0.3 (docs/RESPONSE_TO_REVIEW.md) |
+| 14 | Venue check (EM&S if Step 8 shows clear environmental value; else Elsevier Internet of Things), Writing-rule sweep, Word copy | Sec. 2, Sec. 10 | done: EM&S recommended; writing sweep; Word copy (draft/COVER_NOTE.md) |
 
 ## Item-to-step index
 
@@ -119,3 +119,14 @@ Table A 13 · Table B 1 · Table C 8 · Fig. A 13 · Fig. B 4 · Fig. C 5 · Fig
   among the 39 (results/confirm2/selection.csv); 2024 downloaded with the unchanged Paper 2 tools, cleaned, and
   sealed unread (data/{raw,clean}/usgs_new2024.md5). Runner src/p3/confirm2.py dry-run on a dev subset.
   Freeze: authors commit and tag `confirm2-freeze`, then `python -I src/data/freeze2.py confirm2-freeze`.
+- 2026-10-27: Step 12 done. Confirmation on 36 sealed sites (commit 86f662b, tag confirm2-freeze; freeze record
+  63967c0): C3-C8 supported; C1 (record interval upper bound 33 B > 30 B) and C2 (one CRC-16 false acceptance at a
+  bit-error rate of 1e-2; 96 readings) not supported (docs/CONFIRM2_RESULTS.md). Post-hoc rule B (corroborate
+  retried decodings) removed false certificates at small cost (docs/POSTHOC_C2.md; exploratory). Low-cost
+  deployments re-analysed (docs/LOWCOST2_RESULTS.md; exploratory). Temporal re-test running from a frozen worktree.
+- 2026-10-27: Step 13 done (draft v0.3): new title, all sections rewritten, numbers3.py / make_figures3.py /
+  supplement.py, response to the review, README, cover note. Remaining: re-test number, Step 14.
+- 2026-10-27: Step 14 done. Temporal re-test (frozen worktree of confirm2-freeze; 39 sites, 2024): all eight
+  criteria met (not confirmatory). Final v0.3 build: 31 pages, no unfilled numbers, no overfull lines, checker
+  passed, 472 tests pass. Venue: Environmental Modelling & Software recommended (authors decide; COVER_NOTE).
+  Authors' remaining tasks: draft/COVER_NOTE.md. All revision items addressed (docs/RESPONSE_TO_REVIEW.md).

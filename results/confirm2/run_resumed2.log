@@ -1,0 +1,366 @@
+>> src/data/seal.py verify data/clean/usgs_new2024.md5
+36/36 checksums OK
+plans results/confirm2/plans/01021050.pkl
+plans results/confirm2/plans/02110704.pkl
+plans results/confirm2/plans/01433500.pkl
+plans results/confirm2/plans/02203873.pkl
+plans results/confirm2/plans/02207135.pkl
+plans results/confirm2/plans/02171645.pkl
+plans results/confirm2/plans/02207160.pkl
+plans results/confirm2/plans/02217643.pkl
+plans results/confirm2/plans/02344673.pkl
+plans results/confirm2/plans/02413205.pkl
+plans results/confirm2/plans/04027000.pkl
+plans results/confirm2/plans/05545750.pkl
+plans results/confirm2/plans/04231600.pkl
+plans results/confirm2/plans/04213500.pkl
+plans results/confirm2/plans/06889110.pkl
+plans results/confirm2/plans/06887500.pkl
+plans results/confirm2/plans/06711565.pkl
+plans results/confirm2/plans/07109500.pkl
+plans results/confirm2/plans/06892350.pkl
+plans results/confirm2/plans/07143672.pkl
+plans results/confirm2/plans/07144100.pkl
+plans results/confirm2/plans/07332622.pkl
+plans results/confirm2/plans/08049500.pkl
+plans results/confirm2/plans/08057000.pkl
+plans results/confirm2/plans/08052700.pkl
+plans results/confirm2/plans/08052745.pkl
+plans results/confirm2/plans/08375300.pkl
+plans results/confirm2/plans/09070500.pkl
+plans results/confirm2/plans/08069500.pkl
+plans results/confirm2/plans/09085150.pkl
+plans results/confirm2/plans/09163500.pkl
+plans results/confirm2/plans/09261000.pkl
+plans results/confirm2/plans/09510000.pkl
+plans results/confirm2/plans/10129900.pkl
+plans results/confirm2/plans/375350097262800.pkl
+plans results/confirm2/plans/391953108130201.pkl
+>> src/p3/need2.py data/clean/usgs_new2024 confirm2 3
+done results/confirm2/need2/01021050.csv
+done results/confirm2/need2/01433500.csv
+done results/confirm2/need2/02110704.csv
+done results/confirm2/need2/02171645.csv
+done results/confirm2/need2/02203873.csv
+done results/confirm2/need2/02207135.csv
+done results/confirm2/need2/02207160.csv
+done results/confirm2/need2/02217643.csv
+done results/confirm2/need2/02344673.csv
+done results/confirm2/need2/02413205.csv
+done results/confirm2/need2/04027000.csv
+done results/confirm2/need2/04213500.csv
+done results/confirm2/need2/05545750.csv
+done results/confirm2/need2/04231600.csv
+done results/confirm2/need2/06711565.csv
+done results/confirm2/need2/06887500.csv
+done results/confirm2/need2/06889110.csv
+done results/confirm2/need2/06892350.csv
+done results/confirm2/need2/07109500.csv
+done results/confirm2/need2/07143672.csv
+done results/confirm2/need2/07144100.csv
+done results/confirm2/need2/07332622.csv
+done results/confirm2/need2/08049500.csv
+done results/confirm2/need2/08052700.csv
+done results/confirm2/need2/08057000.csv
+done results/confirm2/need2/08052745.csv
+done results/confirm2/need2/08069500.csv
+done results/confirm2/need2/08375300.csv
+done results/confirm2/need2/09070500.csv
+done results/confirm2/need2/09163500.csv
+done results/confirm2/need2/09261000.csv
+done results/confirm2/need2/09510000.csv
+done results/confirm2/need2/10129900.csv
+done results/confirm2/need2/375350097262800.csv
+done results/confirm2/need2/391953108130201.csv
+done results/confirm2/need2/09085150.csv
+== confirm2: record days 12,380, sites 36 ==
+  all record days                        n=12,380  bytes med   27 p90   54 p99  126 max  306 | value_share 2.34% byte_share 4.33% | msgs med 2 p99 9 max 21 (raw >= 32) | one msg 9.1%
+  four-parameter days (primary)          n=11,133  bytes med   27 p90   54 p99  132 max  306 | value_share 2.34% byte_share 4.33% | msgs med 2 p99 9 max 21 (raw >= 32) | one msg 7.0%
+  fewer-parameter days                   n= 1,247  bytes med   21 p90   39 p99  105 max  168 | value_share 2.43% byte_share 4.49% | msgs med 2 p99 7 max 12 (raw >= 24) | one msg 28.1%
+  site-equal (four-parameter, median of site medians): bytes 30, value_share 2.47%, byte_share 4.57%
+  four-parameter, all channels 15 min    n=10,667  bytes med   27 p90   54 p99  132 max  306 | value_share 2.34% byte_share 4.33% | msgs med 2 p99 9 max 21 (raw >= 32) | one msg 7.3%
+  four-parameter, all channels 30 min    n=   118  bytes med   33 p90   51 p99   69 max   72 | value_share 5.73% byte_share 10.58% | msgs med 3 p99 5 max 5 (raw >= 16) | one msg 1.7%
+  four-parameter, all channels 5 min     n=   342  bytes med   30 p90   45 p99   54 max   57 | value_share 0.87% byte_share 1.60% | msgs med 2 p99 4 max 4 (raw >= 94) | one msg 0.6%
+  example: 10-min four-parameter node, 576 readings/day: raw >= 936 B (>= 47 messages)
+>> src/p3/cohort_exact.py data/clean/usgs_new2024 confirm2 3
+done results/confirm2/cohort_exact/01021050.csv
+done results/confirm2/cohort_exact/02110704.csv
+done results/confirm2/cohort_exact/01433500.csv
+done results/confirm2/cohort_exact/02171645.csv
+done results/confirm2/cohort_exact/02203873.csv
+done results/confirm2/cohort_exact/02207135.csv
+done results/confirm2/cohort_exact/02344673.csv
+done results/confirm2/cohort_exact/02217643.csv
+done results/confirm2/cohort_exact/02207160.csv
+done results/confirm2/cohort_exact/02413205.csv
+done results/confirm2/cohort_exact/04027000.csv
+done results/confirm2/cohort_exact/04213500.csv
+done results/confirm2/cohort_exact/05545750.csv
+done results/confirm2/cohort_exact/04231600.csv
+done results/confirm2/cohort_exact/06711565.csv
+done results/confirm2/cohort_exact/06887500.csv
+done results/confirm2/cohort_exact/06889110.csv
+done results/confirm2/cohort_exact/06892350.csv
+done results/confirm2/cohort_exact/07143672.csv
+done results/confirm2/cohort_exact/07109500.csv
+done results/confirm2/cohort_exact/07332622.csv
+done results/confirm2/cohort_exact/08049500.csv
+done results/confirm2/cohort_exact/07144100.csv
+done results/confirm2/cohort_exact/08052700.csv
+done results/confirm2/cohort_exact/08057000.csv
+done results/confirm2/cohort_exact/08375300.csv
+done results/confirm2/cohort_exact/08069500.csv
+done results/confirm2/cohort_exact/08052745.csv
+done results/confirm2/cohort_exact/09070500.csv
+done results/confirm2/cohort_exact/09163500.csv
+done results/confirm2/cohort_exact/09261000.csv
+done results/confirm2/cohort_exact/09510000.csv
+done results/confirm2/cohort_exact/10129900.csv
+done results/confirm2/cohort_exact/09085150.csv
+done results/confirm2/cohort_exact/375350097262800.csv
+done results/confirm2/cohort_exact/391953108130201.csv
+11,133 four-parameter days at 36 sites
+>> src/p3/run_robust.py data/clean/usgs_new2024 confirm2 20 3
+done results/confirm2/robust/01433500.csv
+done results/confirm2/robust/01021050.csv
+done results/confirm2/robust/02110704.csv
+done results/confirm2/robust/02207135.csv
+done results/confirm2/robust/02203873.csv
+done results/confirm2/robust/02171645.csv
+done results/confirm2/robust/02207160.csv
+done results/confirm2/robust/02344673.csv
+done results/confirm2/robust/02217643.csv
+done results/confirm2/robust/02413205.csv
+done results/confirm2/robust/04027000.csv
+done results/confirm2/robust/04213500.csv
+done results/confirm2/robust/04231600.csv
+done results/confirm2/robust/05545750.csv
+done results/confirm2/robust/06711565.csv
+done results/confirm2/robust/06887500.csv
+done results/confirm2/robust/06889110.csv
+done results/confirm2/robust/06892350.csv
+done results/confirm2/robust/07143672.csv
+done results/confirm2/robust/07109500.csv
+done results/confirm2/robust/07144100.csv
+done results/confirm2/robust/07332622.csv
+done results/confirm2/robust/08049500.csv
+done results/confirm2/robust/08052700.csv
+done results/confirm2/robust/08052745.csv
+done results/confirm2/robust/08057000.csv
+done results/confirm2/robust/08069500.csv
+done results/confirm2/robust/08375300.csv
+done results/confirm2/robust/09070500.csv
+done results/confirm2/robust/09163500.csv
+done results/confirm2/robust/09261000.csv
+done results/confirm2/robust/09510000.csv
+done results/confirm2/robust/10129900.csv
+done results/confirm2/robust/09085150.csv
+done results/confirm2/robust/375350097262800.csv
+done results/confirm2/robust/391953108130201.csv
+59,760 rows; days {'test': 29880, 'tune': 29880}; inexact rows 4
+>> src/p3/run_env.py data/clean/usgs_new2024 confirm2 3
+done results/confirm2/env/01021050_days.csv
+done results/confirm2/env/02110704_days.csv
+done results/confirm2/env/01433500_days.csv
+done results/confirm2/env/02171645_days.csv
+done results/confirm2/env/02203873_days.csv
+done results/confirm2/env/02207135_days.csv
+done results/confirm2/env/02344673_days.csv
+done results/confirm2/env/02217643_days.csv
+done results/confirm2/env/02207160_days.csv
+done results/confirm2/env/02413205_days.csv
+done results/confirm2/env/04027000_days.csv
+done results/confirm2/env/04213500_days.csv
+done results/confirm2/env/05545750_days.csv
+done results/confirm2/env/04231600_days.csv
+done results/confirm2/env/06711565_days.csv
+done results/confirm2/env/06887500_days.csv
+done results/confirm2/env/06889110_days.csv
+done results/confirm2/env/06892350_days.csv
+done results/confirm2/env/07143672_days.csv
+done results/confirm2/env/07109500_days.csv
+done results/confirm2/env/07144100_days.csv
+done results/confirm2/env/08049500_days.csv
+done results/confirm2/env/07332622_days.csv
+done results/confirm2/env/08052745_days.csv
+done results/confirm2/env/08052700_days.csv
+done results/confirm2/env/08057000_days.csv
+done results/confirm2/env/08375300_days.csv
+done results/confirm2/env/08069500_days.csv
+done results/confirm2/env/09070500_days.csv
+done results/confirm2/env/09163500_days.csv
+done results/confirm2/env/09261000_days.csv
+done results/confirm2/env/09085150_days.csv
+done results/confirm2/env/09510000_days.csv
+done results/confirm2/env/10129900_days.csv
+done results/confirm2/env/375350097262800_days.csv
+done results/confirm2/env/391953108130201_days.csv
+11133 days at 36 sites; 8224 7-day windows
+>> src/p3/robustness.py data/clean/usgs_new2024 confirm2 3
+done results/confirm2/robust9/02110704_glitch.csv
+done results/confirm2/robust9/01021050_glitch.csv
+done results/confirm2/robust9/01433500_glitch.csv
+done results/confirm2/robust9/02171645_glitch.csv
+done results/confirm2/robust9/02203873_glitch.csv
+done results/confirm2/robust9/02207135_glitch.csv
+done results/confirm2/robust9/02207160_glitch.csv
+done results/confirm2/robust9/02344673_glitch.csv
+done results/confirm2/robust9/02217643_glitch.csv
+done results/confirm2/robust9/02413205_glitch.csv
+done results/confirm2/robust9/04027000_glitch.csv
+done results/confirm2/robust9/04213500_glitch.csv
+done results/confirm2/robust9/04231600_glitch.csv
+done results/confirm2/robust9/05545750_glitch.csv
+done results/confirm2/robust9/06711565_glitch.csv
+done results/confirm2/robust9/06887500_glitch.csv
+done results/confirm2/robust9/06889110_glitch.csv
+done results/confirm2/robust9/06892350_glitch.csv
+done results/confirm2/robust9/07109500_glitch.csv
+done results/confirm2/robust9/07143672_glitch.csv
+done results/confirm2/robust9/07144100_glitch.csv
+done results/confirm2/robust9/07332622_glitch.csv
+done results/confirm2/robust9/08049500_glitch.csv
+done results/confirm2/robust9/08052700_glitch.csv
+done results/confirm2/robust9/08052745_glitch.csv
+done results/confirm2/robust9/08057000_glitch.csv
+done results/confirm2/robust9/08069500_glitch.csv
+done results/confirm2/robust9/08375300_glitch.csv
+done results/confirm2/robust9/09070500_glitch.csv
+done results/confirm2/robust9/09163500_glitch.csv
+done results/confirm2/robust9/09261000_glitch.csv
+done results/confirm2/robust9/09510000_glitch.csv
+done results/confirm2/robust9/10129900_glitch.csv
+done results/confirm2/robust9/375350097262800_glitch.csv
+done results/confirm2/robust9/391953108130201_glitch.csv
+done results/confirm2/robust9/09085150_glitch.csv
+days: 357
+
+Corruption (independent erasure p = 0.3), means per day and draw; false_cert_total summed:
+                        G_cert    cert  crc_fails  header_rejects  decode_tries  false_cert
+Q  design   corruption                                                                     
+6  rec_code ber_1e-2    0.1121  0.1724     1.1822          0.6526        1.3460           0
+            ber_1e-3    0.8213  0.8803     0.2626          0.0659        0.6790           0
+            ber_1e-4    0.9058  0.9450     0.0271          0.0061        0.5112           0
+            msg_10pct   0.8631  0.9126     0.1004          0.1409        0.5839           0
+            none        0.9151  0.9510     0.0000          0.0000        0.4962           0
+   rec_rep  ber_1e-2    0.0845  0.2391     2.4234          0.6446        0.0000           0
+            ber_1e-3    0.6844  0.8481     0.3800          0.0707        0.0000           0
+            ber_1e-4    0.7939  0.9125     0.0355          0.0075        0.0000           0
+            msg_10pct   0.7358  0.8795     0.1487          0.1362        0.0000           0
+            none        0.8045  0.9191     0.0000          0.0000        0.0000           0
+12 rec_code ber_1e-2    0.2901  0.3328     1.2048          1.3378       10.4305          96
+            ber_1e-3    0.9812  0.9886     0.2766          0.1440        1.1881           0
+            ber_1e-4    0.9927  0.9969     0.0266          0.0162        0.6123           0
+            msg_10pct   0.9873  0.9927     0.1087          0.2833        0.7979           0
+            none        0.9934  0.9973     0.0000          0.0000        0.5756           0
+   rec_rep  ber_1e-2    0.2039  0.4197     4.2311          1.3225        0.0000           0
+            ber_1e-3    0.9024  0.9674     0.4370          0.1426        0.0000           0
+            ber_1e-4    0.9487  0.9853     0.0447          0.0162        0.0000           0
+            msg_10pct   0.9259  0.9760     0.1654          0.2773        0.0000           0
+            none        0.9538  0.9870     0.0000          0.0000        0.0000           0
+
+Glitches (perfect delivery):
+        days  planned  bound  full  extra_values  censored   cert  false_cert
+kind k                                                                       
+in   1   360      1.0    1.0   1.0         2.358     0.000  1.000           0
+     3   360      1.0    1.0   1.0         7.222     0.000  1.000           0
+out  1   360      1.0    1.0   1.0         2.403     1.000  0.997           0
+     3   360      1.0    1.0   1.0         7.306     2.989  0.992           0
+>> src/p3/stats.py confirm2 confirm
+
+RQ1: four-parameter record days n = 11,133 at 36 sites (site-clustered 95% intervals)
+  median bytes per day             27.0 (27.0 to 33.0)
+  90th percentile bytes            54.0 (48.0 to 63.0)
+  99th percentile bytes            132.0 (96.0 to 171.0)
+  median value share               0.0234 (0.0208 to 0.0286)
+  median byte share                0.0433 (0.0385 to 0.0529)
+  share of days in one message     0.0700 (0.0383 to 0.1074)
+
+RQ3 full cohort (exact): 11,133 four-parameter days at 36 sites
+  Q  6 iid_p0.1         rec_code 0.963 (0.942 to 0.980); rec_rep 0.932 (0.906 to 0.955); every_k 0.086 (0.058 to 0.117); tag 0.043 (0.027 to 0.062); code-rec_rep 0.031 (0.023 to 0.040); code-every_k 0.877 (0.845 to 0.908); code-tag 0.919 (0.895 to 0.943)
+      site means of the code: min 0.723, median 0.985, max 1.000
+  Q  6 iid_p0.3         rec_code 0.900 (0.868 to 0.928); rec_rep 0.799 (0.755 to 0.839); every_k 0.019 (0.013 to 0.026); tag 0.030 (0.019 to 0.044); code-rec_rep 0.101 (0.085 to 0.118); code-every_k 0.881 (0.852 to 0.907); code-tag 0.869 (0.841 to 0.897)
+      site means of the code: min 0.627, median 0.920, max 0.989
+  Q  6 iid_p0.5         rec_code 0.733 (0.688 to 0.776); rec_rep 0.589 (0.537 to 0.638); every_k 0.003 (0.002 to 0.003); tag 0.017 (0.010 to 0.024); code-rec_rep 0.144 (0.133 to 0.155); code-every_k 0.731 (0.686 to 0.773); code-tag 0.717 (0.675 to 0.756)
+      site means of the code: min 0.454, median 0.764, max 0.908
+  Q  6 gilbert_p0.3_b3  rec_code 0.823 (0.795 to 0.849); rec_rep 0.798 (0.766 to 0.827); every_k 0.052 (0.035 to 0.071); tag 0.029 (0.018 to 0.042); code-rec_rep 0.026 (0.021 to 0.031); code-every_k 0.771 (0.749 to 0.793); code-tag 0.794 (0.771 to 0.818)
+      site means of the code: min 0.588, median 0.841, max 0.920
+  Q  6 gilbert_p0.3_b6  rec_code 0.764 (0.743 to 0.784); rec_rep 0.759 (0.736 to 0.779); every_k 0.078 (0.052 to 0.106); tag 0.030 (0.019 to 0.044); code-rec_rep 0.006 (0.005 to 0.007); code-every_k 0.686 (0.662 to 0.710); code-tag 0.734 (0.715 to 0.753)
+      site means of the code: min 0.561, median 0.778, max 0.841
+  Q 12 iid_p0.1         rec_code 0.994 (0.988 to 0.999); rec_rep 0.985 (0.975 to 0.994); every_k 0.140 (0.115 to 0.163); tag 0.048 (0.030 to 0.070); code-rec_rep 0.009 (0.005 to 0.013); code-every_k 0.854 (0.831 to 0.879); code-tag 0.946 (0.924 to 0.966)
+      site means of the code: min 0.909, median 1.000, max 1.000
+  Q 12 iid_p0.3         rec_code 0.987 (0.976 to 0.995); rec_rep 0.948 (0.927 to 0.967); every_k 0.007 (0.006 to 0.008); tag 0.046 (0.028 to 0.066); code-rec_rep 0.039 (0.027 to 0.051); code-every_k 0.980 (0.969 to 0.988); code-tag 0.941 (0.919 to 0.961)
+      site means of the code: min 0.847, median 0.998, max 1.000
+  Q 12 iid_p0.5         rec_code 0.955 (0.936 to 0.971); rec_rep 0.848 (0.810 to 0.883); every_k 0.000 (0.000 to 0.000); tag 0.037 (0.023 to 0.053); code-rec_rep 0.107 (0.087 to 0.129); code-every_k 0.955 (0.936 to 0.971); code-tag 0.918 (0.897 to 0.939)
+      site means of the code: min 0.740, median 0.973, max 0.997
+  Q 12 gilbert_p0.3_b3  rec_code 0.966 (0.954 to 0.976); rec_rep 0.945 (0.928 to 0.960); every_k 0.064 (0.053 to 0.074); tag 0.042 (0.026 to 0.060); code-rec_rep 0.021 (0.015 to 0.027); code-every_k 0.902 (0.892 to 0.913); code-tag 0.924 (0.905 to 0.942)
+      site means of the code: min 0.823, median 0.976, max 0.991
+  Q 12 gilbert_p0.3_b6  rec_code 0.909 (0.898 to 0.919); rec_rep 0.902 (0.888 to 0.913); every_k 0.153 (0.127 to 0.179); tag 0.037 (0.023 to 0.054); code-rec_rep 0.007 (0.005 to 0.009); code-every_k 0.755 (0.736 to 0.778); code-tag 0.872 (0.856 to 0.887)
+      site means of the code: min 0.782, median 0.918, max 0.944
+
+  sampled-day contrasts and sample vs full agreement (Q = 6):
+        channel                                    contrast  estimate    lo    hi  n_days
+       iid_p0.1                          rec_code - fixed_K     0.126 0.080 0.180     720
+       iid_p0.1                         rec_code - reliable     0.447 0.435 0.456     720
+       iid_p0.1 rec_code sample mean (vs full cohort in hi)     0.971 0.971 0.963     720
+       iid_p0.3                          rec_code - fixed_K     0.120 0.093 0.152     720
+       iid_p0.3                         rec_code - reliable     0.788 0.757 0.815     720
+       iid_p0.3 rec_code sample mean (vs full cohort in hi)     0.906 0.906 0.900     720
+       iid_p0.5                          rec_code - fixed_K     0.179 0.161 0.195     720
+       iid_p0.5                         rec_code - reliable     0.717 0.669 0.763     720
+       iid_p0.5 rec_code sample mean (vs full cohort in hi)     0.734 0.734 0.733     720
+gilbert_p0.3_b3                          rec_code - fixed_K     0.141 0.115 0.169     720
+gilbert_p0.3_b3                         rec_code - reliable     0.508 0.484 0.530     720
+gilbert_p0.3_b3 rec_code sample mean (vs full cohort in hi)     0.829 0.829 0.823     720
+gilbert_p0.3_b6                          rec_code - fixed_K     0.130 0.103 0.163     720
+gilbert_p0.3_b6                         rec_code - reliable     0.293 0.278 0.307     720
+gilbert_p0.3_b6 rec_code sample mean (vs full cohort in hi)     0.769 0.769 0.764     720
+
+  Season (Q = 6, record-first code): monthly mean G_cert, independent / bursty p = 0.3
+    month               1      2      3      4      5      6      7      8      9      10     11     12
+    iid_p0.3         0.953  0.956  0.922  0.895  0.909  0.886  0.820  0.820  0.835  0.919  0.933  0.952
+    gilbert_p0.3_b3  0.879  0.871  0.840  0.821  0.830  0.811  0.755  0.752  0.763  0.834  0.856  0.876
+    iid_p0.3: site clusters 0.900 (0.868 to 0.928); site x month blocks 0.900 (0.885 to 0.913)
+    gilbert_p0.3_b3: site clusters 0.823 (0.795 to 0.849); site x month blocks 0.823 (0.811 to 0.835)
+
+RQ2 (daily record-first code; a day is certified within 7 days iff its block decodes; exact):
+  iid_p0.3         Q  1: 0/36 sites 0.0% (0.0% to 0.0%)
+  iid_p0.3         Q  6: 22/36 sites 61.1% (44.4% to 77.8%)
+  iid_p0.3         Q 12: 35/36 sites 97.2% (91.7% to 100.0%)
+  iid_p0.3         Q 24: 36/36 sites 100.0% (100.0% to 100.0%)
+  iid_p0.3         Q 96: 36/36 sites 100.0% (100.0% to 100.0%)
+  gilbert_p0.3_b3  Q  1: 0/36 sites 0.0% (0.0% to 0.0%)
+  gilbert_p0.3_b3  Q  6: 5/36 sites 13.9% (2.8% to 25.0%)
+  gilbert_p0.3_b3  Q 12: 35/36 sites 97.2% (91.7% to 100.0%)
+  gilbert_p0.3_b3  Q 24: 36/36 sites 100.0% (100.0% to 100.0%)
+  gilbert_p0.3_b3  Q 96: 36/36 sites 100.0% (100.0% to 100.0%)
+
+RQ4 (pilot of 28 days starting in each month; threshold T tuned on even sites; exact):
+  planning iid_p0.3: T = 0.9; 398 site-pilots at 36 test sites: sufficient 83.2% (75.4% to 90.4%), over-provision <= 1 tier 99.7% (99.2% to 100.0%); sufficient by pilot month: min 0.65 (12), max 0.97
+  planning gilbert_p0.3_b3: T = 0.9; 398 site-pilots at 36 test sites: sufficient 81.9% (74.3% to 88.4%), over-provision <= 1 tier 99.7% (99.2% to 100.0%); sufficient by pilot month: min 0.62 (12), max 1.00
+
+Step 8 contrasts (Q = 6; rates pooled over days; paired by day; site-clustered intervals):
+    cond                          outcome  estimate     lo     hi  events  n_days
+ perfect     DO miss rate, code - every_k    -0.007 -0.083  0.045   750.0   11133
+ perfect         DO miss rate, code - tag     0.048 -0.013  0.100   750.0   11133
+ perfect     pH miss rate, code - every_k     0.209  0.066  0.433   392.0   11133
+ perfect         pH miss rate, code - tag     0.304  0.112  0.592   392.0   11133
+ perfect     EC miss rate, code - every_k    -0.551 -0.617 -0.488   766.0   11133
+ perfect         EC miss rate, code - tag    -0.513 -0.563 -0.472   766.0   11133
+ perfect DO decided share, code - every_k     0.806  0.751  0.857     NaN   11133
+iid_p0.3     DO miss rate, code - every_k    -0.070 -0.130 -0.027   750.0   11133
+iid_p0.3         DO miss rate, code - tag    -0.049 -0.131  0.002   750.0   11133
+iid_p0.3     pH miss rate, code - every_k     0.173  0.045  0.398   392.0   11133
+iid_p0.3         pH miss rate, code - tag     0.311  0.114  0.621   392.0   11133
+iid_p0.3     EC miss rate, code - every_k    -0.563 -0.615 -0.512   766.0   11133
+iid_p0.3         EC miss rate, code - tag    -0.471 -0.515 -0.435   766.0   11133
+iid_p0.3 DO decided share, code - every_k     0.828  0.797  0.859     NaN   11133
+id                                                                             hypothesis       estimate             lo             hi  pass
+C1                                                 median record bytes, upper bound <= 30           27.0           27.0           33.0 False
+C2                               false certificates and wrong three-valued decisions == 0             96             96             96 False
+C3                                                 code - repetition, lower bound >= 0.03       0.100918       0.085206       0.117833  True
+C4                                      code - channel-blind fixed K, lower bound >= 0.05       0.119973       0.093345       0.151933  True
+C5                                  code - tag and code - every k-th, lower bounds >= 0.5  0.869 / 0.881  0.841 / 0.852  0.897 / 0.907  True
+C6                                     Q = 12 G_cert >= 0.95 (iid / bursty), lower bounds  0.987 / 0.966  0.976 / 0.954  0.995 / 0.976  True
+C7 EC pulses missed (upper <= -0.3) and DO days decided (lower >= 0.3), code - every k-th -0.551 / 0.806 -0.617 / 0.751 -0.488 / 0.857  True
+C8                                       28-day pilot sufficient >= 0.75 (point estimate)       0.831658       0.753924       0.904183  True

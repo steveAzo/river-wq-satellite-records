@@ -1,0 +1,69 @@
+done results/confirm2_posthoc2/robust9/01021050_glitch.csv
+done results/confirm2_posthoc2/robust9/01433500_glitch.csv
+done results/confirm2_posthoc2/robust9/02110704_glitch.csv
+done results/confirm2_posthoc2/robust9/02171645_glitch.csv
+done results/confirm2_posthoc2/robust9/02203873_glitch.csv
+done results/confirm2_posthoc2/robust9/02207135_glitch.csv
+done results/confirm2_posthoc2/robust9/02207160_glitch.csv
+done results/confirm2_posthoc2/robust9/02217643_glitch.csv
+done results/confirm2_posthoc2/robust9/02344673_glitch.csv
+done results/confirm2_posthoc2/robust9/02413205_glitch.csv
+done results/confirm2_posthoc2/robust9/04027000_glitch.csv
+done results/confirm2_posthoc2/robust9/04213500_glitch.csv
+done results/confirm2_posthoc2/robust9/04231600_glitch.csv
+done results/confirm2_posthoc2/robust9/05545750_glitch.csv
+done results/confirm2_posthoc2/robust9/06711565_glitch.csv
+done results/confirm2_posthoc2/robust9/06887500_glitch.csv
+done results/confirm2_posthoc2/robust9/06889110_glitch.csv
+done results/confirm2_posthoc2/robust9/06892350_glitch.csv
+done results/confirm2_posthoc2/robust9/07143672_glitch.csv
+done results/confirm2_posthoc2/robust9/07109500_glitch.csv
+done results/confirm2_posthoc2/robust9/07144100_glitch.csv
+done results/confirm2_posthoc2/robust9/07332622_glitch.csv
+done results/confirm2_posthoc2/robust9/08049500_glitch.csv
+done results/confirm2_posthoc2/robust9/08052700_glitch.csv
+done results/confirm2_posthoc2/robust9/08052745_glitch.csv
+done results/confirm2_posthoc2/robust9/08057000_glitch.csv
+done results/confirm2_posthoc2/robust9/08069500_glitch.csv
+done results/confirm2_posthoc2/robust9/08375300_glitch.csv
+done results/confirm2_posthoc2/robust9/09070500_glitch.csv
+done results/confirm2_posthoc2/robust9/09163500_glitch.csv
+done results/confirm2_posthoc2/robust9/09261000_glitch.csv
+done results/confirm2_posthoc2/robust9/09510000_glitch.csv
+done results/confirm2_posthoc2/robust9/10129900_glitch.csv
+done results/confirm2_posthoc2/robust9/375350097262800_glitch.csv
+done results/confirm2_posthoc2/robust9/391953108130201_glitch.csv
+done results/confirm2_posthoc2/robust9/09085150_glitch.csv
+days: 357
+
+Corruption (independent erasure p = 0.3), means per day and draw; false_cert_total summed:
+                        G_cert    cert  crc_fails  header_rejects  decode_tries  false_cert
+Q  design   corruption                                                                     
+6  rec_code ber_1e-2    0.0661  0.1337     1.1822          0.6526        1.3898           0
+            ber_1e-3    0.7841  0.8561     0.2626          0.0659        0.6942           0
+            ber_1e-4    0.9030  0.9433     0.0271          0.0061        0.5119           0
+            msg_10pct   0.8470  0.9017     0.1004          0.1409        0.5892           0
+            none        0.9151  0.9510     0.0000          0.0000        0.4962           0
+   rec_rep  ber_1e-2    0.0845  0.2391     2.4234          0.6446        0.0000           0
+            ber_1e-3    0.6844  0.8481     0.3800          0.0707        0.0000           0
+            ber_1e-4    0.7939  0.9125     0.0355          0.0075        0.0000           0
+            msg_10pct   0.7358  0.8795     0.1487          0.1362        0.0000           0
+            none        0.8045  0.9191     0.0000          0.0000        0.0000           0
+12 rec_code ber_1e-2    0.1378  0.2016     1.2048          1.3378       11.3718           0
+            ber_1e-3    0.9711  0.9814     0.2766          0.1440        1.2105           0
+            ber_1e-4    0.9919  0.9965     0.0266          0.0162        0.6130           0
+            msg_10pct   0.9835  0.9904     0.1087          0.2833        0.8055           0
+            none        0.9934  0.9973     0.0000          0.0000        0.5756           0
+   rec_rep  ber_1e-2    0.2039  0.4197     4.2311          1.3225        0.0000           0
+            ber_1e-3    0.9024  0.9674     0.4370          0.1426        0.0000           0
+            ber_1e-4    0.9487  0.9853     0.0447          0.0162        0.0000           0
+            msg_10pct   0.9259  0.9760     0.1654          0.2773        0.0000           0
+            none        0.9538  0.9870     0.0000          0.0000        0.0000           0
+
+Glitches (perfect delivery):
+        days  planned  bound  full  extra_values  censored   cert  false_cert
+kind k                                                                       
+in   1   360      1.0    1.0   1.0         2.358     0.000  1.000           0
+     3   360      1.0    1.0   1.0         7.222     0.000  1.000           0
+out  1   360      1.0    1.0   1.0         2.403     1.000  0.997           0
+     3   360      1.0    1.0   1.0         7.306     2.989  0.992           0

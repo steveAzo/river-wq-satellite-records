@@ -15,7 +15,7 @@ import re
 import sys
 
 d = sys.argv[1] if len(sys.argv) > 1 else "draft"
-tex = {f: open(f, encoding="utf-8").read() for f in sorted(glob.glob(f"{d}/*.tex")) if not f.endswith(("numbers.tex", "word_main.tex"))}
+tex = {f: open(f, encoding="utf-8").read() for f in sorted(glob.glob(f"{d}/*.tex")) if not f.endswith(("numbers.tex", "word_main.tex", "supplement.tex"))}
 alltex = "\n".join(tex.values())
 tables = "\n".join(open(f, encoding="utf-8").read() for f in glob.glob(f"{d}/tables/*.tex"))
 fail = []

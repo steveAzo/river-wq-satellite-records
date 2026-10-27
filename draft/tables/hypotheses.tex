@@ -1,8 +1,8 @@
-H1 & Median daily need at most 5\% of the raw readings & 1.8\% & Passed \\
-H2 & Sites with at least 90\% of days guaranteed within 7 d (6 msg/d, independent loss, $p=0.3$): at least 75\% & 35/39 & Passed \\
-H2b & Same at 12 msg/d under bursty loss: at least 85\% & 35/39 & Passed \\
-H3 & Median $G$, code over reliable-link design: at least $2\times$ & 3.5$\times$ & Passed \\
-H4 & Median $G$, code minus tag practice: at least 0.25 & 0.33 & Passed \\
-H5 & Code and repetition each exceed the reliable-link design by at least 0.2 in 12 settings & 12/12 (min.\ 0.34) & Passed \\
-H6 & Pilot-based tier sufficient at least 80\%; at most one tier too large at least 80\% & 85\%; 100\% & Passed \\
-H7 & InWaterSense median need at least $3\times$ the USGS median & 3.9$\times$ & Passed \\
+C1 & Median record of a four-parameter day (bytes) & upper bound $\le$ 30 B & 27 (27 to 33) & Not supported \\
+C2 & Readings certified outside tolerance or wrong certain decisions & exactly 0 & 96 readings (1 day) & Not supported \\
+C3 & Code minus repetition, $Q = 6$, $p = 0.3$ & lower bound $\ge$ 0.03 & 0.101 (0.085 to 0.118) & Supported \\
+C4 & Code minus channel-blind fixed-$K$ code (sampled days) & lower bound $\ge$ 0.05 & 0.120 (0.093 to 0.152) & Supported \\
+C5 & Code minus tag practice / minus every $k$-th reading & lower bounds $\ge$ 0.5 & 0.869 (0.841 to 0.897) /\newline 0.881 (0.852 to 0.907) & Supported \\
+C6 & $G_{\mathrm{cert}}$ at $Q = 12$, independent / bursty loss & lower bounds $\ge$ 0.95 & 0.987 (0.976 to 0.995) /\newline 0.966 (0.954 to 0.976) & Supported \\
+C7 & Conductance pulses missed / low-DO days decided, code minus every $k$-th & upper $\le -0.3$; lower $\ge$ 0.3 & $-$0.551 ($-$0.617 to $-$0.488) /\newline 0.806 (0.751 to 0.857) & Supported \\
+C8 & 28-day pilots choosing a sufficient plan & estimate $\ge$ 0.75 & 0.832 (0.754 to 0.904) & Supported \\

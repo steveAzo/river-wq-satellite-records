@@ -1,5 +1,5 @@
-A USGS-excellent river record needed a median of 15 bytes a day (1.8% of readings)
-Sent once over a one-way link at 30% loss, it was guaranteed on only 34% of days
-Protected by an erasure code, it was guaranteed on 89% of days at the same loss
-With a buffer, six 23-byte messages a day sufficed at 35 of 39 river sites
-All seven pre-registered hypotheses held on a sealed confirmation year
+Server certifies river records from received satellite bytes alone, without feedback
+A four-parameter day within USGS tolerance needed a median of two 23-byte messages
+Record-first erasure code is optimal without knowing the loss process
+Certified decisions were never wrong and caught pulses that periodic data missed
+Frozen software and hypotheses tested on 36 sealed rivers: six of eight held

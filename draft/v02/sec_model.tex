@@ -1,0 +1,54 @@
+\section{System model}
+\label{sec:model}
+
+Fig.~\ref{fig:arch} summarises the system. A sensor node at a remote river site samples several water-quality parameters, stores them, and once a day encodes the day's record into a small number of satellite messages. The link delivers each message or loses it, and the node never learns which. The server reconstructs the record from the values that arrive and states which parts of it are guaranteed.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\textwidth]{figs/arch.pdf}
+\caption{System overview. The node encodes each day's record into at most $Q$ messages; no acknowledgement returns over the link.}
+\label{fig:arch}
+\end{figure}
+
+\subsection{Record and tolerance}
+For parameter $j$ of a site, let $x_j(t)$, $t = 1,\dots,n$, be the day's readings and $x_j(0)$ the last reading of the previous day, which the server is assumed to hold. The server reconstructs $\hat{x}_j(t)$ by linear interpolation between the values it received, starting from $x_j(0)$, and holds the last received value to the end of the day. The tolerance of each reading follows the USGS rating of an excellent record \citep{wagner2006}: 0.2\,\textdegree C for temperature, 3\% of the value for specific conductance, the greater of 0.3\,mg/L and 5\% of the value for dissolved oxygen, and 0.2 units for pH. With $\delta_j(t)$ the tolerance of reading $x_j(t)$, the normalised error is
+\begin{equation}
+e_j(t) = \frac{|x_j(t) - \hat{x}_j(t)|}{\delta_j(t)},
+\label{eq:err}
+\end{equation}
+and a day is guaranteed when the error in Eq.~(\ref{eq:err}) satisfies $e_j(t) \le 1$ for every parameter and reading. Because the newest reading is part of the record, a guaranteed day also guarantees the current value.
+
+\subsection{Node encoder}
+For a level $\tau$, the encoder selects for each parameter the fewest readings $S_j(\tau)$ such that interpolation through them keeps every $e_j(t) \le \tau$. This is the minimum-number (min-\#) problem of polygonal approximation, which has an exact solution in time linear in $n$ for functions of one variable \citep{imai1988}; the implementation used an equivalent quadratic dynamic program. Given a budget of $k$ values, the encoder uses one level $\tau$ for all parameters, the smallest for which $\sum_j |S_j(\tau)| \le k$. The guaranteed record of a day is the set at $\tau = 1$, and its size is the day's need (RQ1).
+
+\subsection{Messages and link}
+Each message carries 23 bytes \citep{kineis2023kim1}: a one-byte header with a three-bit day index and a five-bit sequence number, followed by seven values of three bytes each. A value uses two bits for the parameter, nine bits for its time slot (up to 512 slots per day, which covers 5-minute sampling), and 13 bits for the reading. Readings are quantised linearly for temperature ($-5$ to 40\,\textdegree C), dissolved oxygen (0 to 25\,mg/L), and pH (0 to 14), and logarithmically for specific conductance (1 to 100{,}000\,\textmu S/cm). The largest quantisation error is 2.3\% of the conductance tolerance and below 1.4\% of the others; an encoder that targets 0.975 times the tolerance therefore keeps every transmitted value within it, and Section~\ref{sec:sens} reports what this margin costs. A plan allows $Q$ messages per day. Plans of 1, 6, 12, 24, and 96 messages per day were evaluated as illustrative tiers of commercial offers. The five-bit sequence number indexes up to 32 messages per day; the 96-message tier, which appears only in the buffered analysis, would need a two-byte header and six values per message, which cannot change its result because the largest daily need observed was \needValMaxConf{} values.
+
+The link is one-way. Two loss models were used, because no measured loss rate was available for the target service: independent loss with probability $p$, and a two-state Gilbert channel \citep{gilbert1960,elliott1963} that loses every message in its bad state, with mean burst length three messages and the same mean loss $p$. The values $p \in \{0.1, 0.3, 0.5\}$ lie within the range of erasure probabilities, 0.01 to 0.9, studied for direct-to-satellite links \citep{tondo2021}.
+
+\subsection{Delivery designs}
+Table~\ref{tab:designs} lists the five designs compared. All of them use at most $Q$ messages per day.
+
+\begin{table}[t]
+\centering
+\caption{Delivery designs compared.}
+\label{tab:designs}
+\small
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+Design & Content and transmission \\
+\midrule
+Every $k$-th reading & Every $k$-th reading of every parameter, newest reading included, $k$ set to fill the plan; no guarantee. \\
+Tag practice & A fixed number of broken-stick points per parameter, chosen by largest absolute deviation, packed into $D$ messages; the $Q$ transmissions pick among them pseudo-randomly, as satellite-linked animal tags do \citep{boehme2009,photopoulou2015}; a single-day model of the tags' buffer rotation. \\
+Reliable-link design & The guaranteed set at the smallest $\tau$ that fills $7Q$ values, each message sent once; the design that is optimal when no message is lost, as in budget-constrained compression of sensor history \citep{deligiannakis2007}. \\
+Repetition & The guaranteed set at the smallest $\tau$ that fills $7\lfloor Q/r \rfloor$ values; every message sent $r$ times, copies interleaved. \\
+Erasure code (proposed) & The guaranteed set at the smallest $\tau$ that fills $7K$ values in $K$ data messages, plus $Q-K$ parity messages of a systematic Reed--Solomon code over GF($2^8$) \citep{reed1960}; any $K$ arriving messages recover all data, otherwise the arriving data messages are used. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Decoding and certification}
+The server decodes what arrived and reconstructs each parameter as described above. Because sequence numbers identify which planned values arrived, the server can certify, without feedback, every span between two consecutive planned values that both arrived: the encoder guaranteed every reading inside it within $\tau$ times its tolerance. The certified share is the share of readings inside such spans.
+
+\subsection{Buffering across days}
+Because the need of a day varies (Section~\ref{sec:results}), a node can carry the guaranteed sets of demanding days into the spare capacity of quiet days. In the buffered model, each day's guaranteed set joins a first-in, first-out backlog at the end of the day. Every day the node sends one coded block of $K$ data and $Q-K$ parity messages, filled from the oldest backlog first; $K$ follows the development tuning, and the 96-message tier reuses the ratio $K/Q$ tuned at 24 messages. A day is guaranteed if every block that carried its values decoded, and its delay is the number of days until its last block was sent. Because the link is one-way, a lost block is not resent.

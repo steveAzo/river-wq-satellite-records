@@ -10,6 +10,10 @@
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{url}
+% allow line breaks after any character of a URL (xurl is not installed here)
+\makeatletter\g@addto@macro{\UrlBreaks}{\UrlOrds}\makeatother
+% let TeX stretch a line slightly rather than overrun the margin
+\setlength{\emergencystretch}{2em}
 \setlist{nosep,leftmargin=*}
 % let floats stand near their first mention (the defaults pushed Tables 3 and 4 pages away)
 \renewcommand{\topfraction}{0.9}
@@ -27,7 +31,7 @@
 \begin{document}
 \begin{frontmatter}
 
-\title{A regulatory-grade river water-quality record in a few satellite messages a day}
+\title{Error-bounded reconstruction and loss-resilient delivery of river water-quality records over satellite IoT: A reproducible framework}
 
 \author[ug]{Kofi Sarpong Adu-Manu\corref{cor}}
 \author[ug]{Stephen Kwaku Azongo}

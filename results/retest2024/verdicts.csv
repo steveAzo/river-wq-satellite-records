@@ -1,0 +1,9 @@
+id,hypothesis,estimate,lo,hi,pass
+C1,"median record bytes, upper bound <= 30",24.0,21.0,30.0,True
+C2,false certificates and wrong three-valued decisions == 0,0,0,0,True
+C3,"code - repetition, lower bound >= 0.03",0.0874546805157594,0.071892253462065,0.1043803228961505,True
+C4,"code - channel-blind fixed K, lower bound >= 0.05",0.1080973986842105,0.0861804993092105,0.1326516827631578,True
+C5,"code - tag and code - every k-th, lower bounds >= 0.5",0.801 / 0.867,0.758 / 0.838,0.839 / 0.892,True
+C6,"Q = 12 G_cert >= 0.95 (iid / bursty), lower bounds",0.990 / 0.971,0.983 / 0.961,0.996 / 0.979,True
+C7,"EC pulses missed (upper <= -0.3) and DO days decided (lower >= 0.3), code - every k-th",-0.587 / 0.626,-0.763 / 0.546,-0.420 / 0.704,True
+C8,28-day pilot sufficient >= 0.75 (point estimate),0.8967254408060453,0.8224443288377602,0.9596779271959048,True

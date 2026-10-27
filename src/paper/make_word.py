@@ -74,13 +74,64 @@ for lab, num in aux.items():
         assert re.match(r"[12]@@" + re.escape(num) + r"\. ", before), (lab, num, before[:30])
 
 # ---------------------------------------------------------------- floats: captions carry the number and the layout
+def group_end(s, i):
+    """Index just after the brace group that opens at s[i] == '{'."""
+    depth = 0
+    for k in range(i, len(s)):
+        depth += {"{": 1, "}": -1}.get(s[k], 0)
+        if depth == 0:
+            return k + 1
+    raise ValueError("unbalanced braces")
+
+
+def count_columns(spec):
+    """Columns of a tabular(x) specification: l, c, r, X, p{..}; >{..}, <{..}, @{..}, and *{n}{..} handled."""
+    n, k = 0, 0
+    while k < len(spec):
+        ch = spec[k]
+        if ch in "<>@":
+            k = group_end(spec, k + 1)
+        elif ch == "*":
+            e1 = group_end(spec, k + 1)
+            e2 = group_end(spec, e1)
+            n += int(spec[k + 2:e1 - 1]) * count_columns(spec[e1 + 1:e2 - 1])
+            k = e2
+        elif ch in "pmb":
+            n += 1
+            k = group_end(spec, k + 1)
+        elif ch in "lcrX":
+            n += 1
+            k += 1
+        else:
+            k += 1
+    return n
+
+
+def simple_columns(body):
+    """tabularx with any column specification -> tabular with plain left-aligned columns (Word layout is set later);
+    \\multicolumn specifications are simplified the same way."""
+    key = r"\begin{tabularx}{\textwidth}"
+    while key in body:
+        i = body.index(key)
+        j = group_end(body, i + len(key))
+        n = count_columns(body[i + len(key) + 1:j - 1])
+        body = body[:i] + r"\begin{tabular}{" + "l" * n + "}" + body[j:]
+    out, k = [], 0
+    for m in re.finditer(r"\\multicolumn\{(\d+)\}", body):
+        if m.start() < k:
+            continue
+        e = group_end(body, m.end())
+        out.append(body[k:m.end()] + "{l}")
+        k = e
+    return "".join(out) + body[k:]
+
+
 def mark_float(m):
     env, body = m.group(1), m.group(2)
     label = re.search(r"\\label\{([^}]+)\}", body).group(1)
     if env == "table":
         tag = f"@@TAB:{aux[label]}@@"
-        body = re.sub(r"\\begin\{tabularx\}\{\\textwidth\}\{@\{\}([^}]*)@\{\}\}",
-                      lambda k: r"\begin{tabular}{" + k.group(1).replace("X", "l") + "}", body)
+        body = simple_columns(body)
         body = body.replace(r"\end{tabularx}", r"\end{tabular}")
     else:
         w = re.search(r"\\includegraphics\[width=([0-9.]*)\\textwidth\]", body)

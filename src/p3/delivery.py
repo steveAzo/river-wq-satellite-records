@@ -210,6 +210,22 @@ def mds(rd, enc, Q, K, payload=23, planned=None):
 
 # ---------------------------------------------------------------- server
 MAX_DECODE_TRIES = 64
+# Post-confirmation change (docs/POSTHOC_C2.md): a decoding accepted after an earlier attempt failed must reproduce,
+# when re-encoded, a received message that was not used to build it (or no such message may exist). False reproduces
+# the frozen receiver of the second confirmation.
+CORROBORATE = True
+
+
+def corroborated(full, rows, cands, day, fnt):
+    """True if a received payload not used in `rows` equals the re-encoding of the decoded units at its index,
+    or if every received index was used (no spare message to compare)."""
+    spare = {i: pls for i, pls in cands.items() if i not in rows}
+    if not spare:
+        return True
+    n = max(cands) + 1
+    units = [list(u) for u in full]
+    code = fountain.encode(units, max(n, len(units)), day) if fnt else rs.encode(units, max(n, len(units)))
+    return any(bytes(code[i]) == pl for i, pls in spare.items() for pl in pls)
 
 
 def recover_units(msgs, rx_day):
@@ -267,6 +283,12 @@ def recover_units(msgs, rx_day):
                     continue
                 segs = [frame.decode_unit(bytes(u), frame.Header(day, i, K, coded), i) for i, u in enumerate(full)]
                 if all(sg is not None for sg in segs):
+                    # a first attempt carries the same single-CRC risk as any received data unit; every retry adds
+                    # another chance for a corrupted message to pass, so a decoding after a failed attempt must
+                    # reproduce an unused received message
+                    if CORROBORATE and stats["decode_tries"] > 1 and not corroborated(full, rows, cands, day, fnt):
+                        stats["uncorroborated"] = stats.get("uncorroborated", 0) + 1
+                        continue
                     verified = {i: (bytes(u), sg) for i, (u, sg) in enumerate(zip(full, segs))}
                     done = True
                     break

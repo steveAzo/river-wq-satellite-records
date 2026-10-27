@@ -1,100 +1,112 @@
 \section{Results}
 \label{sec:results}
 
-All seven pre-registered hypotheses held on the 2024 confirmation data (Table~\ref{tab:hyp}). This section reports the results by research question; unless stated otherwise, numbers refer to the 2024 data.
+Unless stated otherwise, results refer to the \nDaysConfFour{} four-parameter days of the \nSitesConf{} confirmation sites, with the development value (\nDaysDevFour{} days at \nSitesDevFour{} sites) for comparison, and intervals are site-clustered 95\% bootstrap intervals.
 
-\subsection{Cost of a guaranteed record (RQ1)}
-Fig.~\ref{fig:example} illustrates the encoder on a summer day of dissolved oxygen. Six values chosen by the encoder kept the whole day within tolerance, whereas six evenly spaced readings missed the steep afternoon rise and exceeded the tolerance by a factor of more than two.
+\subsection{Cost of a record within tolerance (RQ1)}
+\label{sec:need}
+A four-parameter day needed a median of \needMedConf{} bytes of values (\needMedConfCI{}), that is, nine values or two messages; the development median was the same (\needMedDev{} bytes). The 90th percentile was \needPninetyConf{} bytes, the 99th percentile \needPnnConf{} bytes, and the largest day needed \needMaxConf{} bytes (Fig.~\ref{fig:need}). The record held \valueShareConf{} of the readings and \byteShareConf{} of the bytes of the raw readings (median), and \oneMsgConf{} of days fitted a single message. With each site weighted equally, the median was \needSiteEqConf{} bytes; the \nDaysConfFewer{} record days with one to three parameters needed a median of \needMedConfFewer{} bytes. On the development data, the share of readings kept rose from \shareFiveDev{} at 5-minute sampling to \shareFifteenDev{} at 15 minutes and \shareSixtyDev{} at hourly sampling, because a smooth signal sampled often needs few values, whereas an hourly record leaves little to omit. The need was largest in summer: the share of days fully certified with six messages per day fell from \monthMaxConf{} in winter to \monthMinConf{} in July and August (Supplementary Fig. S1).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.6\textwidth]{figs/need_ecdf.pdf}
+\caption{Bytes of values needed for a record within tolerance, per four-parameter day. Vertical lines mark the capacity of one, two, and six messages.}
+\label{fig:need}
+\end{figure}
+
+\subsection{Delivery without knowledge of the channel (RQ2)}
+\label{sec:delivery}
+Table~\ref{tab:delivery} and Fig.~\ref{fig:delivery} compare the designs at six messages per day. At an independent loss probability of 0.3, the record-first code fully certified \gCodeIidConf{} of days (\gCodeIidConfCI{}); site means ranged from \gSiteMinConf{} to \gSiteMaxConf{}, with a median of \gSiteMedConf{} (Supplementary Table S2). It exceeded record-first repetition by \dRepIidConf{} (\dRepIidConfCI{}), the channel-blind fixed-$K$ code by \dFixedIidConf{} (\dFixedIidConfCI{}), the reliable-link design by \dRelIidConf{}, tag practice by \dTagIidConf{}, and every $k$-th reading by \dEveryIidConf{}. The advantage over repetition shrank as loss became burstier: \dRepBurConf{} (\dRepBurConfCI{}) with bursts of three messages and \dRepBsixConf{} (\dRepBsixConfCI{}) with bursts of six, where both designs lose whole runs of messages whatever they carry. The code was never below repetition on any day, as Proposition 2 requires.
+
+\begin{table}[t]
+\centering
+\caption{Days fully certified, $G_{\mathrm{cert}}$, at six and twelve messages per day (confirmation sites; 95\% intervals).}
+\label{tab:delivery}
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X*{4}{>{\raggedright\arraybackslash}p{2.3cm}}@{}}
+\toprule
+Design & Independent, $p = 0.1$ & Independent, $p = 0.3$ & Bursty, $p = 0.3$ & Bursts of 6, $p = 0.3$ \\
+\midrule
+\tableinput{tables/delivery.tex}
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figs/delivery.pdf}
+\caption{Days fully certified against the message loss probability, six messages per day (confirmation sites).}
+\label{fig:delivery}
+\end{figure}
+
+Three analyses on the development data explain the ranking:
+\begin{itemize}
+  \item Channel knowledge: a code of fixed dimension needs the loss rate to choose $K$. Chosen without it, it lost up to \regretFixedDev{} against the same code tuned for the true channel; tuned for a loss probability of 0.1 and used at 0.6, it lost \mismatchMaxDev{} (Fig.~\ref{fig:mismatch}). The record-first code was at least as good as the tuned fixed code on all 15 channels and four tiers. A server that estimated the channel from the message indices of a 28-day pilot and reconfigured the node lost at most \pilotLossDev{}: feasible, but unnecessary with record-first coding.
+  \item Content versus transmission policy: sending the record's units with the tags' random policy cost \tagPolicyDev{} against interleaved repetition, whereas sending broken-stick points instead of the record cost a further \tagContentDev{}: tag practice lost mainly because its points are not chosen against a tolerance.
+  \item Other codes and orders: a systematic random linear (fountain-style) code matched Reed--Solomon to within 0.001; interleaving repetition copies made no difference under independent loss but added \interleaveDev{} under bursty loss.
+\end{itemize}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figs/mismatch.pdf}
+\caption{Advantage of the record-first code over a fixed-$K$ code chosen for an assumed channel (rows) and used on the true channel (columns); six messages per day, development data.}
+\label{fig:mismatch}
+\end{figure}
+
+\subsection{Message plans, buffering, and plan sizing (RQ3)}
+\label{sec:plans}
+A site met the target when at least 90\% of its days were fully certified within seven days. With six messages per day, \sitesSixIidConf{} confirmation sites met it under independent loss of 0.3 and \sitesSixBurConf{} under bursty loss; with twelve messages, \sitesTwelveIidConf{} and \sitesTwelveBurConf{}; with 24, all. With twelve messages per day, the code certified \gTwelveIidConf{} of days under independent loss and \gTwelveBurConf{} under bursty loss.
+
+Buffering did not help (development data). A node that carried a first-in, first-out backlog of records into later blocks was never better by more than 0.007 than sending each day's record on the next day at six or more messages per day, and at one message per day its backlog grew without bound and \droppedDev{} record days exceeded the frame's 63-day limit. Rotating the units of the last seven days, as satellite tags do, gave time diversity: under bursts of six messages it certified \rotBsixDev{} of days within a week against \dailyBsixDev{} for the next-day code, but only \rotGoneDev{} by the next day (Fig.~\ref{fig:multiday}).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figs/multiday.pdf}
+\caption{Days fully certified within one, two, and seven days for the next-day record-first code and two seven-day rotations of the record's units; six messages per day, development test sites.}
+\label{fig:multiday}
+\end{figure}
+
+A plan chosen as the smallest tier whose 28-day pilot certified at least 90\% of days within a week was sufficient for the rest of the year in \sizeSuffConf{} (\sizeSuffConfCI{}) of \sizePilotsConf{} site-pilots started in any month, and it over-provisioned by more than one tier in \sizeOverConf{}. Pilots in the quiet season underestimated the summer need: December pilots were sufficient in \sizeDecConf{} of cases.
+
+\subsection{Environmental decisions (RQ4)}
+\label{sec:env}
+Fig.~\ref{fig:example} illustrates a certified record and the effect of a lost message, and Table~\ref{tab:env} summarises the decisions at six messages per day. No three-valued decision was wrong for any design, condition, or criterion. With every message delivered, the record decided the low-oxygen criterion on \decDOConf{} of days and on \decDOEventConf{} of the \eventsDOConf{} days with an excursion below 5\,mg/L; every $k$-th reading and tag practice decided it on \decDOEveryConf{} and \decDOTagConf{} of days, because their records carry no bound. The record detected conductance pulses far better: it missed \missECConf{} of \eventsECConf{} pulses, against \missECEveryConf{} for every $k$-th reading and \missECTagConf{} for tag practice.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figs/example_day.pdf}
-\caption{Dissolved oxygen on one day of 2023 at a development site. (a) The fewest values that keep every reading within tolerance. (b) The same number of evenly spaced readings. The shaded band is the USGS excellent-record tolerance.}
+\caption{Dissolved oxygen on 1 July 2023 at a development site: the record (15 values in three messages) keeps every reading within tolerance; when the middle message is lost, the server certifies the readings outside the gap (bar) and leaves the gap uncertified.}
 \label{fig:example}
 \end{figure}
 
-Across all site-days, the guaranteed record was small (Fig.~\ref{fig:need}). Its median size was \needMedConf{} bytes per day (95\% interval \ciNeed{} bytes), \needShareConf{} of the raw readings; the 90th percentile was \needPninetyConf{} bytes, the 99th percentile \needPnnConf{} bytes, and the largest day needed \needMaxConf{} bytes, or \needMsgMaxConf{} messages. The record fitted into a single 23-byte message on \needOneMsgConf{} of site-days. The development year gave almost the same distribution (median \needMedDev{} bytes, 99th percentile \needPnnDev{} bytes).
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.75\textwidth]{figs/need_ecdf.pdf}
-\caption{Cumulative distribution of the bytes per day needed for a guaranteed record. Vertical lines mark the value capacity of 1, 6, and 12 messages per day. Days that needed no value are drawn at 1 byte.}
-\label{fig:need}
-\end{figure}
-
-The need varied with the site and the season. Site medians ranged from \siteMedMin{} to \siteMedMax{} bytes per day, and within a site the 99th percentile was typically \siteTailRatio{} times the median. The median need rose from \monthMin{} bytes per day in \monthMinName{} to \monthMax{} bytes per day in \monthMaxName{} (Fig.~\ref{fig:month}); the highest needs occurred from June to August. At sites that measured all four parameters, temperature accounted for \parShareTemp{} of the values in the guaranteed records, dissolved oxygen for \parShareDox{}, specific conductance for \parShareSc{}, and pH for \parSharePh{}. Temperature, often treated as a slowly varying baseline, was therefore the most expensive parameter to keep within its tight tolerance.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.75\textwidth]{figs/need_month.pdf}
-\caption{Bytes per day needed for a guaranteed record by month, over all 2024 site-days.}
-\label{fig:month}
-\end{figure}
-
-The low-cost deployments were more expensive. InWaterSense needed a median of \needInws{} bytes per day, \needInwsRatio{} times the USGS median, which confirmed hypothesis H7. The cause was not isolated in this study; candidate causes include sensor noise and fouling, and the few complete days available. Weija, with two parameters, needed \needWeija{} bytes per day.
-
-\subsection{Delivery over a one-way link (RQ3)}
-Table~\ref{tab:delivery} and Fig.~\ref{fig:designs} compare the designs. At six messages per day and an independent loss probability of 0.3, the erasure-code design guaranteed \gCodeIndPct{} of site-days (95\% interval \ciCodeInd{}). The reliable-link design, which sends the tighter record without protection, guaranteed \gRelIndPct{} (\ciRelInd{}); tag practice guaranteed \gSrdlIndPct{} (\ciSrdlInd{}); and evenly spaced readings guaranteed \gRawIndPct{} (\ciRawInd{}). By median over site-days, the code reached \hThreeRatio{} times the guaranteed share of the reliable-link design (hypothesis H3; 95\% interval \ciHThree{}) and exceeded tag practice by \hFourDiff{} (H4). The code was better than the reliable-link design on \pairBeatRel{} of site-days and better than tag practice on \pairBeatSrdl{}. The development data had given \gCodeIndDev{} and \gRelIndDev{} for the code and the reliable-link design; thus, the gap carried over to the new year.
-
 \begin{table}[t]
 \centering
-\caption{Mean guaranteed share $G$ at six messages per day. USGS 2024 confirmation data unless stated.}
-\label{tab:delivery}
+\caption{Environmental decisions at six messages per day (confirmation sites, four-parameter days). Decided: certainly exceeded or certainly not. Missed: exceedance days that the reconstruction, read naively, did not show.}
+\label{tab:env}
 \small
-\begin{tabularx}{\textwidth}{@{}Xccccc@{}}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X*{4}{>{\raggedright\arraybackslash}p{2.2cm}}@{}}
 \toprule
- & \multicolumn{3}{c}{Independent loss} & Bursty loss & Low-cost sites \\
-Design & $p=0.1$ & $p=0.3$ & $p=0.5$ & $p=0.3$ & $p=0.3$ \\
+Outcome & Record-first code & Record-first repetition & Every $k$-th reading & Tag practice \\
 \midrule
-\tableinput{tables/designs_results.tex}
+\tableinput{tables/env.tex}
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\textwidth]{figs/designs.pdf}
-\caption{Guaranteed share of site-days by design, plan size, loss model, and loss probability (USGS 2024).}
-\label{fig:designs}
-\end{figure}
+The record does not resolve features finer than its tolerance. pH exceedances in these data were mostly peaks one or two tenths above 9.0, against a tolerance of 0.2. A record within tolerance may flatten such a peak; therefore, read naively, it missed \missPHConf{} of \eventsPHConf{} pH exceedance days, against \missPHEveryConf{} for every $k$-th reading. The three-valued reading reports these days as undetermined rather than clear. For the same reason, periodic samples located the daily peak of dissolved oxygen and its diel range as well as the record did, or better (development data).
 
-Repetition of the guaranteed record performed close to the code. Its mean was \gRepIndPct{} against \gCodeIndPct{} under independent loss, a small but consistent difference (\diffCodeRep{}, 95\% interval \ciDiffCodeRep{}), and equal under bursty loss (\gRepBurPct{} and \gCodeBurPct{}); its median was slightly higher than that of the code. Both exceeded the reliable-link design by at least \hFiveMin{} in every setting of six, 12, and 24 messages per day with loss probabilities of 0.3 and 0.5 (H5). The difference between them appeared on the low-cost records, whose larger guaranteed sets left less room for copies: there, the code guaranteed \gCodeLCPct{} of site-days and repetition \gRepLCPct{}.
+\subsection{Robustness}
+\label{sec:robust}
+Out-of-range readings were carried as censored flags: with one or three faulty readings injected per day, every day remained certifiable, at a cost of approximately \glitchCostDev{} values per faulty reading. Corruption of arriving messages acted as additional loss: at six messages per day the share of fully certified days fell from \corrNoneConf{} without corruption to \corrBerThreeConf{} at a bit-error rate of $10^{-3}$, with no reading certified outside its tolerance. At a bit-error rate of $10^{-2}$, where only 16\% of messages arrive intact, one corrupted parity message passed the CRC-16 by chance on one day and \falseCertConf{} readings were certified wrongly (Section~\ref{sec:confirm}). Removing record days did not change the bytes of any other day; therefore, outages do not propagate.
 
-Two further results bound these conclusions:
-\begin{itemize}
-  \item Capacity alone did not help: at 24 messages per day and $p = 0.3$, the reliable-link design still guaranteed only \gRelTwentyFour{} of site-days, because a single lost message removes values from a record that has no redundancy.
-  \item One message per day was too few: no design reached more than \gCodeOneMax{}, since a single message cannot carry both a record and protection.
-\end{itemize} The server could certify \certCode{} of readings with the code, against \certRel{} with the reliable-link design.
+\subsection{Computational resources}
+\label{sec:resources}
+On the development data, the encoder needed a median of \opsFifteenDev{} window updates for a four-parameter day at 15-minute sampling and \opsFiveDev{} at 5 minutes, with memory proportional to the number of readings. Measured in Python on a desktop computer, it took a median of \hostFifteenS{}\,s and \hostFifteenKB{}\,kB of peak memory for a 15-minute day and \hostFiveS{}\,s and \hostFiveKB{}\,kB for a 5-minute day, against \hostTableFiveS{}\,s and \hostTableFiveMB{}\,MB for the reference implementation with a full error table; interpreter overhead dominates these times; therefore, the operation counts are the portable measure. At a conservative 200 processor cycles per update, a 48\,MHz microcontroller would encode a 5-minute day in approximately \mcuFiveDev{}\,s; the module's transmission energy, at most 2.5\,J per message \citep{kineis2023kim1}, exceeds the encoding energy by approximately three orders of magnitude. These figures are estimates; no microcontroller was used.
 
-\subsection{Buffering across days (RQ2)}
-Fig.~\ref{fig:pooling} shows the share of sites that met the buffered target. Under independent loss with $p = 0.3$, six messages per day met it at \poolSixInd{} of \nSites{} sites (hypothesis H2), with guaranteed days typically delivered on the following day (median delay \poolDelayMed{} day in development). Under bursty loss, six messages per day met the target at only \poolSixBur{} sites, because one burst can erase a whole day's block; 12 messages per day restored it at \poolTwelveBur{} sites (H2b). One message per day met the target at \poolOnePhrase{}.
+\subsection{Confirmation and temporal re-test}
+\label{sec:confirm}
+Six of the eight confirmatory hypotheses were supported (Table~\ref{tab:hyp}). C1 was not supported: the median record was \needMedConf{} bytes, within the predicted two messages, but the upper end of its interval (\needMedConfHi{} bytes) exceeded the 30-byte threshold, because the confirmation sites varied more than the development sites. C2 was not supported: on one of the \nDaysCorrConf{} days of the corruption experiment, at the highest bit-error rate tested, a corrupted parity message passed the CRC-16, an event expected approximately \collisionsExpConf{} times among the \crcChecksConf{} CRC checks of corrupted data at that error rate. The frozen receiver retried its erasure decoding over several parity combinations, and each retry is another chance for a corrupted message to pass a 16-bit check. After the confirmation, a corroboration rule was added: a decoding accepted only after an earlier attempt had failed must reproduce a received message that it did not use. A first attempt was left unchanged because it carries the same single-check risk as any received data unit. In an exploratory re-run of the corruption experiment on both cohorts, this rule removed every false certificate (\falseCertPostConf{} on the confirmation and \falseCertPostDev{} on the development sites) at a cost of \postCostThreeConf{} in the share of fully certified days at a bit-error rate of $10^{-3}$ and nothing without corruption. Under extreme corruption ($10^{-2}$), repetition then certified more days than the code (\postRepTwoConf{} against \postCodeTwoConf{}), because the code rejects decodings that it cannot corroborate.
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\textwidth]{figs/pooling.pdf}
-\caption{Share of sites with at least 90\% of days guaranteed within seven days, by plan size and loss probability, with buffering and the erasure code (USGS 2024).}
-\label{fig:pooling}
-\end{figure}
+Two low-cost deployments, opened in an earlier round of this study, were re-analysed after the confirmation as an exploratory check. On the InWaterSense node in Kosovo \citep{ahmedi2022} (\inwsDays{} four-parameter days), the record cost a median of \inwsMedBytes{} bytes, approximately 2.4 times the USGS median, and the code certified \inwsCodeSix{} of days at six messages per day (repetition \inwsRepSix{}) and \inwsCodeTwelve{} at twelve. On the Weija intake in Ghana \citep{adumanu2020} (temperature and conductance, \weijaDays{} days), the record cost \weijaMedBytes{} bytes and the code certified \weijaCodeSix{} of days at six messages per day (repetition \weijaRepSix{}). Noisy low-cost records therefore need larger plans; the small number of days makes these results indicative only.
 
-\subsection{Choosing a plan from a pilot (RQ4)}
-The plan chosen from the first 28 days of 2024 was sufficient for the rest of the year at \sizeSuff{} of sites, and it was never more than one tier larger than necessary (\sizeOver{} of sites; hypothesis H6). At \sizeShortLow{} of the \sizeShort{} sites whose pilot underestimated the need, the median need during the pilot was lower than over the rest of the year, which is consistent with the seasonal rise in Fig.~\ref{fig:month}.
-
-\subsection{Sensitivity analyses}
-\label{sec:sens}
-Table~\ref{tab:sens} summarises the exploratory sensitivity analyses of the daily need. The results above used exact readings; an encoder that targets 0.975 times the tolerance, which keeps the transmitted 13-bit values within it too, needed a median of \sensQMed{} bytes per day and \sensQPct{} more values in total, which is less than one message on the most demanding days. Reserving half of the error budget for the sensor raised the median need to \sensHalfMed{} bytes, \sensHalfRatio{} times the main result, whereas the USGS rating of a good record needed only \sensGoodMed{} bytes. The two simpler encoders were more expensive: greedy online segmentation needed \sensGreedyPct{} more values than the fewest-values encoder, and deadband reporting \sensDeadRatio{} times as many. Coarser sampling did not reduce the need: at the sites sampled every 15 minutes, the median was \sensFifteenMed{} bytes per day, and it stayed at \sensXTwoMed{} and \sensXFourMed{} bytes when only every second or fourth reading was kept, because the need reflects the variation of the river rather than the number of readings.
-
-\begin{table}[t]
-\centering
-\caption{Bytes per day needed under the sensitivity analyses: median, 99th percentile, and maximum over the USGS 2024 site-days, and the median over the InWaterSense days.}
-\label{tab:sens}
-\small
-\begin{tabularx}{\textwidth}{@{}Xrrrr@{}}
-\toprule
-Record and encoder & Median & P99 & Max. & InWaterSense \\
-\midrule
-\tableinput{tables/sensitivity.tex}
-\bottomrule
-\end{tabularx}
-\end{table}
-
-With 19-byte messages, which carry six values instead of seven, the ranking of the delivery designs was unchanged. At six messages per day and $p = 0.3$, the code guaranteed \vSixCodeInd{} of site-days, repetition \vSixRepInd{}, tag practice \vSixSrdlInd{}, the reliable-link design \vSixRelInd{}, and evenly spaced readings \vSixRawInd{}; under bursty loss, the code and repetition guaranteed \vSixCodeBur{} and \vSixRepBur{}.
+On the 2024 data of the development sites (temporal re-test), the record-first code certified \gCodeIidRetest{} of days at six messages per day and $p = 0.3$, and the median record was \needMedRetest{} bytes; all eight criteria of Table~\ref{tab:hyp} were met, which is expected for sites whose 2023 data shaped the method and is therefore not counted as confirmation.
