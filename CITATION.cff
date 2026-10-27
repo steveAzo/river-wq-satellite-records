@@ -4,6 +4,14 @@ title: "river-wq-satellite-records: code, data, and results for 'Error-bounded r
 version: v2.0.0
 date-released: 2026-10-27
 license: MIT
+doi: "10.5281/zenodo.23617664"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23617664"
+    description: "Concept DOI (all versions)"
+  - type: doi
+    value: "10.5281/zenodo.23711183"
+    description: "Version v2.0.0"
 repository-code: "https://github.com/steveAzo/river-wq-satellite-records"
 authors:
   - family-names: Azongo

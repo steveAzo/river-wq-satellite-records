@@ -3,8 +3,13 @@
 Code and data for the paper by Kofi Sarpong Adu-Manu and Stephen Kwaku Azongo (Department of Computer Science,
 University of Ghana), prepared for Environmental Modelling & Software.
 
-Archive: Azongo, S. K. (2026). river-wq-satellite-records. Zenodo. https://doi.org/10.5281/zenodo.23617665 (version
-v1.0.0 holds the first round; v2.0.0 is the revision; see `CITATION.cff`).
+Archive (Zenodo):
+- Version v2.0.0, the revision behind the manuscript's numbers: https://doi.org/10.5281/zenodo.23711183
+- Version v1.0.0, the first round: https://doi.org/10.5281/zenodo.23617665
+- All versions (always resolves to the latest): https://doi.org/10.5281/zenodo.23617664
+
+Cite as: Azongo, S. K., and Adu-Manu, K. S. (2026). river-wq-satellite-records (v2.0.0) [Software]. Zenodo.
+https://doi.org/10.5281/zenodo.23711183 (see `CITATION.cff`).
 
 Licence: MIT for the code; CC BY 4.0 for the derived data and results (see `LICENSE`). Third-party data keep their
 own licences (table below); the Weija data are not included.
