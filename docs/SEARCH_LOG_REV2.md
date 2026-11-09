@@ -36,3 +36,8 @@ PlatoDB (90) and Plato (91): introduction, query model, grep of the text. TREAT 
 ## Statement of scope (the only novelty sentence this evidence supports)
 
 Searches 1 to 15, using a general web search engine limited to US results, and the papers listed above (opened as stated), found no earlier statement of a source-side encoder for a one-way lossy satellite link that, under a byte quota, selects an error-bounded record and feature-extremum witnesses and gives three-valued threshold decisions with soundness proved from received bytes. Albanese 1996 could not be read, the official journal indexes were not searched, and several papers were read only in part. This sentence does not claim that no such work exists.
+
+## Reference checks (2026-11-09, after the manuscript draft)
+
+- TREAT authors: Taurone, Feher, Sipos, Lucani (search summary naming the ACM reference; the PDF header showed only two names). Access: search-summary.
+- Albanese et al. 1996 DOI: the search summary reported 10.1109/18.556670 (IEEE record); the doi.org link redirected to ieeexplore.ieee.org/document/556670, whose page did not load as text, so the search summary alone did not confirm it; the user then stated on 2026-11-09 that 10.1109/18.556670 is the actual DOI of the paper, and the manuscript bibliography carries it (user-supplied, not opened by the assistant) (volume, issue, and pages were checked against the PDF first page).

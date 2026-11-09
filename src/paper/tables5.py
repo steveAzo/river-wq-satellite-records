@@ -1,5 +1,6 @@
 """Tables of the v0.5 manuscript, copied from the confirmation outputs (no number is typed here).
-Reads results/confirm3/verdicts3.csv and verdicts3.md; writes draft3/tables/confirm_hyp.tex and confirm_desc.tex.
+Reads results/confirm3/verdicts3.csv and verdicts3.md; writes draft3/tables/confirm_hyp.tex, confirm_desc.tex (Q = 6)
+and confirm_desc12.tex (Q = 12).
 Run from Paper3/: python -I src/paper/tables5.py
 """
 import re
@@ -29,41 +30,44 @@ SHORT = {
     "H8": "False-certificate day share given one CRC-valid forgery",
     "H9": "Hybrid 1 minus flags: unanticipated thresholds; configured thresholds; record recovered",
 }
+BS = chr(92)
 
 
 def tex(s):
+    s = str(s)
     for a, b in (("sod_mds", "send-on-delta"), ("tight50", "tolerance x 0.5"), ("gilbert_p0.3_b3", "Gilbert"),
                  ("iid_p0.3", "independent"), ("layered k2", "layered"), ("record Q", "record, Q = "),
                  ("layered Q", "layered, Q = "), ("cfg:", "configured:")):
-        s = str(s).replace(a, b)
-    s = str(s).replace("%", "\\%").replace("_", "\\_").replace("&", "\\&")
+        s = s.replace(a, b)
+    s = s.replace("%", BS + "%").replace("_", BS + "_").replace("&", BS + "&")
     s = re.sub(r"(?<![\w.])-(?=\d)", "$-$", s)
     s = re.sub(r"(?<=\()-(?=\d)", "$-$", s)
     s = re.sub(r"(?<=\s)-(?=\d)", "$-$", s)
-    return s.replace(" / ", "; ").replace(">=", "$\\ge$")
+    return s.replace(" / ", "; ").replace(">=", "$" + BS + "ge$")
 
 
+EOL = " " + BS + BS
 v = pd.read_csv("results/confirm3/verdicts3.csv")
 rows = []
 for _, r in v.iterrows():
     outcome = "Supported" if str(r["supported"]) == "True" else "Not supported"
-    rows.append(f"{r['id']} & {SHORT[r['id']]} & {LIMIT[r['id']]} & {tex(r['result'])} & {outcome} \\\\")
+    rows.append(f"{r['id']} & {SHORT[r['id']]} & {LIMIT[r['id']]} & {tex(r['result'])} & {outcome}" + EOL)
 open(f"{OUT}/confirm_hyp.tex", "w", encoding="utf-8").write("\n".join(rows) + "\n")
 
-# descriptive tables: Q = 6, both loss models
 md = open("results/confirm3/verdicts3.md", encoding="utf-8").read()
 NAMES = {"rec": "Record only", "heur": "3b rule", "ex1": "Exact allocator", "tight50": "Tolerance x 0.5",
          "sod_mds": "Send-on-delta, coded", "sod_once": "Send-on-delta, once", "flags": "Decision flags",
          "randmix": "Random-day control", "hyb1": "Hybrid 1", "hyb2": "Hybrid 2"}
-out = []
-for q, loss, label in (("6", "iid_p0.3", "Independent loss"), ("6", "gilbert_p0.3_b3", "Gilbert loss")):
-    m = re.search(rf"Q = {q}, {loss}: pooled level.*?\n(.*?)\n\n", md, re.S)
-    out.append(f"\\multicolumn{{5}}{{@{{}}l}}{{{label}, $Q = {q}$}} \\\\")
-    for line in m.group(1).splitlines():
-        parts = line.split()
-        if parts[0] in NAMES:
-            vals = [x for x in parts[1:] if x != "/"]
-            out.append(f"{NAMES[parts[0]]} & " + " & ".join(vals) + " \\\\")
-    out.append("\\midrule")
-open(f"{OUT}/confirm_desc.tex", "w", encoding="utf-8").write("\n".join(out[:-1]) + "\n")
+for qq, fname in (("6", "confirm_desc"), ("12", "confirm_desc12")):
+    out = []
+    for loss, label in (("iid_p0.3", "Independent loss"), ("gilbert_p0.3_b3", "Gilbert loss")):
+        m = re.search(rf"Q = {qq}, {loss}: pooled level.*?\n(.*?)(?:\n\n|\Z)", md, re.S)
+        out.append(BS + "multicolumn{5}{@{}l}{" + f"{label}, $Q = {qq}$" + "}" + EOL)
+        for line in m.group(1).splitlines():
+            parts = line.split()
+            if parts[0] in NAMES:
+                vals = [x for x in parts[1:] if x != "/"]
+                out.append(f"{NAMES[parts[0]]} & " + " & ".join(vals) + EOL)
+        out.append(BS + "midrule")
+    open(f"{OUT}/{fname}.tex", "w", encoding="utf-8").write("\n".join(out[:-1]) + "\n")
 print("wrote", OUT)

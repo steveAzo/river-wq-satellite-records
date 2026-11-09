@@ -9,6 +9,15 @@ for f in ["results/confirm3/verdicts3.md", "docs/HYBRID_RESULTS.md", "docs/BASEL
           "docs/CONFIRM3_PLAN.md", "docs/CERTIFICATE_SPEC.md", "docs/FRAME_SPEC_V2.md"]:
     src[f] = open(f, encoding="utf-8").read()
 allsrc = "\n".join(src.values())
+# the per-region table is a source too; the loss of record recovery per region (record only minus 3b rule) is derived from it
+reg = open("draft3/tables/confirm_region.tex", encoding="utf-8").read()
+allsrc += "\n" + reg
+for line in reg.splitlines():
+    cells = line.replace("\\\\", "").split("&")
+    if len(cells) == 5 and "|" in cells[1]:
+        r0 = float(cells[1].split("|")[1])
+        r1 = float(cells[2].split("|")[1])
+        allsrc += f"\n{r0 - r1:.3f}"
 bad = []
 for f in sorted(glob.glob("draft3/sec_*.tex")):
     s = open(f, encoding="utf-8").read()

@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\setlist{nosep,leftmargin=*}
+\renewcommand{\tablename}{Supplementary Table}
+\renewcommand{\thetable}{S\arabic{table}}
+
+\makeatletter\newcommand{\tableinput}[1]{\@@input #1 }\makeatother
+\begin{document}
+\begin{center}
+{\large Supplementary material}\\[2pt]
+Certified threshold decisions from error-bounded river water-quality records over one-way satellite IoT links
+\end{center}
+
+\section*{Supplementary Table S1: sites of the sealed confirmation cohort}
+The 31 sites were selected by metadata only (seed 20261107; the full selection log is results/confirm3/selection.csv). The days are four-parameter days with a record plan in the confirmation run (10,095 in total).
+
+{\footnotesize
+\begin{longtable}{@{}p{1.9cm}p{8.3cm}p{0.9cm}r@{}}
+\caption{Sites of the sealed 2024 cohort by region.}\\
+\toprule
+Site & Name & State & Days \\
+\midrule
+\endfirsthead
+\toprule
+Site & Name & State & Days \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\tableinput{tables/sites.tex}
+\end{longtable}
+}
+
+\section*{Supplementary Table S2: how far each related-work source was read}
+Access levels used in the manuscript: read in part means the abstract, introduction, method, and text searches were opened; first page means that only the first page was read. No source was read in full. The search log records the 15 searches (all on 2026-11-03, a general web search limited to United States results) and what did not load.
+
+{\footnotesize
+\begin{longtable}{@{}p{5.2cm}p{9cm}@{}}
+\caption{Reading level of the sources of Table 1.}\\
+\toprule
+Source & Level \\
+\midrule
+\endfirsthead
+\toprule
+Source & Level \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Albanese et al. (1996) & Introduction, Definitions 3.1 and 3.2, Theorems 3.3 and 3.5, start of Section IV; proofs not read \\
+Boucheron and Salamatian (2000) & First page (abstract and definition) \\
+Brito et al. (2017), Lin et al. (2019) & Introduction, query model, text searched for minimum, maximum, and threshold \\
+Taurone et al. (2024) & Abstract, method, predicate-filtering section \\
+Cheng et al. (2003) & Abstract and introduction; text searched \\
+Diaz-Cacho et al. (2017) & Abstract and introduction \\
+Mu\~niz-Cuza et al. (2025), Sun et al. (2025) & Abstract and contribution list \\
+Imai and Iri (1988), Deligiannakis et al. (2007) & Read in earlier rounds of the study (level not recorded in the search log) \\
+Lin et al. (2025, Sensors) & Abstract and introduction (the 2019 Energies paper was not opened) \\
+\end{longtable}
+}
+
+\section*{Supplementary note S3: files and reproduction}
+Everything below is in the project repository; commands run from the Paper3 folder.
+\begin{itemize}
+  \item Frozen plan and freeze record: docs/CONFIRM3\_PLAN.md and docs/FREEZE3.md (tag confirm3-freeze).
+  \item Confirmation run: python -I src/p3/confirm3.py data/clean/usgs\_new3\_2024 confirm3 data/clean/usgs\_new3\_2024.md5; outputs in results/confirm3 (verdicts3.md and verdicts3.csv).
+  \item Results write-up: docs/CONFIRM3\_RESULTS.md.
+  \item Tables and figures of the manuscript: python -I src/paper/tables5.py, src/paper/region5.py, src/paper/make\_figures5.py, and src/paper/supplement5.py.
+  \item Checks: python -I src/paper/check\_draft.py draft3 and python -I src/paper/check\_numbers5.py.
+\end{itemize}
+\end{document}

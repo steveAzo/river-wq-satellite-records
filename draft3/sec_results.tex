@@ -47,7 +47,13 @@ Table~\ref{tab:desc} and Fig.~\ref{fig:tradeoff} show the pooled levels of every
   \item Hybrid 2 reached 0.806 on unanticipated thresholds, the same as the 3b rule, but recovered the record less often (0.779 against 0.877 for the flags).
   \item The exact allocator, relative to the 3b rule, changed record recovery by +0.028, hard configured decisions by $-$0.015, hard unanticipated decisions by $-$0.057, and all configured decisions by +0.049 under independent loss. As in development, it did not beat the simple rule on hard cases; therefore, no confirmatory claim is made for it.
   \item Send-on-delta and the tightened tolerance were below the record alone in record recovery and in hard-case decisions at this quota.
-  \item At $Q = 12$ the orderings were the same at higher levels: for example, under independent loss the record alone recovered the record in 0.972 of days and the flags and hybrid 1 in 0.969. The full tables are in the supplementary results file of the confirmation.
+  \item At $Q = 12$ (Table~\ref{tab:desc12}) the orderings were the same at higher levels: under independent loss the record alone recovered the record in 0.972 of days and the flags and hybrid 1 in 0.969, and the 3b rule decided 0.971 of hard cases at configured thresholds against 0.969 for the exact allocator and 1.000 for the flags and hybrid 1.
+\end{itemize}
+
+Table~\ref{tab:region} splits the levels at $Q = 6$ by region, which was a pre-registered descriptive item. The regions have four to nine sites; therefore, the figures carry no interval and no verdict.
+\begin{itemize}
+  \item The ordering on unanticipated thresholds held in every region and under both loss models: hybrid 1 and the 3b rule exceeded the flags, for example 0.578 and 0.849 against 0.368 in the Gulf region and 0.591 and 0.738 against 0.211 on the Pacific coast (independent loss).
+  \item The cost in record recovery was not uniform. In the Gulf region, which has only four sites, the record alone recovered the record in 0.654 of days and the 3b rule in 0.488, a loss of 0.166 under independent loss; in the other regions the loss ranged from 0.062 to 0.084. The pooled loss that H4 bounded (0.083) therefore hides a larger loss in one region. The reason was not investigated.
 \end{itemize}
 
 
@@ -68,6 +74,34 @@ Table~\ref{tab:desc} and Fig.~\ref{fig:tradeoff} show the pooled levels of every
 Design & Record & Hard, configured & Hard, unanticipated & All, configured \\
 \midrule
 \tableinput{tables/confirm_desc.tex}
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\caption{Pooled levels of every design at twelve messages per day (same columns as Table~\ref{tab:desc}).}
+\label{tab:desc12}
+\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Design & Record & Hard, configured & Hard, unanticipated & All, configured \\
+\midrule
+\tableinput{tables/confirm_desc12.tex}
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\caption{Levels at six messages per day by region (hard cases decided at unanticipated thresholds, then record recovered, separated by a bar; descriptive, four to nine sites per region).}
+\label{tab:region}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Region & Record only & 3b rule & Decision flags & Hybrid 1 \\
+\midrule
+\tableinput{tables/confirm_region.tex}
 \bottomrule
 \end{tabular}
 \end{table}
