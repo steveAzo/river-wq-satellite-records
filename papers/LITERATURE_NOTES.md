@@ -107,3 +107,65 @@ Cards for the works that decide Paper 3's novelty claim, written after reading t
 > Allocating approximation error non-uniformly across distributed sources is an established idea. Olston et al. [74] adapt per-source filter widths to minimise update traffic under query precision constraints, and GAMPS [82] minimises the archived size of many sensor signals under one L∞ bound. Optimal single-signal L∞ approximations are classical [80, 81]. These works fix the precision and minimise communication or space, over elastic links or offline archives. Remote environmental IoT faces the reverse situation. The uplink budget is fixed by regulation or by a service plan (for example, a community LoRaWAN airtime cap). Outages leave nodes with buffered backlogs, and downlink feedback is limited to a few messages a day. The question is then how to spend a fixed budget across nodes and their buffered records so that the worst reconstruction error is as small as possible. We show that the answer is a common-τ rule, coordinated by one broadcast number, and evaluate it on real river data and real outage records.
 >
 > *Superseded on 2026-10-23: [83] already does budget-first, max-error-capable, pooled allocation over buffered history (heuristically). See `../PAPER3_SCOPING.md` §F.*
+
+---
+
+## C. Revision 2 sweep (2026-11-03): prior art for a decision-aware certifiable encoder
+
+Purpose: the novelty review (River_Water_Quality_Novelty_Review.docx) asks for a decision-aware encoder. Before building it, the nearest neighbours were searched (standard and extended web search, not a systematic review) and the open-access PDFs read (files 90-96 in `pdf/`, text in `txt/`). Items not yet read are in MANUAL_DOWNLOAD.md, Round 4.
+
+**[90] Brito, Katsis, et al., "Efficient Approximate Query Answering over Sensor Data with Deterministic Error Guarantees", arXiv 1707.01414 (PlatoDB), and [91] Lin, Boursier, Papakonstantinou, "Plato: Approximate Analytics over Compressed Time Series with Tight Deterministic Error Guarantees", arXiv 1808.04876.**
+- Setting: compressed time series stored in segment trees; aggregates (sum, average, correlation, linear time-series expressions) are answered with a deterministic error guarantee computed from per-segment error measures.
+- Relation to ours: deterministic interval answers from a compressed representation are known. Our interval certificates for aggregates (daily min/max, 7DADM) therefore cannot be claimed as new in form.
+- What they do not do (checked by search of the text): three-valued threshold decisions (exceeded, not exceeded, undetermined); a byte quota; a lossy one-way channel; selecting what to transmit for a decision.
+- Must cite as the origin of deterministic-guarantee approximate analytics.
+
+**[94] Taurone, Feher, Sipos, Lucani, "TREAT", DEBS 2024.**
+- Setting: IoT time series in multi-cloud storage, generalised deduplication plus random linear network coding; queries use the compressed base bits to filter (possible minimum and maximum of a value from its base) before downloading deviations.
+- Relation to ours: the nearest "compression plus erasure coding plus predicate evaluation" work. It uses possible-min/possible-max intervals to decide predicates, which is the same logical idea as our three-valued rule. Its setting (storage, reliable retrieval, lossless) and objective (fewer bytes downloaded) differ.
+
+**[92] Muniz-Cuza, Boehm, Pedersen, "CAMEO", arXiv 2501.14432; [96] TerseTS, EDBT 2026; [93] Sun, Karras, Zhang, SHRINK direct analytics, arXiv 2503.13246.**
+- Feature-preserving error-bounded compression: CAMEO bounds the ACF/PACF deviation; SHRINK supports outlier detection on a base representation. Both bound a statistic or a task accuracy empirically, with no certificates of a threshold decision and no loss model.
+- Relation to ours: they show that pointwise error bounds are known to be insufficient for downstream analytics; our pH finding (tolerance hides near-threshold peaks, ENV_RESULTS.md) is a concrete case.
+
+**Priority encoding transmission (Albanese, Bloemer, Edmonds, Luby, Sudan, IEEE Trans. Inf. Theory 1996; US 5,617,541).**
+- Not yet read (paywalled; Round 4). Per the abstracts found: messages are split into priority levels, and each level gets its own redundancy so that higher priority data survive more loss. Prioritised LT codes and unequal-error-protection random linear codes extend it.
+- Consequence for the plan: unequal protection of decision witnesses is PET applied. The proposed novelty cannot be "protect important bytes more". It has to be the selection of WHAT is important (which readings and witnesses certify a threshold decision) and the certificate semantics, with PET-style layering as a baseline.
+
+**Event-triggered and send-on-delta telemetry (Miskowicz; ALERT flash-flood systems).**
+- Deadband reporting is the standard hydrological way to guarantee that threshold changes are reported. It is a mandatory baseline ("send-on-delta with the same bytes"), and it needs a duplex or reliable link to be safe: a lost event message is silent. Not yet read in full.
+
+**Goal-oriented communication (Zhang et al., IEEE IoT Magazine 2022; value-of-information and age-of-incorrect-information work).**
+- Frames task-oriented compression, mostly with learned encoders, random access, or scheduling. No certificate semantics. Cite for framing only.
+
+**Gap statement (to be verified by a formal search before any "first" claim).**
+- No work found that combines (a) a byte quota on a one-way lossy link, (b) selection of readings and witnesses to maximise certified threshold decisions, and (c) a server-side soundness proof for undecided, exceeded, and not-exceeded outcomes on real river records.
+- Consequence: the defensible novelty is the combination and the soundness plus evidence, with PET, PlatoDB-style intervals, and TREAT-style possible-min/max filters credited as ingredients.
+
+### C2. Round 4 reading results (2026-11-03)
+
+Files 99-108 were read from the PDFs (text, and a rendered page for 99, whose text layer is garbled). File 98 was the WRONG article (Brassard, Crepeau, Santha, "Oblivious transfers and intersecting codes", same issue of IEEE Trans. Inf. Theory; my DOI was wrong, as for Deligiannakis earlier). The original Albanese et al. paper is re-requested in MANUAL_DOWNLOAD.md, Round 5.
+
+**[99] Boucheron and Salamatian, "About priority encoding transmission", IEEE Trans. Inf. Theory 46(2), 2000.**
+- Formal definition of a PET code: message of m symbols, codelength n, and a non-decreasing priority function beta; the symbols of priority level i are recoverable from ANY beta(i) received code symbols. Feasibility: the sum over levels of (n R_i / beta^i) is at most 1 (Singleton-type bound for fixed-length codes).
+- They show PET (time-sharing and interleaving of classical erasure codes) achieves the capacity region of the broadcast erasure channel with degraded message sets.
+- Consequence: a layered record in which the certifying witnesses form level 1 and need only K1 of Q messages, while the remaining values need K2 > K1, is a PET code. It is the mandatory layered baseline, and optimality of layering over loss channels is classical. Our contribution cannot be the layering. It can be the choice of which values form level 1 so that threshold decisions are certified.
+
+**[106] Cheng, Kalashnikov, Prabhakar, "Evaluating probabilistic queries over imprecise data", SIGMOD 2003.**
+- Each stored sensor value carries an uncertainty interval; queries (including nearest-value and extremum-type queries) are answered over the intervals, with pruning of intervals that cannot affect the answer. Probabilistic, with interval bounds from the update policy.
+- Consequence: answering threshold or extremum queries from bounded-uncertainty intervals is classical database work. Our three-valued rule is its deterministic special case. Cite with PlatoDB and TREAT.
+
+**[103] Diaz-Cacho, Delgado, Barreiro, Falcon, "Basic send-on-delta sampling for signal tracking-error reduction", Sensors 17(2), 2017.**
+- Send-on-delta (deadband) transmits a sample when the value departs from the last sent one by delta; they compute delta in real time for a desired mean transmission rate. Reduces tracking error against periodic sampling at the same rate.
+- Consequence: the standard event-triggered baseline with a byte rate. Needs a reliable link for any guarantee; on a one-way lossy link, a lost event message is silent.
+
+**[100] Zhang et al., "Goal-oriented communications for the IoT and application to data compression", IEEE IoT Magazine 2022.** Goal-oriented compression by learned or clustering methods; no deterministic certificates. Framing only.
+
+**[108] Wong and Kerkez, "Real-time environmental sensor data: an application to water quality using web services", EMS 84, 2016.** Real-time water-quality architecture over IP and cellular links with adaptive sampling driven by events (duplex). Shows that EMS accepts real-time telemetry papers; it assumes a bidirectional link, which our one-way case removes.
+
+**[101] Twarog, Hawro, Kwater, EMS 196, 106793 (2026)** is a BOD soft-sensor (state estimation), not telemetry. **[102] Horsburgh et al., EMS 70, 2015** is quality-control software for continuous sensor data. Both show the EMS audience and its software-and-QC emphasis; neither is a competitor. **[107] Sun et al., EMS 204, 107068 (2026)** (uncertainty review) was not read in depth. **[104] Serf** and **[105] Lin et al. 2025 (progressive bounded-error PLA)** are error-bounded compressors without decision certificates or loss models.
+
+**Updated gap statement.**
+- Known (credit): layered unequal protection (PET); interval answers from bounded-uncertainty or compressed data (Cheng 2003, Plato, TREAT); event-triggered sampling (send-on-delta); error-bounded piecewise-linear compression (Imai-Iri; Lin 2025).
+- Not found: the joint problem of choosing, under a byte quota on a one-way lossy link, the readings and witnesses that maximise the share of environmental threshold decisions that the server can CERTIFY (exceeded, not exceeded), with soundness proved from received bytes only, and evaluated on real river records.
+- This is a combination-and-evidence claim. It is defensible for EMS only if the measured gain over (a) the current record-first code, (b) a PET-layered record-first code, (c) send min/max, and (d) send-on-delta is material on near-threshold cases.

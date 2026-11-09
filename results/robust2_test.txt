@@ -1,0 +1,133 @@
+01388000
+
+Stage 1 (one CRC-valid forgery per day)
+| variant    |   Q | receiver                     |   forged days |   false day share |   false readings |   false witnesses |   rejected share |   extra messages share |
+|:-----------|----:|:-----------------------------|--------------:|------------------:|-----------------:|------------------:|-----------------:|-----------------------:|
+| layered k1 |   6 | CRC + corroboration          |           680 |            0.2265 |             6950 |                86 |           0.8029 |                 0.5647 |
+| layered k1 |   6 | CRC + sanity                 |           680 |            0.2544 |             8254 |               124 |           0.2000 |                 0.5647 |
+| layered k1 |   6 | CRC + sanity + corroboration |           680 |            0.1382 |             4376 |                86 |           0.8574 |                 0.5647 |
+| layered k1 |   6 | CRC only                     |           680 |            0.3882 |            12488 |               124 |           0.0088 |                 0.5647 |
+| layered k1 |  12 | CRC + corroboration          |           680 |            0.0088 |              335 |                 3 |           0.9618 |                 0.9765 |
+| layered k1 |  12 | CRC + sanity                 |           680 |            0.1353 |             5229 |                78 |           0.1235 |                 0.9765 |
+| layered k1 |  12 | CRC + sanity + corroboration |           680 |            0.0044 |                9 |                 3 |           0.9647 |                 0.9765 |
+| layered k1 |  12 | CRC only                     |           680 |            0.2118 |             8083 |                78 |           0.0103 |                 0.9765 |
+| layered k2 |   6 | CRC + corroboration          |           679 |            0.1193 |             3771 |                45 |           0.8306 |                 0.7894 |
+| layered k2 |   6 | CRC + sanity                 |           679 |            0.2533 |             6886 |               200 |           0.2209 |                 0.7894 |
+| layered k2 |   6 | CRC + sanity + corroboration |           679 |            0.0560 |             1726 |                45 |           0.8748 |                 0.7894 |
+| layered k2 |   6 | CRC only                     |           679 |            0.4006 |            13434 |               200 |           0.0177 |                 0.7894 |
+| layered k2 |  12 | CRC + corroboration          |           680 |            0.0015 |              268 |                 0 |           0.9441 |                 0.9985 |
+| layered k2 |  12 | CRC + sanity                 |           680 |            0.1500 |             5204 |               113 |           0.1176 |                 0.9985 |
+| layered k2 |  12 | CRC + sanity + corroboration |           680 |            0.0000 |                0 |                 0 |           0.9456 |                 0.9985 |
+| layered k2 |  12 | CRC only                     |           680 |            0.2309 |             8804 |               113 |           0.0029 |                 0.9985 |
+| record     |   6 | CRC + corroboration          |           679 |            0.0457 |             2364 |                 7 |           0.9043 |                 0.9352 |
+| record     |   6 | CRC + sanity                 |           679 |            0.1222 |             6027 |                18 |           0.2018 |                 0.9352 |
+| record     |   6 | CRC + sanity + corroboration |           679 |            0.0191 |              820 |                 7 |           0.9308 |                 0.9352 |
+| record     |   6 | CRC only                     |           679 |            0.3166 |            13475 |                18 |           0.0000 |                 0.9352 |
+| record     |  12 | CRC + corroboration          |           680 |            0.0000 |                0 |                 0 |           0.9588 |                 1.0000 |
+| record     |  12 | CRC + sanity                 |           680 |            0.0485 |             2404 |                 0 |           0.0765 |                 1.0000 |
+| record     |  12 | CRC + sanity + corroboration |           680 |            0.0000 |                0 |                 0 |           0.9588 |                 1.0000 |
+| record     |  12 | CRC only                     |           680 |            0.1206 |             4444 |                 0 |           0.0000 |                 1.0000 |
+
+Stage 2 (Q = 6, independent loss 0.3)
+| corruption   | variant    |   Q | receiver                     |   P(false cert | one forgery) |   CRC-passing corruptions per day |   false-certificate days per million |
+|:-------------|:-----------|----:|:-----------------------------|------------------------------:|----------------------------------:|-------------------------------------:|
+| 0.0001       | record     |   6 | CRC only                     |                        0.317  |                          1.17e-06 |                               0.37   |
+| 0.0001       | record     |   6 | CRC + sanity                 |                        0.122  |                          1.17e-06 |                               0.143  |
+| 0.0001       | record     |   6 | CRC + corroboration          |                        0.0457 |                          1.17e-06 |                               0.0533 |
+| 0.0001       | record     |   6 | CRC + sanity + corroboration |                        0.0191 |                          1.17e-06 |                               0.0224 |
+| 0.0001       | layered k1 |   6 | CRC only                     |                        0.388  |                          1.17e-06 |                               0.454  |
+| 0.0001       | layered k1 |   6 | CRC + sanity                 |                        0.254  |                          1.17e-06 |                               0.297  |
+| 0.0001       | layered k1 |   6 | CRC + corroboration          |                        0.226  |                          1.17e-06 |                               0.265  |
+| 0.0001       | layered k1 |   6 | CRC + sanity + corroboration |                        0.138  |                          1.17e-06 |                               0.162  |
+| 0.0001       | layered k2 |   6 | CRC only                     |                        0.401  |                          1.17e-06 |                               0.468  |
+| 0.0001       | layered k2 |   6 | CRC + sanity                 |                        0.253  |                          1.17e-06 |                               0.296  |
+| 0.0001       | layered k2 |   6 | CRC + corroboration          |                        0.119  |                          1.17e-06 |                               0.139  |
+| 0.0001       | layered k2 |   6 | CRC + sanity + corroboration |                        0.056  |                          1.17e-06 |                               0.0654 |
+| 0.001        | record     |   6 | CRC only                     |                        0.317  |                          1.08e-05 |                               3.41   |
+| 0.001        | record     |   6 | CRC + sanity                 |                        0.122  |                          1.08e-05 |                               1.32   |
+| 0.001        | record     |   6 | CRC + corroboration          |                        0.0457 |                          1.08e-05 |                               0.492  |
+| 0.001        | record     |   6 | CRC + sanity + corroboration |                        0.0191 |                          1.08e-05 |                               0.206  |
+| 0.001        | layered k1 |   6 | CRC only                     |                        0.388  |                          1.08e-05 |                               4.18   |
+| 0.001        | layered k1 |   6 | CRC + sanity                 |                        0.254  |                          1.08e-05 |                               2.74   |
+| 0.001        | layered k1 |   6 | CRC + corroboration          |                        0.226  |                          1.08e-05 |                               2.44   |
+| 0.001        | layered k1 |   6 | CRC + sanity + corroboration |                        0.138  |                          1.08e-05 |                               1.49   |
+| 0.001        | layered k2 |   6 | CRC only                     |                        0.401  |                          1.08e-05 |                               4.32   |
+| 0.001        | layered k2 |   6 | CRC + sanity                 |                        0.253  |                          1.08e-05 |                               2.73   |
+| 0.001        | layered k2 |   6 | CRC + corroboration          |                        0.119  |                          1.08e-05 |                               1.29   |
+| 0.001        | layered k2 |   6 | CRC + sanity + corroboration |                        0.056  |                          1.08e-05 |                               0.603  |
+| 0.01         | record     |   6 | CRC only                     |                        0.317  |                          5.4e-05  |                              17.1    |
+| 0.01         | record     |   6 | CRC + sanity                 |                        0.122  |                          5.4e-05  |                               6.6    |
+| 0.01         | record     |   6 | CRC + corroboration          |                        0.0457 |                          5.4e-05  |                               2.47   |
+| 0.01         | record     |   6 | CRC + sanity + corroboration |                        0.0191 |                          5.4e-05  |                               1.03   |
+| 0.01         | layered k1 |   6 | CRC only                     |                        0.388  |                          5.4e-05  |                              21      |
+| 0.01         | layered k1 |   6 | CRC + sanity                 |                        0.254  |                          5.4e-05  |                              13.7    |
+| 0.01         | layered k1 |   6 | CRC + corroboration          |                        0.226  |                          5.4e-05  |                              12.2    |
+| 0.01         | layered k1 |   6 | CRC + sanity + corroboration |                        0.138  |                          5.4e-05  |                               7.47   |
+| 0.01         | layered k2 |   6 | CRC only                     |                        0.401  |                          5.4e-05  |                              21.6    |
+| 0.01         | layered k2 |   6 | CRC + sanity                 |                        0.253  |                          5.4e-05  |                              13.7    |
+| 0.01         | layered k2 |   6 | CRC + corroboration          |                        0.119  |                          5.4e-05  |                               6.44   |
+| 0.01         | layered k2 |   6 | CRC + sanity + corroboration |                        0.056  |                          5.4e-05  |                               3.02   |
+| 10% hit      | record     |   6 | CRC only                     |                        0.317  |                          6.41e-06 |                               2.03   |
+| 10% hit      | record     |   6 | CRC + sanity                 |                        0.122  |                          6.41e-06 |                               0.783  |
+| 10% hit      | record     |   6 | CRC + corroboration          |                        0.0457 |                          6.41e-06 |                               0.293  |
+| 10% hit      | record     |   6 | CRC + sanity + corroboration |                        0.0191 |                          6.41e-06 |                               0.123  |
+| 10% hit      | layered k1 |   6 | CRC only                     |                        0.388  |                          6.41e-06 |                               2.49   |
+| 10% hit      | layered k1 |   6 | CRC + sanity                 |                        0.254  |                          6.41e-06 |                               1.63   |
+| 10% hit      | layered k1 |   6 | CRC + corroboration          |                        0.226  |                          6.41e-06 |                               1.45   |
+| 10% hit      | layered k1 |   6 | CRC + sanity + corroboration |                        0.138  |                          6.41e-06 |                               0.886  |
+| 10% hit      | layered k2 |   6 | CRC only                     |                        0.401  |                          6.41e-06 |                               2.57   |
+| 10% hit      | layered k2 |   6 | CRC + sanity                 |                        0.253  |                          6.41e-06 |                               1.62   |
+| 10% hit      | layered k2 |   6 | CRC + corroboration          |                        0.119  |                          6.41e-06 |                               0.765  |
+| 10% hit      | layered k2 |   6 | CRC + sanity + corroboration |                        0.056  |                          6.41e-06 |                               0.359  |
+
+Stage 2 (Q = 12, independent loss 0.3)
+| corruption   | variant    |   Q | receiver                     |   P(false cert | one forgery) |   CRC-passing corruptions per day |   false-certificate days per million |
+|:-------------|:-----------|----:|:-----------------------------|------------------------------:|----------------------------------:|-------------------------------------:|
+| 0.0001       | record     |  12 | CRC only                     |                       0.121   |                          2.34e-06 |                              0.282   |
+| 0.0001       | record     |  12 | CRC + sanity                 |                       0.0485  |                          2.34e-06 |                              0.113   |
+| 0.0001       | record     |  12 | CRC + corroboration          |                       0       |                          2.34e-06 |                              0       |
+| 0.0001       | record     |  12 | CRC + sanity + corroboration |                       0       |                          2.34e-06 |                              0       |
+| 0.0001       | layered k1 |  12 | CRC only                     |                       0.212   |                          2.34e-06 |                              0.495   |
+| 0.0001       | layered k1 |  12 | CRC + sanity                 |                       0.135   |                          2.34e-06 |                              0.316   |
+| 0.0001       | layered k1 |  12 | CRC + corroboration          |                       0.00882 |                          2.34e-06 |                              0.0206  |
+| 0.0001       | layered k1 |  12 | CRC + sanity + corroboration |                       0.00441 |                          2.34e-06 |                              0.0103  |
+| 0.0001       | layered k2 |  12 | CRC only                     |                       0.231   |                          2.34e-06 |                              0.54    |
+| 0.0001       | layered k2 |  12 | CRC + sanity                 |                       0.15    |                          2.34e-06 |                              0.351   |
+| 0.0001       | layered k2 |  12 | CRC + corroboration          |                       0.00147 |                          2.34e-06 |                              0.00344 |
+| 0.0001       | layered k2 |  12 | CRC + sanity + corroboration |                       0       |                          2.34e-06 |                              0       |
+| 0.001        | record     |  12 | CRC only                     |                       0.121   |                          2.16e-05 |                              2.6     |
+| 0.001        | record     |  12 | CRC + sanity                 |                       0.0485  |                          2.16e-05 |                              1.05    |
+| 0.001        | record     |  12 | CRC + corroboration          |                       0       |                          2.16e-05 |                              0       |
+| 0.001        | record     |  12 | CRC + sanity + corroboration |                       0       |                          2.16e-05 |                              0       |
+| 0.001        | layered k1 |  12 | CRC only                     |                       0.212   |                          2.16e-05 |                              4.56    |
+| 0.001        | layered k1 |  12 | CRC + sanity                 |                       0.135   |                          2.16e-05 |                              2.92    |
+| 0.001        | layered k1 |  12 | CRC + corroboration          |                       0.00882 |                          2.16e-05 |                              0.19    |
+| 0.001        | layered k1 |  12 | CRC + sanity + corroboration |                       0.00441 |                          2.16e-05 |                              0.0951  |
+| 0.001        | layered k2 |  12 | CRC only                     |                       0.231   |                          2.16e-05 |                              4.98    |
+| 0.001        | layered k2 |  12 | CRC + sanity                 |                       0.15    |                          2.16e-05 |                              3.23    |
+| 0.001        | layered k2 |  12 | CRC + corroboration          |                       0.00147 |                          2.16e-05 |                              0.0317  |
+| 0.001        | layered k2 |  12 | CRC + sanity + corroboration |                       0       |                          2.16e-05 |                              0       |
+| 0.01         | record     |  12 | CRC only                     |                       0.121   |                          0.000108 |                             13       |
+| 0.01         | record     |  12 | CRC + sanity                 |                       0.0485  |                          0.000108 |                              5.24    |
+| 0.01         | record     |  12 | CRC + corroboration          |                       0       |                          0.000108 |                              0       |
+| 0.01         | record     |  12 | CRC + sanity + corroboration |                       0       |                          0.000108 |                              0       |
+| 0.01         | layered k1 |  12 | CRC only                     |                       0.212   |                          0.000108 |                             22.9     |
+| 0.01         | layered k1 |  12 | CRC + sanity                 |                       0.135   |                          0.000108 |                             14.6     |
+| 0.01         | layered k1 |  12 | CRC + corroboration          |                       0.00882 |                          0.000108 |                              0.953   |
+| 0.01         | layered k1 |  12 | CRC + sanity + corroboration |                       0.00441 |                          0.000108 |                              0.476   |
+| 0.01         | layered k2 |  12 | CRC only                     |                       0.231   |                          0.000108 |                             24.9     |
+| 0.01         | layered k2 |  12 | CRC + sanity                 |                       0.15    |                          0.000108 |                             16.2     |
+| 0.01         | layered k2 |  12 | CRC + corroboration          |                       0.00147 |                          0.000108 |                              0.159   |
+| 0.01         | layered k2 |  12 | CRC + sanity + corroboration |                       0       |                          0.000108 |                              0       |
+| 10% hit      | record     |  12 | CRC only                     |                       0.121   |                          1.28e-05 |                              1.55    |
+| 10% hit      | record     |  12 | CRC + sanity                 |                       0.0485  |                          1.28e-05 |                              0.622   |
+| 10% hit      | record     |  12 | CRC + corroboration          |                       0       |                          1.28e-05 |                              0       |
+| 10% hit      | record     |  12 | CRC + sanity + corroboration |                       0       |                          1.28e-05 |                              0       |
+| 10% hit      | layered k1 |  12 | CRC only                     |                       0.212   |                          1.28e-05 |                              2.71    |
+| 10% hit      | layered k1 |  12 | CRC + sanity                 |                       0.135   |                          1.28e-05 |                              1.73    |
+| 10% hit      | layered k1 |  12 | CRC + corroboration          |                       0.00882 |                          1.28e-05 |                              0.113   |
+| 10% hit      | layered k1 |  12 | CRC + sanity + corroboration |                       0.00441 |                          1.28e-05 |                              0.0565  |
+| 10% hit      | layered k2 |  12 | CRC only                     |                       0.231   |                          1.28e-05 |                              2.96    |
+| 10% hit      | layered k2 |  12 | CRC + sanity                 |                       0.15    |                          1.28e-05 |                              1.92    |
+| 10% hit      | layered k2 |  12 | CRC + corroboration          |                       0.00147 |                          1.28e-05 |                              0.0188  |
+| 10% hit      | layered k2 |  12 | CRC + sanity + corroboration |                       0       |                          1.28e-05 |                              0       |

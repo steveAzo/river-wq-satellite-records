@@ -1,0 +1,82 @@
+01388000
+01400500
+01402000
+01427510
+01438500
+01458500
+01463500
+01465798
+014670261
+01467087
+01467200
+01473500
+01473900
+01474500
+01475530
+01477050
+03072655
+03075070
+03081000
+03083500
+05420400
+05537980
+05543010
+05553700
+05559900
+05586300
+11509370
+11509500
+11510700
+14162500
+14163900
+14203500
+14206241
+14206694
+14207200
+14209710
+14210000
+14211010
+420853121505500
+
+Q = 6, lambda = 0.5: mean J, mean gap to exact, share of days at the optimum
+  rec    J 3.5509  gap 0.6906  optimal on 0.255 of days
+  flat   J 3.3060  gap 0.9355  optimal on 0.000 of days
+  pet2   J 3.9692  gap 0.2723  optimal on 0.000 of days
+  spare  J 3.6418  gap 0.5998  optimal on 0.258 of days
+  heur   J 3.9018  gap 0.3397  optimal on 0.301 of days
+  ex1    J 4.2415  gap 0.0000  optimal on 1.000 of days
+Q = 6, lambda = 1.0: mean J, mean gap to exact, share of days at the optimum
+  rec    J 3.9919  gap 0.6450  optimal on 0.255 of days
+  flat   J 3.6733  gap 0.9635  optimal on 0.000 of days
+  pet2   J 4.3233  gap 0.3136  optimal on 0.005 of days
+  spare  J 4.0827  gap 0.5541  optimal on 0.258 of days
+  heur   J 4.3046  gap 0.3322  optimal on 0.302 of days
+  ex1    J 4.6368  gap 0.0000  optimal on 1.000 of days
+Q = 6, lambda = 2.0: mean J, mean gap to exact, share of days at the optimum
+  rec    J 4.8737  gap 0.5933  optimal on 0.277 of days
+  flat   J 4.4080  gap 1.0590  optimal on 0.000 of days
+  pet2   J 5.0314  gap 0.4355  optimal on 0.000 of days
+  spare  J 4.9645  gap 0.5024  optimal on 0.281 of days
+  heur   J 5.1102  gap 0.3568  optimal on 0.310 of days
+  ex1    J 5.4670  gap 0.0000  optimal on 1.000 of days
+Q = 12, lambda = 0.5: mean J, mean gap to exact, share of days at the optimum
+  rec    J 3.9499  gap 0.5174  optimal on 0.267 of days
+  flat   J 4.3484  gap 0.1189  optimal on 0.000 of days
+  pet2   J 4.4555  gap 0.0118  optimal on 0.122 of days
+  spare  J 4.0572  gap 0.4100  optimal on 0.270 of days
+  heur   J 4.3899  gap 0.0773  optimal on 0.306 of days
+  ex1    J 4.4673  gap 0.0000  optimal on 1.000 of days
+Q = 12, lambda = 1.0: mean J, mean gap to exact, share of days at the optimum
+  rec    J 4.4422  gap 0.5063  optimal on 0.288 of days
+  flat   J 4.8316  gap 0.1169  optimal on 0.000 of days
+  pet2   J 4.9245  gap 0.0240  optimal on 0.018 of days
+  spare  J 4.5495  gap 0.3990  optimal on 0.292 of days
+  heur   J 4.8673  gap 0.0812  optimal on 0.314 of days
+  ex1    J 4.9485  gap 0.0000  optimal on 1.000 of days
+Q = 12, lambda = 2.0: mean J, mean gap to exact, share of days at the optimum
+  rec    J 5.4268  gap 0.4972  optimal on 0.293 of days
+  flat   J 5.7979  gap 0.1261  optimal on 0.000 of days
+  pet2   J 5.8624  gap 0.0616  optimal on 0.000 of days
+  spare  J 5.5341  gap 0.3899  optimal on 0.301 of days
+  heur   J 5.8221  gap 0.1019  optimal on 0.315 of days
+  ex1    J 5.9240  gap 0.0000  optimal on 1.000 of days

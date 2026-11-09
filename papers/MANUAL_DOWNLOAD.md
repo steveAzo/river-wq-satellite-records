@@ -69,3 +69,36 @@ These matter most now: they are the "allocate error bounds across sensors under 
 | 83_Deligiannakis2006_Dissemination_Compressed_Historical_Information_VLDBJ.pdf | https://doi.org/10.1007/s00778-005-0173-5 (Springer, VLDB Journal 2006) |
 
 Still outstanding from round 2 (Springer, EDBT 2004): 75_Deligiannakis2004_Hierarchical_InNetwork_Aggregation_Quality_Guarantees_EDBT.pdf.
+
+## Round 4 (2026-11-03): revision 2, prior art for a decision-aware certifiable encoder
+Already downloaded automatically (open access): 90 PlatoDB, 91 Plato, 92 CAMEO, 93 SHRINK direct analytics, 94 TREAT, 95 Cadence, 96 TerseTS.
+
+Please download these (paywalled or blocked). Save into `Paper3/papers/pdf/` with the name shown.
+
+### Priority A: decides the novelty claim
+| Save as | Link |
+|---|---|
+| 98_Albanese1996_Priority_Encoding_Transmission_IEEETIT.pdf | https://doi.org/10.1109/18.556673 (IEEE Trans. Information Theory 42(6), "Priority encoding transmission"; if the DOI fails, search the title) |
+| 99_Boucheron2000_About_Priority_Encoding_Transmission_IEEETIT.pdf | search "About priority encoding transmission Boucheron Salamatian IEEE Transactions on Information Theory 2000" |
+| 100_Zhang2022_Goal_Oriented_Communications_IoT_Data_Compression_IoTMag.pdf | https://hal.archives-ouvertes.fr/hal-03846159 (the PDF link on that page; automatic download failed) |
+| 101_EMS2026_Signal_Estimation_Adaptive_Algorithm_Latch_Mechanism_WaterQuality.pdf | https://doi.org/10.1016/j.envsoft.2025.106793 (the nearest recent EMS paper on real-time water-quality signals; the review cites it) |
+| 102_Horsburgh2015_Environmental_Sensor_Data_Software_EMS.pdf | https://doi.org/10.1016/j.envsoft.2015.04.002 |
+
+### Priority B: baselines and context
+| Save as | Link |
+|---|---|
+| 103_Miskowicz2017_Basic_Send_on_Delta_Sampling_Sensors.pdf | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5335925/ (click "PDF"; automatic download returned HTML) |
+| 104_Li2025_Serf_Streaming_Error_Bounded_Floating_Point_Compression.pdf | https://doi.org/10.1145/3725353 |
+| 105_Lin2025_Progressive_Bounded_Error_PLA_Sensors.pdf | https://doi.org/10.3390/s25010145 (check whether lin2025 is already in pdf/; skip if so) |
+| 106_Cheng2003_Evaluating_Probabilistic_Queries_Imprecise_Data_SIGMOD.pdf | search "Evaluating probabilistic queries over imprecise data Cheng Kalashnikov Prabhakar SIGMOD 2003" |
+| 107_Sun2026_Review_Uncertainty_Assessment_Water_Quality_Modeling_EMS.pdf | https://doi.org/10.1016/j.envsoft.2026.107068 |
+| 108_EMS2016_Real_Time_Environmental_Sensor_Data_Water_Quality_Web_Services.pdf | https://doi.org/10.1016/j.envsoft.2016.07.020 |
+
+When done, tell Claude; it will convert them to text and read them.
+
+## Round 5 (2026-11-03): one correction
+Round 4 file 98 was the wrong article (my DOI was wrong; it is Brassard et al., "Oblivious transfers and intersecting codes"). Everything else in Round 4 was correct and has been read.
+
+| Save as | Link |
+|---|---|
+| 98_Albanese1996_Priority_Encoding_Transmission_IEEETIT.pdf | Search the TITLE, do not trust a DOI: "Priority encoding transmission" by A. Albanese, J. Blomer, J. Edmonds, M. Luby, M. Sudan. IEEE Transactions on Information Theory, vol. 42, no. 6, Nov 1996, pp. 1737-1744. Check the first page before saving (it must say Priority Encoding Transmission). A free copy may exist at ICSI (icsi.berkeley.edu, technical report TR-94-039). |

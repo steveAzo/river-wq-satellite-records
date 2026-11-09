@@ -1,0 +1,249 @@
+# Step 3b results (revision 2): 7DADM windows and conductance pulses, development data only
+
+Date: 2026-11-03. Data: USGS 2023, 38 sites with four-parameter days; 7,902 seven-day windows; 10,342 conductance days. Code: `src/p3/proto_queries.py`, `src/p3/proto_q_eval.py`, rate witness and rolling-mean rule in `src/p3/certlang.py` (tests: `tests/test_certlang.py`, 95 cases). Criteria were written before the results (docs/REVISION2_PLAN.md, "Step 3b criteria").
+Commands (from Paper3/): `python -I src/p3/proto_queries.py data/clean/usgs dev <Q> 1`, then `python -I src/p3/proto_q_eval.py dev 6 12`. One worker (3.7 GB RAM; two workers ran out of memory twice).
+
+## Setup
+
+- Witnesses tested one at a time. 7DADM: the day's maximum temperature (one kept value); the server holds an interval for each day's maximum and combines seven days draw by draw (independent loss per day). Conductance: the rate witness, the pair of kept values realising the day's largest hourly relative change (two values); with it, "no pulse" is certain whenever its change bound is at most 10%, and a pulse is certain when the pair itself shows one.
+- Designs as in Step 3: record only, flat, PET c = 1 and c = 2, spare slots, decision-aware (hard days layered, others in spare slots), and the control with the same layering pattern on random days.
+- Hard: 7DADM, trailing seven-day mean of daily maxima within 3 degC of 20, or no full history (then hard); near windows in the tables use 2 degC. Conductance: largest hourly change at least 4%.
+- Tuning disclosure: the 7DADM band and the unknown-history rule were fixed on development data after a first run (band 2, unknown history easy) fell 0.055 below PET c = 1 on near windows. The rule (stated before the sensitivity): smallest band within 0.02 of PET c = 1; with unknown history hard, band 2 failed (0.026), band 3 passed (0.010 and 0.015). The first run is kept in results/dev/proto_q_v1. The confirmation cohort must use band 3 and the unknown-history rule as frozen.
+
+## Findings
+
+1. Soundness: 0 wrong decisions in every design, condition, and Q.
+2. Witness benefit (criteria: at least 0.10 on near 7DADM windows, at least 0.05 on hard conductance days; Q = 6, independent loss): met. Near windows: record only 0.715, decision-aware 0.986 (+0.27). Hard conductance days: 0.619 to 0.981 (+0.35 in the paired contrast against record only).
+3. Placement matters: a witness inside the record code (flat) does almost nothing for the 7DADM (0.739 on near windows), because a window needs seven informative days. Against flat, decision-aware gains +0.231 (independent) and +0.294 (bursts) on near windows, and +0.063 and +0.035 on hard conductance days.
+4. Targeting is worth it: against the same layering on random days, decision-aware gains +0.100 and +0.151 on near windows, and +0.176 and +0.166 on hard conductance days, at 0.001 to 0.005 of record recovery.
+5. Against always layering the witness (PET c = 1, the strong classical baseline): decision-aware recovers the record more often (+0.032 and +0.030 for 7DADM; +0.036 and +0.036 for conductance, Q = 6) and equals it on hard days (conductance exactly; 7DADM within 0.014 and 0.017), but loses easy days: all-window 7DADM decisions are 0.056 and 0.103 lower, all-day conductance decisions 0.027 lower. This is a trade, not a dominance.
+6. Q = 12: decisions saturate (PET c = 1 above 0.99 almost everywhere); the allocation benefit over flat is small for conductance (+0.009 and +0.023 on hard days) and moderate for the 7DADM under bursts (+0.118).
+7. Pre-registered allocation criterion (decisions +0.03 over the random-day control, or equal decisions at +0.03 record versus flat), Q = 6, both loss models, both queries: met through the control (+0.100, +0.151, +0.176, +0.166).
+
+## Reading
+
+- Both queries need a certificate that a send-min/max design cannot provide (the conductance pulse) or protect better than flat placement (the 7DADM). Gains over the record-only design of the current paper are large (+0.27 to +0.35 on hard cases).
+- The targeting rule is a heuristic with one tuned parameter. Always layering (PET c = 1) is a strong alternative that buys easy-day decisions with record recovery; which point on the curve is preferable depends on the use. The paper should present the curve, not a single winner.
+- Not yet done: all witnesses competing for the same columns (Step 3c), an exact allocation solver, integrity (Step 6), frame bytes for witness types, and any evidence outside the development data.
+
+## Raw evaluation output
+
+## Q = 6: 38 sites; wrong decisions max 0.000; 7DADM windows 7902; conductance days 10342
+
+### 7DADM, perfect
+| design                             | record recovered       | all windows            | near (within 2 degC)   | event (mean above 20)   | non-event              |
+|:-----------------------------------|:-----------------------|:-----------------------|:-----------------------|:------------------------|:-----------------------|
+| record only                        | 0.977 (0.964 to 0.990) | 0.995 (0.992 to 0.997) | 0.960 (0.947 to 0.973) | 0.991 (0.986 to 0.995)  | 0.996 (0.993 to 0.998) |
+| flat (witness in record code)      | 0.975 (0.960 to 0.989) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000)  | 1.000 (1.000 to 1.000) |
+| PET c=1                            | 0.957 (0.933 to 0.977) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000)  | 1.000 (1.000 to 1.000) |
+| PET c=2                            | 0.908 (0.867 to 0.944) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000)  | 1.000 (1.000 to 1.000) |
+| spare slots                        | 0.977 (0.962 to 0.990) | 0.999 (0.998 to 1.000) | 0.992 (0.985 to 0.997) | 0.998 (0.997 to 1.000)  | 0.999 (0.998 to 1.000) |
+| decision-aware (hard days layered) | 0.967 (0.948 to 0.983) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000)  | 1.000 (1.000 to 1.000) |
+| control: random days               | 0.969 (0.952 to 0.984) | 0.999 (0.999 to 1.000) | 0.995 (0.991 to 0.999) | 0.999 (0.998 to 1.000)  | 0.999 (0.999 to 1.000) |
+
+Paired differences, 7DADM, perfect (sites resampled, 95% interval):
+  adapt minus randmix: record -0.002 (-0.004 to -0.000); decisions, hard +0.005 (+0.000 to +0.013); decisions, all +0.001 (+0.000 to +0.001)
+  adapt minus flat: record -0.008 (-0.013 to -0.004); decisions, hard +0.000 (+0.000 to +0.000); decisions, all +0.000 (+0.000 to +0.000)
+  adapt minus pet1: record +0.010 (+0.006 to +0.015); decisions, hard +0.000 (+0.000 to +0.000); decisions, all +0.000 (+0.000 to +0.000)
+  adapt minus rec: record -0.010 (-0.016 to -0.005); decisions, hard +0.035 (+0.023 to +0.048); decisions, all +0.006 (+0.003 to +0.009)
+  flat minus rec: record -0.003 (-0.004 to -0.001); decisions, hard +0.035 (+0.023 to +0.048); decisions, all +0.006 (+0.003 to +0.009)
+
+### Conductance pulse, perfect
+| design                             | record recovered       | all days               | hard (rate at least 4%)   | event (above 10%)      | non-event              |
+|:-----------------------------------|:-----------------------|:-----------------------|:--------------------------|:-----------------------|:-----------------------|
+| record only                        | 0.977 (0.963 to 0.990) | 0.923 (0.881 to 0.956) | 0.680 (0.587 to 0.789)    | 0.732 (0.601 to 0.829) | 0.938 (0.906 to 0.961) |
+| flat (witness in record code)      | 0.972 (0.955 to 0.987) | 0.998 (0.997 to 0.999) | 0.992 (0.988 to 0.996)    | 0.997 (0.995 to 1.000) | 0.998 (0.997 to 0.999) |
+| PET c=1                            | 0.957 (0.934 to 0.977) | 0.998 (0.997 to 0.999) | 0.992 (0.988 to 0.996)    | 0.997 (0.995 to 1.000) | 0.998 (0.997 to 0.999) |
+| PET c=2                            | 0.908 (0.870 to 0.941) | 0.998 (0.997 to 0.999) | 0.992 (0.988 to 0.996)    | 0.997 (0.994 to 1.000) | 0.998 (0.997 to 0.999) |
+| spare slots                        | 0.977 (0.963 to 0.990) | 0.958 (0.939 to 0.974) | 0.851 (0.806 to 0.901)    | 0.875 (0.796 to 0.923) | 0.964 (0.947 to 0.979) |
+| decision-aware (hard days layered) | 0.968 (0.949 to 0.983) | 0.986 (0.976 to 0.995) | 0.992 (0.988 to 0.996)    | 0.997 (0.994 to 1.000) | 0.986 (0.975 to 0.995) |
+| control: random days               | 0.971 (0.956 to 0.985) | 0.973 (0.960 to 0.985) | 0.923 (0.878 to 0.949)    | 0.943 (0.877 to 0.973) | 0.975 (0.963 to 0.987) |
+
+Paired differences, Conductance pulse, perfect (sites resampled, 95% interval):
+  adapt minus randmix: record -0.004 (-0.009 to -0.001); decisions, hard +0.149 (+0.090 to +0.221); decisions, all +0.013 (+0.008 to +0.018)
+  adapt minus flat: record -0.004 (-0.010 to +0.000); decisions, hard +0.000 (+0.000 to +0.000); decisions, all -0.010 (-0.020 to -0.003)
+  adapt minus pet1: record +0.010 (+0.005 to +0.016); decisions, hard +0.000 (+0.000 to +0.000); decisions, all -0.010 (-0.020 to -0.003)
+  adapt minus rec: record -0.010 (-0.017 to -0.005); decisions, hard +0.308 (+0.238 to +0.378); decisions, all +0.063 (+0.035 to +0.099)
+  flat minus rec: record -0.006 (-0.008 to -0.003); decisions, hard +0.308 (+0.241 to +0.385); decisions, all +0.073 (+0.045 to +0.109)
+
+### 7DADM, iid_p0.3
+| design                             | record recovered       | all windows            | near (within 2 degC)   | event (mean above 20)   | non-event              |
+|:-----------------------------------|:-----------------------|:-----------------------|:-----------------------|:------------------------|:-----------------------|
+| record only                        | 0.905 (0.873 to 0.932) | 0.849 (0.810 to 0.883) | 0.715 (0.649 to 0.780) | 0.824 (0.779 to 0.865)  | 0.859 (0.813 to 0.898) |
+| flat (witness in record code)      | 0.889 (0.855 to 0.920) | 0.856 (0.827 to 0.886) | 0.739 (0.680 to 0.803) | 0.825 (0.780 to 0.866)  | 0.869 (0.833 to 0.898) |
+| PET c=1                            | 0.846 (0.804 to 0.884) | 0.998 (0.997 to 0.999) | 0.996 (0.994 to 0.998) | 0.998 (0.997 to 0.999)  | 0.998 (0.997 to 0.999) |
+| PET c=2                            | 0.727 (0.664 to 0.787) | 0.998 (0.997 to 0.999) | 0.996 (0.994 to 0.998) | 0.998 (0.997 to 0.999)  | 0.998 (0.997 to 0.999) |
+| spare slots                        | 0.905 (0.874 to 0.932) | 0.898 (0.872 to 0.923) | 0.807 (0.755 to 0.856) | 0.888 (0.854 to 0.919)  | 0.903 (0.868 to 0.932) |
+| decision-aware (hard days layered) | 0.877 (0.836 to 0.914) | 0.943 (0.927 to 0.958) | 0.986 (0.980 to 0.991) | 0.945 (0.917 to 0.969)  | 0.943 (0.923 to 0.962) |
+| control: random days               | 0.879 (0.839 to 0.916) | 0.932 (0.915 to 0.948) | 0.867 (0.832 to 0.904) | 0.926 (0.896 to 0.950)  | 0.935 (0.913 to 0.953) |
+
+Paired differences, 7DADM, iid_p0.3 (sites resampled, 95% interval):
+  adapt minus randmix: record -0.001 (-0.004 to +0.001); decisions, hard +0.100 (+0.068 to +0.132); decisions, all +0.007 (-0.003 to +0.016)
+  adapt minus flat: record -0.013 (-0.020 to -0.007); decisions, hard +0.231 (+0.180 to +0.281); decisions, all +0.100 (+0.077 to +0.127)
+  adapt minus pet1: record +0.032 (+0.024 to +0.039); decisions, hard -0.014 (-0.029 to -0.004); decisions, all -0.056 (-0.075 to -0.040)
+  adapt minus rec: record -0.029 (-0.039 to -0.020); decisions, hard +0.244 (+0.187 to +0.302); decisions, all +0.105 (+0.077 to +0.134)
+  flat minus rec: record -0.016 (-0.020 to -0.013); decisions, hard +0.014 (-0.008 to +0.035); decisions, all +0.005 (-0.005 to +0.019)
+
+### Conductance pulse, iid_p0.3
+| design                             | record recovered       | all days               | hard (rate at least 4%)   | event (above 10%)      | non-event              |
+|:-----------------------------------|:-----------------------|:-----------------------|:--------------------------|:-----------------------|:-----------------------|
+| record only                        | 0.905 (0.875 to 0.935) | 0.886 (0.844 to 0.924) | 0.619 (0.527 to 0.733)    | 0.657 (0.530 to 0.759) | 0.904 (0.868 to 0.931) |
+| flat (witness in record code)      | 0.873 (0.835 to 0.906) | 0.959 (0.951 to 0.967) | 0.918 (0.900 to 0.931)    | 0.925 (0.897 to 0.940) | 0.962 (0.953 to 0.969) |
+| PET c=1                            | 0.846 (0.802 to 0.885) | 0.989 (0.988 to 0.990) | 0.981 (0.977 to 0.986)    | 0.987 (0.983 to 0.992) | 0.989 (0.988 to 0.990) |
+| PET c=2                            | 0.727 (0.666 to 0.788) | 0.998 (0.996 to 0.999) | 0.991 (0.987 to 0.995)    | 0.996 (0.993 to 0.999) | 0.998 (0.996 to 0.999) |
+| spare slots                        | 0.905 (0.874 to 0.933) | 0.923 (0.900 to 0.945) | 0.792 (0.744 to 0.838)    | 0.810 (0.728 to 0.858) | 0.932 (0.908 to 0.951) |
+| decision-aware (hard days layered) | 0.880 (0.843 to 0.914) | 0.961 (0.948 to 0.973) | 0.981 (0.977 to 0.986)    | 0.987 (0.983 to 0.991) | 0.959 (0.944 to 0.972) |
+| control: random days               | 0.885 (0.851 to 0.919) | 0.946 (0.930 to 0.961) | 0.889 (0.829 to 0.924)    | 0.907 (0.833 to 0.945) | 0.949 (0.932 to 0.964) |
+
+Paired differences, Conductance pulse, iid_p0.3 (sites resampled, 95% interval):
+  adapt minus randmix: record -0.005 (-0.008 to -0.003); decisions, hard +0.176 (+0.117 to +0.253); decisions, all +0.015 (+0.010 to +0.021)
+  adapt minus flat: record +0.009 (+0.002 to +0.015); decisions, hard +0.063 (+0.046 to +0.085); decisions, all +0.003 (-0.006 to +0.011)
+  adapt minus pet1: record +0.036 (+0.028 to +0.046); decisions, hard +0.000 (+0.000 to +0.000); decisions, all -0.027 (-0.039 to -0.016)
+  adapt minus rec: record -0.024 (-0.035 to -0.015); decisions, hard +0.348 (+0.288 to +0.413); decisions, all +0.075 (+0.044 to +0.110)
+  flat minus rec: record -0.034 (-0.040 to -0.027); decisions, hard +0.285 (+0.230 to +0.343); decisions, all +0.072 (+0.043 to +0.104)
+
+### 7DADM, gilbert_p0.3_b3
+| design                             | record recovered       | all windows            | near (within 2 degC)   | event (mean above 20)   | non-event              |
+|:-----------------------------------|:-----------------------|:-----------------------|:-----------------------|:------------------------|:-----------------------|
+| record only                        | 0.834 (0.807 to 0.859) | 0.656 (0.617 to 0.696) | 0.418 (0.371 to 0.468) | 0.591 (0.538 to 0.640)  | 0.685 (0.637 to 0.728) |
+| flat (witness in record code)      | 0.815 (0.785 to 0.841) | 0.655 (0.623 to 0.687) | 0.431 (0.394 to 0.474) | 0.588 (0.542 to 0.633)  | 0.684 (0.645 to 0.719) |
+| PET c=1                            | 0.780 (0.743 to 0.812) | 0.867 (0.857 to 0.877) | 0.748 (0.733 to 0.763) | 0.851 (0.831 to 0.867)  | 0.874 (0.863 to 0.885) |
+| PET c=2                            | 0.683 (0.630 to 0.728) | 0.867 (0.857 to 0.876) | 0.748 (0.732 to 0.763) | 0.851 (0.832 to 0.869)  | 0.874 (0.863 to 0.885) |
+| spare slots                        | 0.834 (0.805 to 0.860) | 0.700 (0.666 to 0.728) | 0.481 (0.441 to 0.520) | 0.656 (0.611 to 0.696)  | 0.719 (0.677 to 0.753) |
+| decision-aware (hard days layered) | 0.811 (0.778 to 0.840) | 0.765 (0.743 to 0.785) | 0.733 (0.716 to 0.749) | 0.757 (0.731 to 0.783)  | 0.768 (0.739 to 0.794) |
+| control: random days               | 0.812 (0.780 to 0.846) | 0.758 (0.738 to 0.779) | 0.569 (0.532 to 0.604) | 0.725 (0.689 to 0.761)  | 0.772 (0.748 to 0.796) |
+
+Paired differences, 7DADM, gilbert_p0.3_b3 (sites resampled, 95% interval):
+  adapt minus randmix: record -0.001 (-0.003 to +0.000); decisions, hard +0.151 (+0.127 to +0.180); decisions, all -0.004 (-0.016 to +0.006)
+  adapt minus flat: record -0.005 (-0.011 to +0.000); decisions, hard +0.294 (+0.261 to +0.328); decisions, all +0.123 (+0.103 to +0.147)
+  adapt minus pet1: record +0.030 (+0.025 to +0.035); decisions, hard -0.017 (-0.028 to -0.008); decisions, all -0.103 (-0.123 to -0.085)
+  adapt minus rec: record -0.025 (-0.032 to -0.019); decisions, hard +0.303 (+0.264 to +0.347); decisions, all +0.121 (+0.097 to +0.148)
+  flat minus rec: record -0.020 (-0.022 to -0.018); decisions, hard +0.009 (-0.001 to +0.019); decisions, all -0.002 (-0.011 to +0.008)
+
+### Conductance pulse, gilbert_p0.3_b3
+| design                             | record recovered       | all days               | hard (rate at least 4%)   | event (above 10%)      | non-event              |
+|:-----------------------------------|:-----------------------|:-----------------------|:--------------------------|:-----------------------|:-----------------------|
+| record only                        | 0.834 (0.807 to 0.860) | 0.813 (0.772 to 0.846) | 0.561 (0.486 to 0.642)    | 0.595 (0.484 to 0.683) | 0.829 (0.795 to 0.860) |
+| flat (witness in record code)      | 0.796 (0.767 to 0.826) | 0.898 (0.892 to 0.904) | 0.861 (0.851 to 0.870)    | 0.867 (0.847 to 0.882) | 0.900 (0.894 to 0.907) |
+| PET c=1                            | 0.780 (0.743 to 0.812) | 0.910 (0.908 to 0.912) | 0.899 (0.895 to 0.904)    | 0.907 (0.900 to 0.917) | 0.910 (0.908 to 0.913) |
+| PET c=2                            | 0.683 (0.632 to 0.729) | 0.959 (0.957 to 0.960) | 0.952 (0.948 to 0.957)    | 0.958 (0.953 to 0.964) | 0.959 (0.958 to 0.960) |
+| spare slots                        | 0.834 (0.807 to 0.861) | 0.845 (0.823 to 0.867) | 0.712 (0.670 to 0.753)    | 0.725 (0.655 to 0.769) | 0.854 (0.835 to 0.873) |
+| decision-aware (hard days layered) | 0.816 (0.785 to 0.849) | 0.883 (0.869 to 0.895) | 0.899 (0.895 to 0.904)    | 0.907 (0.901 to 0.917) | 0.881 (0.866 to 0.895) |
+| control: random days               | 0.819 (0.788 to 0.847) | 0.869 (0.854 to 0.884) | 0.810 (0.754 to 0.840)    | 0.827 (0.754 to 0.864) | 0.872 (0.856 to 0.888) |
+
+Paired differences, Conductance pulse, gilbert_p0.3_b3 (sites resampled, 95% interval):
+  adapt minus randmix: record -0.004 (-0.005 to -0.002); decisions, hard +0.166 (+0.111 to +0.228); decisions, all +0.014 (+0.010 to +0.020)
+  adapt minus flat: record +0.020 (+0.013 to +0.026); decisions, hard +0.035 (+0.022 to +0.050); decisions, all -0.015 (-0.024 to -0.006)
+  adapt minus pet1: record +0.036 (+0.030 to +0.042); decisions, hard +0.000 (+0.000 to +0.000); decisions, all -0.027 (-0.039 to -0.016)
+  adapt minus rec: record -0.019 (-0.027 to -0.012); decisions, hard +0.320 (+0.260 to +0.385); decisions, all +0.070 (+0.043 to +0.103)
+  flat minus rec: record -0.039 (-0.042 to -0.035); decisions, hard +0.285 (+0.234 to +0.337); decisions, all +0.085 (+0.057 to +0.118)
+
+## Q = 12: 38 sites; wrong decisions max 0.000; 7DADM windows 7902; conductance days 10342
+
+### 7DADM, perfect
+| design                             | record recovered       | all windows            | near (within 2 degC)   | event (mean above 20)   | non-event              |
+|:-----------------------------------|:-----------------------|:-----------------------|:-----------------------|:------------------------|:-----------------------|
+| record only                        | 0.999 (0.998 to 1.000) | 0.995 (0.992 to 0.997) | 0.960 (0.947 to 0.973) | 0.991 (0.986 to 0.995)  | 0.996 (0.994 to 0.998) |
+| flat (witness in record code)      | 0.999 (0.998 to 1.000) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000)  | 1.000 (1.000 to 1.000) |
+| PET c=1                            | 0.996 (0.993 to 0.999) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000)  | 1.000 (1.000 to 1.000) |
+| PET c=2                            | 0.988 (0.980 to 0.996) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000)  | 1.000 (1.000 to 1.000) |
+| spare slots                        | 0.999 (0.998 to 1.000) | 0.999 (0.998 to 1.000) | 0.993 (0.986 to 0.998) | 0.998 (0.997 to 1.000)  | 0.999 (0.998 to 1.000) |
+| decision-aware (hard days layered) | 0.997 (0.995 to 0.999) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000)  | 1.000 (1.000 to 1.000) |
+| control: random days               | 0.998 (0.997 to 1.000) | 0.999 (0.999 to 1.000) | 0.995 (0.991 to 0.999) | 0.999 (0.998 to 1.000)  | 0.999 (0.999 to 1.000) |
+
+Paired differences, 7DADM, perfect (sites resampled, 95% interval):
+  adapt minus randmix: record -0.001 (-0.002 to -0.000); decisions, hard +0.005 (+0.000 to +0.013); decisions, all +0.001 (+0.000 to +0.001)
+  adapt minus flat: record -0.001 (-0.002 to -0.000); decisions, hard +0.000 (+0.000 to +0.000); decisions, all +0.000 (+0.000 to +0.000)
+  adapt minus pet1: record +0.001 (+0.000 to +0.002); decisions, hard +0.000 (+0.000 to +0.000); decisions, all +0.000 (+0.000 to +0.000)
+  adapt minus rec: record -0.001 (-0.002 to -0.000); decisions, hard +0.035 (+0.022 to +0.048); decisions, all +0.006 (+0.004 to +0.009)
+  flat minus rec: record -0.000 (-0.000 to +0.000); decisions, hard +0.035 (+0.023 to +0.049); decisions, all +0.006 (+0.004 to +0.009)
+
+### Conductance pulse, perfect
+| design                             | record recovered       | all days               | hard (rate at least 4%)   | event (above 10%)      | non-event              |
+|:-----------------------------------|:-----------------------|:-----------------------|:--------------------------|:-----------------------|:-----------------------|
+| record only                        | 0.999 (0.998 to 1.000) | 0.938 (0.899 to 0.970) | 0.696 (0.608 to 0.800)    | 0.747 (0.623 to 0.848) | 0.952 (0.925 to 0.975) |
+| flat (witness in record code)      | 0.999 (0.997 to 1.000) | 0.998 (0.997 to 0.999) | 0.992 (0.988 to 0.996)    | 0.997 (0.994 to 1.000) | 0.998 (0.997 to 0.999) |
+| PET c=1                            | 0.996 (0.993 to 0.999) | 0.998 (0.997 to 0.999) | 0.992 (0.988 to 0.996)    | 0.997 (0.995 to 1.000) | 0.998 (0.997 to 0.999) |
+| PET c=2                            | 0.988 (0.981 to 0.995) | 0.998 (0.997 to 0.999) | 0.992 (0.988 to 0.996)    | 0.997 (0.995 to 1.000) | 0.998 (0.997 to 0.999) |
+| spare slots                        | 0.999 (0.998 to 1.000) | 0.974 (0.958 to 0.986) | 0.874 (0.835 to 0.917)    | 0.897 (0.837 to 0.940) | 0.980 (0.968 to 0.989) |
+| decision-aware (hard days layered) | 0.998 (0.996 to 0.999) | 0.998 (0.997 to 0.999) | 0.992 (0.988 to 0.996)    | 0.997 (0.994 to 1.000) | 0.998 (0.997 to 0.999) |
+| control: random days               | 0.999 (0.997 to 1.000) | 0.988 (0.984 to 0.991) | 0.942 (0.914 to 0.959)    | 0.961 (0.919 to 0.980) | 0.990 (0.986 to 0.993) |
+
+Paired differences, Conductance pulse, perfect (sites resampled, 95% interval):
+  adapt minus randmix: record -0.001 (-0.002 to -0.000); decisions, hard +0.098 (+0.060 to +0.140); decisions, all +0.010 (+0.007 to +0.014)
+  adapt minus flat: record -0.001 (-0.002 to -0.000); decisions, hard +0.000 (+0.000 to +0.000); decisions, all -0.000 (-0.001 to -0.000)
+  adapt minus pet1: record +0.001 (+0.000 to +0.003); decisions, hard +0.000 (+0.000 to +0.000); decisions, all -0.000 (-0.001 to -0.000)
+  adapt minus rec: record -0.001 (-0.002 to -0.000); decisions, hard +0.264 (+0.215 to +0.319); decisions, all +0.060 (+0.032 to +0.095)
+  flat minus rec: record -0.000 (-0.000 to +0.000); decisions, hard +0.264 (+0.211 to +0.315); decisions, all +0.061 (+0.031 to +0.095)
+
+### 7DADM, iid_p0.3
+| design                             | record recovered       | all windows            | near (within 2 degC)   | event (mean above 20)   | non-event              |
+|:-----------------------------------|:-----------------------|:-----------------------|:-----------------------|:------------------------|:-----------------------|
+| record only                        | 0.990 (0.984 to 0.996) | 0.985 (0.978 to 0.991) | 0.939 (0.913 to 0.961) | 0.973 (0.957 to 0.985)  | 0.990 (0.985 to 0.995) |
+| flat (witness in record code)      | 0.989 (0.982 to 0.995) | 0.991 (0.986 to 0.996) | 0.978 (0.961 to 0.994) | 0.982 (0.968 to 0.994)  | 0.996 (0.992 to 0.998) |
+| PET c=1                            | 0.980 (0.969 to 0.990) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000)  | 1.000 (1.000 to 1.000) |
+| PET c=2                            | 0.953 (0.932 to 0.973) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000) | 1.000 (1.000 to 1.000)  | 1.000 (1.000 to 1.000) |
+| spare slots                        | 0.990 (0.984 to 0.996) | 0.994 (0.990 to 0.997) | 0.979 (0.964 to 0.991) | 0.989 (0.981 to 0.996)  | 0.996 (0.993 to 0.998) |
+| decision-aware (hard days layered) | 0.985 (0.976 to 0.993) | 0.997 (0.996 to 0.999) | 1.000 (0.998 to 1.000) | 0.994 (0.988 to 0.999)  | 0.999 (0.998 to 1.000) |
+| control: random days               | 0.986 (0.978 to 0.993) | 0.996 (0.993 to 0.998) | 0.986 (0.974 to 0.995) | 0.993 (0.988 to 0.997)  | 0.997 (0.994 to 0.999) |
+
+Paired differences, 7DADM, iid_p0.3 (sites resampled, 95% interval):
+  adapt minus randmix: record -0.001 (-0.002 to +0.000); decisions, hard +0.011 (+0.004 to +0.020); decisions, all +0.002 (+0.000 to +0.003)
+  adapt minus flat: record -0.004 (-0.007 to -0.002); decisions, hard +0.016 (+0.007 to +0.029); decisions, all +0.006 (+0.003 to +0.009)
+  adapt minus pet1: record +0.005 (+0.003 to +0.007); decisions, hard -0.002 (-0.005 to +0.000); decisions, all -0.002 (-0.004 to -0.001)
+  adapt minus rec: record -0.005 (-0.008 to -0.003); decisions, hard +0.050 (+0.032 to +0.072); decisions, all +0.013 (+0.007 to +0.019)
+  flat minus rec: record -0.001 (-0.002 to -0.001); decisions, hard +0.033 (+0.020 to +0.049); decisions, all +0.007 (+0.004 to +0.011)
+
+### Conductance pulse, iid_p0.3
+| design                             | record recovered       | all days               | hard (rate at least 4%)   | event (above 10%)      | non-event              |
+|:-----------------------------------|:-----------------------|:-----------------------|:--------------------------|:-----------------------|:-----------------------|
+| record only                        | 0.990 (0.984 to 0.996) | 0.934 (0.896 to 0.967) | 0.691 (0.600 to 0.787)    | 0.740 (0.615 to 0.843) | 0.949 (0.920 to 0.974) |
+| flat (witness in record code)      | 0.988 (0.980 to 0.994) | 0.996 (0.994 to 0.997) | 0.986 (0.982 to 0.990)    | 0.991 (0.983 to 0.996) | 0.996 (0.995 to 0.998) |
+| PET c=1                            | 0.980 (0.969 to 0.990) | 0.998 (0.997 to 0.999) | 0.992 (0.988 to 0.996)    | 0.997 (0.994 to 1.000) | 0.998 (0.997 to 0.999) |
+| PET c=2                            | 0.953 (0.931 to 0.974) | 0.998 (0.997 to 0.999) | 0.992 (0.988 to 0.996)    | 0.997 (0.995 to 1.000) | 0.998 (0.997 to 0.999) |
+| spare slots                        | 0.990 (0.985 to 0.996) | 0.971 (0.955 to 0.984) | 0.869 (0.831 to 0.913)    | 0.891 (0.836 to 0.935) | 0.977 (0.964 to 0.986) |
+| decision-aware (hard days layered) | 0.985 (0.978 to 0.993) | 0.996 (0.993 to 0.998) | 0.992 (0.988 to 0.996)    | 0.997 (0.994 to 1.000) | 0.996 (0.993 to 0.998) |
+| control: random days               | 0.988 (0.980 to 0.994) | 0.985 (0.980 to 0.990) | 0.938 (0.908 to 0.957)    | 0.957 (0.912 to 0.978) | 0.987 (0.983 to 0.991) |
+
+Paired differences, Conductance pulse, iid_p0.3 (sites resampled, 95% interval):
+  adapt minus randmix: record -0.003 (-0.004 to -0.001); decisions, hard +0.107 (+0.072 to +0.147); decisions, all +0.011 (+0.007 to +0.015)
+  adapt minus flat: record -0.003 (-0.006 to -0.001); decisions, hard +0.009 (+0.003 to +0.017); decisions, all +0.000 (-0.001 to +0.001)
+  adapt minus pet1: record +0.005 (+0.002 to +0.009); decisions, hard +0.000 (+0.000 to +0.000); decisions, all -0.002 (-0.004 to -0.001)
+  adapt minus rec: record -0.005 (-0.008 to -0.002); decisions, hard +0.276 (+0.225 to +0.328); decisions, all +0.061 (+0.033 to +0.094)
+  flat minus rec: record -0.002 (-0.003 to -0.001); decisions, hard +0.267 (+0.215 to +0.316); decisions, all +0.061 (+0.032 to +0.092)
+
+### 7DADM, gilbert_p0.3_b3
+| design                             | record recovered       | all windows            | near (within 2 degC)   | event (mean above 20)   | non-event              |
+|:-----------------------------------|:-----------------------|:-----------------------|:-----------------------|:------------------------|:-----------------------|
+| record only                        | 0.971 (0.963 to 0.978) | 0.928 (0.911 to 0.942) | 0.814 (0.772 to 0.855) | 0.896 (0.864 to 0.924)  | 0.941 (0.925 to 0.954) |
+| flat (witness in record code)      | 0.967 (0.959 to 0.975) | 0.931 (0.917 to 0.944) | 0.843 (0.802 to 0.881) | 0.900 (0.869 to 0.929)  | 0.945 (0.932 to 0.955) |
+| PET c=1                            | 0.954 (0.941 to 0.966) | 0.989 (0.987 to 0.990) | 0.975 (0.969 to 0.981) | 0.987 (0.984 to 0.989)  | 0.989 (0.987 to 0.991) |
+| PET c=2                            | 0.918 (0.894 to 0.937) | 0.989 (0.987 to 0.990) | 0.975 (0.969 to 0.981) | 0.987 (0.984 to 0.989)  | 0.989 (0.987 to 0.991) |
+| spare slots                        | 0.971 (0.962 to 0.978) | 0.942 (0.931 to 0.953) | 0.865 (0.831 to 0.892) | 0.922 (0.899 to 0.941)  | 0.950 (0.939 to 0.960) |
+| decision-aware (hard days layered) | 0.963 (0.951 to 0.973) | 0.966 (0.961 to 0.972) | 0.971 (0.963 to 0.977) | 0.964 (0.952 to 0.974)  | 0.967 (0.960 to 0.974) |
+| control: random days               | 0.964 (0.954 to 0.973) | 0.959 (0.951 to 0.966) | 0.905 (0.878 to 0.927) | 0.946 (0.928 to 0.962)  | 0.965 (0.958 to 0.970) |
+
+Paired differences, 7DADM, gilbert_p0.3_b3 (sites resampled, 95% interval):
+  adapt minus randmix: record -0.001 (-0.002 to +0.000); decisions, hard +0.055 (+0.040 to +0.072); decisions, all +0.005 (+0.001 to +0.009)
+  adapt minus flat: record -0.004 (-0.007 to -0.002); decisions, hard +0.118 (+0.091 to +0.147); decisions, all +0.040 (+0.029 to +0.052)
+  adapt minus pet1: record +0.009 (+0.006 to +0.011); decisions, hard -0.006 (-0.012 to -0.002); decisions, all -0.021 (-0.027 to -0.016)
+  adapt minus rec: record -0.008 (-0.011 to -0.005); decisions, hard +0.143 (+0.113 to +0.175); decisions, all +0.044 (+0.030 to +0.058)
+  flat minus rec: record -0.004 (-0.005 to -0.003); decisions, hard +0.025 (+0.014 to +0.035); decisions, all +0.004 (+0.001 to +0.007)
+
+### Conductance pulse, gilbert_p0.3_b3
+| design                             | record recovered       | all days               | hard (rate at least 4%)   | event (above 10%)      | non-event              |
+|:-----------------------------------|:-----------------------|:-----------------------|:--------------------------|:-----------------------|:-----------------------|
+| record only                        | 0.971 (0.962 to 0.978) | 0.918 (0.880 to 0.948) | 0.668 (0.576 to 0.772)    | 0.707 (0.585 to 0.800) | 0.934 (0.901 to 0.957) |
+| flat (witness in record code)      | 0.963 (0.953 to 0.971) | 0.980 (0.976 to 0.983) | 0.961 (0.955 to 0.967)    | 0.960 (0.950 to 0.967) | 0.981 (0.978 to 0.984) |
+| PET c=1                            | 0.954 (0.941 to 0.965) | 0.988 (0.987 to 0.990) | 0.981 (0.978 to 0.985)    | 0.986 (0.983 to 0.990) | 0.989 (0.987 to 0.990) |
+| PET c=2                            | 0.918 (0.897 to 0.940) | 0.995 (0.994 to 0.996) | 0.988 (0.985 to 0.992)    | 0.994 (0.991 to 0.996) | 0.995 (0.994 to 0.996) |
+| spare slots                        | 0.971 (0.962 to 0.978) | 0.953 (0.939 to 0.967) | 0.842 (0.806 to 0.879)    | 0.853 (0.790 to 0.893) | 0.961 (0.947 to 0.971) |
+| decision-aware (hard days layered) | 0.964 (0.953 to 0.973) | 0.981 (0.978 to 0.985) | 0.981 (0.978 to 0.986)    | 0.986 (0.983 to 0.990) | 0.981 (0.977 to 0.985) |
+| control: random days               | 0.966 (0.957 to 0.975) | 0.970 (0.964 to 0.976) | 0.919 (0.884 to 0.939)    | 0.931 (0.880 to 0.956) | 0.973 (0.967 to 0.978) |
+
+Paired differences, Conductance pulse, gilbert_p0.3_b3 (sites resampled, 95% interval):
+  adapt minus randmix: record -0.003 (-0.004 to -0.001); decisions, hard +0.119 (+0.083 to +0.160); decisions, all +0.012 (+0.008 to +0.016)
+  adapt minus flat: record +0.001 (-0.002 to +0.003); decisions, hard +0.023 (+0.016 to +0.030); decisions, all +0.002 (-0.000 to +0.004)
+  adapt minus pet1: record +0.010 (+0.007 to +0.013); decisions, hard +0.000 (+0.000 to +0.000); decisions, all -0.007 (-0.010 to -0.004)
+  adapt minus rec: record -0.007 (-0.010 to -0.004); decisions, hard +0.285 (+0.233 to +0.336); decisions, all +0.064 (+0.034 to +0.097)
+  flat minus rec: record -0.008 (-0.009 to -0.007); decisions, hard +0.262 (+0.211 to +0.318); decisions, all +0.062 (+0.035 to +0.098)

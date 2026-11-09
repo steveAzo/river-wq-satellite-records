@@ -1,0 +1,29 @@
+# Related work for the decision-certificate paper: novelty matrix (revision 2)
+
+Date: 2026-11-06. Source for the rewrite (Step 8). Each row states what the work does, what it does not do for our problem, and how far the statement was checked. Verification levels: READ = read from the PDF in `papers/pdf/`; ABSTRACT = from abstract or search result only; TO CHECK = not obtained or not read. No claim of a "first" may be made until the formal nearest-neighbour search (review, section 10, P1) is done; the search below was not systematic.
+
+## Matrix
+
+| Line of work | Representative | What it provides | What it does not provide here | Checked |
+|---|---|---|---|---|
+| Error-bounded piecewise-linear approximation | Imai and Iri 1988; O'Rourke 1981; Lin et al. 2025 (progressive, Sensors 25, 145) | Optimal minimum-number polygonal approximation under a maximum error; progressive refinement | Decision certificates, a byte quota, a lossy one-way link | Imai-Iri READ (earlier); Lin 2025 READ (skim) |
+| Budget-first sensor history compression | Deligiannakis, Kotidis, Roussopoulos, VLDB J. 2007 | Buffered history compressed to a bandwidth budget, maximum-error variant, group leader gives bandwidth to the largest error | One-way lossy links, regulated plans, decision certificates | READ |
+| Deterministic-guarantee approximate analytics | Brito et al. (PlatoDB), arXiv 1707.01414; Lin, Boursier, Papakonstantinou (Plato), arXiv 1808.04876 | Segment-tree summaries of compressed series with deterministic error intervals for aggregates and linear time-series expressions | Threshold decisions with three-valued answers, loss, byte quota, selection of what to send | READ (introductions, query model; threshold decisions not found) |
+| Compression plus erasure coding with predicate evaluation | Taurone, Feher, Sipos, Lucani (TREAT), DEBS 2024 | Generalised deduplication with random linear network coding; possible-minimum and possible-maximum of a value from its base bits filter predicates before download | One-way lossy telemetry, lossless storage setting, a byte quota that binds | READ |
+| Uncertain data and interval queries | Cheng, Kalashnikov, Prabhakar, SIGMOD 2003 | Queries over stored values with bounded uncertainty intervals; pruning of intervals that cannot affect the answer | Source-side encoding under a quota and loss | READ |
+| Priority encoding transmission and unequal protection | Albanese et al., IEEE Trans. Inf. Theory 42(6), 1996 (TO CHECK; the Round 4 download was the wrong article); Boucheron and Salamatian, IEEE Trans. Inf. Theory 46(2), 2000 (first page READ; pages to verify) | Priority levels with recovery from any beta(i) packets; capacity region on the broadcast erasure channel with degraded message sets | Choice of what carries priority; certificates | Boucheron READ (first page, abstract, definition); Albanese TO CHECK |
+| Event-triggered (send-on-delta, deadband) telemetry | Diaz-Cacho, Delgado, Barreiro, Falcon, Sensors 17(2), 312, 2017; ALERT flash-flood systems | Transmission when the value leaves a deadband; threshold chosen for a target rate | Silent loss on a one-way link; certificates; coding | Diaz-Cacho READ; ALERT ABSTRACT |
+| Feature-preserving error-bounded compression | Muniz-Cuza, Boehm, Pedersen (CAMEO), arXiv 2501.14432; Sun, Karras, Zhang (SHRINK direct analytics), arXiv 2503.13246 | Guarantees on ACF and PACF; outlier detection on a compressed base | Threshold-decision certificates; loss models | READ (abstract and method) |
+| Goal-oriented communication | Zhang et al., IEEE IoT Magazine 2022 | Frames task-oriented compression and communication for the IoT | Deterministic certificates; one-way lossy satellite links | READ (skim) |
+| Satellite-tag data practice | Boehme et al. 2009; Photopoulou et al. 2015 | Broken-stick compression and pseudo-random retransmission over Argos | Server-verifiable certificates; decisions | READ |
+| Environmental real-time data | Wong and Kerkez, EMS 84, 2016; Horsburgh et al., EMS 70, 2015; Twarog et al., EMS 196, 2026 | Real-time sensor architectures, quality control software, soft sensing | Telemetry over a one-way byte-limited link | READ (skim) |
+
+## Positioning statement the evidence supports (revision 2, development data)
+
+- Known and credited: error-bounded compression, priority-layered erasure protection, deterministic interval answers from bounded-uncertainty representations, possible-minimum and possible-maximum predicate filtering, and event-triggered sampling.
+- The combination studied here: a source-side encoder for a one-way lossy satellite link that, under a byte quota, sends a self-contained error-bounded record plus feature-extremum witnesses (daily minimum, maximum, rate pair), protects them by a rule or an exact allocation, and lets the server give three-valued threshold decisions whose soundness is proved from the received bytes. The evidence is trace-driven on river records.
+- Claims not supported and not to be made: that layering is new; that interval answers are new; that the allocator beats the simple rule on hard cases (Step 3c criterion 2 was not met); optimality beyond the stated objective.
+
+## Bibliography entries still to create (for refs.bib, with DOI checks when the PDFs are in hand)
+
+brito2017platodb (arXiv 1707.01414), lin2019plato (arXiv 1808.04876; check whether the PVLDB version is the citable one), taurone2024treat (10.1145/3629104.3666039), cheng2003probabilistic (SIGMOD 2003), albanese1996pet (to obtain), boucheron2000pet (pages to verify), diazcacho2017sod (Sensors 17, 312), munizcuza2025cameo (arXiv 2501.14432), sun2025shrink (arXiv 2503.13246), zhang2022goal (10.1109/IOTM.001.2200177), wong2016realtime (10.1016/j.envsoft.2016.07.020), horsburgh2015odm (10.1016/j.envsoft.2015.04.002), twarog2026palm (10.1016/j.envsoft.2025.106793).

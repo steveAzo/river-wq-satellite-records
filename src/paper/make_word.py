@@ -18,6 +18,7 @@ s = s.replace(r"\makeatletter\newcommand{\tableinput}[1]{\@@input #1 }\makeatoth
 s = s.replace(r"\input{numbers}", open(f"{d}/numbers.tex", encoding="utf-8").read())
 s = re.sub(r"\\input\{(sec_[a-z]+)\}", lambda m: open(f"{d}/{m.group(1)}.tex", encoding="utf-8").read(), s)
 s = re.sub(r"\\tableinput\{(tables/[a-z_]+\.tex)\}", lambda m: open(f"{d}/{m.group(1)}", encoding="utf-8").read(), s)
+s = s.replace("$-$", "\u2212")   # one run: a separate math minus is dropped by text extraction (review 2, C7 interval)
 s = re.sub(r"\\includegraphics(\[[^\]]*\])?\{figs/([a-z_]+)\.pdf\}",
            lambda m: r"\includegraphics" + (m.group(1) or "") + "{figs/" + m.group(2) + ".png}", s)
 

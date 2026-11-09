@@ -1,0 +1,36 @@
+1 39 01388000
+2 39 01400500
+3 39 01402000
+4 39 01427510
+5 39 01438500
+6 39 01458500
+7 39 01463500
+8 39 01465798
+9 39 014670261
+10 39 01467087
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\WSN_M\Paper3\src\p3\proto_base.py", line 168, in run_site
+    enc = record.Encoder(ch)
+  File "C:\Users\User\Desktop\WSN_M\Paper3\src\p3\..\p3\record.py", line 162, in __init__
+    c = np.unique(np.concatenate(vals))
+                  ~~~~~~~~~~~~~~^^^^^^
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 1.28 MiB for an array with shape (167621,) and data type float64
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\WSN_M\Paper3\src\p3\proto_base.py", line 271, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\User\Desktop\WSN_M\Paper3\src\p3\proto_base.py", line 266, in main
+    for i, s in enumerate(pool.imap_unordered(run_site, [(p, tag, outdir) for p in paths]), 1):
+                ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\pool.py", line 873, in next
+    raise value
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 1.28 MiB for an array with shape (167621,) and data type float64

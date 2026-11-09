@@ -1,0 +1,68 @@
+75 sites already used (excluded)
+Pacific coast: 59 sites pass rules 1 and 2
+  14163000 GATE CREEK AT VIDA, OR                   {'T': 366, 'EC': 365, 'DO': 366, 'pH': 366} SELECTED
+  11447890 SACRAMENTO R AB DELTA CROSS CHANNEL CA   {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  11044000 SANTA MARGARITA R NR TEMECULA CA         {'T': 366, 'EC': 366, 'DO': 362, 'pH': 366} SELECTED
+  14202650 WAPATO CREEK AT SW GASTON ROAD, AT GASTO {'T': 363, 'EC': 362, 'DO': 363, 'pH': 360} SELECTED
+  11336790 LITTLE POTATO SLOUGH A TERMINOUS CA      {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  11447650 SACRAMENTO R A FREEPORT CA               {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  11507501 LINK RIVER BELOW KENO CANAL, NEAR KLAMAT {'T': 366, 'EC': 365, 'DO': 366, 'pH': 363} SELECTED
+  14183020 NORTH SANTIAM RIVER BLW STOUT CREEK, NR  {'T': 364, 'EC': 365, 'DO': 364, 'pH': 366} SELECTED
+  12090400 NORTH FORK CLOVER CREEK NEAR PARKLAND, W {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  14206950 FANNO CREEK AT DURHAM, OR                {'T': 364, 'EC': 363, 'DO': 364, 'pH': 364} SELECTED
+  14158850 MCKENZIE R BLW TRAIL BR DAM NR BELKNAP S {'T': 366, 'EC': 366, 'DO': 366, 'pH': 366} SELECTED
+  11461500 EF RUSSIAN R NR CALPELLA CA              {'T': 366, 'EC': 351, 'DO': 354, 'pH': 361} SELECTED
+  420853121505501 KLAMATH RIVER AT MILLER ISLAND BOAT RAMP {'T': 366, 'EC': 366, 'DO': 366, 'pH': 366} SELECTED
+Mid-Atlantic and Appalachia: 87 sites pass rules 1 and 2
+  0317155123 SINKING CREEK AT COVERED BRIDGE LN NR NE {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  0205450495 ROANOKE RIVER ABOVE ROUTE 11 AT LAFAYETT {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  01645704 DIFFICULT RUN ABOVE FOX LAKE NEAR FAIRFA {'T': 359, 'EC': 353, 'DO': 359, 'pH': 355} SELECTED
+  03108500 Ohio River at Montgomery Lock & Dam, Low {'T': 355, 'EC': 355, 'DO': 294, 'pH': 354} SELECTED
+  03106000 Connoquenessing Creek near Zelienople, P {'T': 356, 'EC': 345, 'DO': 159, 'pH': 191} 
+  03007800 Allegheny River at Port Allegany, PA     {'T': 366, 'EC': 353, 'DO': 212, 'pH': 214} 
+  0317154954 SINKING CREEK ALONG ROUTE 604 NEAR NEWPO {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  01650800 SLIGO CREEK NEAR TAKOMA PARK, MD         {'T': 362, 'EC': 361, 'DO': 362, 'pH': 362} SELECTED
+  0205450393 ROANOKE RIVER ALONG ROUTE 626 AT LAFAYET {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  03179000 BLUESTONE RIVER NEAR PIPESTEM, WV        {'T': 366, 'EC': 363, 'DO': 362, 'pH': 364} SELECTED
+  01649190 PAINT BRANCH NEAR COLLEGE PARK, MD       {'T': 360, 'EC': 350, 'DO': 357, 'pH': 342} SELECTED
+  01481500 BRANDYWINE CREEK AT WILMINGTON, DE       {'T': 365, 'EC': 350, 'DO': 363, 'pH': 365} SELECTED
+  0205696095 BLACKWATER RIVER BELOW MAPLE BRANCH NR R {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  03056000 TYGART VALLEY R AT TYGART DAM NR GRAFTON {'T': 365, 'EC': 320, 'DO': 318, 'pH': 318} SELECTED
+  01668000 RAPPAHANNOCK RIVER NEAR FREDERICKSBURG,  {'T': 358, 'EC': 341, 'DO': 345, 'pH': 352} SELECTED
+  01454700 Lehigh River at Glendon, PA              {'T': 220, 'EC': 218, 'DO': 217, 'pH': 220} 
+  01427207 DELAWARE RIVER AT LORDVILLE NY           {'T': 366, 'EC': 366, 'DO': 0, 'pH': 0} 
+  01549700 Pine Creek bl L Pine Creek near Watervil {'T': 247, 'EC': 247, 'DO': 143, 'pH': 143} 
+  01638500 POTOMAC RIVER AT POINT OF ROCKS, MD      {'T': 363, 'EC': 312, 'DO': 354, 'pH': 354} SELECTED
+Ohio valley and Great Lakes: 87 sites pass rules 1 and 2
+  05536356 GRAND CALUMET RIVER AT COLUMBIA AV AT HA {'T': 348, 'EC': 229, 'DO': 232, 'pH': 238} 
+  03288180 CANE RUN CREEK AT CITATION BLVD NR LEXIN {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  03431514 CUMBERLAND RIVER NEAR BORDEAUX, TN       {'T': 350, 'EC': 350, 'DO': 350, 'pH': 0} 
+  03353200 EAGLE CREEK AT ZIONSVILLE, IN            {'T': 361, 'EC': 359, 'DO': 364, 'pH': 359} SELECTED
+  05599490 BIG MUDDY RIVER AT RTE 127 AT MURPHYSBOR {'T': 138, 'EC': 137, 'DO': 137, 'pH': 137} 
+  03298250 CEDAR CREEK AT THIXTON ROAD NEAR LOUISVI {'T': 353, 'EC': 334, 'DO': 349, 'pH': 345} SELECTED
+  03293500 M FK BEARGRASS CR AT LEXINGTON RD AT LOU {'T': 361, 'EC': 360, 'DO': 361, 'pH': 359} SELECTED
+  03297800 CEDAR CREEK AT HWY 1442 NEAR SHEPHERDSVI {'T': 366, 'EC': 362, 'DO': 360, 'pH': 366} SELECTED
+  05568705 MASON TAZEWELL DRAINAGE D AT CR2350E NR  {'T': 340, 'EC': 322, 'DO': 339, 'pH': 340} SELECTED
+  03321500 GREEN RIVER AT LOCK 1 AT SPOTTSVILLE, KY {'T': 357, 'EC': 357, 'DO': 357, 'pH': 357} SELECTED
+  03298135 CHENOWETH RUN AT RUCKRIEGAL PARKWAY, KY  {'T': 366, 'EC': 364, 'DO': 366, 'pH': 365} SELECTED
+  411402080492400 Mahoning River near U.S. Route 422 at Wa {'T': 366, 'EC': 366, 'DO': 366, 'pH': 366} SELECTED
+  05558300 ILLINOIS RIVER AT HENRY, IL              {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  04193500 Maumee River at Waterville OH            {'T': 280, 'EC': 268, 'DO': 268, 'pH': 280} SELECTED
+Gulf and lower Mississippi: 16 sites pass rules 1 and 2
+  07288068 HARRIS BAYOU AT PALMER RD EAST OF ALLIGA {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  07381600 Lower Atchafalaya River at Morgan City,  {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  07288048 RICHIES BAYOU AT SHERARD, MS             {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  07177500 Bird Creek near Sperry, OK               {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  07178200 Bird Ck at State Highway 266 near Catoos {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  07288521 PORTER BAYOU AT STEPHENSVILLE, MS        {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  07239450 North Canadian River near Calumet, OK    {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  07288500 BIG SUNFLOWER RIVER AT SUNFLOWER, MS     {'T': 220, 'EC': 0, 'DO': 0, 'pH': 0} 
+  07374000 Mississippi River at Baton Rouge, LA     {'T': 0, 'EC': 0, 'DO': 366, 'pH': 0} 
+  07380255 Bayou Dupont nr Round Lake S of Myrtle G {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  072632966 Lake Maumelle at State Hwy 10 near Wye,  {'T': 359, 'EC': 360, 'DO': 357, 'pH': 360} SELECTED
+  07075270 South Fork of Little Red River near Scot {'T': 365, 'EC': 365, 'DO': 365, 'pH': 365} SELECTED
+  07049000 War Eagle Creek near Hindsville, AR      {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  07241550 North Canadian River near Harrah, OK     {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  07263296 Maumelle River near Wye, AR              {'T': 365, 'EC': 366, 'DO': 365, 'pH': 366} SELECTED
+  07048600 White River near Fayetteville, AR        {'T': 327, 'EC': 325, 'DO': 329, 'pH': 337} SELECTED
+selected 31 sites: {'Gulf and lower Mississippi': 4, 'Mid-Atlantic and Appalachia': 9, 'Ohio valley and Great Lakes': 9, 'Pacific coast': 9}

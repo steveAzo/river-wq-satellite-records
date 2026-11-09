@@ -1,0 +1,13 @@
+Q = 12: 39 sites, 12674 days
+gilbert_p0.3_b3    flat  record fully recovered 0.957 (0.948 to 0.966)
+gilbert_p0.3_b3    pet1  record fully recovered 0.954 (0.942 to 0.963)
+gilbert_p0.3_b3    pet2  record fully recovered 0.922 (0.903 to 0.941)
+gilbert_p0.3_b3    rec   record fully recovered 0.969 (0.962 to 0.975)
+gilbert_p0.3_b3    spare record fully recovered 0.969 (0.962 to 0.975)
+gilbert_p0.3_b3    spare_adapt record fully recovered 0.969 (0.962 to 0.975)
+iid_p0.3           flat  record fully recovered 0.988 (0.981 to 0.994)
+iid_p0.3           pet1  record fully recovered 0.982 (0.972 to 0.991)
+iid_p0.3           pet2  record fully recovered 0.958 (0.938 to 0.976)
+iid_p0.3           rec   record fully recovered 0.992 (0.986 to 0.996)
+iid_p0.3           spare record fully recovered 0.992 (0.986 to 0.996)
+iid_p0.3           spare_adapt record fully recovered 0.992 (0.986 to 0.996)

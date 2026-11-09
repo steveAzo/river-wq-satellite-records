@@ -1,0 +1,67 @@
+# Verdicts of the third confirmation (REHEARSAL, not confirmatory)
+
+| id   | statement                                                                                                                                                                                                  | result                                                                                                                                                                                           | supported   |
+|:-----|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------|
+| H1   | no wrong certificate decision in any certificate design (Q 6 and 12, both loss models) and no frame v2 round-trip mismatch                                                                                 | wrong decisions max 0.000; round trip: 0 mismatches in 1674 blocks                                                                                                                               | True        |
+| H2   | 3b rule minus record only, hard-case decisions at the configured thresholds, lower bound >= 0.15 (Q = 6, both loss models)                                                                                 | +0.087 (+0.000 to +0.090) / +0.119 (+0.000 to +0.122)                                                                                                                                            | False       |
+| H3   | 3b rule minus the same layering on random days, hard-case decisions, lower bound >= 0.05 (Q = 6, both)                                                                                                     | +0.066 (+0.000 to +0.067) / +0.107 (+0.000 to +0.109)                                                                                                                                            | False       |
+| H4   | record recovered, 3b rule minus record only, lower bound >= -0.12 (Q = 6, both)                                                                                                                            | -0.022 (-0.044 to -0.001) / -0.020 (-0.032 to -0.007)                                                                                                                                            | True        |
+| H5   | unanticipated thresholds: 3b rule minus flags >= 0.1 and minus record only >= 0.1 (lower bounds, Q = 6, both)                                                                                              | flags: +0.848 (+0.500 to +0.854) / +0.705 (+0.475 to +0.709); record only: +0.154 (+0.148 to +0.500) / +0.172 (+0.167 to +0.475)                                                                 | True        |
+| H6   | neither coded send-on-delta nor tolerance x 0.5 dominates the 3b rule on (record recovered, hard-case decisions), Q = 6, both                                                                              | sod_mds/iid_p0.3: no; tight50/iid_p0.3: no; sod_mds/gilbert_p0.3_b3: no; tight50/gilbert_p0.3_b3: no                                                                                             | True        |
+| H7   | known limit: decision flags exceed the 3b rule in hard-case decisions at the configured thresholds (lower bound > 0, Q = 6, independent loss)                                                              | +0.009 (+0.000 to +0.009)                                                                                                                                                                        | False       |
+| H8   | conditional false-certificate day share given one CRC-valid forgery (CRC + sanity + corroboration), upper bound within limits                                                                              | record Q6: 0.0138 (upper 0.0168, limit 0.06); record Q12: 0.0012 (upper 0.0015, limit 0.01); layered k2 Q6: 0.0675 (upper 0.0887, limit 0.15); layered k2 Q12: 0.0012 (upper 0.0031, limit 0.02) | True        |
+| H9   | hybrid 1 (flags with all witnesses hosted in spare slots) minus flags, Q = 6, both: unanticipated thresholds lower bound >= 0.2; configured hard-case decisions and record recovered lower bounds >= -0.01 | alt: +0.794 (+0.000 to +0.808) / +0.655 (+0.000 to +0.666); cfg: +0.000 (+0.000 to +0.000) / +0.000 (+0.000 to +0.000); record: +0.000 (+0.000 to +0.000) / +0.000 (+0.000 to +0.000)            | False       |
+
+## Descriptive secondary results (no verdict)
+
+Q = 6, iid_p0.3: pooled level (record recovered / hard configured / hard alternative / all configured)
+  rec       0.992 / 0.902 / 0.804 / 0.983
+  heur      0.969 / 0.990 / 0.958 / 0.988
+  ex1       0.990 / 0.992 / 0.889 / 0.994
+  tight50   0.952 / 0.824 / 0.766 / 0.944
+  sod_mds   0.921 / 0.755 / 0.660 / 0.917
+  sod_once  0.436 / 0.484 / 0.440 / 0.571
+  flags     0.987 / 0.999 / 0.110 / 0.999
+  randmix   0.992 / 0.924 / 0.898 / 0.986
+  hyb1      0.987 / 0.999 / 0.904 / 0.999
+  hyb2      0.960 / 0.999 / 0.954 / 0.999
+  exact lambda 1 minus 3b rule: rec +0.021 / hard_cfg +0.002 / hard_alt -0.069 / all_cfg +0.006
+
+Q = 6, gilbert_p0.3_b3: pooled level (record recovered / hard configured / hard alternative / all configured)
+  rec       0.922 / 0.710 / 0.638 / 0.893
+  heur      0.902 / 0.830 / 0.811 / 0.902
+  ex1       0.914 / 0.838 / 0.766 / 0.915
+  tight50   0.876 / 0.639 / 0.617 / 0.856
+  sod_mds   0.836 / 0.573 / 0.535 / 0.822
+  sod_once  0.544 / 0.415 / 0.411 / 0.572
+  flags     0.909 / 0.965 / 0.106 / 0.961
+  randmix   0.922 / 0.723 / 0.722 / 0.895
+  hyb1      0.909 / 0.965 / 0.761 / 0.964
+  hyb2      0.884 / 0.965 / 0.828 / 0.964
+  exact lambda 1 minus 3b rule: rec +0.012 / hard_cfg +0.008 / hard_alt -0.044 / all_cfg +0.013
+
+Q = 12, iid_p0.3: pooled level (record recovered / hard configured / hard alternative / all configured)
+  rec       1.000 / 0.932 / 0.831 / 0.993
+  heur      0.999 / 1.000 / 0.974 / 1.000
+  ex1       1.000 / 1.000 / 0.898 / 1.000
+  tight50   0.992 / 0.949 / 0.878 / 0.984
+  sod_mds   0.993 / 0.883 / 0.824 / 0.980
+  sod_once  0.433 / 0.500 / 0.469 / 0.578
+  flags     1.000 / 1.000 / 0.110 / 1.000
+  randmix   1.000 / 0.955 / 0.924 / 0.995
+  hyb1      1.000 / 1.000 / 0.924 / 1.000
+  hyb2      0.998 / 1.000 / 0.974 / 1.000
+  exact lambda 1 minus 3b rule: rec +0.001 / hard_cfg +0.000 / hard_alt -0.076 / all_cfg +0.000
+
+Q = 12, gilbert_p0.3_b3: pooled level (record recovered / hard configured / hard alternative / all configured)
+  rec       0.990 / 0.902 / 0.797 / 0.981
+  heur      0.987 / 0.986 / 0.956 / 0.987
+  ex1       0.990 / 0.989 / 0.884 / 0.991
+  tight50   0.976 / 0.892 / 0.817 / 0.966
+  sod_mds   0.973 / 0.822 / 0.754 / 0.955
+  sod_once  0.561 / 0.439 / 0.430 / 0.595
+  flags     0.988 / 0.999 / 0.110 / 0.997
+  randmix   0.990 / 0.920 / 0.890 / 0.983
+  hyb1      0.988 / 0.999 / 0.900 / 0.997
+  hyb2      0.981 / 0.999 / 0.955 / 0.997
+  exact lambda 1 minus 3b rule: rec +0.003 / hard_cfg +0.002 / hard_alt -0.072 / all_cfg +0.004

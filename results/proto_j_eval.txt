@@ -1,0 +1,108 @@
+C:\Users\User\Desktop\WSN_M\Paper3\src\p3\proto_joint_eval.py:51: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  d["hard"] = d["hard"].fillna(False).astype(bool)
+C:\Users\User\Desktop\WSN_M\Paper3\src\p3\proto_joint_eval.py:51: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  d["hard"] = d["hard"].fillna(False).astype(bool)
+
+## Q = 6: 38 sites; wrong decisions max 0.000
+
+### iid_p0.3
+| design                              | record recovered       | DO, hard               | pH, hard               | conductance, hard      | 7DADM near windows, hard   | pooled, hard           | pooled, all            |
+|:------------------------------------|:-----------------------|:-----------------------|:-----------------------|:-----------------------|:---------------------------|:-----------------------|:-----------------------|
+| record only                         | 0.905 (0.877 to 0.931) | 0.746 (0.696 to 0.787) | 0.696 (0.637 to 0.771) | 0.619 (0.534 to 0.720) | 0.721 (0.656 to 0.790)     | 0.677 (0.634 to 0.728) | 0.898 (0.872 to 0.921) |
+| flat (all witnesses in record code) | 0.774 (0.730 to 0.818) | 0.872 (0.838 to 0.908) | 0.865 (0.834 to 0.895) | 0.812 (0.789 to 0.831) | 0.694 (0.658 to 0.729)     | 0.810 (0.790 to 0.827) | 0.895 (0.882 to 0.908) |
+| PET c=2 (all witnesses)             | 0.726 (0.665 to 0.789) | 0.923 (0.892 to 0.957) | 0.922 (0.896 to 0.945) | 0.949 (0.945 to 0.953) | 0.806 (0.790 to 0.821)     | 0.909 (0.898 to 0.919) | 0.948 (0.943 to 0.953) |
+| spare slots                         | 0.905 (0.876 to 0.934) | 0.846 (0.797 to 0.892) | 0.763 (0.699 to 0.835) | 0.619 (0.530 to 0.722) | 0.750 (0.693 to 0.811)     | 0.714 (0.670 to 0.765) | 0.912 (0.892 to 0.933) |
+| 3b rule generalised                 | 0.825 (0.773 to 0.872) | 0.948 (0.916 to 0.981) | 0.958 (0.933 to 0.982) | 0.982 (0.978 to 0.986) | 0.965 (0.953 to 0.977)     | 0.968 (0.960 to 0.975) | 0.923 (0.904 to 0.941) |
+| control: 3b pattern on random days  | 0.835 (0.781 to 0.879) | 0.826 (0.766 to 0.881) | 0.799 (0.736 to 0.850) | 0.794 (0.708 to 0.851) | 0.801 (0.743 to 0.858)     | 0.801 (0.763 to 0.837) | 0.911 (0.891 to 0.930) |
+| exact, lambda 0.5                   | 0.798 (0.739 to 0.855) | 0.944 (0.912 to 0.979) | 0.947 (0.919 to 0.972) | 0.972 (0.968 to 0.978) | 0.963 (0.949 to 0.975)     | 0.960 (0.950 to 0.970) | 0.980 (0.976 to 0.983) |
+| exact, lambda 1                     | 0.838 (0.787 to 0.885) | 0.944 (0.908 to 0.979) | 0.937 (0.908 to 0.961) | 0.955 (0.949 to 0.963) | 0.954 (0.937 to 0.968)     | 0.949 (0.937 to 0.960) | 0.975 (0.970 to 0.980) |
+| exact, lambda 2                     | 0.876 (0.835 to 0.912) | 0.933 (0.900 to 0.970) | 0.927 (0.900 to 0.953) | 0.938 (0.931 to 0.946) | 0.928 (0.899 to 0.953)     | 0.933 (0.919 to 0.947) | 0.965 (0.957 to 0.972) |
+
+Paired differences, iid_p0.3, Q = 6 (sites resampled, 95% interval); columns: record; pooled hard; pooled all
+  ex1 minus heur: record +0.012 (-0.003 to +0.027); hard -0.020 (-0.026 to -0.013); all +0.053 (+0.037 to +0.070)
+  ex05 minus heur: record -0.033 (-0.052 to -0.017); hard -0.010 (-0.016 to -0.005); all +0.059 (+0.042 to +0.076)
+  ex2 minus heur: record +0.052 (+0.035 to +0.070); hard -0.033 (-0.044 to -0.024); all +0.042 (+0.030 to +0.057)
+  ex1 minus randmix: record +0.004 (-0.009 to +0.019); hard +0.152 (+0.118 to +0.189); all +0.065 (+0.046 to +0.086)
+  ex1 minus flat: record +0.064 (+0.053 to +0.075); hard +0.140 (+0.118 to +0.164); all +0.079 (+0.070 to +0.089)
+  ex1 minus pet2: record +0.115 (+0.094 to +0.139); hard +0.050 (+0.037 to +0.064); all +0.026 (+0.023 to +0.029)
+  ex1 minus rec: record -0.070 (-0.092 to -0.050); hard +0.241 (+0.200 to +0.281); all +0.077 (+0.055 to +0.096)
+  heur minus randmix: record -0.008 (-0.013 to -0.004); hard +0.171 (+0.133 to +0.211); all +0.012 (+0.008 to +0.016)
+  heur minus flat: record +0.052 (+0.038 to +0.065); hard +0.159 (+0.135 to +0.186); all +0.026 (+0.016 to +0.036)
+  criterion 2 (exact lambda 1 vs 3b rule): hard +0.02 at record >= -0.005: False; record +0.02 at hard >= -0.005: False  ->  NOT MET
+
+### gilbert_p0.3_b3
+| design                              | record recovered       | DO, hard               | pH, hard               | conductance, hard      | 7DADM near windows, hard   | pooled, hard           | pooled, all            |
+|:------------------------------------|:-----------------------|:-----------------------|:-----------------------|:-----------------------|:---------------------------|:-----------------------|:-----------------------|
+| record only                         | 0.835 (0.808 to 0.860) | 0.691 (0.648 to 0.733) | 0.638 (0.589 to 0.700) | 0.560 (0.487 to 0.648) | 0.437 (0.384 to 0.489)     | 0.573 (0.540 to 0.615) | 0.803 (0.781 to 0.825) |
+| flat (all witnesses in record code) | 0.710 (0.678 to 0.740) | 0.819 (0.786 to 0.852) | 0.814 (0.789 to 0.841) | 0.789 (0.779 to 0.801) | 0.370 (0.346 to 0.397)     | 0.714 (0.689 to 0.733) | 0.797 (0.788 to 0.806) |
+| PET c=2 (all witnesses)             | 0.682 (0.628 to 0.731) | 0.852 (0.822 to 0.885) | 0.832 (0.808 to 0.852) | 0.838 (0.835 to 0.843) | 0.440 (0.419 to 0.461)     | 0.757 (0.735 to 0.776) | 0.824 (0.816 to 0.833) |
+| spare slots                         | 0.835 (0.808 to 0.859) | 0.782 (0.745 to 0.827) | 0.696 (0.642 to 0.758) | 0.560 (0.487 to 0.652) | 0.458 (0.415 to 0.504)     | 0.605 (0.569 to 0.646) | 0.815 (0.793 to 0.838) |
+| 3b rule generalised                 | 0.767 (0.725 to 0.809) | 0.893 (0.863 to 0.926) | 0.886 (0.865 to 0.906) | 0.901 (0.897 to 0.906) | 0.690 (0.657 to 0.718)     | 0.853 (0.841 to 0.863) | 0.830 (0.812 to 0.846) |
+| control: 3b pattern on random days  | 0.776 (0.733 to 0.815) | 0.770 (0.719 to 0.821) | 0.736 (0.682 to 0.779) | 0.728 (0.652 to 0.778) | 0.531 (0.486 to 0.582)     | 0.695 (0.658 to 0.726) | 0.820 (0.801 to 0.840) |
+| exact, lambda 0.5                   | 0.729 (0.670 to 0.788) | 0.892 (0.856 to 0.930) | 0.867 (0.840 to 0.893) | 0.884 (0.877 to 0.892) | 0.676 (0.642 to 0.706)     | 0.838 (0.822 to 0.852) | 0.886 (0.877 to 0.894) |
+| exact, lambda 1                     | 0.765 (0.713 to 0.810) | 0.889 (0.854 to 0.926) | 0.855 (0.824 to 0.882) | 0.866 (0.858 to 0.876) | 0.659 (0.622 to 0.695)     | 0.824 (0.807 to 0.839) | 0.879 (0.869 to 0.889) |
+| exact, lambda 2                     | 0.799 (0.762 to 0.835) | 0.877 (0.842 to 0.917) | 0.843 (0.814 to 0.872) | 0.846 (0.839 to 0.857) | 0.631 (0.588 to 0.671)     | 0.806 (0.786 to 0.824) | 0.868 (0.855 to 0.880) |
+
+Paired differences, gilbert_p0.3_b3, Q = 6 (sites resampled, 95% interval); columns: record; pooled hard; pooled all
+  ex1 minus heur: record -0.004 (-0.018 to +0.008); hard -0.036 (-0.052 to -0.023); all +0.048 (+0.036 to +0.062)
+  ex05 minus heur: record -0.045 (-0.067 to -0.026); hard -0.024 (-0.042 to -0.013); all +0.056 (+0.042 to +0.070)
+  ex2 minus heur: record +0.033 (+0.022 to +0.045); hard -0.051 (-0.068 to -0.036); all +0.037 (+0.027 to +0.047)
+  ex1 minus randmix: record -0.011 (-0.025 to +0.002); hard +0.136 (+0.103 to +0.169); all +0.059 (+0.045 to +0.074)
+  ex1 minus flat: record +0.053 (+0.036 to +0.070); hard +0.117 (+0.098 to +0.137); all +0.079 (+0.073 to +0.085)
+  ex1 minus pet2: record +0.083 (+0.073 to +0.095); hard +0.081 (+0.064 to +0.100); all +0.052 (+0.047 to +0.057)
+  ex1 minus rec: record -0.072 (-0.095 to -0.051); hard +0.226 (+0.189 to +0.264); all +0.075 (+0.058 to +0.094)
+  heur minus randmix: record -0.008 (-0.011 to -0.004); hard +0.172 (+0.142 to +0.204); all +0.011 (+0.008 to +0.014)
+  heur minus flat: record +0.057 (+0.044 to +0.070); hard +0.153 (+0.131 to +0.178); all +0.030 (+0.017 to +0.042)
+  criterion 2 (exact lambda 1 vs 3b rule): hard +0.02 at record >= -0.005: False; record +0.02 at hard >= -0.005: False  ->  NOT MET
+
+## Q = 12: 38 sites; wrong decisions max 0.000
+
+### iid_p0.3
+| design                              | record recovered       | DO, hard               | pH, hard               | conductance, hard      | 7DADM near windows, hard   | pooled, hard           | pooled, all            |
+|:------------------------------------|:-----------------------|:-----------------------|:-----------------------|:-----------------------|:---------------------------|:-----------------------|:-----------------------|
+| record only                         | 0.991 (0.984 to 0.996) | 0.837 (0.789 to 0.884) | 0.803 (0.766 to 0.855) | 0.691 (0.603 to 0.789) | 0.937 (0.913 to 0.959)     | 0.790 (0.750 to 0.832) | 0.968 (0.956 to 0.978) |
+| flat (all witnesses in record code) | 0.981 (0.972 to 0.991) | 0.940 (0.909 to 0.971) | 0.956 (0.933 to 0.980) | 0.977 (0.968 to 0.985) | 0.975 (0.964 to 0.985)     | 0.966 (0.957 to 0.975) | 0.991 (0.988 to 0.994) |
+| PET c=2 (all witnesses)             | 0.954 (0.932 to 0.973) | 0.953 (0.920 to 0.987) | 0.968 (0.944 to 0.991) | 0.992 (0.988 to 0.996) | 0.999 (0.998 to 1.000)     | 0.982 (0.974 to 0.988) | 0.997 (0.996 to 0.999) |
+| spare slots                         | 0.991 (0.984 to 0.996) | 0.924 (0.883 to 0.964) | 0.868 (0.841 to 0.902) | 0.691 (0.604 to 0.796) | 0.947 (0.928 to 0.965)     | 0.821 (0.776 to 0.864) | 0.973 (0.962 to 0.983) |
+| 3b rule generalised                 | 0.964 (0.944 to 0.981) | 0.954 (0.919 to 0.987) | 0.968 (0.944 to 0.990) | 0.992 (0.988 to 0.996) | 0.999 (0.996 to 1.000)     | 0.982 (0.975 to 0.990) | 0.989 (0.985 to 0.993) |
+| control: 3b pattern on random days  | 0.976 (0.962 to 0.987) | 0.921 (0.881 to 0.965) | 0.892 (0.858 to 0.928) | 0.854 (0.793 to 0.895) | 0.966 (0.947 to 0.983)     | 0.896 (0.877 to 0.914) | 0.980 (0.975 to 0.986) |
+| exact, lambda 0.5                   | 0.959 (0.938 to 0.977) | 0.954 (0.919 to 0.987) | 0.968 (0.943 to 0.991) | 0.992 (0.988 to 0.996) | 1.000 (0.999 to 1.000)     | 0.982 (0.975 to 0.989) | 0.998 (0.996 to 0.999) |
+| exact, lambda 1                     | 0.976 (0.963 to 0.988) | 0.953 (0.921 to 0.984) | 0.963 (0.937 to 0.984) | 0.991 (0.987 to 0.995) | 0.998 (0.997 to 0.999)     | 0.980 (0.972 to 0.988) | 0.997 (0.995 to 0.998) |
+| exact, lambda 2                     | 0.984 (0.973 to 0.993) | 0.951 (0.920 to 0.984) | 0.961 (0.938 to 0.984) | 0.990 (0.986 to 0.994) | 0.997 (0.995 to 0.999)     | 0.979 (0.971 to 0.986) | 0.996 (0.995 to 0.998) |
+
+Paired differences, iid_p0.3, Q = 12 (sites resampled, 95% interval); columns: record; pooled hard; pooled all
+  ex1 minus heur: record +0.012 (+0.006 to +0.020); hard -0.001 (-0.002 to -0.000); all +0.008 (+0.004 to +0.012)
+  ex05 minus heur: record -0.006 (-0.011 to +0.000); hard +0.000 (-0.000 to +0.001); all +0.009 (+0.005 to +0.012)
+  ex2 minus heur: record +0.019 (+0.011 to +0.029); hard -0.002 (-0.004 to -0.001); all +0.007 (+0.004 to +0.011)
+  ex1 minus randmix: record +0.001 (-0.003 to +0.005); hard +0.096 (+0.070 to +0.126); all +0.017 (+0.012 to +0.022)
+  ex1 minus flat: record -0.005 (-0.008 to -0.001); hard +0.011 (+0.007 to +0.016); all +0.005 (+0.003 to +0.007)
+  ex1 minus pet2: record +0.022 (+0.014 to +0.031); hard -0.001 (-0.002 to -0.000); all -0.001 (-0.001 to -0.000)
+  ex1 minus rec: record -0.014 (-0.020 to -0.007); hard +0.168 (+0.133 to +0.208); all +0.029 (+0.020 to +0.039)
+  heur minus randmix: record -0.011 (-0.017 to -0.006); hard +0.097 (+0.072 to +0.130); all +0.009 (+0.007 to +0.012)
+  heur minus flat: record -0.017 (-0.028 to -0.008); hard +0.013 (+0.008 to +0.017); all -0.002 (-0.004 to -0.001)
+  criterion 2 (exact lambda 1 vs 3b rule): hard +0.02 at record >= -0.005: False; record +0.02 at hard >= -0.005: False  ->  NOT MET
+
+### gilbert_p0.3_b3
+| design                              | record recovered       | DO, hard               | pH, hard               | conductance, hard      | 7DADM near windows, hard   | pooled, hard           | pooled, all            |
+|:------------------------------------|:-----------------------|:-----------------------|:-----------------------|:-----------------------|:---------------------------|:-----------------------|:-----------------------|
+| record only                         | 0.971 (0.963 to 0.978) | 0.806 (0.766 to 0.847) | 0.780 (0.743 to 0.826) | 0.669 (0.586 to 0.778) | 0.829 (0.788 to 0.866)     | 0.749 (0.710 to 0.792) | 0.943 (0.930 to 0.955) |
+| flat (all witnesses in record code) | 0.943 (0.931 to 0.954) | 0.913 (0.881 to 0.946) | 0.930 (0.905 to 0.953) | 0.938 (0.931 to 0.947) | 0.809 (0.776 to 0.838)     | 0.906 (0.894 to 0.917) | 0.953 (0.948 to 0.959) |
+| PET c=2 (all witnesses)             | 0.919 (0.896 to 0.938) | 0.939 (0.907 to 0.972) | 0.949 (0.921 to 0.970) | 0.970 (0.966 to 0.974) | 0.895 (0.886 to 0.903)     | 0.945 (0.936 to 0.952) | 0.973 (0.970 to 0.975) |
+| spare slots                         | 0.971 (0.963 to 0.978) | 0.898 (0.862 to 0.936) | 0.843 (0.816 to 0.878) | 0.669 (0.579 to 0.773) | 0.842 (0.806 to 0.877)     | 0.781 (0.732 to 0.828) | 0.948 (0.936 to 0.960) |
+| 3b rule generalised                 | 0.940 (0.919 to 0.959) | 0.947 (0.916 to 0.980) | 0.959 (0.933 to 0.982) | 0.981 (0.977 to 0.986) | 0.959 (0.951 to 0.967)     | 0.966 (0.959 to 0.974) | 0.966 (0.959 to 0.972) |
+| control: 3b pattern on random days  | 0.950 (0.934 to 0.964) | 0.895 (0.858 to 0.936) | 0.871 (0.834 to 0.907) | 0.835 (0.766 to 0.876) | 0.882 (0.851 to 0.913)     | 0.862 (0.840 to 0.882) | 0.956 (0.948 to 0.963) |
+| exact, lambda 0.5                   | 0.940 (0.919 to 0.959) | 0.942 (0.911 to 0.976) | 0.951 (0.925 to 0.974) | 0.971 (0.966 to 0.976) | 0.940 (0.927 to 0.953)     | 0.955 (0.948 to 0.963) | 0.980 (0.977 to 0.983) |
+| exact, lambda 1                     | 0.956 (0.942 to 0.969) | 0.936 (0.904 to 0.969) | 0.939 (0.915 to 0.962) | 0.964 (0.958 to 0.970) | 0.931 (0.914 to 0.947)     | 0.947 (0.939 to 0.956) | 0.976 (0.972 to 0.980) |
+| exact, lambda 2                     | 0.963 (0.951 to 0.973) | 0.932 (0.902 to 0.963) | 0.934 (0.909 to 0.957) | 0.961 (0.954 to 0.966) | 0.925 (0.906 to 0.943)     | 0.942 (0.934 to 0.951) | 0.975 (0.970 to 0.979) |
+
+Paired differences, gilbert_p0.3_b3, Q = 12 (sites resampled, 95% interval); columns: record; pooled hard; pooled all
+  ex1 minus heur: record +0.016 (+0.010 to +0.023); hard -0.018 (-0.023 to -0.013); all +0.010 (+0.007 to +0.013)
+  ex05 minus heur: record -0.000 (-0.005 to +0.005); hard -0.011 (-0.015 to -0.008); all +0.014 (+0.010 to +0.019)
+  ex2 minus heur: record +0.022 (+0.014 to +0.032); hard -0.021 (-0.028 to -0.015); all +0.009 (+0.006 to +0.011)
+  ex1 minus randmix: record +0.007 (+0.002 to +0.013); hard +0.097 (+0.072 to +0.128); all +0.021 (+0.016 to +0.026)
+  ex1 minus flat: record +0.014 (+0.010 to +0.017); hard +0.041 (+0.034 to +0.048); all +0.023 (+0.020 to +0.025)
+  ex1 minus pet2: record +0.038 (+0.030 to +0.046); hard +0.009 (+0.002 to +0.017); all +0.003 (+0.001 to +0.006)
+  ex1 minus rec: record -0.014 (-0.021 to -0.008); hard +0.177 (+0.142 to +0.215); all +0.034 (+0.025 to +0.044)
+  heur minus randmix: record -0.009 (-0.014 to -0.005); hard +0.115 (+0.089 to +0.146); all +0.010 (+0.008 to +0.014)
+  heur minus flat: record -0.002 (-0.011 to +0.005); hard +0.059 (+0.049 to +0.070); all +0.013 (+0.010 to +0.015)
+  criterion 2 (exact lambda 1 vs 3b rule): hard +0.02 at record >= -0.005: False; record +0.02 at hard >= -0.005: False  ->  NOT MET

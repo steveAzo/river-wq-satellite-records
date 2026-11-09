@@ -1,0 +1,49 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from multiprocessing.spawn import spawn_main; spawn_main(parent_pid=6336, pipe_handle=524)
+                                                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 131, in _main
+    prepare(preparation_data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 246, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 297, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+                                  run_name="__mp_main__")
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\User\Desktop\WSN_M\Paper3\src\p3\proto_base.py", line 18, in <module>
+    import pandas as pd
+  File "C:\Users\User\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\__init__.py", line 61, in <module>
+    from pandas.core.api import (
+    ...<62 lines>...
+    )
+  File "C:\Users\User\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\api.py", line 1, in <module>
+    from pandas._libs import (
+    ...<4 lines>...
+    )
+  File "C:\Users\User\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\_libs\__init__.py", line 16, in <module>
+    import pandas._libs.pandas_parser  # isort: skip # type: ignore[reportUnusedImport]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1322, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 1262, in _find_spec
+  File "<frozen importlib._bootstrap_external>", line 1559, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 1533, in _get_spec
+  File "<frozen importlib._bootstrap_external>", line 1636, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 1679, in _fill_cache
+OSError: [WinError 1450] Insufficient system resources exist to complete the requested service: 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\_libs'
+1 39 01388000
+2 39 01400500
+3 39 01402000
+4 39 01427510
+5 39 01438500
+6 39 01458500
+7 39 01463500
+8 39 01465798
+9 39 014670261
+10 39 01467087

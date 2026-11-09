@@ -1,0 +1,436 @@
+31 selected sites
+01481500 2024-01: 11903 values so far
+01481500 2024-02: 23016 values so far
+01481500 2024-03: 34904 values so far
+01481500 2024-04: 46424 values so far
+01481500 2024-05: 58324 values so far
+01481500 2024-06: 69844 values so far
+01481500 2024-07: 81588 values so far
+01481500 2024-08: 93492 values so far
+01481500 2024-09: 105004 values so far
+01481500 2024-10: 116805 values so far
+01481500 2024-11: 127992 values so far
+01481500 2024-12: 139592 values so far
+saved data\raw\usgs\01481500_2024-01-01_2024-12-31.csv (139592 rows) — BRANDYWINE CREEK AT WILMINGTON, DE
+{'file': '01481500_2024-01-01_2024-12-31.csv', 'raw_values': 139592, 'approved_values': 139584, 'timestamps': 35108, 'median_step_min': 15.0}
+01638500 2024-01: 11801 values so far
+01638500 2024-02: 22272 values so far
+01638500 2024-03: 33976 values so far
+01638500 2024-04: 42544 values so far
+01638500 2024-05: 53940 values so far
+01638500 2024-06: 65247 values so far
+01638500 2024-07: 77148 values so far
+01638500 2024-08: 89028 values so far
+01638500 2024-09: 100548 values so far
+01638500 2024-10: 112447 values so far
+01638500 2024-11: 123953 values so far
+01638500 2024-12: 135857 values so far
+saved data\raw\usgs\01638500_2024-01-01_2024-12-31.csv (135857 rows) — POTOMAC RIVER AT POINT OF ROCKS, MD
+{'file': '01638500_2024-01-01_2024-12-31.csv', 'raw_values': 135857, 'approved_values': 135857, 'timestamps': 35061, 'median_step_min': 15.0}
+01645704 2024-01: 11884 values so far
+01645704 2024-02: 22996 values so far
+01645704 2024-03: 34857 values so far
+01645704 2024-04: 46231 values so far
+01645704 2024-05: 57643 values so far
+01645704 2024-06: 69145 values so far
+01645704 2024-07: 80544 values so far
+01645704 2024-08: 92448 values so far
+01645704 2024-09: 103960 values so far
+01645704 2024-10: 115641 values so far
+01645704 2024-11: 127060 values so far
+01645704 2024-12: 138959 values so far
+saved data\raw\usgs\01645704_2024-01-01_2024-12-31.csv (138959 rows) — DIFFICULT RUN ABOVE FOX LAKE NEAR FAIRFAX, VA
+{'file': '01645704_2024-01-01_2024-12-31.csv', 'raw_values': 138959, 'approved_values': 138959, 'timestamps': 34850, 'median_step_min': 15.0}
+01649190 2024-01: 35356 values so far
+01649190 2024-02: 65167 values so far
+01649190 2024-03: 100726 values so far
+01649190 2024-04: 135197 values so far
+01649190 2024-05: 170789 values so far
+01649190 2024-06: 204333 values so far
+01649190 2024-07: 239895 values so far
+01649190 2024-08: 275402 values so far
+01649190 2024-09: 309945 values so far
+01649190 2024-10: 345573 values so far
+01649190 2024-11: 379062 values so far
+01649190 2024-12: 414732 values so far
+saved data\raw\usgs\01649190_2024-01-01_2024-12-31.csv (414732 rows) — PAINT BRANCH NEAR COLLEGE PARK, MD
+{'file': '01649190_2024-01-01_2024-12-31.csv', 'raw_values': 414732, 'approved_values': 414732, 'timestamps': 105035, 'median_step_min': 5.0}
+01650800 2024-01: 35660 values so far
+01650800 2024-02: 69068 values so far
+01650800 2024-03: 104675 values so far
+01650800 2024-04: 139109 values so far
+01650800 2024-05: 174781 values so far
+01650800 2024-06: 209340 values so far
+01650800 2024-07: 244791 values so far
+01650800 2024-08: 280199 values so far
+01650800 2024-09: 314535 values so far
+01650800 2024-10: 350118 values so far
+01650800 2024-11: 384720 values so far
+01650800 2024-12: 420344 values so far
+saved data\raw\usgs\01650800_2024-01-01_2024-12-31.csv (420344 rows) — SLIGO CREEK NEAR TAKOMA PARK, MD
+{'file': '01650800_2024-01-01_2024-12-31.csv', 'raw_values': 420344, 'approved_values': 420344, 'timestamps': 105117, 'median_step_min': 5.0}
+01668000 2024-01: 11764 values so far
+01668000 2024-02: 22749 values so far
+01668000 2024-03: 34560 values so far
+01668000 2024-04: 46075 values so far
+01668000 2024-05: 57460 values so far
+01668000 2024-06: 68977 values so far
+01668000 2024-07: 80718 values so far
+01668000 2024-08: 91702 values so far
+01668000 2024-09: 103222 values so far
+01668000 2024-10: 113743 values so far
+01668000 2024-11: 125223 values so far
+01668000 2024-12: 137127 values so far
+saved data\raw\usgs\01668000_2024-01-01_2024-12-31.csv (137127 rows) — RAPPAHANNOCK RIVER NEAR FREDERICKSBURG, VA
+{'file': '01668000_2024-01-01_2024-12-31.csv', 'raw_values': 137127, 'approved_values': 137127, 'timestamps': 35031, 'median_step_min': 15.0}
+03056000 2024-01: 2970 values so far
+03056000 2024-02: 9871 values so far
+03056000 2024-03: 21563 values so far
+03056000 2024-04: 33051 values so far
+03056000 2024-05: 44811 values so far
+03056000 2024-06: 56083 values so far
+03056000 2024-07: 67987 values so far
+03056000 2024-08: 79874 values so far
+03056000 2024-09: 91394 values so far
+03056000 2024-10: 103278 values so far
+03056000 2024-11: 114672 values so far
+03056000 2024-12: 126398 values so far
+saved data\raw\usgs\03056000_2024-01-01_2024-12-31.csv (126398 rows) — TYGART VALLEY R AT TYGART DAM NR GRAFTON, WV
+{'file': '03056000_2024-01-01_2024-12-31.csv', 'raw_values': 126398, 'approved_values': 126398, 'timestamps': 34935, 'median_step_min': 15.0}
+03108500 2024-01: 11903 values so far
+03108500 2024-02: 23031 values so far
+03108500 2024-03: 34919 values so far
+03108500 2024-04: 43138 values so far
+03108500 2024-05: 55040 values so far
+03108500 2024-06: 66545 values so far
+03108500 2024-07: 78419 values so far
+03108500 2024-08: 90323 values so far
+03108500 2024-09: 101816 values so far
+03108500 2024-10: 113720 values so far
+03108500 2024-11: 122376 values so far
+03108500 2024-12: 131265 values so far
+saved data\raw\usgs\03108500_2024-01-01_2024-12-31.csv (131265 rows) — Ohio River at Montgomery Lock & Dam, Lower Pool
+{'file': '03108500_2024-01-01_2024-12-31.csv', 'raw_values': 131265, 'approved_values': 131265, 'timestamps': 34288, 'median_step_min': 15.0}
+03179000 2024-01: 11872 values so far
+03179000 2024-02: 22976 values so far
+03179000 2024-03: 34864 values so far
+03179000 2024-04: 46345 values so far
+03179000 2024-05: 58220 values so far
+03179000 2024-06: 69740 values so far
+03179000 2024-07: 81465 values so far
+03179000 2024-08: 93369 values so far
+03179000 2024-09: 104834 values so far
+03179000 2024-10: 116709 values so far
+03179000 2024-11: 128217 values so far
+03179000 2024-12: 140121 values so far
+saved data\raw\usgs\03179000_2024-01-01_2024-12-31.csv (140121 rows) — BLUESTONE RIVER NEAR PIPESTEM, WV
+{'file': '03179000_2024-01-01_2024-12-31.csv', 'raw_values': 140121, 'approved_values': 140121, 'timestamps': 35079, 'median_step_min': 15.0}
+03293500 2024-01: 11802 values so far
+03293500 2024-02: 22872 values so far
+03293500 2024-03: 34691 values so far
+03293500 2024-04: 46198 values so far
+03293500 2024-05: 58060 values so far
+03293500 2024-06: 68577 values so far
+03293500 2024-07: 79944 values so far
+03293500 2024-08: 91461 values so far
+03293500 2024-09: 102812 values so far
+03293500 2024-10: 114704 values so far
+03293500 2024-11: 126219 values so far
+03293500 2024-12: 137953 values so far
+saved data\raw\usgs\03293500_2024-01-01_2024-12-31.csv (137953 rows) — M FK BEARGRASS CR AT LEXINGTON RD AT LOUISVILLE,KY
+{'file': '03293500_2024-01-01_2024-12-31.csv', 'raw_values': 137953, 'approved_values': 137953, 'timestamps': 34599, 'median_step_min': 15.0}
+03297800 2024-01: 11853 values so far
+03297800 2024-02: 22943 values so far
+03297800 2024-03: 34570 values so far
+03297800 2024-04: 46061 values so far
+03297800 2024-05: 57940 values so far
+03297800 2024-06: 69423 values so far
+03297800 2024-07: 81142 values so far
+03297800 2024-08: 92924 values so far
+03297800 2024-09: 104169 values so far
+03297800 2024-10: 116037 values so far
+03297800 2024-11: 127563 values so far
+03297800 2024-12: 139457 values so far
+saved data\raw\usgs\03297800_2024-01-01_2024-12-31.csv (139457 rows) — CEDAR CREEK AT HWY 1442 NEAR SHEPHERDSVILLE, KY
+{'file': '03297800_2024-01-01_2024-12-31.csv', 'raw_values': 139457, 'approved_values': 139457, 'timestamps': 35103, 'median_step_min': 15.0}
+03298135 2024-01: 11867 values so far
+03298135 2024-02: 22976 values so far
+03298135 2024-03: 34843 values so far
+03298135 2024-04: 46339 values so far
+03298135 2024-05: 58231 values so far
+03298135 2024-06: 69723 values so far
+03298135 2024-07: 81607 values so far
+03298135 2024-08: 93461 values so far
+03298135 2024-09: 104979 values so far
+03298135 2024-10: 116864 values so far
+03298135 2024-11: 128369 values so far
+03298135 2024-12: 140113 values so far
+saved data\raw\usgs\03298135_2024-01-01_2024-12-31.csv (140113 rows) — CHENOWETH RUN AT RUCKRIEGAL PARKWAY, KY
+{'file': '03298135_2024-01-01_2024-12-31.csv', 'raw_values': 140113, 'approved_values': 140113, 'timestamps': 35101, 'median_step_min': 15.0}
+03298250 2024-01: 9690 values so far
+03298250 2024-02: 20618 values so far
+03298250 2024-03: 31697 values so far
+03298250 2024-04: 42395 values so far
+03298250 2024-05: 54167 values so far
+03298250 2024-06: 65439 values so far
+03298250 2024-07: 77158 values so far
+03298250 2024-08: 89030 values so far
+03298250 2024-09: 99340 values so far
+03298250 2024-10: 111220 values so far
+03298250 2024-11: 122730 values so far
+03298250 2024-12: 134590 values so far
+saved data\raw\usgs\03298250_2024-01-01_2024-12-31.csv (134590 rows) — CEDAR CREEK AT THIXTON ROAD NEAR LOUISVILLE, KY
+{'file': '03298250_2024-01-01_2024-12-31.csv', 'raw_values': 134590, 'approved_values': 134590, 'timestamps': 34378, 'median_step_min': 15.0}
+03321500 2024-01: 11859 values so far
+03321500 2024-02: 22982 values so far
+03321500 2024-03: 33769 values so far
+03321500 2024-04: 45204 values so far
+03321500 2024-05: 57079 values so far
+03321500 2024-06: 68566 values so far
+03321500 2024-07: 80389 values so far
+03321500 2024-08: 92213 values so far
+03321500 2024-09: 101929 values so far
+03321500 2024-10: 113738 values so far
+03321500 2024-11: 125215 values so far
+03321500 2024-12: 137062 values so far
+saved data\raw\usgs\03321500_2024-01-01_2024-12-31.csv (137062 rows) — GREEN RIVER AT LOCK 1 AT SPOTTSVILLE, KY
+{'file': '03321500_2024-01-01_2024-12-31.csv', 'raw_values': 137062, 'approved_values': 137062, 'timestamps': 34366, 'median_step_min': 15.0}
+03353200 2024-01: 11814 values so far
+03353200 2024-02: 22852 values so far
+03353200 2024-03: 34645 values so far
+03353200 2024-04: 46003 values so far
+03353200 2024-05: 57800 values so far
+03353200 2024-06: 69234 values so far
+03353200 2024-07: 81032 values so far
+03353200 2024-08: 92486 values so far
+03353200 2024-09: 103125 values so far
+03353200 2024-10: 114951 values so far
+03353200 2024-11: 126384 values so far
+03353200 2024-12: 138176 values so far
+saved data\raw\usgs\03353200_2024-01-01_2024-12-31.csv (138176 rows) — EAGLE CREEK AT ZIONSVILLE, IN
+{'file': '03353200_2024-01-01_2024-12-31.csv', 'raw_values': 138176, 'approved_values': 138175, 'timestamps': 34893, 'median_step_min': 15.0}
+04193500 2024-01: 5872 values so far
+04193500 2024-02: 16571 values so far
+04193500 2024-03: 27621 values so far
+04193500 2024-04: 38969 values so far
+04193500 2024-05: 49403 values so far
+04193500 2024-06: 60931 values so far
+04193500 2024-07: 72732 values so far
+04193500 2024-08: 80251 values so far
+04193500 2024-09: 82959 values so far
+04193500 2024-10: 86963 values so far
+04193500 2024-11: 96584 values so far
+04193500 2024-12: 107371 values so far
+saved data\raw\usgs\04193500_2024-01-01_2024-12-31.csv (107371 rows) — Maumee River at Waterville OH
+{'file': '04193500_2024-01-01_2024-12-31.csv', 'raw_values': 107371, 'approved_values': 107371, 'timestamps': 27439, 'median_step_min': 15.0}
+05568705 2024-01: 11654 values so far
+05568705 2024-02: 22721 values so far
+05568705 2024-03: 33259 values so far
+05568705 2024-04: 43062 values so far
+05568705 2024-05: 53226 values so far
+05568705 2024-06: 64746 values so far
+05568705 2024-07: 76650 values so far
+05568705 2024-08: 88489 values so far
+05568705 2024-09: 99892 values so far
+05568705 2024-10: 111779 values so far
+05568705 2024-11: 121888 values so far
+05568705 2024-12: 127776 values so far
+saved data\raw\usgs\05568705_2024-01-01_2024-12-31.csv (127776 rows) — MASON TAZEWELL DRAINAGE D AT CR2350E NR TOPEKA, IL
+{'file': '05568705_2024-01-01_2024-12-31.csv', 'raw_values': 127776, 'approved_values': 127776, 'timestamps': 32482, 'median_step_min': 15.0}
+07048600 2024-01: 11478 values so far
+07048600 2024-02: 18337 values so far
+07048600 2024-03: 27301 values so far
+07048600 2024-04: 38802 values so far
+07048600 2024-05: 50689 values so far
+07048600 2024-06: 61943 values so far
+07048600 2024-07: 73632 values so far
+07048600 2024-08: 85536 values so far
+07048600 2024-09: 96988 values so far
+07048600 2024-10: 108285 values so far
+07048600 2024-11: 117003 values so far
+07048600 2024-12: 127656 values so far
+saved data\raw\usgs\07048600_2024-01-01_2024-12-31.csv (127656 rows) — White River near Fayetteville, AR
+{'file': '07048600_2024-01-01_2024-12-31.csv', 'raw_values': 127656, 'approved_values': 113628, 'timestamps': 32915, 'median_step_min': 15.0}
+07075270 2024-01: 11840 values so far
+07075270 2024-02: 22950 values so far
+07075270 2024-03: 34837 values so far
+07075270 2024-04: 46337 values so far
+07075270 2024-05: 58206 values so far
+07075270 2024-06: 69596 values so far
+07075270 2024-07: 81487 values so far
+07075270 2024-08: 93375 values so far
+07075270 2024-09: 104886 values so far
+07075270 2024-10: 116698 values so far
+07075270 2024-11: 128162 values so far
+07075270 2024-12: 140047 values so far
+saved data\raw\usgs\07075270_2024-01-01_2024-12-31.csv (140047 rows) — South Fork of Little Red River near Scotland, AR
+{'file': '07075270_2024-01-01_2024-12-31.csv', 'raw_values': 140047, 'approved_values': 139867, 'timestamps': 35016, 'median_step_min': 15.0}
+07263296 2024-01: 11872 values so far
+07263296 2024-02: 22972 values so far
+07263296 2024-03: 34849 values so far
+07263296 2024-04: 46352 values so far
+07263296 2024-05: 58230 values so far
+07263296 2024-06: 69733 values so far
+07263296 2024-07: 81620 values so far
+07263296 2024-08: 93498 values so far
+07263296 2024-09: 105017 values so far
+07263296 2024-10: 116909 values so far
+07263296 2024-11: 128254 values so far
+07263296 2024-12: 140158 values so far
+saved data\raw\usgs\07263296_2024-01-01_2024-12-31.csv (140158 rows) — Maumelle River near Wye, AR
+{'file': '07263296_2024-01-01_2024-12-31.csv', 'raw_values': 140158, 'approved_values': 140158, 'timestamps': 35090, 'median_step_min': 15.0}
+072632966 2024-01: 11066 values so far
+072632966 2024-02: 22152 values so far
+072632966 2024-03: 34040 values so far
+072632966 2024-04: 45558 values so far
+072632966 2024-05: 57447 values so far
+072632966 2024-06: 68942 values so far
+072632966 2024-07: 80842 values so far
+072632966 2024-08: 92487 values so far
+072632966 2024-09: 103997 values so far
+072632966 2024-10: 115043 values so far
+072632966 2024-11: 126549 values so far
+072632966 2024-12: 138445 values so far
+saved data\raw\usgs\072632966_2024-01-01_2024-12-31.csv (138445 rows) — Lake Maumelle at State Hwy 10 near Wye, AR
+{'file': '072632966_2024-01-01_2024-12-31.csv', 'raw_values': 138445, 'approved_values': 138403, 'timestamps': 34711, 'median_step_min': 15.0}
+11044000 2024-01: 11904 values so far
+11044000 2024-02: 23016 values so far
+11044000 2024-03: 34903 values so far
+11044000 2024-04: 46423 values so far
+11044000 2024-05: 58314 values so far
+11044000 2024-06: 69828 values so far
+11044000 2024-07: 81718 values so far
+11044000 2024-08: 93622 values so far
+11044000 2024-09: 105131 values so far
+11044000 2024-10: 117035 values so far
+11044000 2024-11: 128571 values so far
+11044000 2024-12: 140164 values so far
+saved data\raw\usgs\11044000_2024-01-01_2024-12-31.csv (140164 rows) — SANTA MARGARITA R NR TEMECULA CA
+{'file': '11044000_2024-01-01_2024-12-31.csv', 'raw_values': 140164, 'approved_values': 140164, 'timestamps': 35122, 'median_step_min': 15.0}
+11461500 2024-01: 11661 values so far
+11461500 2024-02: 22296 values so far
+11461500 2024-03: 34184 values so far
+11461500 2024-04: 45665 values so far
+11461500 2024-05: 57551 values so far
+11461500 2024-06: 69070 values so far
+11461500 2024-07: 80672 values so far
+11461500 2024-08: 92576 values so far
+11461500 2024-09: 104094 values so far
+11461500 2024-10: 115996 values so far
+11461500 2024-11: 126235 values so far
+11461500 2024-12: 138135 values so far
+saved data\raw\usgs\11461500_2024-01-01_2024-12-31.csv (138135 rows) — EF RUSSIAN R NR CALPELLA CA
+{'file': '11461500_2024-01-01_2024-12-31.csv', 'raw_values': 138135, 'approved_values': 138135, 'timestamps': 35125, 'median_step_min': 15.0}
+11507501 2024-01: 5952 values so far
+11507501 2024-02: 11494 values so far
+11507501 2024-03: 17420 values so far
+11507501 2024-04: 23180 values so far
+11507501 2024-05: 29131 values so far
+11507501 2024-06: 34887 values so far
+11507501 2024-07: 40834 values so far
+11507501 2024-08: 46776 values so far
+11507501 2024-09: 52528 values so far
+11507501 2024-10: 58472 values so far
+11507501 2024-11: 64235 values so far
+11507501 2024-12: 70187 values so far
+saved data\raw\usgs\11507501_2024-01-01_2024-12-31.csv (70187 rows) — LINK RIVER BELOW KENO CANAL, NEAR KLAMATH FALLS,OR
+{'file': '11507501_2024-01-01_2024-12-31.csv', 'raw_values': 70187, 'approved_values': 70187, 'timestamps': 17559, 'median_step_min': 30.0}
+14158850 2024-01: 5944 values so far
+14158850 2024-02: 11511 values so far
+14158850 2024-03: 17454 values so far
+14158850 2024-04: 23198 values so far
+14158850 2024-05: 29134 values so far
+14158850 2024-06: 34890 values so far
+14158850 2024-07: 40842 values so far
+14158850 2024-08: 46782 values so far
+14158850 2024-09: 52542 values so far
+14158850 2024-10: 58476 values so far
+14158850 2024-11: 64252 values so far
+14158850 2024-12: 70175 values so far
+saved data\raw\usgs\14158850_2024-01-01_2024-12-31.csv (70175 rows) — MCKENZIE R BLW TRAIL BR DAM NR BELKNAP SPRINGS, OR
+{'file': '14158850_2024-01-01_2024-12-31.csv', 'raw_values': 70175, 'approved_values': 70175, 'timestamps': 17553, 'median_step_min': 30.0}
+14163000 2024-01: 5940 values so far
+14163000 2024-02: 11503 values so far
+14163000 2024-03: 17425 values so far
+14163000 2024-04: 23172 values so far
+14163000 2024-05: 29124 values so far
+14163000 2024-06: 34884 values so far
+14163000 2024-07: 40828 values so far
+14163000 2024-08: 46780 values so far
+14163000 2024-09: 52540 values so far
+14163000 2024-10: 58480 values so far
+14163000 2024-11: 64205 values so far
+14163000 2024-12: 70140 values so far
+saved data\raw\usgs\14163000_2024-01-01_2024-12-31.csv (70140 rows) — GATE CREEK AT VIDA, OR
+{'file': '14163000_2024-01-01_2024-12-31.csv', 'raw_values': 70140, 'approved_values': 70140, 'timestamps': 17557, 'median_step_min': 30.0}
+14183020 2024-01: 5952 values so far
+14183020 2024-02: 11500 values so far
+14183020 2024-03: 17444 values so far
+14183020 2024-04: 23183 values so far
+14183020 2024-05: 29135 values so far
+14183020 2024-06: 34875 values so far
+14183020 2024-07: 40827 values so far
+14183020 2024-08: 46748 values so far
+14183020 2024-09: 52508 values so far
+14183020 2024-10: 58449 values so far
+14183020 2024-11: 64217 values so far
+14183020 2024-12: 70153 values so far
+saved data\raw\usgs\14183020_2024-01-01_2024-12-31.csv (70153 rows) — NORTH SANTIAM RIVER BLW STOUT CREEK, NR MEHAMA, OR
+{'file': '14183020_2024-01-01_2024-12-31.csv', 'raw_values': 70153, 'approved_values': 70153, 'timestamps': 17541, 'median_step_min': 30.0}
+14202650 2024-01: 5952 values so far
+14202650 2024-02: 11488 values so far
+14202650 2024-03: 17432 values so far
+14202650 2024-04: 23180 values so far
+14202650 2024-05: 29132 values so far
+14202650 2024-06: 34869 values so far
+14202650 2024-07: 40821 values so far
+14202650 2024-08: 46771 values so far
+14202650 2024-09: 52531 values so far
+14202650 2024-10: 58125 values so far
+14202650 2024-11: 63886 values so far
+14202650 2024-12: 69817 values so far
+saved data\raw\usgs\14202650_2024-01-01_2024-12-31.csv (69817 rows) — WAPATO CREEK AT SW GASTON ROAD, AT GASTON, OR
+{'file': '14202650_2024-01-01_2024-12-31.csv', 'raw_values': 69817, 'approved_values': 69817, 'timestamps': 17462, 'median_step_min': 30.0}
+14206950 2024-01: 5935 values so far
+14206950 2024-02: 11497 values so far
+14206950 2024-03: 17441 values so far
+14206950 2024-04: 23193 values so far
+14206950 2024-05: 29139 values so far
+14206950 2024-06: 34891 values so far
+14206950 2024-07: 40775 values so far
+14206950 2024-08: 46727 values so far
+14206950 2024-09: 52487 values so far
+14206950 2024-10: 58411 values so far
+14206950 2024-11: 64171 values so far
+14206950 2024-12: 70119 values so far
+saved data\raw\usgs\14206950_2024-01-01_2024-12-31.csv (70119 rows) — FANNO CREEK AT DURHAM, OR
+{'file': '14206950_2024-01-01_2024-12-31.csv', 'raw_values': 70119, 'approved_values': 70119, 'timestamps': 17538, 'median_step_min': 30.0}
+411402080492400 2024-01: 11904 values so far
+411402080492400 2024-02: 23029 values so far
+411402080492400 2024-03: 34917 values so far
+411402080492400 2024-04: 46426 values so far
+411402080492400 2024-05: 58319 values so far
+411402080492400 2024-06: 69821 values so far
+411402080492400 2024-07: 81719 values so far
+411402080492400 2024-08: 93614 values so far
+411402080492400 2024-09: 105054 values so far
+411402080492400 2024-10: 116947 values so far
+411402080492400 2024-11: 128483 values so far
+411402080492400 2024-12: 140378 values so far
+saved data\raw\usgs\411402080492400_2024-01-01_2024-12-31.csv (140378 rows) — Mahoning River near U.S. Route 422 at Warren OH
+{'file': '411402080492400_2024-01-01_2024-12-31.csv', 'raw_values': 140378, 'approved_values': 140378, 'timestamps': 35108, 'median_step_min': 15.0}
+420853121505501 2024-01: 5950 values so far
+420853121505501 2024-02: 11510 values so far
+420853121505501 2024-03: 17442 values so far
+420853121505501 2024-04: 23194 values so far
+420853121505501 2024-05: 29134 values so far
+420853121505501 2024-06: 34890 values so far
+420853121505501 2024-07: 40835 values so far
+420853121505501 2024-08: 46779 values so far
+420853121505501 2024-09: 52539 values so far
+420853121505501 2024-10: 58484 values so far
+420853121505501 2024-11: 64252 values so far
+420853121505501 2024-12: 70201 values so far
+saved data\raw\usgs\420853121505501_2024-01-01_2024-12-31.csv (70201 rows) — KLAMATH RIVER AT MILLER ISLAND BOAT RAMP-BOTTOM
+{'file': '420853121505501_2024-01-01_2024-12-31.csv', 'raw_values': 70201, 'approved_values': 70201, 'timestamps': 17553, 'median_step_min': 30.0}
+sealed 31 raw and 31 clean files

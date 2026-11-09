@@ -1,0 +1,20 @@
+clean tree: rc=0 (541 s)
+M04 NOT CAUGHT 214s
+M12 caught 5s
+M13 caught 4s
+M14 caught 2s
+M17 caught 2s
+M18 caught 2s
+# Mutation check of the revision-2 tests
+
+Faults planted one at a time in a scratch copy; a test run that fails is a catch. Caught 5 of 6 applied mutations (6 run, 18 defined).
+
+| id | file | planted fault | tests | caught | seconds |
+|---|---|---|---|---|---|
+| M04 | src/p3/certlang.py | conductance 'no' rule too lax | test_mutation_gaps.py, test_certlang.py | NO | 214 |
+| M12 | src/p3/frame2.py | sanity rule no longer checks the slot against the profile | test_mutation_gaps.py, test_frame2.py | yes | 5 |
+| M13 | src/p3/frame2.py | censored witness codes accepted | test_mutation_gaps.py, test_frame2.py | yes | 4 |
+| M14 | src/p3/allocate.py | layered term allowed to go negative | test_mutation_gaps.py, test_allocate.py | yes | 2 |
+| M17 | src/p3/sod.py | hold certified one reading too far | test_mutation_gaps.py, test_sod.py | yes | 2 |
+| M18 | src/p3/capacity.py | bit budget forgets the hosted flag | test_mutation_gaps.py, test_capacity.py, test_frame2.py | yes | 2 |
+
