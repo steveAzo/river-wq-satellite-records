@@ -1,0 +1,10 @@
+id,statement,result,supported
+H1,"no wrong certificate decision in any certificate design (Q 6 and 12, both loss models) and no frame v2 round-trip mismatch",wrong decisions max 0.000; round trip: 0 mismatches in 30285 blocks,True
+H2,"3b rule minus record only, hard-case decisions at the configured thresholds, lower bound >= 0.15 (Q = 6, both loss models)",+0.318 (+0.234 to +0.417) / +0.300 (+0.223 to +0.390),True
+H3,"3b rule minus the same layering on random days, hard-case decisions, lower bound >= 0.05 (Q = 6, both)",+0.141 (+0.105 to +0.174) / +0.130 (+0.096 to +0.165),True
+H4,"record recovered, 3b rule minus record only, lower bound >= -0.12 (Q = 6, both)",-0.083 (-0.105 to -0.062) / -0.071 (-0.091 to -0.053),True
+H5,"unanticipated thresholds: 3b rule minus flags >= 0.1 and minus record only >= 0.1 (lower bounds, Q = 6, both)",flags: +0.531 (+0.494 to +0.569) / +0.441 (+0.411 to +0.472); record only: +0.260 (+0.191 to +0.344) / +0.245 (+0.184 to +0.320),True
+H6,"neither coded send-on-delta nor tolerance x 0.5 dominates the 3b rule on (record recovered, hard-case decisions), Q = 6, both",sod_mds/iid_p0.3: no; tight50/iid_p0.3: no; sod_mds/gilbert_p0.3_b3: no; tight50/gilbert_p0.3_b3: no,True
+H7,"known limit: decision flags exceed the 3b rule in hard-case decisions at the configured thresholds (lower bound > 0, Q = 6, independent loss)",+0.043 (+0.025 to +0.068),True
+H8,"conditional false-certificate day share given one CRC-valid forgery (CRC + sanity + corroboration), upper bound within limits","record Q6: 0.0463 (upper 0.0584, limit 0.06); record Q12: 0.0061 (upper 0.0134, limit 0.01); layered k2 Q6: 0.1050 (upper 0.1197, limit 0.15); layered k2 Q12: 0.0126 (upper 0.0215, limit 0.02)",False
+H9,"hybrid 1 (flags with all witnesses hosted in spare slots) minus flags, Q = 6, both: unanticipated thresholds lower bound >= 0.2; configured hard-case decisions and record recovered lower bounds >= -0.01",alt: +0.355 (+0.297 to +0.418) / +0.294 (+0.248 to +0.345); cfg: +0.000 (+0.000 to +0.000) / +0.000 (+0.000 to +0.000); record: +0.000 (+0.000 to +0.000) / +0.000 (+0.000 to +0.000),True

@@ -1,0 +1,1 @@
+docs/FREEZE3.md written (104 files); commit it, then run: python -I src/p3/confirm3.py data/clean/usgs_new3_2024 confirm3 data/clean/usgs_new3_2024.md5
