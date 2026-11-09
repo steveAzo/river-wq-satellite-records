@@ -1,0 +1,34 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{What the evidence supports}
+The confirmation supports a specific and bounded claim. On 31 rivers that development never used, the certificate rules were never wrong (H1), and spending bytes on witnesses of hard cases raised the share of decided hard cases over the record alone by about 0.3 at six messages per day (H2), more than the same layering on random days (H3), at a cost of 0.07 to 0.08 in the share of days whose whole record was recovered (H4). The witnesses also decided thresholds that nobody configured, which flags cannot (H5), and neither send-on-delta nor a tightened tolerance reached the same combination of record recovery and decisions (H6). The study does not claim that witnesses are the best way to decide thresholds that are fixed when the node is configured: flags were better there in development and in confirmation (H7).
+
+The practical reading is a choice between three designs, depending on how fixed the thresholds are:
+\begin{itemize}
+  \item If the thresholds are known and stable, decision flags decide nearly every hard case (0.999 at independent loss) and recover the record almost as often as the record alone (0.877 against 0.892), but decide only 0.275 of hard cases at thresholds that were not configured.
+  \item If thresholds may change, or if numerical extrema are wanted, hybrid 1 keeps the flag performance, adds witnesses in spare slots at no cost in record recovery or configured decisions, and raised unanticipated hard-case decisions from 0.275 to 0.629 (independent loss, descriptive). About 78\% of development days had at least one spare slot and 21\% had four; therefore, the benefit depends on the room that the record leaves.
+  \item If the unanticipated thresholds matter most, the targeted layered design (3b rule or hybrid 2) reached 0.806, at a cost in record recovery.
+\end{itemize}
+This is a claim about use, not a measured benefit in the field: the unanticipated threshold sets were chosen by the analyst, and whether thresholds change in practice was not studied.
+
+\subsection{The failed hypothesis}
+H8 failed at twelve messages per day, for record only and for layered witnesses, because the upper bounds of the conditional false-certificate share exceeded their limits (0.0134 against 0.01, and 0.0215 against 0.02). The development estimates, from six sites, were lower than the cohort values by a factor of 1.2 to 15. Two lessons follow:
+\begin{itemize}
+  \item Corroboration: the corroboration rule works by comparing surplus messages; therefore, its value rises with $Q$, but the residual is structural: when exactly the required number of messages arrives, nothing can be compared.
+  \item Sample size: a sample of six sites understated a conditional rate that varies across rivers, which is the reason why the confirmation was run.
+\end{itemize} The consequence for use is that the CRC-16 and the free receiver rules are not shown to be sufficient at the stated limits, and a longer check (CRC-24 or a message authentication code) belongs in any deployment whose channel error rate is not measured. Its capacity cost was estimated in development (five points of record recovery at $Q = 6$) and was not confirmed.
+
+\subsection{Limits}
+\begin{itemize}
+  \item Simulation only: the evidence is trace-driven replay of USGS records through modelled loss. No satellite hardware, no measured channel error statistics, and no microcontroller measurements were used.
+  \item Scope: 31 rivers of the United States in one year, with only four Gulf sites; nothing is claimed for other regions, years, or deployments.
+  \item Assumption R: it was off for about 15 of 38 development sites, and it was inferred from the same record that it protects. H1 is therefore a test of the code, conditional on R.
+  \item Flags were modelled at 4.75 record values per message although the frame allows 4, which favours the flags and hybrid 1 equally and does not affect comparisons among the other designs.
+  \item Analyst choices: the alternative threshold sets, the hard-case bands, the 7DADM band, and the unknown-history rule were chosen by the analyst, the last two on development data after a first run fell short.
+  \item Truth: truth statements refer to the loader's record, which includes readings bridged over gaps of at most two readings, and not to the river.
+  \item Witness decisions are a lower bound on what witnesses could decide, because the box rule is not exact with witnesses (Proposition 2).
+  \item Integrity: the forgery model uses random content conditional on a CRC pass; an adversary needs authentication, which is out of scope.
+  \item Review: the code, the proofs, and the plan were read by one separate AI session, which is an in-project reading and not an outside review, and by the project team; no outside reviewer has read them. The tests were checked by a mutation check of 18 hand-chosen faults, which found six test gaps that were then closed.
+  \item Priority: the novelty statement of Section~\ref{sec:related} rests on a general web search and on sources read in part; it is not a systematic review.
+\end{itemize}

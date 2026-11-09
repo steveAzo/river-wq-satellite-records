@@ -28,7 +28,7 @@ PlatoDB (90) and Plato (91): introduction, query model, grep of the text. TREAT 
 
 ## Blocked or not done
 
-- Albanese, Bloemer, Edmonds, Luby, Sudan 1996, "Priority encoding transmission": NOT read. The file downloaded in Round 4 was a different article (Brassard, Crepeau, Santha, same issue of IEEE Trans. Inf. Theory); it was renamed and not used. Re-requested (papers/MANUAL_DOWNLOAD.md, Round 5).
+- Albanese, Bloemer, Edmonds, Luby, Sudan 1996, "Priority encoding transmission": obtained by the user on 2026-11-09 (papers/pdf/Priority_encoding_transmission.pdf, first page checked) and read in part (introduction, Definitions 3.1 and 3.2, Theorems 3.3 and 3.5, start of Section IV); the proofs were not read. Before that it was NOT read. The file downloaded in Round 4 was a different article (Brassard, Crepeau, Santha, same issue of IEEE Trans. Inf. Theory); it was renamed and not used. Re-requested (papers/MANUAL_DOWNLOAD.md, Round 5).
 - No direct search of Scopus, Web of Science, Google Scholar, DBLP, IEEE Xplore, ACM DL, or Elsevier indexes; the web search tool is a general engine limited to US results. The official Clarivate and Scopus values for the journal were not opened.
 - No formal, reproducible nearest-neighbour search (query log with inclusion rules) has been run.
 - Stopped: no search was cut off by a budget or a timeout; each search was ended by the assistant's choice after reading its results.

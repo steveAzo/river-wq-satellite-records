@@ -8,7 +8,7 @@ Status: written 2026-11-09 from results/confirm3/verdicts3.md and verdicts3.csv,
 - Launched 2026-11-09 at 12:41 on the PC clock, one worker. Freeze check against tag confirm3-freeze passed. Seal check: 31 of 31 checksums OK.
 - Stage 1 (record plans, 31 sites) finished at about 14:01. Stage 2 (all designs) finished at about 15:55. Verdict files were written at 16:08.
 - Interruptions and restarts: none. The log contains no error, traceback, or memory failure. The run was not restarted.
-- Analysis population: 31 of 31 sites (at least 100 four-parameter days).
+- Analysis population: 31 of 31 sites (at least 100 four-parameter days); 10,095 days with a forgery-study row (144 to 365 per site), counted from results/confirm3/robust2_stage1.csv.
 - Byte-level round trip: 30,285 blocks, 0 mismatches.
 - Forgery study: 908,180 rows in results/confirm3/robust2_stage1.csv.
 

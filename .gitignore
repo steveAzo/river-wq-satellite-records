@@ -85,3 +85,15 @@ results/dev/superseded/robust_step5_tagbug/
 results/*/env_days.csv
 #    Low-cost re-analysis (exploratory): the gridded Weija record is private, like its source.
 results/lowcost2/input/Weija.csv
+
+# 9. Revision 3 manuscript (draft3/, v0.5): generated files, rebuilt by pdflatex and by
+#    src/paper/make_figures5.py and src/paper/tables5.py. Sources, figures, and tables stay tracked.
+draft3/main.pdf
+draft3/*.log
+draft3/build/
+draft3/deliverables/
+draft3/word_main.tex
+draft3/word_main.tex.json
+draft3/word_raw.docx
+draft3/figs/*.aux
+draft3/figs/*.log

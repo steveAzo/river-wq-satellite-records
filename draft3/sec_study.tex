@@ -1,0 +1,41 @@
+\section{Data and pre-registered design}
+\label{sec:study}
+
+\subsection{Data and cohorts}
+\label{sec:data}
+All data were approved instantaneous values from the USGS National Water Information System \citep{usgs2016nwis}; dissolved oxygen was used in mg/L. Each parameter was used on its own sampling grid on each UTC day; a run of at most two missing readings with valid neighbours on both sides was bridged linearly, and any longer gap made that parameter-day ineligible. The analysis used four-parameter days. Two data sets served different purposes:
+\begin{itemize}
+  \item Development: calendar year 2023 at 38 sites with four-parameter days (10,342 days) in New Jersey, Pennsylvania, Illinois, and Oregon. Every design choice, band, and rule was set on these data. Data from earlier rounds of the study (a 2024 re-test at the same sites and a sealed cohort of 36 sites in 2024 that had been used to confirm an earlier version of the method) are also development data for the present method and were not used as confirmation.
+  \item Confirmation: calendar year 2024 at 31 sites that development never used, in four regions: the Pacific coast (9 sites), the Mid-Atlantic and Appalachia (9), the Ohio valley and Great Lakes (9), and the Gulf and lower Mississippi (4). Selection used metadata only: sites whose series of temperature, conductance, dissolved oxygen, and pH covered 2024 and that had at least 250 approved daily means per parameter (qualifiers read, values discarded) were taken in seeded random order within region, up to nine per region. Of 249 candidates, 31 were selected; only 4 of 16 Gulf candidates met the approval rule, and the shortfall was not repaired by adding regions. The data were downloaded, cleaned by the rules of all earlier cohorts, and sealed with MD5 checksums before any analysis. The analysis population was the sites with at least 100 four-parameter days, which was all 31 sites (10,095 days, 144 to 365 per site).
+\end{itemize}
+
+\subsection{Loss models, plans, and thresholds}
+\label{sec:channels}
+No measured loss rate was available for the target service; therefore, loss was modelled. Independent loss removed each message with probability 0.3; a two-state Gilbert channel \citep{gilbert1960,elliott1963} lost every message in its bad state with the same mean loss 0.3 and mean bursts of three messages. Plans of $Q = 6$ and $Q = 12$ messages per day were evaluated, with 20 loss draws per day and identical draws for all designs.
+
+The configured thresholds were fixed before any design was compared: dissolved oxygen below 5\,mg/L \citep{epa1986do}; pH below 6.5 or above 9.0 \citep{epa1986gold}; a 7DADM above 20\,\textdegree C \citep{epa2003temp}; and a conductance change above 10\% in one hour (a criterion defined for this study). Two alternative threshold sets that the encoder does not know measure generality: alt1 (4.5\,mg/L; pH 6.3 and 9.2; 21\,\textdegree C; 20\%) and alt2 (5.5\,mg/L; pH 6.7 and 8.8; 19\,\textdegree C; 5\%). The analyst chose these sets, and the results that depend on them are reported with that caveat.
+
+\subsection{Hypotheses, freeze, and procedure}
+\label{sec:procedure}
+The study proceeded in two stages. In development, the method and the hypotheses with their numerical limits were written, and a separate AI session read the code and the plan adversarially (an in-project reading, not an outside review); several defects were corrected and a mutation check of the tests was run. In confirmation, the hypotheses (Table~\ref{tab:hyp}), the analysis plan, and the software were frozen: the repository was committed and tagged, a freeze record with checksums of every method file was written, and the confirmation script refused to run if any frozen file differed from the tag or if the seal did not verify. The sealed data were then opened once. The run took about 3.5 hours on one worker and was neither interrupted nor restarted.
+
+Intervals are 95\% percentile intervals from 1,000 site-clustered bootstrap resamples; differences between designs are pooled day-query means computed on the same resamples. Hard-case decisions pool dissolved oxygen, pH, conductance, and 7DADM windows, and a decision counts as correct only when it is certain and equals the truth on the sensor record. A hypothesis counts as supported only if its stated bound holds in every listed condition, and the limits were not changed after the data were opened.
+
+{\footnotesize
+\begin{longtable}{@{}p{0.7cm}p{2.7cm}p{2.1cm}p{4.5cm}p{1.8cm}@{}}
+\caption{Pre-registered hypotheses and their outcome on the 31 sealed confirmation sites.}\label{tab:hyp}\\
+\toprule
+ID & Statement & Limit & Result (95\% interval) & Outcome \\
+\midrule
+\endfirsthead
+\toprule
+ID & Statement & Limit & Result (95\% interval) & Outcome \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\input{tables/confirm_hyp.tex}
+\end{longtable}
+}
+
+The statements of H2 to H9 refer to $Q = 6$ and to both loss models unless stated; H8 also covers $Q = 12$. H1 deserves one caution. Because the reporting resolution is inferred from the analysed record, H1 cannot fail through assumption R; it tests the code and the other assumptions, conditional on R being correct, and it is not evidence that R holds for deployed sensors.
