@@ -1,0 +1,102 @@
+
+# run cap4all
+
+## Q = 6: 38 sites; wrong decisions max 0.000
+
+### levels, iid_p0.3 (record recovered / hard cfg / hard alt / all cfg)
+  ex1       0.838 / 0.949 / 0.727 / 0.975
+  flags     0.845 / 0.999 / 0.217 / 0.999
+  flagsrec  0.845 / 0.999 / 0.572 / 0.999
+  heur      0.824 / 0.967 / 0.783 / 0.922
+  hyb1      0.845 / 0.999 / 0.599 / 0.999
+  hyb2      0.715 / 0.999 / 0.764 / 0.999
+  rec       0.904 / 0.675 / 0.571 / 0.897
+### contrasts, iid_p0.3 (paired, site-clustered 95% interval)
+  heur minus rec: rec -0.080 (-0.107 to -0.058); hard_cfg +0.292 (+0.242 to +0.333); hard_alt +0.211 (+0.178 to +0.240)
+  flagsrec minus rec: rec -0.060 (-0.075 to -0.045); hard_cfg +0.325 (+0.274 to +0.365); hard_alt +0.001 (-0.010 to +0.014)
+  flags minus rec: rec -0.060 (-0.076 to -0.045); hard_cfg +0.325 (+0.275 to +0.368); hard_alt -0.354 (-0.408 to -0.306)
+  hyb1 minus rec: rec -0.060 (-0.074 to -0.045); hard_cfg +0.325 (+0.273 to +0.368); hard_alt +0.028 (+0.016 to +0.042)
+  hyb1 minus flagsrec: rec +0.000 (+0.000 to +0.000); hard_cfg +0.000 (+0.000 to +0.000); hard_alt +0.027 (+0.022 to +0.033)
+  hyb1 minus flags: rec +0.000 (+0.000 to +0.000); hard_cfg +0.000 (+0.000 to +0.000); hard_alt +0.382 (+0.339 to +0.432)
+  heur minus flagsrec: rec -0.021 (-0.036 to -0.006); hard_cfg -0.033 (-0.041 to -0.025); hard_alt +0.210 (+0.184 to +0.236)
+  heur minus flags: rec -0.021 (-0.035 to -0.006); hard_cfg -0.033 (-0.041 to -0.024); hard_alt +0.565 (+0.531 to +0.602)
+  hyb2 minus flagsrec: rec -0.129 (-0.168 to -0.095); hard_cfg +0.000 (+0.000 to +0.000); hard_alt +0.192 (+0.166 to +0.218)
+  hyb2 minus rec: rec -0.189 (-0.242 to -0.143); hard_cfg +0.325 (+0.276 to +0.370); hard_alt +0.193 (+0.155 to +0.228)
+  ex1 minus flagsrec: rec -0.007 (-0.016 to +0.003); hard_cfg -0.051 (-0.062 to -0.039); hard_alt +0.155 (+0.118 to +0.192)
+  ex1 minus rec: rec -0.067 (-0.092 to -0.044); hard_cfg +0.274 (+0.224 to +0.320); hard_alt +0.156 (+0.113 to +0.199)
+  hyb2 minus heur: rec -0.109 (-0.133 to -0.086); hard_cfg +0.033 (+0.024 to +0.042); hard_alt -0.019 (-0.027 to -0.012)
+  ex1 minus heur: rec +0.014 (-0.000 to +0.028); hard_cfg -0.018 (-0.024 to -0.012); hard_alt -0.055 (-0.078 to -0.028)
+
+### levels, gilbert_p0.3_b3 (record recovered / hard cfg / hard alt / all cfg)
+  ex1       0.766 / 0.818 / 0.628 / 0.879
+  flags     0.780 / 0.961 / 0.209 / 0.961
+  flagsrec  0.780 / 0.961 / 0.512 / 0.963
+  heur      0.768 / 0.848 / 0.688 / 0.830
+  hyb1      0.780 / 0.961 / 0.535 / 0.963
+  hyb2      0.671 / 0.961 / 0.690 / 0.963
+  rec       0.835 / 0.570 / 0.487 / 0.803
+### contrasts, gilbert_p0.3_b3 (paired, site-clustered 95% interval)
+  heur minus rec: rec -0.067 (-0.087 to -0.050); hard_cfg +0.278 (+0.237 to +0.313); hard_alt +0.201 (+0.175 to +0.225)
+  flagsrec minus rec: rec -0.055 (-0.064 to -0.046); hard_cfg +0.391 (+0.348 to +0.423); hard_alt +0.025 (+0.014 to +0.037)
+  flags minus rec: rec -0.055 (-0.064 to -0.046); hard_cfg +0.391 (+0.352 to +0.425); hard_alt -0.278 (-0.326 to -0.233)
+  hyb1 minus rec: rec -0.055 (-0.064 to -0.046); hard_cfg +0.391 (+0.351 to +0.426); hard_alt +0.048 (+0.037 to +0.060)
+  hyb1 minus flagsrec: rec +0.000 (+0.000 to +0.000); hard_cfg +0.000 (+0.000 to +0.000); hard_alt +0.023 (+0.018 to +0.028)
+  hyb1 minus flags: rec +0.000 (+0.000 to +0.000); hard_cfg +0.000 (+0.000 to +0.000); hard_alt +0.326 (+0.285 to +0.370)
+  heur minus flagsrec: rec -0.012 (-0.025 to +0.000); hard_cfg -0.113 (-0.126 to -0.101); hard_alt +0.176 (+0.155 to +0.197)
+  heur minus flags: rec -0.012 (-0.025 to -0.000); hard_cfg -0.113 (-0.127 to -0.100); hard_alt +0.479 (+0.444 to +0.514)
+  hyb2 minus flagsrec: rec -0.109 (-0.139 to -0.082); hard_cfg +0.000 (+0.000 to +0.000); hard_alt +0.178 (+0.157 to +0.198)
+  hyb2 minus rec: rec -0.164 (-0.203 to -0.129); hard_cfg +0.391 (+0.352 to +0.424); hard_alt +0.203 (+0.171 to +0.234)
+  ex1 minus flagsrec: rec -0.014 (-0.028 to -0.001); hard_cfg -0.143 (-0.162 to -0.126); hard_alt +0.116 (+0.084 to +0.147)
+  ex1 minus rec: rec -0.069 (-0.094 to -0.047); hard_cfg +0.248 (+0.204 to +0.288); hard_alt +0.141 (+0.104 to +0.179)
+  hyb2 minus heur: rec -0.097 (-0.116 to -0.079); hard_cfg +0.113 (+0.100 to +0.127); hard_alt +0.002 (-0.007 to +0.009)
+  ex1 minus heur: rec -0.002 (-0.016 to +0.011); hard_cfg -0.030 (-0.042 to -0.020); hard_alt -0.060 (-0.083 to -0.033)
+
+## Q = 12: 38 sites; wrong decisions max 0.000
+
+### levels, iid_p0.3 (record recovered / hard cfg / hard alt / all cfg)
+  ex1       0.977 / 0.980 / 0.720 / 0.997
+  flags     0.980 / 1.000 / 0.217 / 1.000
+  flagsrec  0.980 / 1.000 / 0.661 / 1.000
+  heur      0.964 / 0.982 / 0.813 / 0.989
+  hyb1      0.980 / 1.000 / 0.686 / 1.000
+  hyb2      0.919 / 1.000 / 0.805 / 1.000
+  rec       0.991 / 0.790 / 0.664 / 0.968
+### contrasts, iid_p0.3 (paired, site-clustered 95% interval)
+  heur minus rec: rec -0.027 (-0.039 to -0.014); hard_cfg +0.192 (+0.150 to +0.233); hard_alt +0.149 (+0.126 to +0.170)
+  flagsrec minus rec: rec -0.011 (-0.016 to -0.006); hard_cfg +0.210 (+0.168 to +0.250); hard_alt -0.003 (-0.005 to -0.001)
+  flags minus rec: rec -0.011 (-0.016 to -0.006); hard_cfg +0.210 (+0.167 to +0.252); hard_alt -0.446 (-0.486 to -0.410)
+  hyb1 minus rec: rec -0.011 (-0.016 to -0.006); hard_cfg +0.210 (+0.166 to +0.254); hard_alt +0.022 (+0.016 to +0.029)
+  hyb1 minus flagsrec: rec +0.000 (+0.000 to +0.000); hard_cfg +0.000 (+0.000 to +0.000); hard_alt +0.025 (+0.019 to +0.031)
+  hyb1 minus flags: rec +0.000 (+0.000 to +0.000); hard_cfg +0.000 (+0.000 to +0.000); hard_alt +0.468 (+0.431 to +0.510)
+  heur minus flagsrec: rec -0.016 (-0.027 to -0.007); hard_cfg -0.018 (-0.026 to -0.011); hard_alt +0.152 (+0.129 to +0.175)
+  heur minus flags: rec -0.016 (-0.025 to -0.008); hard_cfg -0.018 (-0.026 to -0.011); hard_alt +0.595 (+0.559 to +0.629)
+  hyb2 minus flagsrec: rec -0.061 (-0.086 to -0.038); hard_cfg +0.000 (+0.000 to +0.000); hard_alt +0.144 (+0.122 to +0.165)
+  hyb2 minus rec: rec -0.072 (-0.099 to -0.044); hard_cfg +0.210 (+0.167 to +0.253); hard_alt +0.141 (+0.117 to +0.163)
+  ex1 minus flagsrec: rec -0.003 (-0.006 to -0.001); hard_cfg -0.020 (-0.027 to -0.012); hard_alt +0.059 (+0.044 to +0.074)
+  ex1 minus rec: rec -0.014 (-0.022 to -0.008); hard_cfg +0.190 (+0.145 to +0.231); hard_alt +0.056 (+0.043 to +0.069)
+  hyb2 minus heur: rec -0.045 (-0.064 to -0.030); hard_cfg +0.018 (+0.011 to +0.026); hard_alt -0.008 (-0.012 to -0.005)
+  ex1 minus heur: rec +0.013 (+0.006 to +0.021); hard_cfg -0.002 (-0.003 to -0.001); hard_alt -0.093 (-0.109 to -0.077)
+
+### levels, gilbert_p0.3_b3 (record recovered / hard cfg / hard alt / all cfg)
+  ex1       0.956 / 0.945 / 0.694 / 0.976
+  flags     0.954 / 0.997 / 0.217 / 0.996
+  flagsrec  0.954 / 0.997 / 0.632 / 0.997
+  heur      0.939 / 0.966 / 0.796 / 0.965
+  hyb1      0.954 / 0.997 / 0.656 / 0.997
+  hyb2      0.889 / 0.997 / 0.790 / 0.997
+  rec       0.970 / 0.747 / 0.629 / 0.942
+### contrasts, gilbert_p0.3_b3 (paired, site-clustered 95% interval)
+  heur minus rec: rec -0.031 (-0.043 to -0.020); hard_cfg +0.219 (+0.177 to +0.259); hard_alt +0.167 (+0.143 to +0.188)
+  flagsrec minus rec: rec -0.016 (-0.021 to -0.012); hard_cfg +0.250 (+0.206 to +0.288); hard_alt +0.002 (-0.001 to +0.006)
+  flags minus rec: rec -0.016 (-0.022 to -0.012); hard_cfg +0.250 (+0.209 to +0.292); hard_alt -0.413 (-0.456 to -0.375)
+  hyb1 minus rec: rec -0.016 (-0.021 to -0.012); hard_cfg +0.250 (+0.206 to +0.291); hard_alt +0.027 (+0.019 to +0.035)
+  hyb1 minus flagsrec: rec +0.000 (+0.000 to +0.000); hard_cfg +0.000 (+0.000 to +0.000); hard_alt +0.025 (+0.019 to +0.030)
+  hyb1 minus flags: rec +0.000 (+0.000 to +0.000); hard_cfg +0.000 (+0.000 to +0.000); hard_alt +0.440 (+0.402 to +0.483)
+  heur minus flagsrec: rec -0.015 (-0.024 to -0.007); hard_cfg -0.031 (-0.038 to -0.024); hard_alt +0.165 (+0.141 to +0.187)
+  heur minus flags: rec -0.015 (-0.023 to -0.007); hard_cfg -0.031 (-0.038 to -0.023); hard_alt +0.580 (+0.544 to +0.614)
+  hyb2 minus flagsrec: rec -0.065 (-0.089 to -0.043); hard_cfg +0.000 (+0.000 to +0.000); hard_alt +0.158 (+0.138 to +0.180)
+  hyb2 minus rec: rec -0.081 (-0.107 to -0.055); hard_cfg +0.250 (+0.206 to +0.292); hard_alt +0.161 (+0.136 to +0.183)
+  ex1 minus flagsrec: rec +0.002 (-0.001 to +0.005); hard_cfg -0.052 (-0.060 to -0.043); hard_alt +0.062 (+0.049 to +0.076)
+  ex1 minus rec: rec -0.014 (-0.021 to -0.009); hard_cfg +0.198 (+0.155 to +0.238); hard_alt +0.065 (+0.050 to +0.080)
+  hyb2 minus heur: rec -0.050 (-0.066 to -0.036); hard_cfg +0.031 (+0.023 to +0.039); hard_alt -0.006 (-0.010 to -0.003)
+  ex1 minus heur: rec +0.017 (+0.010 to +0.024); hard_cfg -0.021 (-0.027 to -0.015); hard_alt -0.102 (-0.118 to -0.088)

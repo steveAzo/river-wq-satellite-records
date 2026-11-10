@@ -1,0 +1,1 @@
+designs=('hyb2', 'ex1') flag_cap=4.0 seed=20261110 folder=data/clean/usgs

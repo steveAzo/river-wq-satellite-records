@@ -42,7 +42,7 @@ The review says the paper is competent but its algorithmic ingredients (error-bo
 | 5 | Development on 2023 only; ablations (E2); hard near-threshold strata (E3); loss and burst grid (E4) | not started |
 | 6 | Integrity study (E5): CRC-16 vs stronger check, corroboration, header corruption, stale blocks, duplicates | not started |
 | 7 | Pre-register hypotheses, freeze (git tag, checksums), seal a THIRD new cohort by metadata only, run once | needs user approval |
-| 8 | Manuscript rewrite around the decision problem; novelty matrix; limits; venue | v0.5 first draft written 2026-11-09 in draft3/ (builds to 28 pages; src/paper/tables5.py, check_draft.py, check_numbers5.py pass); authors to review; figures and Word build not yet made |
+| 8 | Manuscript rewrite around the decision problem; novelty matrix; limits; venue | not started |
 
 ## Integrity rules
 

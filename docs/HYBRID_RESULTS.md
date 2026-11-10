@@ -19,7 +19,7 @@ Date: 2026-11-07. Status: exploratory (the adoption rule was written before the 
 
 - For the question "which design should the paper present", hyb1 is a free addition to decision flags: no cost in configured-threshold decisions or in record recovery, with a large gain on thresholds nobody configured. The 3b rule buys a further +0.15 on unanticipated thresholds at the price of 0.03 in configured-threshold decisions and 0.06 in record recovery.
 - hyb1 inherits the flags' dependence on the configured thresholds for the configured decisions; the hosted witnesses are protected only as well as the record is.
-- Caveats: development data; flags modelled at 4.75 values per message although the frame gives 4 (favours both hyb1 and flags equally); the alternative threshold sets were chosen by the analyst; the witnesses are hosted only when the record group has spare room (about 78% of days have at least one spare slot, 21% have four).
+- Caveats: development data; flags modelled at 4.75 values per message although the frame gives 4 (favours the flags, and favours hyb1 more on the alternative thresholds because it enlarges the spare room for hosted witnesses; the flags design decides from its flags alone and does not use the recovered record; review findings A2 and A4 of 2026-11-09); the alternative threshold sets were chosen by the analyst; the witnesses are hosted only when the record group has spare room (about 78% of days have at least one spare slot, 21% have four).
 - Adoption is a decision for the authors before the freeze (docs/CONFIRM3_PLAN.md, Section 7). The drafter recommends adopting hyb1 and keeps hyb2 as a descriptive design.
 
 ## Raw evaluation output

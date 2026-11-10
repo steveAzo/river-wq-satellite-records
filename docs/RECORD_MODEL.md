@@ -1,4 +1,4 @@
-# Record model, definitions, and certificate correctness (revision Step 3; review M3, M7, maths audit)
+;# Record model, definitions, and certificate correctness (revision Step 3; review M3, M7, maths audit)
 
 Code: `src/p3/record.py`. Tests: `tests/test_record.py` (exhaustive over loss patterns). Frame: `docs/FRAME_SPEC.md`.
 

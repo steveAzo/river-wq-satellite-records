@@ -122,7 +122,7 @@ def fig_forest():
     ax.set_xlabel("Difference in share of cases (95% interval; dashed tick: pre-registered limit)")
     ax.plot([], [], "o", color=GREY, label="Independent loss")
     ax.plot([], [], "s", color=GREY, label="Gilbert loss")
-    ax.legend(frameon=False, loc="lower right", fontsize=8)
+    ax.legend(frameon=False, loc="upper center", bbox_to_anchor=(0.4, -0.2), ncol=2, fontsize=8)
     ax.grid(axis="x", color="#e6e5e1", lw=0.6)
     ax.set_axisbelow(True)
     fig.tight_layout()

@@ -43,7 +43,7 @@ Confirmation plan and sealing
 - Is the freeze procedure (tag, test run, seal verification, checksums) enough to show that the code that ran is the code that was approved?
 
 Claims and priority
-- Check every novelty sentence against docs/SEARCH_LOG_REV2.md (what loaded, what did not). Albanese 1996 was not read; official indexes were not searched; several papers were read in part.
+- Check every novelty sentence against docs/SEARCH_LOG_REV2.md (what loaded, what did not). Albanese 1996 was not read when this brief was written (it was obtained and read in part on 2026-11-09 17:00; see docs/SEARCH_LOG_REV2.md); official indexes were not searched; several papers were read in part.
 - Check that no number in a document was typed from memory: each public number should be traceable to a results file (the generated tables are copied from output; the prose findings were typed and should be audited against them).
 
 ## 4. Known weak points (stated by the drafter, not exhaustive)

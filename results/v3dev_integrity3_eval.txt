@@ -1,0 +1,116 @@
+# integrity study full: 38 sites, 442946 forged draws, 443136 unforged draws
+
+## conditional false-certificate day share given one CRC-valid forgery (point, 95% interval)
+  D0 3b     Q= 6: 0.0738 (0.0604 to 0.0888)  draws 27672
+  D0 3b     Q=12: 0.0086 (0.0049 to 0.0123)  draws 27696
+  D0 record Q= 6: 0.0430 (0.0345 to 0.0526)  draws 27680
+  D0 record Q=12: 0.0027 (0.0013 to 0.0042)  draws 27695
+  D1 3b     Q= 6: 0.0527 (0.0402 to 0.0668)  draws 27676
+  D1 3b     Q=12: 0.0059 (0.0030 to 0.0088)  draws 27696
+  D1 record Q= 6: 0.0205 (0.0137 to 0.0281)  draws 27665
+  D1 record Q=12: 0.0013 (0.0006 to 0.0021)  draws 27696
+  D2 3b     Q= 6: 0.0917 (0.0764 to 0.1077)  draws 27670
+  D2 3b     Q=12: 0.0126 (0.0080 to 0.0178)  draws 27696
+  D2 record Q= 6: 0.0687 (0.0562 to 0.0817)  draws 27671
+  D2 record Q=12: 0.0060 (0.0035 to 0.0085)  draws 27696
+  D3 3b     Q= 6: 0.0659 (0.0518 to 0.0816)  draws 27673
+  D3 3b     Q=12: 0.0088 (0.0054 to 0.0126)  draws 27696
+  D3 record Q= 6: 0.0378 (0.0271 to 0.0490)  draws 27672
+  D3 record Q=12: 0.0030 (0.0013 to 0.0049)  draws 27696
+
+## H8': expected false-certificate days per million days (point / upper bound)
+  bit-error rate 0.0001
+    D0 3b     Q= 6: 0.0863 / 0.1038
+    D0 3b     Q=12: 0.0200 / 0.0288
+    D0 record Q= 6: 0.0503 / 0.0615
+    D0 record Q=12: 0.0063 / 0.0098
+    D1 3b     Q= 6: 0.0616 / 0.0781
+    D1 3b     Q=12: 0.0138 / 0.0206
+    D1 record Q= 6: 0.0239 / 0.0328
+    D1 record Q=12: 0.0030 / 0.0049
+    D2 3b     Q= 6: 0.0004 / 0.0005
+    D2 3b     Q=12: 0.0001 / 0.0002
+    D2 record Q= 6: 0.0003 / 0.0004
+    D2 record Q=12: 0.0001 / 0.0001
+    D3 3b     Q= 6: 0.0003 / 0.0004
+    D3 3b     Q=12: 0.0001 / 0.0001
+    D3 record Q= 6: 0.0002 / 0.0002
+    D3 record Q=12: 0.0000 / 0.0000
+  bit-error rate 0.001
+    D0 3b     Q= 6: 0.7956 / 0.9568
+    D0 3b     Q=12: 0.1844 / 0.2653
+    D0 record Q= 6: 0.4636 / 0.5667
+    D0 record Q=12: 0.0584 / 0.0903
+    D1 3b     Q= 6: 0.5681 / 0.7202
+    D1 3b     Q=12: 0.1268 / 0.1898
+    D1 record Q= 6: 0.2205 / 0.3026
+    D1 record Q=12: 0.0280 / 0.0450
+    D2 3b     Q= 6: 0.0039 / 0.0045
+    D2 3b     Q=12: 0.0011 / 0.0015
+    D2 record Q= 6: 0.0029 / 0.0034
+    D2 record Q=12: 0.0005 / 0.0007
+    D3 3b     Q= 6: 0.0028 / 0.0034
+    D3 3b     Q=12: 0.0007 / 0.0011
+    D3 record Q= 6: 0.0016 / 0.0021
+    D3 record Q=12: 0.0003 / 0.0004
+  bit-error rate 0.01
+    D0 3b     Q= 6: 3.9870 / 4.7951
+    D0 3b     Q=12: 0.9242 / 1.3294
+    D0 record Q= 6: 2.3236 / 2.8401
+    D0 record Q=12: 0.2925 / 0.4525
+    D1 3b     Q= 6: 2.8469 / 3.6095
+    D1 3b     Q=12: 0.6356 / 0.9509
+    D1 record Q= 6: 1.1048 / 1.5163
+    D1 record Q=12: 0.1404 / 0.2256
+    D2 3b     Q= 6: 0.0193 / 0.0227
+    D2 3b     Q=12: 0.0053 / 0.0075
+    D2 record Q= 6: 0.0145 / 0.0172
+    D2 record Q=12: 0.0025 / 0.0036
+    D3 3b     Q= 6: 0.0139 / 0.0172
+    D3 3b     Q=12: 0.0037 / 0.0053
+    D3 record Q= 6: 0.0080 / 0.0103
+    D3 record Q=12: 0.0013 / 0.0021
+
+## classes of day among forged draws (share of draws, false share in class)
+  D0 3b     Q= 6: N<K 0.11/0.241; N=K 0.12/0.300; N>K 0.71/0.000; uncoded 0.07/0.192
+  D0 3b     Q=12: N<K 0.03/0.129; N=K 0.02/0.249; N>K 0.95/0.000; uncoded 0.01/0.157
+  D0 record Q= 6: N<K 0.07/0.162; N=K 0.11/0.249; N>K 0.80/0.000; uncoded 0.02/0.197
+  D0 record Q=12: N<K 0.01/0.114; N=K 0.01/0.185; N>K 0.98/0.000; uncoded 0.00/0.281
+  D1 3b     Q= 6: N<K 0.17/0.193; N=K 0.17/0.001; N>K 0.58/0.000; uncoded 0.09/0.232
+  D1 3b     Q=12: N<K 0.03/0.132; N=K 0.02/0.000; N>K 0.93/0.000; uncoded 0.01/0.145
+  D1 record Q= 6: N<K 0.10/0.152; N=K 0.14/0.000; N>K 0.73/0.000; uncoded 0.03/0.176
+  D1 record Q=12: N<K 0.01/0.092; N=K 0.01/0.000; N>K 0.98/0.000; uncoded 0.00/0.281
+  D2 3b     Q= 6: N<K 0.15/0.216; N=K 0.14/0.282; N>K 0.61/0.000; uncoded 0.09/0.203
+  D2 3b     Q=12: N<K 0.03/0.136; N=K 0.02/0.245; N>K 0.93/0.000; uncoded 0.01/0.163
+  D2 record Q= 6: N<K 0.11/0.198; N=K 0.14/0.270; N>K 0.71/0.000; uncoded 0.05/0.217
+  D2 record Q=12: N<K 0.02/0.163; N=K 0.01/0.217; N>K 0.97/0.000; uncoded 0.00/0.175
+  D3 3b     Q= 6: N<K 0.20/0.200; N=K 0.17/0.001; N>K 0.51/0.000; uncoded 0.12/0.210
+  D3 3b     Q=12: N<K 0.04/0.145; N=K 0.03/0.000; N>K 0.91/0.000; uncoded 0.02/0.144
+  D3 record Q= 6: N<K 0.14/0.192; N=K 0.16/0.000; N>K 0.66/0.000; uncoded 0.05/0.230
+  D3 record Q=12: N<K 0.02/0.132; N=K 0.01/0.000; N>K 0.96/0.000; uncoded 0.00/0.125
+
+## whole-record recovery, unforged draws (point, 95% interval)
+  D0 3b     Q= 6: 0.824 (0.775 to 0.872)
+  D0 3b     Q=12: 0.967 (0.949 to 0.983)
+  D0 record Q= 6: 0.904 (0.875 to 0.932)
+  D0 record Q=12: 0.989 (0.983 to 0.996)
+  D1 3b     Q= 6: 0.752 (0.694 to 0.806)
+  D1 3b     Q=12: 0.956 (0.934 to 0.976)
+  D1 record Q= 6: 0.874 (0.840 to 0.907)
+  D1 record Q=12: 0.988 (0.980 to 0.995)
+  D2 3b     Q= 6: 0.756 (0.696 to 0.812)
+  D2 3b     Q=12: 0.951 (0.928 to 0.972)
+  D2 record Q= 6: 0.843 (0.802 to 0.884)
+  D2 record Q=12: 0.978 (0.966 to 0.990)
+  D3 3b     Q= 6: 0.687 (0.618 to 0.748)
+  D3 3b     Q=12: 0.938 (0.913 to 0.963)
+  D3 record Q= 6: 0.818 (0.772 to 0.861)
+  D3 record Q=12: 0.977 (0.965 to 0.989)
+
+## selection
+  D0: meets the limit of 0.5 per million at 1e-3 in every block: False
+  D1: meets the limit of 0.5 per million at 1e-3 in every block: False
+  D2: meets the limit of 0.5 per million at 1e-3 in every block: True
+  D3: meets the limit of 0.5 per million at 1e-3 in every block: True
+  recovery of the 3b rule at Q = 6 among passing designs: {'D2': np.float64(0.7563186019641825), 'D3': np.float64(0.6867778740612362)}
+  selected (highest recovery, ties within 0.01 go to the simplest): D2

@@ -1,0 +1,1 @@
+designs=('rec', 'heur', 'flags', 'flagsrec', 'hyb1') flag_cap=4.75 seed=20261110 folder=data/clean/usgs

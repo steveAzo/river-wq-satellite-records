@@ -18,6 +18,7 @@ for line in reg.splitlines():
         r0 = float(cells[1].split("|")[1])
         r1 = float(cells[2].split("|")[1])
         allsrc += f"\n{r0 - r1:.3f}"
+allsrc += "\n" + open("draft3/tables/confirm_kinds.tex", encoding="utf-8").read()
 bad = []
 for f in sorted(glob.glob("draft3/sec_*.tex")):
     s = open(f, encoding="utf-8").read()

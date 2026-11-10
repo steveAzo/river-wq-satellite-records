@@ -1,0 +1,106 @@
+106 sites already used (excluded)
+Pacific coast: 47 sites pass rules 1 and 2
+  11447650 SACRAMENTO R A FREEPORT CA               {'T': 365, 'EC': 0, 'DO': 0, 'pH': 0} 
+  12511800 YAKIMA RIVER AT VAN GIESEN BR NEAR RICHL {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  12090400 NORTH FORK CLOVER CREEK NEAR PARKLAND, W {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  14181500 NORTH SANTIAM RIVER AT NIAGARA, OR       {'T': 365, 'EC': 365, 'DO': 365, 'pH': 364} SELECTED
+  11455315 CACHE SLOUGH A S LIBERTY ISLAND NR RIO V {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  14316460 NORTH UMPQUA R AT SODA SPGS, NR TOKETEE  {'T': 365, 'EC': 365, 'DO': 365, 'pH': 364} SELECTED
+  12100490 WHITE RIVER AT R STREET NEAR AUBURN, WA  {'T': 365, 'EC': 318, 'DO': 319, 'pH': 328} SELECTED
+  11273400 SAN JOAQUIN R AB MERCED R NR NEWMAN CA   {'T': 284, 'EC': 258, 'DO': 285, 'pH': 283} SELECTED
+  14202980 SCOGGINS CK BLW HENRY HAGG LAKE, NR GAST {'T': 364, 'EC': 365, 'DO': 361, 'pH': 362} SELECTED
+Mid-Atlantic and Appalachia: 71 sites pass rules 1 and 2
+  01549700 Pine Creek bl L Pine Creek near Watervil {'T': 357, 'EC': 357, 'DO': 212, 'pH': 212} 
+  01646305 DEAD RUN AT WHANN AVENUE NEAR MCLEAN, VA {'T': 344, 'EC': 332, 'DO': 329, 'pH': 340} SELECTED
+  01649500 NORTHEAST BRANCH ANACOSTIA RIVER AT RIVE {'T': 361, 'EC': 356, 'DO': 361, 'pH': 361} SELECTED
+  01645762 S F LITTLE DIFFICULT RUN ABOVE MOUTH NR  {'T': 359, 'EC': 329, 'DO': 340, 'pH': 323} SELECTED
+  01480870 East Branch Brandywine Creek below Downi {'T': 365, 'EC': 277, 'DO': 272, 'pH': 270} SELECTED
+  01575900 Chiques Creek near Marietta, PA          {'T': 363, 'EC': 363, 'DO': 363, 'pH': 362} SELECTED
+Ohio valley and Great Lakes: 75 sites pass rules 1 and 2
+  05538010 DES PLAINES RIVER AT ROCKDALE, IL        {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  03228039 Scioto River above Shadeville OH         {'T': 235, 'EC': 235, 'DO': 235, 'pH': 235} 
+  05576100 LICK CREEK NEAR WOODSIDE, IL             {'T': 352, 'EC': 342, 'DO': 320, 'pH': 351} SELECTED
+  03292500 SOUTH FORK BEARGRASS CREEK AT LOUISVILLE {'T': 364, 'EC': 364, 'DO': 364, 'pH': 364} SELECTED
+  03289000 SOUTH ELKHORN CREEK AT FORT SPRING, KY   {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  03428180 WF STONES R AT BLANTON RD MURFREESBORO,  {'T': 365, 'EC': 0, 'DO': 365, 'pH': 0} 
+  03288180 CANE RUN CREEK AT CITATION BLVD NR LEXIN {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  03302060 SALT RIVER AT MOUTH AT WEST POINT, KY    {'T': 364, 'EC': 315, 'DO': 364, 'pH': 362} SELECTED
+  03431091 CUMBERLAND R AT OMOHUNDRO WTR PLT AT NAS {'T': 365, 'EC': 343, 'DO': 363, 'pH': 0} 
+  03297900 FLOYDS FORK NEAR PEWEE VALLEY, KY        {'T': 361, 'EC': 358, 'DO': 344, 'pH': 342} SELECTED
+  03301900 FERN CREEK AT OLD BARDSTOWN RD AT LOUISV {'T': 362, 'EC': 356, 'DO': 360, 'pH': 354} SELECTED
+Gulf and lower Mississippi: 9 sites pass rules 1 and 2
+  07177500 Bird Creek near Sperry, OK               {'T': 357, 'EC': 352, 'DO': 357, 'pH': 132} 
+  07239450 North Canadian River near Calumet, OK    {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  07241550 North Canadian River near Harrah, OK     {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  07381600 Lower Atchafalaya River at Morgan City,  {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  07380255 Bayou Dupont nr Round Lake S of Myrtle G {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  07288048 RICHIES BAYOU AT SHERARD, MS             {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  07178200 Bird Ck at State Highway 266 near Catoos {'T': 341, 'EC': 261, 'DO': 343, 'pH': 284} SELECTED
+  07374000 Mississippi River at Baton Rouge, LA     {'T': 333, 'EC': 344, 'DO': 349, 'pH': 353} SELECTED
+  07288500 BIG SUNFLOWER RIVER AT SUNFLOWER, MS     {'T': 274, 'EC': 0, 'DO': 0, 'pH': 0} 
+Northeast and New England: 18 sites pass rules 1 and 2
+  01376307 HUDSON RIVER AT WATER GRANT STREET AT YO {'T': 206, 'EC': 183, 'DO': 0, 'pH': 0} 
+  01376520 HUDSON RIVER AT PIER 25 AT NEW YORK NY   {'T': 116, 'EC': 123, 'DO': 0, 'pH': 0} 
+  01184490 BROAD BROOK AT BROAD BROOK, CT           {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  01342732 MOHAWK RIVER AT ILION NY                 {'T': 138, 'EC': 131, 'DO': 0, 'pH': 0} 
+  01127500 YANTIC RIVER AT YANTIC, CT               {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  0135749950 MOHAWK RIVER DIVERSION TO POWER PLANT AT {'T': 365, 'EC': 312, 'DO': 0, 'pH': 0} 
+  01302020 BRONX RIVER AT NY BOTANICAL GARDEN AT BR {'T': 357, 'EC': 357, 'DO': 0, 'pH': 0} 
+  01184000 CONNECTICUT RIVER AT THOMPSONVILLE, CT   {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  01354330 MOHAWK RIVER AT LOCK 8 NEAR SCHENECTADY  {'T': 365, 'EC': 365, 'DO': 0, 'pH': 0} 
+  01196500 QUINNIPIAC RIVER AT WALLINGFORD, CT      {'T': 363, 'EC': 350, 'DO': 362, 'pH': 0} 
+  01201487 STILL RIVER AT ROUTE 7 AT BROOKFIELD CEN {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  01376515 HUDSON RIVER AT PIER 84 AT NEW YORK NY   {'T': 336, 'EC': 274, 'DO': 0, 'pH': 0} 
+  04249000 OSWEGO RIVER AT LOCK 7, OSWEGO NY        {'T': 364, 'EC': 365, 'DO': 365, 'pH': 364} SELECTED
+  01125100 FRENCH RIVER AT NORTH GROSVENORDALE, CT  {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  01355475 MOHAWK RIVER AT REXFORD NY               {'T': 363, 'EC': 365, 'DO': 0, 'pH': 0} 
+  01191000 NORTH BRANCH PARK RIVER AT HARTFORD, CT  {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  01208873 ROOSTER RIVER AT FAIRFIELD, CT           {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  0135980207 HUDSON RIVER NEAR SCHODACK LANDING NY    {'T': 342, 'EC': 342, 'DO': 0, 'pH': 0} 
+Southeast: 60 sites pass rules 1 and 2
+  02336340 NANCY CREEK AT JOHNSON FERRY RD, AT CHAM {'T': 365, 'EC': 361, 'DO': 365, 'pH': 353} SELECTED
+  0242354650 CAHABA VALLEY CR AT INDIAN TRAIL RD NR I {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  02203655 SOUTH RIVER AT FORREST PARK ROAD, AT ATL {'T': 365, 'EC': 365, 'DO': 365, 'pH': 358} SELECTED
+  02423160 CAHABA RIVER NEAR WHITES CHAPEL AL       {'T': 365, 'EC': 363, 'DO': 354, 'pH': 0} 
+  02336410 NANCY CREEK AT WEST WESLEY ROAD, AT ATLA {'T': 365, 'EC': 353, 'DO': 361, 'pH': 365} SELECTED
+  02336300 PEACHTREE CREEK AT ATLANTA, GA           {'T': 365, 'EC': 363, 'DO': 359, 'pH': 363} SELECTED
+  0208062765 ROANOKE RIVER AT HALIFAX, NC             {'T': 363, 'EC': 364, 'DO': 362, 'pH': 363} SELECTED
+Texas: 18 sites pass rules 1 and 2
+  08181500 Medina Rv at San Antonio, TX             {'T': 363, 'EC': 363, 'DO': 0, 'pH': 0} 
+  08374510 Rio Grande Dws Santa Elena Canyon, BBNP, {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  08211200 Nueces Rv at Bluntzer, TX                {'T': 365, 'EC': 365, 'DO': 365, 'pH': 0} 
+  08070200 E Fk San Jacinto Rv nr New Caney, TX     {'T': 355, 'EC': 288, 'DO': 331, 'pH': 0} 
+  08188060 San Antonio Rv at SH 72 nr Runge, TX     {'T': 360, 'EC': 345, 'DO': 355, 'pH': 351} SELECTED
+  07332605 Bois D'Arc Ck at HWY 56 nr Bonham, TX    {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  08377200 Rio Grande at Foster Rh nr Langtry, TX   {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  08065350 Trinity Rv nr Crockett, TX               {'T': 358, 'EC': 312, 'DO': 321, 'pH': 358} SELECTED
+  08068500 Spring Ck nr Spring, TX                  {'T': 365, 'EC': 339, 'DO': 334, 'pH': 0} 
+  08057410 Trinity Rv bl Dallas, TX                 {'T': 343, 'EC': 272, 'DO': 250, 'pH': 0} 
+  08371500 Rio Grande abv Rio Conchos nr Presidio,  {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  08062500 Trinity Rv nr Rosser, TX                 {'T': 345, 'EC': 343, 'DO': 341, 'pH': 0} 
+  08068000 W Fk San Jacinto Rv nr Conroe, TX        {'T': 356, 'EC': 357, 'DO': 350, 'pH': 0} 
+  08180800 Medina Rv nr Somerset, TX                {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  08374200 Rio Grande bl Rio Conchos nr Presidio, T {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  08188500 San Antonio Rv at Goliad, TX             {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  08181800 San Antonio Rv nr Elmendorf, TX          {'T': 365, 'EC': 365, 'DO': 365, 'pH': 0} 
+  08048000 W Fk Trinity Rv at Ft Worth, TX          {'T': 242, 'EC': 190, 'DO': 0, 'pH': 0} 
+Mountain West: 28 sites pass rules 1 and 2
+  13093383 SNAKE RIVER AT PIGEON COVE NR TWIN FALLS {'T': 365, 'EC': 365, 'DO': 365, 'pH': 365} SELECTED
+  12301933 Kootenai River bl Libby Dam nr Libby MT  {'T': 365, 'EC': 365, 'DO': 365, 'pH': 365} SELECTED
+  09149500 UNCOMPAHGRE RIVER AT DELTA, CO           {'T': 365, 'EC': 363, 'DO': 364, 'pH': 365} SELECTED
+  09180500 COLORADO RIVER NEAR CISCO, UT            {'T': 350, 'EC': 364, 'DO': 365, 'pH': 365} SELECTED
+  09034250 COLORADO RIVER AT WINDY GAP, NEAR GRANBY {'T': 153, 'EC': 153, 'DO': 153, 'pH': 153} 
+  09027100 FRASER RIVER AT TABERNASH, CO            {'T': 184, 'EC': 135, 'DO': 153, 'pH': 131} 
+  09095500 COLORADO RIVER NEAR CAMEO, CO.           {'T': 0, 'EC': 359, 'DO': 365, 'pH': 365} 
+  09379500 SAN JUAN RIVER NEAR BLUFF, UT            {'T': 349, 'EC': 335, 'DO': 0, 'pH': 343} 
+  393259107194801 COLORADO R ABV ROARING FORK R AT GLENWOO {'T': 364, 'EC': 331, 'DO': 342, 'pH': 358} SELECTED
+Upper Midwest: 13 sites pass rules 1 and 2
+  04087234 ROOT RIVER AT 60TH ST NEAR CALEDONIA, WI {'T': 0, 'EC': 0, 'DO': 0, 'pH': 0} 
+  040851385 FOX RIVER AT OIL TANK DEPOT AT GREEN BAY {'T': 365, 'EC': 365, 'DO': 365, 'pH': 365} SELECTED
+  06893820 Little Blue R. at Lees Summit Rd in Inde {'T': 363, 'EC': 363, 'DO': 360, 'pH': 0} 
+  07020850 Mississippi River at Cape Girardeau, MO  {'T': 356, 'EC': 353, 'DO': 355, 'pH': 355} SELECTED
+  04067500 MENOMINEE RIVER NEAR MC ALLISTER, WI     {'T': 352, 'EC': 352, 'DO': 334, 'pH': 292} SELECTED
+  05474500 Mississippi River at Keokuk, IA          {'T': 364, 'EC': 364, 'DO': 365, 'pH': 365} SELECTED
+  06901500 Locust Creek near Linneus, MO            {'T': 228, 'EC': 209, 'DO': 221, 'pH': 221} 
+  04087170 MILWAUKEE RIVER AT MOUTH AT MILWAUKEE, W {'T': 350, 'EC': 292, 'DO': 350, 'pH': 351} SELECTED
+selected 35 sites: {'Gulf and lower Mississippi': 2, 'Mid-Atlantic and Appalachia': 5, 'Mountain West': 5, 'Northeast and New England': 1, 'Ohio valley and Great Lakes': 5, 'Pacific coast': 5, 'Southeast': 5, 'Texas': 2, 'Upper Midwest': 5}
