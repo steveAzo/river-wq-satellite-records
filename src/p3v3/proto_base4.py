@@ -1,4 +1,7 @@
-"""Version 3, Phase 1a (docs/METHOD_V3_PLAN.md): derived from src/p3/proto_base.py by src/p3v3/patch_base3.py. DEVELOPMENT DATA ONLY.
+"""Version 3 slot model. THIS FILE IS THE SOURCE: it was made by src/p3v3/patch_base4.py and then edited by hand on 2026-11-10
+(guarded max_bounds from certlang3; meta file written first and atomically, review finding B4), so the patch no longer reproduces it.
+In the confirmation (src/p3v3/confirm4.py) it is a descriptive cross-check with flag capacity 4 (review finding A1).
+Version 3, Phase 1a (docs/METHOD_V3_PLAN.md): derived from src/p3/proto_base.py by src/p3v3/patch_base3.py.
 Changes: designs and flag capacity are command-line arguments (no environment switches); new design flagsrec (decision flags that
 also use the recovered record: the certificate decides when certain, otherwise the flag, no witnesses); hybrid 1 hosts its witnesses in
 the spare room of the flag capacity given; seeds use the full site number; environment variables are not read.
@@ -186,7 +189,7 @@ def run_site(args):
     HEAVY = any(d in DESIGNS for d in ("tight50", "tight25", "sod_once", "sod_mds"))
     site = os.path.basename(path)[:-4]
     outs = {Q: f"{outdir}/{site}_Q{Q}.csv" for Q in QS}
-    if all(os.path.exists(o) for o in outs.values()):
+    if all(os.path.exists(o) and os.path.exists(o.replace(".csv", "_meta.csv")) for o in outs.values()):
         return site
     site, items, res = prepare_items(path, tag)
     for it in items:
@@ -322,14 +325,16 @@ def run_site(args):
                         wrong = max(wrong, float(np.mean((arr != -1) & (arr != int(t)))))
                     r["wrong"] = wrong
                     rows.append(r)
+        meta_out = outs[Q].replace(".csv", "_meta.csv")            # meta first and atomic (review finding B4)
+        pd.DataFrame(metas).to_csv(meta_out + ".tmp", index=False)
+        os.replace(meta_out + ".tmp", meta_out)
         pd.DataFrame(rows).to_csv(outs[Q] + ".tmp", index=False)
         os.replace(outs[Q] + ".tmp", outs[Q])
-        pd.DataFrame(metas).to_csv(outs[Q].replace(".csv", "_meta.csv"), index=False)
     return site
 
 
 def main():
-    """Usage: python -I src/p3v3/proto_base3.py <folder> <tag> <designs comma list> <flag capacity> <outname> <slots> [limit]"""
+    """Usage: python -I src/p3v3/proto_base4.py <folder> <tag> <designs comma list> <flag capacity> <outname> <slots> [limit]"""
     global DESIGNS, FLAG_CAP, HEAVY, SLOTS
     folder, tag = sys.argv[1], sys.argv[2]
     DESIGNS = tuple(sys.argv[3].split(","))

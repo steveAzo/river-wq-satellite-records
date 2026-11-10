@@ -4,7 +4,7 @@ Written by an AI assistant for the author. Time figures are my estimates (plus o
 
 ## Where we are in one paragraph
 
-Cohort 3 showed the method works (no wrong decisions) but the integrity claim failed (H8) and the review found the comparison unfair (flags threw away their record). Version 3 fixes both on development data: the fair comparison keeps the 3b rule (+0.16 to +0.27 on thresholds nobody configured, at a record cost of 0.03 to 0.09), and the integrity study picked a CRC-24 per message. A new 2022 cohort of 35 sites is selected (metadata only, not downloaded). What is left is building the final run, freezing it, running it once, and writing up whatever comes out.
+Cohort 3 showed the method works (no wrong decisions) but the integrity claim failed (H8) and the review found the comparison unfair (flags threw away their record). Version 3 fixes both on development data: the fair comparison keeps the 3b rule (+0.16 to +0.27 on thresholds nobody configured, at a record cost of 0.03 to 0.09), and the integrity study picked a CRC-24 per message. The 3b rule missed the written record clause of the adoption rule at Q = 6 on the CRC-24 frame (byte level about -0.09 against -0.08), against the record only and, after the review's correction of the flag capacity (docs/REVIEW_FINDINGS_V3.md, A1), against the fair comparator too; it was adopted post hoc by the authors, and its record cost is tested as H4. A new 2022 cohort of 35 sites is selected (metadata only, not downloaded). What is left is building the final run, freezing it, running it once, and writing up whatever comes out.
 
 ## What is left, in order
 

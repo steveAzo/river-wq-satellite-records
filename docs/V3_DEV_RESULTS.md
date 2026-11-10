@@ -151,3 +151,29 @@ Reading:
 - 3b rule: the slot model is pessimistic about recovery by 0.03 to 0.04 (the byte frame packs witnesses more compactly than whole slots); decisions differ by up to 0.04 in either direction, which is within what a 1-in-4 sample of days and unpaired draws can produce.
 - Byte-level contrasts (3b rule minus record only): record recovered -0.089, -0.076 (Q=6), -0.028, -0.035 (Q=12); hard cases at alternative thresholds +0.268, +0.246 (Q=6), +0.207, +0.217 (Q=12). The record cost at Q=6 is therefore -0.089 and -0.076 at byte level, still beyond the -0.08 limit in one of two conditions, and the decision gain is slightly larger than in the slot model.
 - Consequence for the pre-registration: the agreement limit for the 3b rule in H8 cannot be 0.02 (development gap 0.03 to 0.04). It is set from this development result in docs/CONFIRM4_PLAN_DRAFT.md.
+
+## Adoption of the 3b rule (recorded 2026-11-10, after the D2 results above)
+
+The authors adopted the 3b rule on the CRC-24 frame although the record clause of the written adoption rule was missed at Q = 6 (byte level -0.089 and -0.076 against the limit of -0.08). This is a post-hoc choice (docs/METHOD_V3_PLAN.md, Section 8). The first record of it re-read the clause "against the fair comparator"; the correction below removes that argument.
+
+## Correction after the in-project review (docs/REVIEW_FINDINGS_V3.md)
+
+Status: development data only (2023, 35 sites in the analysis population; cohort 3, 2024, 31 sites), final confirmation driver src/p3v3/confirm4.py run as a rehearsal; byte level, loss masks shared by all designs, site-clustered 95% intervals (1,000 resamples). Printouts: results/rehearsal4_2023/verdicts4.md and results/rehearsal4v2/verdicts4.md.
+
+What was wrong:
+- Flag capacity. The slot model of the D2 frame (Phase 2 follow-up above) charged the flags one value slot (capacity 3), carried over from frame version 2. On the CRC-24 frame the record symbol has 16 spare bits after 4 values, so a 4-bit flag field costs no record value; the correct capacity is 4 (tests/v3/test_confirm4.py checks this from the frame code). The rows "3b rule minus flagsrec, record recovered" (-0.010 to -0.035) and "Flagsrec minus record only, record recovered" (-0.119 to -0.026) in the Phase 2 follow-up table are artefacts of this error. At capacity 4 flagsrec recovers the whole record exactly as often as the record only.
+- Slot model for the layered group. The slot model gives the witness group whole value slots; the frame packs 13-bit codes. It overstates the 3b rule's record cost (by 0.04 to 0.08 in the rehearsals). The hypotheses are therefore measured at byte level.
+
+Corrected development values (byte level; 2023 / cohort 3; Q 6 independent, Q 6 Gilbert, Q 12 independent, Q 12 Gilbert; point estimates):
+
+| Contrast | 2023 | Cohort 3 (2024) |
+|---|---|---|
+| 3b rule minus flagsrec, hard cases at unanticipated thresholds | +0.223, +0.185, +0.179, +0.188 | +0.246, +0.200, +0.203, +0.209 |
+| 3b rule minus record only, same | +0.272, +0.249, +0.188, +0.208 | +0.317, +0.287, +0.226, +0.246 |
+| 3b rule minus record only, whole record recovered | -0.088, -0.071, -0.027, -0.032 | -0.094, -0.075, -0.027, -0.034 |
+| 3b rule minus flagsrec, configured hard cases (Q 6 only) | -0.036, -0.121 | -0.046, -0.133 |
+
+Reading:
+- The benefit on thresholds nobody configured holds against the correctly modelled fair comparator: about +0.18 to +0.25 at byte level, lower bounds at least +0.156.
+- The record cost of the 3b rule is about 0.09 at Q 6 and 0.03 at Q 12 against both comparators. Against the written adoption rule (0.08) the 3b rule fails at Q 6 independent loss; its adoption is post hoc, without the comparator argument used before.
+- Given one CRC-valid forgery (header or body), 1.8 to 2.4% of days had a wrong decision at Q 6 and about 0.2% at Q 12 (descriptive); multiplied by the CRC-24 pass probability this is far below one day per million.

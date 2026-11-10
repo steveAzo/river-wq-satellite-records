@@ -16,6 +16,8 @@ import confirm4 as c4  # noqa: E402
 import frame3 as f3  # noqa: E402
 import freeze4 as fz  # noqa: E402
 
+N_OF = {"T": 96, "DO": 96, "pH": 96, "EC": 96}
+
 
 @pytest.fixture(autouse=True)
 def reset_frame():
@@ -23,20 +25,45 @@ def reset_frame():
     f3.CRCB, f3.RECCRC = 2, False
 
 
-# ------------------------------------------------------------------ settings and guards
+# ------------------------------------------------------------------ settings
 def test_frozen_settings():
-    assert (c4.CRCB, c4.RECCRC, c4.SLOTS, c4.FLAG_CAP) == (3, False, 4, 3.0)
-    assert c4.DESIGNS == ("rec", "heur", "flags", "flagsrec")
-    assert c4.T == {"H2_lower": 0.10, "H3_lower": 0.10, "H4_lower_q6": -0.15, "H4_lower_q12": -0.10, "H5_lower": -0.06,
-                    "H6_upper": 0.0, "H7_per_million": 0.5, "H8_rec": 0.01, "H8_heur": 0.06}
+    assert (c4.CRCB, c4.RECCRC, c4.SLOTS, c4.FLAG_CAP) == (3, False, 4, 4.0)
+    assert c4.DESIGNS == ("rec", "heur", "flags", "flagsrec") and c4.BYTE_DESIGNS == ("rec", "heur", "flagsrec")
+    assert c4.T == {"H2_lower": 0.10, "H3_lower": 0.10, "H4_lower_q6": -0.15, "H4_lower_q12": -0.10, "H6_upper": 0.0, "H8_rec": 0.01}
 
 
-def test_per_million_matches_development_formula():
+def test_flag_field_costs_no_record_value_on_d2_frame():
+    """Review finding A1: a flag byte fits in the spare bits of the CRC-24 record symbol (but not of the CRC-16 one)."""
+    f3.CRCB = 3
+    assert f3.values_per_unit(f3.record_unit_bits(0) - 8) == f3.values_per_unit(f3.record_unit_bits(0)) == c4.SLOTS == c4.FLAG_CAP
+    f3.CRCB = 2
+    assert f3.values_per_unit(f3.record_unit_bits(0) - 8) == f3.values_per_unit(f3.record_unit_bits(0)) - 1
+
+
+def test_plan_limits_equal_code():
+    """Review finding E3: the plan's machine-read LIMITS line equals the limits in the code."""
+    plan = os.path.join(ROOT, "docs", "CONFIRM4_PLAN.md")
+    if not os.path.exists(plan):
+        plan = os.path.join(ROOT, "docs", "CONFIRM4_PLAN_DRAFT.md")
+    assert c4.plan_limits(plan) == c4.T
+
+
+def test_plan_limits_parser(tmp_path):
+    p = tmp_path / "p.md"
+    p.write_text("x\n`LIMITS: A=0.1 B=-0.2`\n")
+    assert c4.plan_limits(str(p)) == {"A": 0.1, "B": -0.2}
+    p.write_text("no line\n")
+    assert c4.plan_limits(str(p)) is None
+
+
+def test_per_million_matches_development_formula_and_is_a_ceiling():
     import integrity3_eval as ie
     for Q in (6, 12):
         assert c4.per_million(Q) == pytest.approx(Q * 0.7 * ie.pc(1e-3) * 2.0 ** -ie.BITS["D2"] * 1e6, rel=1e-12)
+    assert c4.per_million(12) < 0.09                        # review finding D1: no conditional share can reach 0.5 per million
 
 
+# ------------------------------------------------------------------ guards
 def test_environment_switch_refused(monkeypatch):
     monkeypatch.setenv("P3_TBAND", "2.0")
     with pytest.raises(SystemExit, match="environment switches"):
@@ -67,8 +94,7 @@ def test_confirmatory_needs_seal(monkeypatch, tmp_path):
 
 
 def test_confirmatory_needs_freeze_record(monkeypatch, tmp_path):
-    msg = run_main(monkeypatch, tmp_path, ["data/clean/usgs_new4_2022", "confirm4", "x.md5"])
-    assert "FREEZE4.md is missing" in msg
+    assert "FREEZE4.md is missing" in run_main(monkeypatch, tmp_path, ["data/clean/usgs_new4_2022", "confirm4", "x.md5"])
 
 
 @pytest.mark.parametrize("folder", ["data/clean/usgs_new4_2022", "data/clean/other_2022"])
@@ -76,20 +102,109 @@ def test_rehearsal_cannot_open_cohort4(monkeypatch, tmp_path, folder):
     assert "only be opened by the confirmatory tag" in run_main(monkeypatch, tmp_path, [folder, "rehearsal"])
 
 
-def test_freeze_record_hash_mismatch_refused(monkeypatch, tmp_path):
+SHA = "a" * 40
+
+
+def fake_git(diff="", status="", fail=None):
+    def g(*a):
+        if fail and a[0] == fail:
+            sys.exit(f"refusing to run: git {a[0]} failed")
+        return {"rev-list": SHA, "diff": diff, "status": status}.get(a[0], "")
+    return g
+
+
+def freeze_setup(tmp_path, commit=SHA, good=True):
+    from data.seal import md5
+    os.makedirs(tmp_path / "docs", exist_ok=True)
+    (tmp_path / "a.txt").write_text("x")
+    h = md5(str(tmp_path / "a.txt")) if good else "0" * 32
+    (tmp_path / "docs" / "FREEZE4.md").write_text(f"Written now. Commit {commit}, tag `confirm4-freeze`.\n\n| `a.txt` | {h} |\n")
+
+
+def test_verify_freeze_accepts_matching_record(monkeypatch, tmp_path):
+    freeze_setup(tmp_path)
     monkeypatch.chdir(tmp_path)
-    os.makedirs("docs")
-    open("a.txt", "w").write("x")
-    open(c4.FREEZE_RECORD, "w").write("| `a.txt` | 00000000000000000000000000000000 |\n")
-    monkeypatch.setattr(c4, "git", lambda *a: "abc" if a[0] == "rev-list" else "")
+    monkeypatch.setattr(c4, "git_strict", fake_git())
+    assert c4.verify_freeze() == (1, SHA)
+
+
+def test_verify_freeze_refuses_hash_mismatch(monkeypatch, tmp_path):
+    freeze_setup(tmp_path, good=False)
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(c4, "git_strict", fake_git())
     with pytest.raises(SystemExit, match="a.txt"):
         c4.verify_freeze()
-    from data.seal import md5
-    open(c4.FREEZE_RECORD, "w").write(f"| `a.txt` | {md5('a.txt')} |\n")
-    assert c4.verify_freeze() == 1
-    monkeypatch.setattr(c4, "git", lambda *a: "abc" if a[0] == "rev-list" else ("src/x.py" if a[0] == "diff" else ""))
-    with pytest.raises(SystemExit, match="differ from"):
+
+
+def test_verify_freeze_refuses_record_of_another_commit(monkeypatch, tmp_path):
+    freeze_setup(tmp_path, commit="b" * 40)
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(c4, "git_strict", fake_git())
+    with pytest.raises(SystemExit, match="names commit"):
         c4.verify_freeze()
+
+
+@pytest.mark.parametrize("kw,msg", [({"diff": "src/x.py"}, "differ from"), ({"status": " M docs/FREEZE4.md"}, "uncommitted"),
+                                    ({"fail": "diff"}, "git diff failed")])
+def test_verify_freeze_refuses_changes_and_git_failures(monkeypatch, tmp_path, kw, msg):
+    freeze_setup(tmp_path)
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(c4, "git_strict", fake_git(**kw))
+    with pytest.raises(SystemExit, match=msg):
+        c4.verify_freeze()
+
+
+def test_git_strict_fails_closed(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)                             # not a repository: git fails
+    with pytest.raises(SystemExit, match="failed"):
+        c4.git_strict("rev-parse", "--verify", "no-such-ref-xyz")
+
+
+def seal_setup(tmp_path, names, sealed):
+    folder = tmp_path / "cohort"
+    folder.mkdir()
+    for n in names:
+        (folder / f"{n}.csv").write_text("x")
+    seal = tmp_path / "cohort.md5"
+    seal.write_text("".join(f"{'0' * 32} *{os.path.relpath(str(p), str(tmp_path)).replace(os.sep, '/')}\n" for p in sealed(folder)))
+    return str(folder), str(seal)
+
+
+def test_seal_covers_folder(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
+    folder, seal = seal_setup(tmp_path, ["a", "b"], lambda f: [f / "a.csv", f / "b.csv"])
+    c4.check_seal_covers(seal, folder)
+
+
+@pytest.mark.parametrize("sealed", [lambda f: [f / "a.csv"], lambda f: [f.parent / "other" / "a.csv", f.parent / "other" / "b.csv"],
+                                    lambda f: [f / "a.csv", f / "b.csv", f / "c.csv"]])
+def test_seal_of_another_folder_or_subset_refused(monkeypatch, tmp_path, sealed):
+    monkeypatch.chdir(tmp_path)
+    folder, seal = seal_setup(tmp_path, ["a", "b"], sealed)
+    with pytest.raises(SystemExit, match="seal does not cover"):
+        c4.check_seal_covers(seal, folder)
+
+
+def test_stamp(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
+    assert c4.check_stamp("t", "freeze X", strict=True) is None            # fresh: stamp written
+    os.makedirs("results/t/byte4")
+    open("results/t/byte4/s.csv", "w").write("x")
+    assert c4.check_stamp("t", "freeze X", strict=True) is None            # resume with the same code
+    with pytest.raises(SystemExit, match="come from"):
+        c4.check_stamp("t", "freeze Y", strict=True)                       # other code
+    assert "come from" in c4.check_stamp("t", "freeze Y", strict=False)
+    open("results/t/done4.flag", "w").write("x")
+    with pytest.raises(SystemExit, match="finished"):
+        c4.check_stamp("t", "freeze X", strict=True)                       # no re-run of a finished run
+
+
+def test_stamp_refuses_unstamped_outputs(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
+    os.makedirs("results/t/plans")
+    open("results/t/plans/s.pkl", "w").write("x")
+    with pytest.raises(SystemExit, match="without a run stamp"):
+        c4.check_stamp("t", "freeze X", strict=True)
 
 
 def test_freeze_writer_refuses_without_plan(monkeypatch, tmp_path):
@@ -111,12 +226,13 @@ def test_freeze_file_list_covers_v3():
         assert f in fl, f
 
 
-# ------------------------------------------------------------------ round trip on a synthetic day
+# ------------------------------------------------------------------ synthetic day: round trip, decoded knowledge, forgery
 def fake_item(n=14, hard_do=True):
     vals = [("T", i, 1000 + i) for i in range(n - 4)] + [("DO", i, 2000 + i) for i in range(4)]
     wit = {"DOmin": (None, 0, 2001), "pHmin": (None, 0, 3000), "pHmax": (None, 1, 3100)}
-    return {"vals": vals, "bound": True, "d": 17, "wit": wit, "tw": (3, 1500), "ew": (0, 4000, 4, 4100, 0.2),
-            "hard": {"DO": hard_do, "pH": False, "T": True, "EC": False}, "rd": SimpleNamespace(n_of={"T": 96, "DO": 96, "pH": 96, "EC": 96})}
+    rd = SimpleNamespace(n_of=dict(N_OF), channels=[SimpleNamespace(param=p, n=96) for p in ("T", "DO", "pH", "EC")])
+    return {"vals": vals, "bound": True, "d": 17, "wit": wit, "tw": (3, 1500), "ew": (0, 4000, 4, 4100, 0.2), "lag": 4,
+            "hard": {"DO": hard_do, "pH": False, "T": True, "EC": False}, "rd": rd}
 
 
 @pytest.mark.parametrize("variant", ["rec", "heur"])
@@ -141,9 +257,48 @@ def test_roundtrip_detects_receiver_fault(monkeypatch):
     assert c4.roundtrip_day(it, 12, "heur") is False
 
 
+def test_decoded_knowledge_uses_decoded_codes_only():
+    """Review finding A3: witnesses enter as slotless codes from the decoder; a rejected block contributes nothing."""
+    f3.CRCB, f3.RECCRC = 3, False
+    it = fake_item(14)
+    blk, lay, host = c4.i3.build(it, 12, "3b")
+    d = c4.r3.receive(blk.messages, n_of=N_OF)
+    Kd, Kp, Kt, Ke = c4.decoded_knowledge(it, d, {})
+    assert set(d.witness) == set(lay) | (set(host) if blk.coded else set()) and {"DOmin", "Tmax"} <= set(d.witness)
+    assert Kd.wmin is not None and Kt.wmax is not None
+    assert (Kp.wmin is not None) == ("pHmin" in d.witness) and (Ke.rate_cells is not None) == ("ECa" in d.witness)
+    assert np.isfinite(Kt.eff()[1][:10]).all() and Kt.hi[0] < c4.cl.base_range("T")[1]
+    d.record_rejected = d.witness_rejected = True
+    Kd, Kp, Kt, Ke = c4.decoded_knowledge(it, d, {})
+    assert Kd.wmin is None and Kt.wmax is None and (Kt.hi == c4.cl.base_range("T")[1]).all()
+
+
+def test_merge_flags_and_decode_key():
+    fd = {"cfg": (1, 0, None, 1)}
+    assert c4.merge_flags({"cfg": (-1, -1, -1)}, fd, True) == {"cfg": (1, 0, -1)}
+    assert c4.merge_flags({"cfg": (-1, 1, 0)}, fd, False) == {"cfg": (-1, 1, 0)}
+    a, b = c4.f3.Decoded(), c4.f3.Decoded()
+    assert c4.decode_key(a) == c4.decode_key(b)
+    b.witness = {"Tmax": 5}
+    assert c4.decode_key(a) != c4.decode_key(b)
+
+
+def test_forge4_reaches_header_and_keeps_crc_valid():
+    f3.CRCB, f3.RECCRC = 3, False
+    blk = f3.build_block([("T", i, 100 + i) for i in range(8)], True, 3, 6)
+    rng = np.random.default_rng(2)
+    head = 0
+    for _ in range(400):
+        m = blk.messages[0]
+        x = c4.forge4(m, rng)
+        assert x != m and len(x) == len(m)
+        assert f3.msg_crc(x[:3] + x[3 + f3.CRCB:]) == int.from_bytes(x[3:3 + f3.CRCB], "big")
+        head += x[:3] != m[:3]
+    assert 50 < head < 400
+
+
 # ------------------------------------------------------------------ statistics and verdict logic
 def agg_frame(rng, levels, sites=20, count=50):
-    """levels: {(cond, design, metric): pooled level}; per-site sums drawn around the level."""
     rows = []
     for (cond, design, metric), p in levels.items():
         for s in range(sites):
@@ -161,76 +316,74 @@ def test_agg_equals_confirm3_agg():
     assert a.level("a", "x", "rec") == b.level("a", "x", "rec")
 
 
-def scenario(alt_gain=0.25, rec_cost=-0.05, cfg_gap=-0.05, rec_vs_fr=-0.01):
+def scenario(alt_gain=0.25, rec_cost=-0.05, cfg_gap=-0.05):
     base = {"rec": 0.85, "hard_alt": 0.55, "hard_cfg": 0.9, "all_cfg": 0.95}
     lv = {}
     for c in c4.CONDS:
-        for d in c4.DESIGNS:
+        for d in c4.BYTE_DESIGNS:
             for m, v in base.items():
                 lv[(c, d, m)] = v
         lv[(c, "heur", "hard_alt")] = base["hard_alt"] + alt_gain
         lv[(c, "heur", "rec")] = base["rec"] + rec_cost
-        lv[(c, "flagsrec", "rec")] = base["rec"] + rec_cost - rec_vs_fr
         lv[(c, "heur", "hard_cfg")] = base["hard_cfg"] + cfg_gap
     return lv
 
 
-def make_inputs(lv, wrong=0.0, rt_ok=(True, True, None), byte_wrong=0, h8_gap=0.0, integ_hi=0.0):
+def make_inputs(lv, rt_ok=(True, True, None), h8_gap=0.0, **checks):
     rng = np.random.default_rng(9)
-    A = {Q: c4.Agg(agg_frame(rng, lv)) for Q in c4.QS}
-    byte = pd.DataFrame({"wrong": [byte_wrong], "mismatch": [0]})
+    AB = {Q: c4.Agg(agg_frame(rng, lv)) for Q in c4.QS}
+    ck = {"byte_wrong": 0.0, "slot_wrong": 0.0, "mismatch": 0, "dec_error": 0, "unbuilt": 0, **checks}
     rt = pd.DataFrame({"ok": list(rt_ok)})
-    integ = {(d, Q): (0.0, 0.0, integ_hi) for d in ("rec", "heur") for Q in c4.QS}
-    h8 = {(Q, c, d): (0.8 + h8_gap, 0.8, 100) for Q in c4.QS for c in c4.CONDS for d in ("rec", "heur")}
-    return A, wrong, byte, rt, integ, h8
+    integ = {(d, Q): (0.0, 0.0, 0.01) for d in ("rec", "heur") for Q in c4.QS}
+    h8 = {(Q, c, d): (0.8 + (h8_gap if d == "rec" else 0.05), 0.8, 100) for Q in c4.QS for c in c4.CONDS for d in ("rec", "heur")}
+    return AB, ck, rt, integ, h8
 
 
 def verdict_map(*args):
     v = c4.verdicts(*args)
-    return dict(zip(v.id, v.supported))
+    return dict(zip(v.id, v.verdict))
 
 
-def test_all_supported_in_a_clean_scenario():
-    assert all(verdict_map(*make_inputs(scenario())).values())
+def test_clean_scenario():
+    v = verdict_map(*make_inputs(scenario()))
+    assert v == {"H1": "pass", "H2": "pass", "H3": "pass", "H4": "pass", "H6": "pass", "H7": "not a test", "H8": "pass"}
 
 
-def test_h1_fails_on_round_trip_mismatch_or_wrong_decision():
-    assert not verdict_map(*make_inputs(scenario(), rt_ok=(True, False)))["H1"]
-    assert not verdict_map(*make_inputs(scenario(), byte_wrong=1))["H1"]
-    assert not verdict_map(*make_inputs(scenario(), wrong=0.001))["H1"]
-    assert verdict_map(*make_inputs(scenario(), rt_ok=(None, None, True)))["H1"]
+def test_types():
+    v = c4.verdicts(*make_inputs(scenario()))
+    assert list(v[v.type == "test"].id) == ["H2", "H3", "H4"]
+
+
+@pytest.mark.parametrize("kw", [{"rt_ok": (True, False)}, {"byte_wrong": 0.01}, {"slot_wrong": 0.01}, {"mismatch": 1}, {"dec_error": 1}])
+def test_h1_fails(kw):
+    assert verdict_map(*make_inputs(scenario(), **kw))["H1"] == "fail"
+
+
+def test_h1_not_buildable_is_not_a_mismatch():
+    assert verdict_map(*make_inputs(scenario(), rt_ok=(None, None, True)))["H1"] == "pass"
 
 
 def test_h2_h3_fail_on_small_gain():
     v = verdict_map(*make_inputs(scenario(alt_gain=0.05)))
-    assert not v["H2"] and not v["H3"]
+    assert v["H2"] == v["H3"] == "fail"
 
 
 def test_h4_uses_q_specific_limits():
-    v = verdict_map(*make_inputs(scenario(rec_cost=-0.12)))       # within -0.15 at Q 6 but beyond -0.10 at Q 12
-    assert not v["H4"]
-    v = verdict_map(*make_inputs(scenario(rec_cost=-0.07)))
-    assert v["H4"]
+    assert verdict_map(*make_inputs(scenario(rec_cost=-0.12)))["H4"] == "fail"     # inside -0.15 at Q 6, beyond -0.10 at Q 12
+    assert verdict_map(*make_inputs(scenario(rec_cost=-0.07)))["H4"] == "pass"
 
 
-def test_h5_and_h6():
-    assert not verdict_map(*make_inputs(scenario(rec_vs_fr=-0.10)))["H5"]
-    assert not verdict_map(*make_inputs(scenario(cfg_gap=0.0)))["H6"]
+def test_h6_upper_bound():
+    assert verdict_map(*make_inputs(scenario(cfg_gap=0.0)))["H6"] == "fail"
 
 
-def test_h7_limit_on_upper_bound():
-    hi_ok = 0.5 / c4.per_million(12) * 0.99
-    assert verdict_map(*make_inputs(scenario(), integ_hi=hi_ok))["H7"]
-    assert not verdict_map(*make_inputs(scenario(), integ_hi=hi_ok * 1.05))["H7"]
-
-
-def test_h8_limits():
-    assert verdict_map(*make_inputs(scenario(), h8_gap=0.009))["H8"]
-    assert not verdict_map(*make_inputs(scenario(), h8_gap=0.02))["H8"]       # record limit 0.01
+def test_h8_record_only_and_ignores_3b_gap():
+    assert verdict_map(*make_inputs(scenario(), h8_gap=0.009))["H8"] == "pass"     # the 3b gap of 0.05 is descriptive
+    assert verdict_map(*make_inputs(scenario(), h8_gap=0.02))["H8"] == "fail"
 
 
 def test_byte_vs_slot_same_days():
-    byte = pd.DataFrame({"site": ["a", "a", "b"], "day": [1, 2, 1], "Q": 6, "cond": "iid_p0.3", "design": "rec", "full": [1.0, 0.5, 0.0]})
+    byte = pd.DataFrame({"site": ["a", "a", "b"], "day": [1, 2, 1], "Q": 6, "cond": "iid_p0.3", "design": "rec", "rec_full": [1.0, 0.5, 0.0]})
     slot = pd.DataFrame({"site": ["a", "a", "b", "b"], "day": [1, 2, 1, 9], "Q": 6, "cond": "iid_p0.3", "design": "rec",
                          "rec_full": [1.0, 1.0, 0.0, 1.0]})
     b, s, n = c4.byte_vs_slot(byte, slot)[(6, "iid_p0.3", "rec")]

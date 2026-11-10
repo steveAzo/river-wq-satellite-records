@@ -1,0 +1,23 @@
+[2026-11-10 20:19:07] ==================== REHEARSAL (not confirmatory)
+[2026-11-10 20:19:07] WARNING (rehearsal): stage outputs exist in results/smoke4 without a run stamp
+[2026-11-10 20:19:07] command: C:\Users\User\AppData\Local\Programs\Python\Python313\python.exe src/p3v3/confirm4.py data/clean/usgs_new3_2024 smoke4 14158850 14202650
+[2026-11-10 20:19:08] python 3.13.5 (Windows-11-10.0.26200-SP0); numpy 2.3.3; pandas 2.3.3; scipy 1.17.1
+[2026-11-10 20:19:08] git HEAD 9fa03ec5f92901e6a239c76d5a0c0642d70a29d1; freeze tag confirm4-freeze -> missing
+[2026-11-10 20:19:08] folder data/clean/usgs_new3_2024; tag smoke4; seal none (rehearsal)
+[2026-11-10 20:19:08] frame3 CRCB=3 RECCRC=False; slot model SLOTS=4 FLAG_CAP=4.0 designs=('rec', 'heur', 'flags', 'flagsrec') seed=20261110; byte designs=('rec', 'heur', 'flagsrec')
+[2026-11-10 20:19:08] proto_queries T_BAND=3.0 UNKNOWN_HARD=True; MIN_DAYS=100 B=1000 SEED=20261115
+[2026-11-10 20:19:08] byte check every day, 20 paired draws; integrity every 3 day(s), 8 draws, loss 0.3, bit-error rate 0.001; limits {'H2_lower': 0.1, 'H3_lower': 0.1, 'H4_lower_q6': -0.15, 'H4_lower_q12': -0.1, 'H6_upper': 0.0, 'H8_rec': 0.01}
+[2026-11-10 20:19:08] plans 1/2 14158850 (existing output reused)
+[2026-11-10 20:19:08] plans 2/2 14202650 (existing output reused)
+[2026-11-10 20:19:08] plans done in 0.0 min
+[2026-11-10 20:19:08] 2 sites in the analysis population (at least 100 four-parameter days): 14158850, 14202650
+[2026-11-10 20:19:22] slot model 1/2 14158850
+[2026-11-10 20:19:39] slot model 2/2 14202650
+[2026-11-10 20:19:39] slot model done in 0.5 min; 0 site outputs reused
+[2026-11-10 20:20:05] byte check 1/2 14158850
+[2026-11-10 20:20:41] byte check 2/2 14202650
+[2026-11-10 20:20:41] byte check done in 1.0 min; 0 site outputs reused
+[2026-11-10 20:20:48] integrity 1/2 14158850
+[2026-11-10 20:20:54] integrity 2/2 14202650
+[2026-11-10 20:20:54] integrity done in 0.2 min; 0 site outputs reused
+[2026-11-10 20:20:59] verdicts written: results/smoke4/verdicts4.md; tests passed 2 of 3 (H2, H3, H4); all rows: {'H1': 'pass', 'H2': 'pass', 'H3': 'pass', 'H4': 'fail', 'H6': 'fail', 'H7': 'not a test', 'H8': 'pass'}
