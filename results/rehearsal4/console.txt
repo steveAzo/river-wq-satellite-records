@@ -1,0 +1,230 @@
+﻿[2026-11-10 19:12:55] ==================== REHEARSAL (not confirmatory)
+[2026-11-10 19:12:55] command: C:\Users\User\AppData\Local\Programs\Python\Python313\python.exe src/p3v3/confirm4.py data/clean/usgs_new3_2024 rehearsal4
+[2026-11-10 19:12:55] python 3.13.5 (Windows-11-10.0.26200-SP0); numpy 2.3.3; pandas 2.3.3; scipy 1.17.1
+[2026-11-10 19:12:55] git HEAD 8ec7b5fc82c873ee37dae594a2d2f7098e81d9a6; freeze tag confirm4-freeze -> missing
+[2026-11-10 19:12:55] folder data/clean/usgs_new3_2024; tag rehearsal4; seal none (rehearsal)
+[2026-11-10 19:12:55] frame3 CRCB=3 RECCRC=False; slot model SLOTS=4 FLAG_CAP=3.0 designs=('rec', 'heur', 'flags', 'flagsrec') seed=20261110
+[2026-11-10 19:12:55] proto_queries T_BAND=3.0 UNKNOWN_HARD=True; MIN_DAYS=100 B=1000 SEED=20261115
+[2026-11-10 19:12:55] byte check every 1 day(s), 20 draws; integrity every 3 day(s), 8 draws, loss 0.3, bit-error rate 0.001; limits {'H2_lower': 0.1, 'H3_lower': 0.1, 'H4_lower_q6': -0.15, 'H4_lower_q12': -0.1, 'H5_lower': -0.06, 'H6_upper': 0.0, 'H7_per_million': 0.5, 'H8_rec': 0.01, 'H8_heur': 0.06}
+[2026-11-10 19:12:55] plans 1/31 01481500
+[2026-11-10 19:12:55] plans 2/31 01638500
+[2026-11-10 19:12:55] plans 3/31 01645704
+[2026-11-10 19:12:55] plans 4/31 01649190
+[2026-11-10 19:12:55] plans 5/31 01650800
+[2026-11-10 19:12:55] plans 6/31 01668000
+[2026-11-10 19:12:56] plans 7/31 03056000
+[2026-11-10 19:12:56] plans 8/31 03108500
+[2026-11-10 19:12:56] plans 9/31 03179000
+[2026-11-10 19:12:56] plans 10/31 03293500
+[2026-11-10 19:12:56] plans 11/31 03297800
+[2026-11-10 19:12:56] plans 12/31 03298135
+[2026-11-10 19:12:56] plans 13/31 03298250
+[2026-11-10 19:12:56] plans 14/31 03321500
+[2026-11-10 19:12:56] plans 15/31 03353200
+[2026-11-10 19:12:56] plans 16/31 04193500
+[2026-11-10 19:12:56] plans 17/31 05568705
+[2026-11-10 19:12:56] plans 18/31 07048600
+[2026-11-10 19:12:56] plans 19/31 07075270
+[2026-11-10 19:12:56] plans 20/31 07263296
+[2026-11-10 19:12:56] plans 21/31 072632966
+[2026-11-10 19:12:56] plans 22/31 11044000
+[2026-11-10 19:12:56] plans 23/31 11461500
+[2026-11-10 19:12:56] plans 24/31 11507501
+[2026-11-10 19:12:56] plans 25/31 14158850
+[2026-11-10 19:12:56] plans 26/31 14163000
+[2026-11-10 19:12:56] plans 27/31 14183020
+[2026-11-10 19:12:56] plans 28/31 14202650
+[2026-11-10 19:12:56] plans 29/31 14206950
+[2026-11-10 19:12:56] plans 30/31 411402080492400
+[2026-11-10 19:12:56] plans 31/31 420853121505501
+[2026-11-10 19:12:56] plans done in 0.0 min
+[2026-11-10 19:12:56] 31 sites in the analysis population (at least 100 four-parameter days): 01481500, 01638500, 01645704, 01649190, 01650800, 01668000, 03056000, 03108500, 03179000, 03293500, 03297800, 03298135, 03298250, 03321500, 03353200, 04193500, 05568705, 07048600, 07075270, 07263296, 072632966, 11044000, 11461500, 11507501, 14158850, 14163000, 14183020, 14202650, 14206950, 411402080492400, 420853121505501
+[2026-11-10 19:13:18] slot model 1/31 01481500
+[2026-11-10 19:13:33] slot model 2/31 01638500
+[2026-11-10 19:13:48] slot model 3/31 01645704
+[2026-11-10 19:14:08] slot model 4/31 01649190
+[2026-11-10 19:14:39] slot model 5/31 01650800
+[2026-11-10 19:14:55] slot model 6/31 01668000
+[2026-11-10 19:15:04] slot model 7/31 03056000
+[2026-11-10 19:15:13] slot model 8/31 03108500
+[2026-11-10 19:15:35] slot model 9/31 03179000
+[2026-11-10 19:15:52] slot model 10/31 03293500
+[2026-11-10 19:16:10] slot model 11/31 03297800
+[2026-11-10 19:16:31] slot model 12/31 03298135
+[2026-11-10 19:16:47] slot model 13/31 03298250
+[2026-11-10 19:17:03] slot model 14/31 03321500
+[2026-11-10 19:17:25] slot model 15/31 03353200
+[2026-11-10 19:17:43] slot model 16/31 04193500
+[2026-11-10 19:17:56] slot model 17/31 05568705
+[2026-11-10 19:18:03] slot model 18/31 07048600
+[2026-11-10 19:18:24] slot model 19/31 07075270
+[2026-11-10 19:18:53] slot model 20/31 07263296
+[2026-11-10 19:19:54] slot model 21/31 072632966
+[2026-11-10 19:20:18] slot model 22/31 11044000
+[2026-11-10 19:20:31] slot model 23/31 11461500
+[2026-11-10 19:20:47] slot model 24/31 11507501
+[2026-11-10 19:20:47] slot model 25/31 14158850
+[2026-11-10 19:21:06] slot model 26/31 14163000
+[2026-11-10 19:21:22] slot model 27/31 14183020
+[2026-11-10 19:21:22] slot model 28/31 14202650
+[2026-11-10 19:21:36] slot model 29/31 14206950
+[2026-11-10 19:21:52] slot model 30/31 411402080492400
+[2026-11-10 19:22:12] slot model 31/31 420853121505501
+[2026-11-10 19:22:12] slot model done in 9.3 min
+[2026-11-10 19:22:42] byte check 1/31 01481500
+[2026-11-10 19:23:07] byte check 2/31 01638500
+[2026-11-10 19:23:37] byte check 3/31 01645704
+[2026-11-10 19:24:05] byte check 4/31 01649190
+[2026-11-10 19:24:47] byte check 5/31 01650800
+[2026-11-10 19:25:14] byte check 6/31 01668000
+[2026-11-10 19:25:34] byte check 7/31 03056000
+[2026-11-10 19:25:53] byte check 8/31 03108500
+[2026-11-10 19:26:27] byte check 9/31 03179000
+[2026-11-10 19:26:56] byte check 10/31 03293500
+[2026-11-10 19:27:30] byte check 11/31 03297800
+[2026-11-10 19:28:03] byte check 12/31 03298135
+[2026-11-10 19:28:34] byte check 13/31 03298250
+[2026-11-10 19:29:01] byte check 14/31 03321500
+[2026-11-10 19:29:34] byte check 15/31 03353200
+[2026-11-10 19:30:02] byte check 16/31 04193500
+[2026-11-10 19:30:26] byte check 17/31 05568705
+[2026-11-10 19:30:39] byte check 18/31 07048600
+[2026-11-10 19:31:09] byte check 19/31 07075270
+[2026-11-10 19:31:48] byte check 20/31 07263296
+[2026-11-10 19:32:52] byte check 21/31 072632966
+[2026-11-10 19:33:34] byte check 22/31 11044000
+[2026-11-10 19:34:02] byte check 23/31 11461500
+[2026-11-10 19:34:35] byte check 24/31 11507501
+[2026-11-10 19:34:35] byte check 25/31 14158850
+[2026-11-10 19:35:06] byte check 26/31 14163000
+[2026-11-10 19:35:36] byte check 27/31 14183020
+[2026-11-10 19:35:36] byte check 28/31 14202650
+[2026-11-10 19:36:08] byte check 29/31 14206950
+[2026-11-10 19:36:37] byte check 30/31 411402080492400
+[2026-11-10 19:37:09] byte check 31/31 420853121505501
+[2026-11-10 19:37:09] byte check done in 14.9 min
+[2026-11-10 19:37:15] integrity 1/31 01481500
+[2026-11-10 19:37:18] integrity 2/31 01638500
+[2026-11-10 19:37:22] integrity 3/31 01645704
+[2026-11-10 19:37:25] integrity 4/31 01649190
+[2026-11-10 19:37:30] integrity 5/31 01650800
+[2026-11-10 19:37:34] integrity 6/31 01668000
+[2026-11-10 19:37:37] integrity 7/31 03056000
+[2026-11-10 19:37:39] integrity 8/31 03108500
+[2026-11-10 19:37:43] integrity 9/31 03179000
+[2026-11-10 19:37:46] integrity 10/31 03293500
+[2026-11-10 19:37:50] integrity 11/31 03297800
+[2026-11-10 19:37:54] integrity 12/31 03298135
+[2026-11-10 19:37:57] integrity 13/31 03298250
+[2026-11-10 19:38:01] integrity 14/31 03321500
+[2026-11-10 19:38:04] integrity 15/31 03353200
+[2026-11-10 19:38:07] integrity 16/31 04193500
+[2026-11-10 19:38:11] integrity 17/31 05568705
+[2026-11-10 19:38:14] integrity 18/31 07048600
+[2026-11-10 19:38:20] integrity 19/31 07075270
+[2026-11-10 19:38:25] integrity 20/31 07263296
+[2026-11-10 19:38:30] integrity 21/31 072632966
+[2026-11-10 19:38:34] integrity 22/31 11044000
+[2026-11-10 19:38:38] integrity 23/31 11461500
+[2026-11-10 19:38:41] integrity 24/31 11507501
+[2026-11-10 19:38:41] integrity 25/31 14158850
+[2026-11-10 19:38:46] integrity 26/31 14163000
+[2026-11-10 19:38:50] integrity 27/31 14183020
+[2026-11-10 19:38:50] integrity 28/31 14202650
+[2026-11-10 19:38:54] integrity 29/31 14206950
+[2026-11-10 19:38:58] integrity 30/31 411402080492400
+[2026-11-10 19:39:02] integrity 31/31 420853121505501
+[2026-11-10 19:39:02] integrity done in 1.9 min
+# Verdicts of the version 3 confirmation (REHEARSAL on development data, not confirmatory)
+
+| id   | statement                                                                                                                                                                                | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | supported   |
+|:-----|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------|
+| H1   | no wrong decision in any design (slot model: Q 6 and 12, both loss models; byte check), no decoded value that differs from the plan, and no byte round-trip mismatch on any analysed day | slot model wrong max 0.000; byte check wrong 0, value mismatches 0; round trip 0 mismatches in 40380 blocks (0 not buildable)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | True        |
+| H2   | 3b rule minus flagsrec, hard cases at unanticipated thresholds, lower bound >= 0.1 (Q 6 and 12, both loss models)                                                                        | +0.273 (+0.229 to +0.320) / +0.222 (+0.184 to +0.264) / +0.190 (+0.139 to +0.242) / +0.207 (+0.163 to +0.256)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | True        |
+| H3   | 3b rule minus record only, hard cases at unanticipated thresholds, lower bound >= 0.1 (all four)                                                                                         | +0.295 (+0.223 to +0.381) / +0.274 (+0.210 to +0.349) / +0.199 (+0.134 to +0.271) / +0.220 (+0.159 to +0.291)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | True        |
+| H4   | declared cost: 3b rule minus record only, whole record recovered, lower bound >= -0.15 (Q 6) and >= -0.1 (Q 12), both loss models                                                        | -0.142 (-0.177 to -0.108) / -0.118 (-0.148 to -0.091) / -0.069 (-0.097 to -0.043) / -0.073 (-0.098 to -0.049)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | False       |
+| H5   | 3b rule minus flagsrec, whole record recovered, lower bound >= -0.06 (all four)                                                                                                          | -0.026 (-0.058 to +0.000) / -0.023 (-0.049 to -0.000) / -0.045 (-0.066 to -0.025) / -0.038 (-0.057 to -0.019)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | False       |
+| H6   | known limit: flagsrec exceeds the 3b rule on hard cases at the configured thresholds, upper bound of (3b rule minus flagsrec) < 0.0 (Q 6, both loss models)                              | -0.045 (-0.070 to -0.026) / -0.123 (-0.146 to -0.105)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | True        |
+| H7   | integrity: expected false-certificate days per million days at bit-error rate 0.001, upper bound <= 0.5 (record only and 3b rule, Q 6 and 12)                                            | heur Q6: 0.0042 (upper 0.0048); heur Q12: 0.0012 (upper 0.0020); rec Q6: 0.0029 (upper 0.0035); rec Q12: 0.0008 (upper 0.0016)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | True        |
+| H8   | byte frame reproduces the slot model in whole-record recovery: |difference| <= 0.01 (record only) and <= 0.06 (3b rule), Q 6 and 12, both loss models                                    | heur Q6 gilbert_p0.3_b3: byte 0.692, slot 0.649, |diff| 0.042 (limit 0.06, 10095 days); rec Q6 gilbert_p0.3_b3: byte 0.768, slot 0.768, |diff| 0.000 (limit 0.01, 10095 days); heur Q6 iid_p0.3: byte 0.743, slot 0.696, |diff| 0.047 (limit 0.06, 10095 days); rec Q6 iid_p0.3: byte 0.837, slot 0.837, |diff| 0.000 (limit 0.01, 10095 days); heur Q12 gilbert_p0.3_b3: byte 0.902, slot 0.863, |diff| 0.039 (limit 0.06, 10095 days); rec Q12 gilbert_p0.3_b3: byte 0.937, slot 0.937, |diff| 0.000 (limit 0.01, 10095 days); heur Q12 iid_p0.3: byte 0.933, slot 0.891, |diff| 0.041 (limit 0.06, 10095 days); rec Q12 iid_p0.3: byte 0.961, slot 0.961, |diff| 0.000 (limit 0.01, 10095 days) | True        |
+
+## Descriptive results (no verdict)
+
+Assumption R (reporting resolution inferred from the record): 26 of 31 analysed sites have an inferred resolution for at least one of DO, pH, temperature; per parameter: {'DO': 12, 'pH': 21, 'T': 18}.
+
+Q = 6, iid_p0.3: pooled level (record recovered / hard configured / hard unanticipated / all configured)
+  rec       0.837 / 0.581 / 0.498 / 0.840
+  heur      0.696 / 0.954 / 0.792 / 0.867
+  flags     0.722 / 0.999 / 0.274 / 0.999
+  flagsrec  0.722 / 0.999 / 0.520 / 0.999
+
+Q = 6, gilbert_p0.3_b3: pooled level (record recovered / hard configured / hard unanticipated / all configured)
+  rec       0.768 / 0.493 / 0.424 / 0.743
+  heur      0.649 / 0.837 / 0.698 / 0.776
+  flags     0.672 / 0.960 / 0.264 / 0.960
+  flagsrec  0.672 / 0.960 / 0.476 / 0.962
+
+Q = 12, iid_p0.3: pooled level (record recovered / hard configured / hard unanticipated / all configured)
+  rec       0.961 / 0.737 / 0.625 / 0.942
+  heur      0.891 / 0.970 / 0.823 / 0.966
+  flags     0.936 / 1.000 / 0.275 / 1.000
+  flagsrec  0.936 / 1.000 / 0.633 / 1.000
+
+Q = 12, gilbert_p0.3_b3: pooled level (record recovered / hard configured / hard unanticipated / all configured)
+  rec       0.937 / 0.691 / 0.586 / 0.910
+  heur      0.863 / 0.954 / 0.806 / 0.938
+  flags     0.901 / 0.996 / 0.274 / 0.996
+  flagsrec  0.901 / 0.996 / 0.599 / 0.997
+
+Q = 6: hard cases per kind (pooled level; contrasts with site-clustered 95% intervals)
+  iid_p0.3 do_alt    rec 0.738 / heur 0.909 / flags 0.384 / flagsrec 0.745; 3b minus flagsrec +0.164 (+0.117 to +0.230); 3b minus record +0.171 (+0.111 to +0.260)
+  iid_p0.3 do_cfg    rec 0.735 / heur 0.964 / flags 0.999 / flagsrec 0.999; 3b minus flagsrec -0.035 (-0.056 to -0.020); 3b minus record +0.230 (+0.153 to +0.334)
+  iid_p0.3 ph_alt    rec 0.596 / heur 0.910 / flags 0.336 / flagsrec 0.651; 3b minus flagsrec +0.259 (+0.188 to +0.321); 3b minus record +0.314 (+0.176 to +0.449)
+  iid_p0.3 ph_cfg    rec 0.540 / heur 0.931 / flags 0.999 / flagsrec 0.999; 3b minus flagsrec -0.068 (-0.137 to -0.009); 3b minus record +0.391 (+0.250 to +0.550)
+  iid_p0.3 ec_alt    rec 0.244 / heur 0.538 / flags 0.172 / flagsrec 0.253; 3b minus flagsrec +0.284 (+0.208 to +0.359); 3b minus record +0.294 (+0.209 to +0.381)
+  iid_p0.3 ec_cfg    rec 0.531 / heur 0.980 / flags 0.999 / flagsrec 0.999; 3b minus flagsrec -0.019 (-0.024 to -0.014); 3b minus record +0.449 (+0.355 to +0.549)
+  iid_p0.3 win7_alt  rec 0.571 / heur 0.932 / flags 0.250 / flagsrec 0.565; 3b minus flagsrec +0.366 (+0.316 to +0.409); 3b minus record +0.360 (+0.292 to +0.413)
+  iid_p0.3 win7_cfg  rec 0.593 / heur 0.951 / flags 0.999 / flagsrec 0.999; 3b minus flagsrec -0.049 (-0.062 to -0.034); 3b minus record +0.358 (+0.290 to +0.414)
+  gilbert_p0.3_b3 do_alt    rec 0.679 / heur 0.859 / flags 0.369 / flagsrec 0.711; 3b minus flagsrec +0.148 (+0.110 to +0.202); 3b minus record +0.181 (+0.130 to +0.255)
+  gilbert_p0.3_b3 do_cfg    rec 0.682 / heur 0.908 / flags 0.960 / flagsrec 0.960; 3b minus flagsrec -0.052 (-0.072 to -0.037); 3b minus record +0.226 (+0.161 to +0.315)
+  gilbert_p0.3_b3 ph_alt    rec 0.546 / heur 0.846 / flags 0.324 / flagsrec 0.619; 3b minus flagsrec +0.227 (+0.161 to +0.282); 3b minus record +0.300 (+0.176 to +0.422)
+  gilbert_p0.3_b3 ph_cfg    rec 0.496 / heur 0.863 / flags 0.960 / flagsrec 0.960; 3b minus flagsrec -0.097 (-0.161 to -0.044); 3b minus record +0.368 (+0.237 to +0.512)
+  gilbert_p0.3_b3 ec_alt    rec 0.223 / heur 0.493 / flags 0.165 / flagsrec 0.246; 3b minus flagsrec +0.247 (+0.180 to +0.316); 3b minus record +0.270 (+0.193 to +0.349)
+  gilbert_p0.3_b3 ec_cfg    rec 0.484 / heur 0.897 / flags 0.960 / flagsrec 0.960; 3b minus flagsrec -0.063 (-0.068 to -0.057); 3b minus record +0.413 (+0.334 to +0.502)
+  gilbert_p0.3_b3 win7_alt  rec 0.340 / heur 0.646 / flags 0.240 / flagsrec 0.422; 3b minus flagsrec +0.224 (+0.188 to +0.259); 3b minus record +0.306 (+0.265 to +0.338)
+  gilbert_p0.3_b3 win7_cfg  rec 0.353 / heur 0.660 / flags 0.961 / flagsrec 0.961; 3b minus flagsrec -0.301 (-0.326 to -0.275); 3b minus record +0.307 (+0.267 to +0.338)
+
+Q = 12: hard cases per kind (pooled level; contrasts with site-clustered 95% intervals)
+  iid_p0.3 do_alt    rec 0.844 / heur 0.942 / flags 0.385 / flagsrec 0.839; 3b minus flagsrec +0.103 (+0.070 to +0.155); 3b minus record +0.098 (+0.066 to +0.148)
+  iid_p0.3 do_cfg    rec 0.854 / heur 0.970 / flags 1.000 / flagsrec 1.000; 3b minus flagsrec -0.030 (-0.050 to -0.014); 3b minus record +0.116 (+0.065 to +0.190)
+  iid_p0.3 ph_alt    rec 0.703 / heur 0.950 / flags 0.337 / flagsrec 0.737; 3b minus flagsrec +0.213 (+0.139 to +0.271); 3b minus record +0.248 (+0.141 to +0.347)
+  iid_p0.3 ph_cfg    rec 0.652 / heur 0.939 / flags 1.000 / flagsrec 1.000; 3b minus flagsrec -0.061 (-0.134 to -0.002); 3b minus record +0.287 (+0.144 to +0.412)
+  iid_p0.3 ec_alt    rec 0.304 / heur 0.543 / flags 0.172 / flagsrec 0.305; 3b minus flagsrec +0.239 (+0.173 to +0.319); 3b minus record +0.240 (+0.169 to +0.328)
+  iid_p0.3 ec_cfg    rec 0.645 / heur 0.990 / flags 1.000 / flagsrec 1.000; 3b minus flagsrec -0.010 (-0.015 to -0.005); 3b minus record +0.345 (+0.270 to +0.443)
+  iid_p0.3 win7_alt  rec 0.882 / heur 0.990 / flags 0.250 / flagsrec 0.865; 3b minus flagsrec +0.125 (+0.091 to +0.166); 3b minus record +0.108 (+0.074 to +0.149)
+  iid_p0.3 win7_cfg  rec 0.907 / heur 0.996 / flags 1.000 / flagsrec 1.000; 3b minus flagsrec -0.004 (-0.007 to -0.001); 3b minus record +0.089 (+0.060 to +0.128)
+  gilbert_p0.3_b3 do_alt    rec 0.817 / heur 0.933 / flags 0.383 / flagsrec 0.817; 3b minus flagsrec +0.116 (+0.086 to +0.164); 3b minus record +0.116 (+0.085 to +0.163)
+  gilbert_p0.3_b3 do_cfg    rec 0.827 / heur 0.963 / flags 0.997 / flagsrec 0.997; 3b minus flagsrec -0.034 (-0.054 to -0.018); 3b minus record +0.136 (+0.086 to +0.208)
+  gilbert_p0.3_b3 ph_alt    rec 0.681 / heur 0.936 / flags 0.336 / flagsrec 0.719; 3b minus flagsrec +0.217 (+0.145 to +0.273); 3b minus record +0.255 (+0.147 to +0.356)
+  gilbert_p0.3_b3 ph_cfg    rec 0.631 / heur 0.930 / flags 0.996 / flagsrec 0.996; 3b minus flagsrec -0.066 (-0.139 to -0.008); 3b minus record +0.298 (+0.158 to +0.422)
+  gilbert_p0.3_b3 ec_alt    rec 0.288 / heur 0.537 / flags 0.172 / flagsrec 0.296; 3b minus flagsrec +0.241 (+0.176 to +0.320); 3b minus record +0.249 (+0.180 to +0.336)
+  gilbert_p0.3_b3 ec_cfg    rec 0.619 / heur 0.979 / flags 0.996 / flagsrec 0.996; 3b minus flagsrec -0.017 (-0.022 to -0.013); 3b minus record +0.360 (+0.290 to +0.452)
+  gilbert_p0.3_b3 win7_alt  rec 0.756 / heur 0.941 / flags 0.249 / flagsrec 0.740; 3b minus flagsrec +0.201 (+0.167 to +0.235); 3b minus record +0.185 (+0.149 to +0.225)
+  gilbert_p0.3_b3 win7_cfg  rec 0.778 / heur 0.952 / flags 0.996 / flagsrec 0.996; 3b minus flagsrec -0.045 (-0.051 to -0.038); 3b minus record +0.174 (+0.141 to +0.212)
+
+Byte check: hard cases at unanticipated thresholds decided correctly (pooled), record recovered
+  Q= 6 gilbert_p0.3_b3  heur  0.728, 0.692 (10095 days)
+  Q= 6 gilbert_p0.3_b3  rec   0.443, 0.768 (10095 days)
+  Q= 6 iid_p0.3         heur  0.790, 0.743 (10095 days)
+  Q= 6 iid_p0.3         rec   0.481, 0.837 (10095 days)
+  Q=12 gilbert_p0.3_b3  heur  0.809, 0.902 (10095 days)
+  Q=12 gilbert_p0.3_b3  rec   0.549, 0.937 (10095 days)
+  Q=12 iid_p0.3         heur  0.821, 0.933 (10095 days)
+  Q=12 iid_p0.3         rec   0.570, 0.961 (10095 days)
+
+Integrity: classes of day among forged draws (share of draws / false share in class)
+  heur  Q= 6: N<K 0.15/0.2319; N=K 0.15/0.2886; N>K 0.59/0.0000; uncoded 0.10/0.2070; rejected 0.840
+  heur  Q=12: N<K 0.03/0.1726; N=K 0.02/0.2392; N>K 0.92/0.0000; uncoded 0.04/0.1488; rejected 0.974
+  rec   Q= 6: N<K 0.10/0.1839; N=K 0.14/0.2775; N>K 0.70/0.0000; uncoded 0.06/0.2172; rejected 0.849
+  rec   Q=12: N<K 0.02/0.1503; N=K 0.01/0.2445; N>K 0.95/0.0000; uncoded 0.02/0.1743; rejected 0.979
+[2026-11-10 19:40:01] verdicts written: results/rehearsal4/verdicts4.md; supported 6 of 8

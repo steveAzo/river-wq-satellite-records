@@ -1,0 +1,92 @@
+# Verdicts of the version 3 confirmation (REHEARSAL on development data, not confirmatory)
+
+| id   | statement                                                                                                                                                                                | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | supported   |
+|:-----|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------|
+| H1   | no wrong decision in any design (slot model: Q 6 and 12, both loss models; byte check), no decoded value that differs from the plan, and no byte round-trip mismatch on any analysed day | slot model wrong max 0.000; byte check wrong 0, value mismatches 0; round trip 0 mismatches in 2860 blocks (0 not buildable)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | True        |
+| H2   | 3b rule minus flagsrec, hard cases at unanticipated thresholds, lower bound >= 0.1 (Q 6 and 12, both loss models)                                                                        | +0.282 (+0.085 to +0.312) / +0.222 (+0.077 to +0.244) / +0.209 (+0.085 to +0.227) / +0.220 (+0.084 to +0.241)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | False       |
+| H3   | 3b rule minus record only, hard cases at unanticipated thresholds, lower bound >= 0.1 (all four)                                                                                         | +0.287 (+0.085 to +0.317) / +0.255 (+0.077 to +0.281) / +0.205 (+0.085 to +0.223) / +0.216 (+0.084 to +0.235)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | False       |
+| H4   | declared cost: 3b rule minus record only, whole record recovered, lower bound >= -0.15 (Q 6) and >= -0.1 (Q 12), both loss models                                                        | -0.157 (-0.311 to -0.003) / -0.135 (-0.265 to -0.005) / -0.097 (-0.195 to +0.000) / -0.097 (-0.193 to -0.001)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | False       |
+| H5   | 3b rule minus flagsrec, whole record recovered, lower bound >= -0.06 (all four)                                                                                                          | -0.092 (-0.190 to +0.006) / -0.073 (-0.175 to +0.029) / -0.093 (-0.186 to +0.000) / -0.084 (-0.173 to +0.004)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | False       |
+| H6   | known limit: flagsrec exceeds the 3b rule on hard cases at the configured thresholds, upper bound of (3b rule minus flagsrec) < 0.0 (Q 6, both loss models)                              | -0.018 (-0.018 to -0.008) / -0.090 (-0.091 to -0.069)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | True        |
+| H7   | integrity: expected false-certificate days per million days at bit-error rate 0.001, upper bound <= 0.5 (record only and 3b rule, Q 6 and 12)                                            | heur Q6: 0.0025 (upper 0.0044); heur Q12: 0.0004 (upper 0.0007); rec Q6: 0.0015 (upper 0.0027); rec Q12: 0.0000 (upper 0.0001)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | True        |
+| H8   | byte frame reproduces the slot model in whole-record recovery: |difference| <= 0.01 (record only) and <= 0.06 (3b rule), Q 6 and 12, both loss models                                    | heur Q6 gilbert_p0.3_b3: byte 0.796, slot 0.744, |diff| 0.052 (limit 0.06, 715 days); rec Q6 gilbert_p0.3_b3: byte 0.883, slot 0.879, |diff| 0.005 (limit 0.01, 715 days); heur Q6 iid_p0.3: byte 0.861, slot 0.791, |diff| 0.070 (limit 0.06, 715 days); rec Q6 iid_p0.3: byte 0.943, slot 0.948, |diff| 0.005 (limit 0.01, 715 days); heur Q12 gilbert_p0.3_b3: byte 0.956, slot 0.886, |diff| 0.070 (limit 0.06, 715 days); rec Q12 gilbert_p0.3_b3: byte 0.983, slot 0.983, |diff| 0.000 (limit 0.01, 715 days); heur Q12 iid_p0.3: byte 0.978, slot 0.901, |diff| 0.077 (limit 0.06, 715 days); rec Q12 iid_p0.3: byte 0.999, slot 0.998, |diff| 0.001 (limit 0.01, 715 days) | False       |
+
+## Descriptive results (no verdict)
+
+Assumption R (reporting resolution inferred from the record): 2 of 2 analysed sites have an inferred resolution for at least one of DO, pH, temperature; per parameter: {'DO': 0, 'pH': 2, 'T': 1}.
+
+Q = 6, iid_p0.3: pooled level (record recovered / hard configured / hard unanticipated / all configured)
+  rec       0.948 / 0.793 / 0.506 / 0.927
+  heur      0.791 / 0.982 / 0.793 / 0.939
+  flags     0.884 / 0.999 / 0.240 / 0.999
+  flagsrec  0.884 / 0.999 / 0.511 / 0.999
+
+Q = 6, gilbert_p0.3_b3: pooled level (record recovered / hard configured / hard unanticipated / all configured)
+  rec       0.879 / 0.708 / 0.445 / 0.849
+  heur      0.744 / 0.872 / 0.700 / 0.864
+  flags     0.817 / 0.962 / 0.231 / 0.963
+  flagsrec  0.817 / 0.962 / 0.478 / 0.966
+
+Q = 12, iid_p0.3: pooled level (record recovered / hard configured / hard unanticipated / all configured)
+  rec       0.998 / 0.910 / 0.609 / 0.978
+  heur      0.901 / 0.997 / 0.814 / 0.993
+  flags     0.994 / 1.000 / 0.240 / 1.000
+  flagsrec  0.994 / 1.000 / 0.606 / 1.000
+
+Q = 12, gilbert_p0.3_b3: pooled level (record recovered / hard configured / hard unanticipated / all configured)
+  rec       0.983 / 0.879 / 0.583 / 0.959
+  heur      0.886 / 0.980 / 0.799 / 0.973
+  flags     0.971 / 0.996 / 0.239 / 0.997
+  flagsrec  0.971 / 0.996 / 0.579 / 0.997
+
+Q = 6: hard cases per kind (pooled level; contrasts with site-clustered 95% intervals)
+  iid_p0.3 do_alt    rec 0.867 / heur 0.940 / flags 0.455 / flagsrec 0.863; 3b minus flagsrec +0.076 (+0.000 to +0.076); 3b minus record +0.073 (+0.000 to +0.073)
+  iid_p0.3 do_cfg    rec 0.903 / heur 0.984 / flags 0.999 / flagsrec 0.999; 3b minus flagsrec -0.016 (-0.016 to +0.000); 3b minus record +0.080 (+0.000 to +0.080)
+  iid_p0.3 ph_alt    rec 0.597 / heur 0.978 / flags 0.166 / flagsrec 0.576; 3b minus flagsrec +0.402 (+0.000 to +0.402); 3b minus record +0.381 (+0.000 to +0.381)
+  iid_p0.3 ph_cfg    rec 0.887 / heur 0.992 / flags 1.000 / flagsrec 1.000; 3b minus flagsrec -0.007 (-0.007 to +0.000); 3b minus record +0.105 (+0.000 to +0.105)
+  iid_p0.3 ec_alt    rec 0.153 / heur 0.401 / flags 0.107 / flagsrec 0.157; 3b minus flagsrec +0.244 (+0.085 to +0.369); 3b minus record +0.248 (+0.085 to +0.376)
+  iid_p0.3 ec_cfg    rec 0.696 / heur 0.992 / flags 0.999 / flagsrec 0.999; 3b minus flagsrec -0.006 (-0.008 to -0.006); 3b minus record +0.296 (+0.077 to +0.325)
+  iid_p0.3 win7_alt  rec 0.435 / heur 0.929 / flags 0.344 / flagsrec 0.516; 3b minus flagsrec +0.413 (+0.000 to +0.413); 3b minus record +0.495 (+0.000 to +0.495)
+  iid_p0.3 win7_cfg  rec 0.430 / heur 0.932 / flags 0.998 / flagsrec 0.998; 3b minus flagsrec -0.066 (-0.066 to +0.000); 3b minus record +0.503 (+0.000 to +0.503)
+  gilbert_p0.3_b3 do_alt    rec 0.789 / heur 0.885 / flags 0.438 / flagsrec 0.814; 3b minus flagsrec +0.070 (+0.000 to +0.070); 3b minus record +0.096 (+0.000 to +0.096)
+  gilbert_p0.3_b3 do_cfg    rec 0.828 / heur 0.925 / flags 0.962 / flagsrec 0.962; 3b minus flagsrec -0.037 (-0.037 to +0.000); 3b minus record +0.096 (+0.000 to +0.096)
+  gilbert_p0.3_b3 ph_alt    rec 0.543 / heur 0.911 / flags 0.161 / flagsrec 0.537; 3b minus flagsrec +0.373 (+0.000 to +0.373); 3b minus record +0.368 (+0.000 to +0.368)
+  gilbert_p0.3_b3 ph_cfg    rec 0.813 / heur 0.921 / flags 0.963 / flagsrec 0.963; 3b minus flagsrec -0.042 (-0.042 to +0.000); 3b minus record +0.108 (+0.000 to +0.108)
+  gilbert_p0.3_b3 ec_alt    rec 0.147 / heur 0.371 / flags 0.103 / flagsrec 0.158; 3b minus flagsrec +0.213 (+0.077 to +0.320); 3b minus record +0.224 (+0.077 to +0.340)
+  gilbert_p0.3_b3 ec_cfg    rec 0.635 / heur 0.916 / flags 0.962 / flagsrec 0.962; 3b minus flagsrec -0.046 (-0.069 to -0.043); 3b minus record +0.281 (+0.069 to +0.310)
+  gilbert_p0.3_b3 win7_alt  rec 0.273 / heur 0.580 / flags 0.332 / flagsrec 0.451; 3b minus flagsrec +0.129 (+0.000 to +0.129); 3b minus record +0.307 (+0.000 to +0.307)
+  gilbert_p0.3_b3 win7_cfg  rec 0.264 / heur 0.579 / flags 0.961 / flagsrec 0.961; 3b minus flagsrec -0.382 (-0.382 to +0.000); 3b minus record +0.314 (+0.000 to +0.314)
+
+Q = 12: hard cases per kind (pooled level; contrasts with site-clustered 95% intervals)
+  iid_p0.3 do_alt    rec 0.909 / heur 0.956 / flags 0.455 / flagsrec 0.908; 3b minus flagsrec +0.048 (+0.000 to +0.048); 3b minus record +0.047 (+0.000 to +0.047)
+  iid_p0.3 do_cfg    rec 0.945 / heur 0.987 / flags 1.000 / flagsrec 1.000; 3b minus flagsrec -0.013 (-0.013 to +0.000); 3b minus record +0.042 (+0.000 to +0.042)
+  iid_p0.3 ph_alt    rec 0.639 / heur 0.997 / flags 0.166 / flagsrec 0.638; 3b minus flagsrec +0.360 (+0.000 to +0.360); 3b minus record +0.358 (+0.000 to +0.358)
+  iid_p0.3 ph_cfg    rec 0.948 / heur 1.000 / flags 1.000 / flagsrec 1.000; 3b minus flagsrec +0.000 (+0.000 to +0.000); 3b minus record +0.052 (+0.000 to +0.052)
+  iid_p0.3 ec_alt    rec 0.202 / heur 0.405 / flags 0.107 / flagsrec 0.198; 3b minus flagsrec +0.207 (+0.085 to +0.302); 3b minus record +0.203 (+0.085 to +0.295)
+  iid_p0.3 ec_cfg    rec 0.776 / heur 1.000 / flags 1.000 / flagsrec 1.000; 3b minus flagsrec +0.000 (+0.000 to +0.000); 3b minus record +0.224 (+0.077 to +0.243)
+  iid_p0.3 win7_alt  rec 0.894 / heur 0.999 / flags 0.344 / flagsrec 0.884; 3b minus flagsrec +0.115 (+0.000 to +0.115); 3b minus record +0.105 (+0.000 to +0.105)
+  iid_p0.3 win7_cfg  rec 0.891 / heur 0.999 / flags 1.000 / flagsrec 1.000; 3b minus flagsrec -0.001 (-0.001 to +0.000); 3b minus record +0.107 (+0.000 to +0.107)
+  gilbert_p0.3_b3 do_alt    rec 0.891 / heur 0.952 / flags 0.454 / flagsrec 0.892; 3b minus flagsrec +0.060 (+0.000 to +0.060); 3b minus record +0.061 (+0.000 to +0.061)
+  gilbert_p0.3_b3 do_cfg    rec 0.926 / heur 0.979 / flags 0.995 / flagsrec 0.995; 3b minus flagsrec -0.016 (-0.016 to +0.000); 3b minus record +0.053 (+0.000 to +0.053)
+  gilbert_p0.3_b3 ph_alt    rec 0.625 / heur 0.986 / flags 0.165 / flagsrec 0.619; 3b minus flagsrec +0.367 (+0.000 to +0.367); 3b minus record +0.362 (+0.000 to +0.362)
+  gilbert_p0.3_b3 ph_cfg    rec 0.928 / heur 0.990 / flags 0.996 / flagsrec 0.996; 3b minus flagsrec -0.006 (-0.006 to +0.000); 3b minus record +0.062 (+0.000 to +0.062)
+  gilbert_p0.3_b3 ec_alt    rec 0.195 / heur 0.400 / flags 0.107 / flagsrec 0.194; 3b minus flagsrec +0.206 (+0.084 to +0.302); 3b minus record +0.206 (+0.084 to +0.301)
+  gilbert_p0.3_b3 ec_cfg    rec 0.756 / heur 0.988 / flags 0.995 / flagsrec 0.995; 3b minus flagsrec -0.007 (-0.012 to -0.007); 3b minus record +0.232 (+0.077 to +0.253)
+  gilbert_p0.3_b3 win7_alt  rec 0.792 / heur 0.934 / flags 0.343 / flagsrec 0.772; 3b minus flagsrec +0.161 (+0.000 to +0.161); 3b minus record +0.142 (+0.000 to +0.142)
+  gilbert_p0.3_b3 win7_cfg  rec 0.790 / heur 0.936 / flags 0.995 / flagsrec 0.995; 3b minus flagsrec -0.059 (-0.059 to +0.000); 3b minus record +0.145 (+0.000 to +0.145)
+
+Byte check: hard cases at unanticipated thresholds decided correctly (pooled), record recovered
+  Q= 6 gilbert_p0.3_b3  heur  0.750, 0.796 (715 days)
+  Q= 6 gilbert_p0.3_b3  rec   0.475, 0.883 (715 days)
+  Q= 6 iid_p0.3         heur  0.814, 0.861 (715 days)
+  Q= 6 iid_p0.3         rec   0.516, 0.943 (715 days)
+  Q=12 gilbert_p0.3_b3  heur  0.821, 0.956 (715 days)
+  Q=12 gilbert_p0.3_b3  rec   0.546, 0.983 (715 days)
+  Q=12 iid_p0.3         heur  0.831, 0.978 (715 days)
+  Q=12 iid_p0.3         rec   0.564, 0.999 (715 days)
+
+Integrity: classes of day among forged draws (share of draws / false share in class)
+  heur  Q= 6: N<K 0.07/0.2656; N=K 0.10/0.3122; N>K 0.78/0.0000; uncoded 0.05/0.2019; rejected 0.912
+  heur  Q=12: N<K 0.01/0.1538; N=K 0.01/0.1200; N>K 0.97/0.0000; uncoded 0.00/0.1250; rejected 0.989
+  rec   Q= 6: N<K 0.04/0.2195; N=K 0.09/0.2771; N>K 0.87/0.0000; uncoded 0.00/0.5000; rejected 0.932
+  rec   Q=12: N<K 0.00/0.0000; N=K 0.00/0.1667; N>K 1.00/0.0000; rejected 0.998

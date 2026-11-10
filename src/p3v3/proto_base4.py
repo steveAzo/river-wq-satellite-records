@@ -29,6 +29,9 @@ from p3 import run_robust as rr  # noqa: E402
 from p3.proto_decision import CONDS, group_recover  # noqa: E402
 from p3.proto_joint import ORDER, obj_values, prepare_items  # noqa: E402
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import certlang3 as cl3  # noqa: E402  (edited by hand after patch_base4.py, 2026-11-10: guarded max_bounds in decide)
+
 
 SLOTS = 5                                           # value slots per message; set from the command line
 
@@ -116,7 +119,7 @@ def decide(it, Ks):
         ph = 1 if 1 in (a, b) else (0 if (a, b) == (0, 0) else -1)
         ec = cl.relative_change(Ke, it["lag"], th["EC"]) if Ke is not None else None
         out[v] = (do, ph, ec)
-    return out, cl.max_bounds(Kt)
+    return out, cl3.max_bounds(Kt)          # guarded (finding A5): equal to certlang.max_bounds whenever a reading is uncensored
 
 
 def flag_decisions(meta):

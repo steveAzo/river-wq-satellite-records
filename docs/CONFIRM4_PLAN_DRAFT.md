@@ -47,7 +47,28 @@ Notes:
 ## 5. Work still needed before the freeze (development only)
 
 1. DONE 2026-11-10: byte-level recovery and decisions on the D2 frame, both loss models (src/p3v3/bytecheck2.py, docs/V3_DEV_RESULTS.md); H8 limits set from it.
-2. The confirmation driver: a version 3 counterpart of src/p3/confirm3.py with a freeze check (tag comparison), run log, and the byte round trip on frame3 settings D2. Not written.
+2. WRITTEN 2026-11-10: the confirmation driver src/p3v3/confirm4.py and the freeze-record writer src/p3v3/freeze4.py; tests tests/v3/test_confirm4.py (38 pass).
+   - Stages, each resumable per site: plans; analysis population (at least 100 four-parameter days); slot model (proto_base4.run_site, 4 slots, flag capacity 3, designs rec, heur, flags, flagsrec); byte check (frame3 CRCB = 3, receiver3, decisions from decoded values, every day, 20 draws per condition) with a lossless round trip of every analysed day; integrity (as integrity3.py, D2 only, receiver3, every third day, 8 forged draws); verdicts H1 to H8 and descriptive tables (per kind, assumption R count, integrity classes).
+   - Guards: refuses to start if any P3_* environment variable is set or proto_queries settings differ from 3.0 and True; confirmatory tag needs tag confirm4-freeze, clean method files equal to the tag, every MD5 of docs/FREEZE4.md, a verifying seal, and only selected sites in the folder; a rehearsal cannot open a folder named for cohort 4 or 2022. Run log results/<tag>/RUN4.log with library versions and all settings.
+   - proto_base4.decide now uses certlang3.max_bounds (edited by hand; identical whenever a reading is uncensored).
+   - At the freeze the authors copy this draft to docs/CONFIRM4_PLAN.md (the name the driver and freeze4.py check).
+   - Two-site rehearsal on cohort 3 (development data): runs end to end in about 2 minutes; 0 wrong decisions, 0 round-trip mismatches in 2,860 blocks. The 3b-rule byte versus slot gap was 0.070 to 0.077 on these two sites, above the drafted H8 limit of 0.06; a 31-site rehearsal checks this before the freeze.
+   - Full rehearsal on all 31 cohort 3 sites (2024, development data for version 3; results/rehearsal4/verdicts4.md, RUN4.log): slot model 9.3 min, byte check 14.9 min, integrity 1.9 min, verdicts 1 min (plans were cached; plans cost about 2 minutes per site, so the cohort 4 run should take about 1.5 to 2 hours). With the drafted limits, 6 of 8 hypotheses would pass and 2 would fail (see the rehearsal column of Section 3). This is development information; the limits are still a draft and are a decision for the authors (Section 6).
+
+### Rehearsal on cohort 3 with the drafted limits (lower bound unless stated; Q 6 independent / Q 6 Gilbert / Q 12 independent / Q 12 Gilbert)
+
+| # | Rehearsal value | Drafted limit | Would pass |
+|---|---|---|---|
+| H1 | 0 wrong decisions, 0 value mismatches, 0 round-trip mismatches in 40,380 blocks | 0 | yes |
+| H2 | +0.229 / +0.184 / +0.139 / +0.163 | +0.10 | yes |
+| H3 | +0.223 / +0.210 / +0.134 / +0.159 | +0.10 | yes |
+| H4 | -0.177 / -0.148 / -0.097 / -0.098 (points -0.142, -0.118, -0.069, -0.073) | -0.15 (Q 6), -0.10 (Q 12) | NO (Q 6 independent) |
+| H5 | -0.058 / -0.049 / -0.066 / -0.057 (points -0.026, -0.023, -0.045, -0.038) | -0.06 | NO (Q 12 independent) |
+| H6 | upper -0.026 / -0.105 | below 0 | yes |
+| H7 | upper 0.0048, 0.0020, 0.0035, 0.0016 per million | 0.5 | yes |
+| H8 | 3b rule 0.039 to 0.047; record only 0.000 | 0.06; 0.01 | yes |
+
+Reading: the benefit hypotheses (H2, H3) have wide margins on a second year; the two cost hypotheses were set from the 2023 development point values with little room for site-to-site spread, and the 2024 cohort, whose record recovery is lower for every design, exceeds them.
 3. DONE 2026-11-10: receiver hardening (finding A5 of the in-project review) in new files only. src/p3v3/receiver3.py wraps frame3: any exception type, including in the sanity rule, rejects the block; non-bytes or wrong-length messages count as failed messages. src/p3v3/certlang3.py: min_bounds, max_bounds, and day_max_bounds return (-inf, inf) when no reading is uncensored (certlang raises ValueError). Tests: tests/v3/test_receiver3.py (51 tests: equality with frame3 on honest and fuzzed input, 7,200 fuzz calls over four frame settings, injected TypeError, OverflowError, and others, malformed site profile, guarded bounds equal to certlang whenever a reading is live). Not changed, kept as a declared limit: a forged censored code (0 or 8191) in a record value passes the sanity rule, because honest records carry such codes. The confirmation driver must call receiver3.receive and certlang3 bounds, not frame3.receive and certlang bounds.
 4. Decide whether the random-day control (targeting) and the older comparators are re-run in version 3; if yes, support in proto_base4.py and a development run first.
 5. Tests for every new file (tests/v3), full test suite green, freeze record with file hashes.
