@@ -1,0 +1,46 @@
+﻿\section{Data and pre-registered design}
+\label{sec:study}
+
+\subsection{Data and cohorts}
+\label{sec:data}
+All data were approved instantaneous values from the USGS National Water Information System \citep{usgs2016nwis}; dissolved oxygen was used in mg/L. Each parameter was used on its own sampling grid on each UTC day; a run of at most two missing readings with valid neighbours on both sides was bridged linearly, and any longer gap made that parameter-day ineligible. The analysis used four-parameter days. The study passed through two rounds of development and confirmation:
+\begin{itemize}
+  \item Development, first round: calendar year 2023 at 38 sites with four-parameter days in New Jersey, Pennsylvania, Illinois, and Oregon. The bands, rules, and hypotheses of version 2 of the method were set on these data.
+  \item First confirmation (version 2): calendar year 2024 at 31 sealed sites in four regions, selected from metadata only. Its integrity hypothesis failed and an internal review found that its flags comparator discarded the recovered record (Section~\ref{sec:history}). After that run the cohort became development data for version 3; it was used for the second rehearsal of the final analysis and for no design choice that the second confirmation tested.
+  \item Second confirmation (version 3): calendar year 2022 at 35 sites that no earlier round had used (106 sites excluded). Selection used metadata only: sites whose series of temperature, conductance, dissolved oxygen, and pH covered 2022 and that had at least 250 approved daily means per parameter (qualifiers read, values discarded) were taken in seeded random order within nine regions, at most five per region. Six regions supplied five sites; the Gulf and lower Mississippi and Texas supplied two each and the Northeast and New England one, because few candidates met the approval rule, and the shortfall was not repaired. The data were downloaded only after the freeze, cleaned by the rules of all earlier cohorts, and sealed with MD5 checksums before any analysis. All 35 sites had at least 100 four-parameter days and formed the analysis population (10,417 days, 100 to 361 per site; listed in the supplement).
+\end{itemize}
+
+\subsection{Loss models, plans, and thresholds}
+\label{sec:channels}
+No measured loss rate was available for the target service; therefore, loss was modelled. Independent loss removed each message with probability 0.3; a two-state Gilbert channel \citep{gilbert1960,elliott1963} lost every message in its bad state with the same mean loss 0.3 and mean bursts of three messages. Plans of $Q = 6$ and $Q = 12$ messages per day were evaluated, with 20 loss draws per day and condition, and the same draws were used for every design on that day (paired).
+
+The configured thresholds were fixed before any design was compared: dissolved oxygen below 5\,mg/L \citep{epa1986do}; pH below 6.5 or above 9.0 \citep{epa1986gold}; a 7DADM above 20\,\textdegree C \citep{epa2003temp}; and a conductance change above 10\% in one hour (a criterion defined for this study). Two alternative threshold sets that the encoder does not know measure generality: alt1 (4.5\,mg/L; pH 6.3 and 9.2; 21\,\textdegree C; 20\%) and alt2 (5.5\,mg/L; pH 6.7 and 8.8; 19\,\textdegree C; 5\%). The analyst chose these sets in the first round, and they were seen on every development cohort; the results that depend on them are reported with that caveat.
+
+\subsection{Hypotheses, freeze, and procedure}
+\label{sec:procedure}
+The hypotheses of the second confirmation (Table~\ref{tab:hyp}) were drafted on 2023 data, rehearsed with the final analysis code on 2023 and on the first confirmation cohort, and read adversarially by a separate AI session (an in-project reading, not an outside review). That reading found a modelling error in the comparator (Section~\ref{sec:history}); the code was corrected, the hypotheses that depended on the error were dropped or relabelled, and both rehearsals were repeated. The limits of the three tests were written before the rehearsals and were not changed after them; a proposal to widen two limits after the first rehearsal was withdrawn.
+
+Only three hypotheses test the method (H2 to H4). H1 and H8 are checks of the code: H1 cannot fail through assumption R, because the reporting resolution is inferred from the analysed record, and H8 compares two implementations of the same code. H6 is a known limit that holds largely by construction, because the flags comparator takes its configured answers from the truth whenever a message arrives. H7 is an analytic bound: even if every forged message that passed the check produced a false certificate, the expected rate would be 0.042 (at $Q = 6$) and 0.084 (at $Q = 12$) days per million days at the assumed bit-error rate; therefore, no limit on it could fail.
+
+The plan, the analysis code, and the download script were then frozen: the repository was committed and tagged, a freeze record with checksums of 124 files and the test result was written and committed, and only then were the cohort data downloaded and sealed. The analysis script refused to start unless the code equalled the tag, the freeze record was committed and named the tagged commit, the limits in the code equalled a machine-read line of the plan, the seal covered exactly the cohort folder and verified, and a run stamp showed that no earlier output came from other code. The sealed data were then analysed once. The run was interrupted once, when the computer restarted during the byte-level stage; it was resumed with the same command and the same frozen code, which passed every start check again and reused the outputs of finished sites.
+
+Intervals are 95\% percentile intervals from 1,000 site-clustered bootstrap resamples; differences between designs are pooled day-query means computed on the same resamples. Hard-case decisions pool dissolved oxygen, pH, conductance, and 7DADM windows, and a decision counts as correct only when it is certain and equals the truth on the sensor record. A hypothesis counts as supported only if its stated bound holds in every listed condition.
+
+{\footnotesize
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.55cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{1.1cm}@{}}
+\caption{Pre-registered hypotheses of the second confirmation and their outcome on the 35 sealed sites (byte level; ind.\ is independent loss and Gil.\ is Gilbert loss).}\label{tab:hyp}\\
+\toprule
+ID & Type & Statement & Limit & Result (95\% interval) & Outcome \\
+\midrule
+\endfirsthead
+\toprule
+ID & Type & Statement & Limit & Result (95\% interval) & Outcome \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\input{tables/confirm_hyp.tex}
+\end{longtable}
+}
+
+H5 of the draft (the 3b rule minus flags plus record in whole-record recovery) was dropped before the freeze because, with the flags modelled correctly, it equals H4.

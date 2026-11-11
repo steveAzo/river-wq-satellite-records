@@ -1,0 +1,265 @@
+[2026-11-11 06:44:35] ==================== CONFIRMATORY RUN
+[2026-11-11 06:44:35] freeze verified against tag confirm4-freeze (0f5dec60413a4145477e6da9702606ad17a22f9d): 124 hashed files unchanged; limits equal the plan; seal data/clean/usgs_new4_2022.md5 covers the folder and verifies; run stamp ok
+[2026-11-11 06:44:35] cohort sites present: 35 of 35 selected; missing: []
+[2026-11-11 06:44:36] command: C:\Users\User\AppData\Local\Programs\Python\Python313\python.exe src/p3v3/confirm4.py data/clean/usgs_new4_2022 confirm4 data/clean/usgs_new4_2022.md5
+[2026-11-11 06:44:36] python 3.13.5 (Windows-11-10.0.26200-SP0); numpy 2.3.3; pandas 2.3.3; scipy 1.17.1
+[2026-11-11 06:44:36] git HEAD 9dfb1ef52dd76c6dda231d9d0e201e7a3a2ddba5; freeze tag confirm4-freeze -> 0f5dec60413a4145477e6da9702606ad17a22f9d
+[2026-11-11 06:44:36] folder data/clean/usgs_new4_2022; tag confirm4; seal data/clean/usgs_new4_2022.md5 (MD5 of the seal file b84acc67e6c222674ab729ec36b6baff)
+[2026-11-11 06:44:36] frame3 CRCB=3 RECCRC=False; slot model SLOTS=4 FLAG_CAP=4.0 designs=('rec', 'heur', 'flags', 'flagsrec') seed=20261110; byte designs=('rec', 'heur', 'flagsrec')
+[2026-11-11 06:44:36] proto_queries T_BAND=3.0 UNKNOWN_HARD=True; MIN_DAYS=100 B=1000 SEED=20261115
+[2026-11-11 06:44:36] byte check every day, 20 paired draws; integrity every 3 day(s), 8 draws, loss 0.3, bit-error rate 0.001; limits {'H2_lower': 0.1, 'H3_lower': 0.1, 'H4_lower_q6': -0.15, 'H4_lower_q12': -0.1, 'H6_upper': 0.0, 'H8_rec': 0.01}
+[2026-11-11 06:46:22] plans 1/35 01480870
+[2026-11-11 06:48:20] plans 2/35 01575900
+[2026-11-11 06:50:09] plans 3/35 01645762
+[2026-11-11 06:51:55] plans 4/35 01646305
+[2026-11-11 07:21:10] plans 5/35 01649500
+[2026-11-11 07:24:48] plans 6/35 0208062765
+[2026-11-11 07:28:18] plans 7/35 02203655
+[2026-11-11 07:31:03] plans 8/35 02336300
+[2026-11-11 07:32:55] plans 9/35 02336340
+[2026-11-11 07:35:11] plans 10/35 02336410
+[2026-11-11 07:38:38] plans 11/35 03292500
+[2026-11-11 07:41:45] plans 12/35 03297900
+[2026-11-11 07:45:08] plans 13/35 03301900
+[2026-11-11 07:48:32] plans 14/35 03302060
+[2026-11-11 07:51:43] plans 15/35 04067500
+[2026-11-11 08:13:41] plans 16/35 040851385
+[2026-11-11 08:15:35] plans 17/35 04087170
+[2026-11-11 08:17:09] plans 18/35 04249000
+[2026-11-11 08:18:01] plans 19/35 05474500
+[2026-11-11 08:19:34] plans 20/35 05576100
+[2026-11-11 08:21:00] plans 21/35 07020850
+[2026-11-11 08:22:03] plans 22/35 07178200
+[2026-11-11 08:22:11] plans 23/35 07374000
+[2026-11-11 08:23:40] plans 24/35 08065350
+[2026-11-11 08:25:11] plans 25/35 08188060
+[2026-11-11 08:26:48] plans 26/35 09149500
+[2026-11-11 08:28:21] plans 27/35 09180500
+[2026-11-11 08:29:53] plans 28/35 11273400
+[2026-11-11 08:31:22] plans 29/35 12100490
+[2026-11-11 08:32:59] plans 30/35 12301933
+[2026-11-11 08:34:39] plans 31/35 13093383
+[2026-11-11 08:37:24] plans 32/35 14181500
+[2026-11-11 08:37:50] plans 33/35 14202980
+[2026-11-11 08:39:08] plans 34/35 14316460
+[2026-11-11 08:40:40] plans 35/35 393259107194801
+[2026-11-11 08:40:40] plans done in 116.1 min
+[2026-11-11 08:40:41] 35 sites in the analysis population (at least 100 four-parameter days): 01480870, 01575900, 01645762, 01646305, 01649500, 0208062765, 02203655, 02336300, 02336340, 02336410, 03292500, 03297900, 03301900, 03302060, 04067500, 040851385, 04087170, 04249000, 05474500, 05576100, 07020850, 07178200, 07374000, 08065350, 08188060, 09149500, 09180500, 11273400, 12100490, 12301933, 13093383, 14181500, 14202980, 14316460, 393259107194801
+[2026-11-11 08:40:55] slot model 1/35 01480870
+[2026-11-11 08:41:11] slot model 2/35 01575900
+[2026-11-11 08:41:23] slot model 3/35 01645762
+[2026-11-11 08:41:38] slot model 4/35 01646305
+[2026-11-11 08:42:10] slot model 5/35 01649500
+[2026-11-11 08:42:21] slot model 6/35 0208062765
+[2026-11-11 08:42:36] slot model 7/35 02203655
+[2026-11-11 08:42:58] slot model 8/35 02336300
+[2026-11-11 08:43:11] slot model 9/35 02336340
+[2026-11-11 08:43:26] slot model 10/35 02336410
+[2026-11-11 08:43:43] slot model 11/35 03292500
+[2026-11-11 08:43:54] slot model 12/35 03297900
+[2026-11-11 08:44:08] slot model 13/35 03301900
+[2026-11-11 08:44:23] slot model 14/35 03302060
+[2026-11-11 08:44:33] slot model 15/35 04067500
+[2026-11-11 08:45:08] slot model 16/35 040851385
+[2026-11-11 08:45:34] slot model 17/35 04087170
+[2026-11-11 08:45:46] slot model 18/35 04249000
+[2026-11-11 08:45:50] slot model 19/35 05474500
+[2026-11-11 08:46:06] slot model 20/35 05576100
+[2026-11-11 08:46:23] slot model 21/35 07020850
+[2026-11-11 08:46:26] slot model 22/35 07178200
+[2026-11-11 08:46:34] slot model 23/35 07374000
+[2026-11-11 08:46:47] slot model 24/35 08065350
+[2026-11-11 08:46:56] slot model 25/35 08188060
+[2026-11-11 08:47:12] slot model 26/35 09149500
+[2026-11-11 08:47:23] slot model 27/35 09180500
+[2026-11-11 08:47:37] slot model 28/35 11273400
+[2026-11-11 08:47:46] slot model 29/35 12100490
+[2026-11-11 08:47:56] slot model 30/35 12301933
+[2026-11-11 08:48:16] slot model 31/35 13093383
+[2026-11-11 08:48:24] slot model 32/35 14181500
+[2026-11-11 08:48:36] slot model 33/35 14202980
+[2026-11-11 08:48:48] slot model 34/35 14316460
+[2026-11-11 08:49:01] slot model 35/35 393259107194801
+[2026-11-11 08:49:01] slot model done in 8.3 min; 0 site outputs reused
+[2026-11-11 08:49:28] byte check 1/35 01480870
+[2026-11-11 08:50:00] byte check 2/35 01575900
+[2026-11-11 08:50:25] byte check 3/35 01645762
+[2026-11-11 08:50:52] byte check 4/35 01646305
+[2026-11-11 08:51:34] byte check 5/35 01649500
+[2026-11-11 08:52:00] byte check 6/35 0208062765
+[2026-11-11 08:52:29] byte check 7/35 02203655
+[2026-11-11 08:53:04] byte check 8/35 02336300
+[2026-11-11 08:53:35] byte check 9/35 02336340
+[2026-11-11 08:54:06] byte check 10/35 02336410
+[2026-11-11 08:54:37] byte check 11/35 03292500
+[2026-11-11 08:54:58] byte check 12/35 03297900
+[2026-11-11 08:55:27] byte check 13/35 03301900
+[2026-11-11 08:55:52] byte check 14/35 03302060
+[2026-11-11 08:56:14] byte check 15/35 04067500
+[2026-11-11 08:56:54] byte check 16/35 040851385
+[2026-11-11 08:57:23] byte check 17/35 04087170
+[2026-11-11 08:57:57] byte check 18/35 04249000
+[2026-11-11 08:58:06] byte check 19/35 05474500
+[2026-11-11 08:58:36] byte check 20/35 05576100
+[2026-11-11 08:59:07] byte check 21/35 07020850
+[2026-11-11 08:59:16] byte check 22/35 07178200
+[2026-11-11 08:59:38] byte check 23/35 07374000
+[2026-11-11 09:00:06] byte check 24/35 08065350
+[2026-11-11 09:00:37] byte check 25/35 08188060
+[2026-11-11 09:01:10] byte check 26/35 09149500
+[2026-11-11 09:28:50] ==================== CONFIRMATORY RUN
+[2026-11-11 09:28:50] freeze verified against tag confirm4-freeze (0f5dec60413a4145477e6da9702606ad17a22f9d): 124 hashed files unchanged; limits equal the plan; seal data/clean/usgs_new4_2022.md5 covers the folder and verifies; run stamp ok
+[2026-11-11 09:28:50] cohort sites present: 35 of 35 selected; missing: []
+[2026-11-11 09:28:50] command: C:\Users\User\AppData\Local\Programs\Python\Python313\python.exe src/p3v3/confirm4.py data/clean/usgs_new4_2022 confirm4 data/clean/usgs_new4_2022.md5
+[2026-11-11 09:28:50] python 3.13.5 (Windows-11-10.0.26200-SP0); numpy 2.3.3; pandas 2.3.3; scipy 1.17.1
+[2026-11-11 09:28:50] git HEAD 9dfb1ef52dd76c6dda231d9d0e201e7a3a2ddba5; freeze tag confirm4-freeze -> 0f5dec60413a4145477e6da9702606ad17a22f9d
+[2026-11-11 09:28:50] folder data/clean/usgs_new4_2022; tag confirm4; seal data/clean/usgs_new4_2022.md5 (MD5 of the seal file b84acc67e6c222674ab729ec36b6baff)
+[2026-11-11 09:28:50] frame3 CRCB=3 RECCRC=False; slot model SLOTS=4 FLAG_CAP=4.0 designs=('rec', 'heur', 'flags', 'flagsrec') seed=20261110; byte designs=('rec', 'heur', 'flagsrec')
+[2026-11-11 09:28:50] proto_queries T_BAND=3.0 UNKNOWN_HARD=True; MIN_DAYS=100 B=1000 SEED=20261115
+[2026-11-11 09:28:50] byte check every day, 20 paired draws; integrity every 3 day(s), 8 draws, loss 0.3, bit-error rate 0.001; limits {'H2_lower': 0.1, 'H3_lower': 0.1, 'H4_lower_q6': -0.15, 'H4_lower_q12': -0.1, 'H6_upper': 0.0, 'H8_rec': 0.01}
+[2026-11-11 09:28:50] plans 1/35 01480870 (existing output reused)
+[2026-11-11 09:28:50] plans 2/35 01575900 (existing output reused)
+[2026-11-11 09:28:50] plans 3/35 01645762 (existing output reused)
+[2026-11-11 09:28:50] plans 4/35 01646305 (existing output reused)
+[2026-11-11 09:28:50] plans 5/35 01649500 (existing output reused)
+[2026-11-11 09:28:50] plans 6/35 0208062765 (existing output reused)
+[2026-11-11 09:28:50] plans 7/35 02203655 (existing output reused)
+[2026-11-11 09:28:50] plans 8/35 02336300 (existing output reused)
+[2026-11-11 09:28:51] plans 9/35 02336340 (existing output reused)
+[2026-11-11 09:28:51] plans 10/35 02336410 (existing output reused)
+[2026-11-11 09:28:51] plans 11/35 03292500 (existing output reused)
+[2026-11-11 09:28:51] plans 12/35 03297900 (existing output reused)
+[2026-11-11 09:28:51] plans 13/35 03301900 (existing output reused)
+[2026-11-11 09:28:51] plans 14/35 03302060 (existing output reused)
+[2026-11-11 09:28:51] plans 15/35 04067500 (existing output reused)
+[2026-11-11 09:28:51] plans 16/35 040851385 (existing output reused)
+[2026-11-11 09:28:51] plans 17/35 04087170 (existing output reused)
+[2026-11-11 09:28:51] plans 18/35 04249000 (existing output reused)
+[2026-11-11 09:28:51] plans 19/35 05474500 (existing output reused)
+[2026-11-11 09:28:51] plans 20/35 05576100 (existing output reused)
+[2026-11-11 09:28:51] plans 21/35 07020850 (existing output reused)
+[2026-11-11 09:28:51] plans 22/35 07178200 (existing output reused)
+[2026-11-11 09:28:51] plans 23/35 07374000 (existing output reused)
+[2026-11-11 09:28:51] plans 24/35 08065350 (existing output reused)
+[2026-11-11 09:28:51] plans 25/35 08188060 (existing output reused)
+[2026-11-11 09:28:51] plans 26/35 09149500 (existing output reused)
+[2026-11-11 09:28:51] plans 27/35 09180500 (existing output reused)
+[2026-11-11 09:28:51] plans 28/35 11273400 (existing output reused)
+[2026-11-11 09:28:51] plans 29/35 12100490 (existing output reused)
+[2026-11-11 09:28:51] plans 30/35 12301933 (existing output reused)
+[2026-11-11 09:28:51] plans 31/35 13093383 (existing output reused)
+[2026-11-11 09:28:51] plans 32/35 14181500 (existing output reused)
+[2026-11-11 09:28:51] plans 33/35 14202980 (existing output reused)
+[2026-11-11 09:28:51] plans 34/35 14316460 (existing output reused)
+[2026-11-11 09:28:51] plans 35/35 393259107194801 (existing output reused)
+[2026-11-11 09:28:51] plans done in 0.0 min
+[2026-11-11 09:28:52] 35 sites in the analysis population (at least 100 four-parameter days): 01480870, 01575900, 01645762, 01646305, 01649500, 0208062765, 02203655, 02336300, 02336340, 02336410, 03292500, 03297900, 03301900, 03302060, 04067500, 040851385, 04087170, 04249000, 05474500, 05576100, 07020850, 07178200, 07374000, 08065350, 08188060, 09149500, 09180500, 11273400, 12100490, 12301933, 13093383, 14181500, 14202980, 14316460, 393259107194801
+[2026-11-11 09:28:52] slot model 1/35 01480870 (existing output reused)
+[2026-11-11 09:28:52] slot model 2/35 01575900 (existing output reused)
+[2026-11-11 09:28:52] slot model 3/35 01645762 (existing output reused)
+[2026-11-11 09:28:52] slot model 4/35 01646305 (existing output reused)
+[2026-11-11 09:28:52] slot model 5/35 01649500 (existing output reused)
+[2026-11-11 09:28:52] slot model 6/35 0208062765 (existing output reused)
+[2026-11-11 09:28:52] slot model 7/35 02203655 (existing output reused)
+[2026-11-11 09:28:52] slot model 8/35 02336300 (existing output reused)
+[2026-11-11 09:28:52] slot model 9/35 02336340 (existing output reused)
+[2026-11-11 09:28:52] slot model 10/35 02336410 (existing output reused)
+[2026-11-11 09:28:52] slot model 11/35 03292500 (existing output reused)
+[2026-11-11 09:28:52] slot model 12/35 03297900 (existing output reused)
+[2026-11-11 09:28:52] slot model 13/35 03301900 (existing output reused)
+[2026-11-11 09:28:52] slot model 14/35 03302060 (existing output reused)
+[2026-11-11 09:28:52] slot model 15/35 04067500 (existing output reused)
+[2026-11-11 09:28:52] slot model 16/35 040851385 (existing output reused)
+[2026-11-11 09:28:52] slot model 17/35 04087170 (existing output reused)
+[2026-11-11 09:28:52] slot model 18/35 04249000 (existing output reused)
+[2026-11-11 09:28:52] slot model 19/35 05474500 (existing output reused)
+[2026-11-11 09:28:52] slot model 20/35 05576100 (existing output reused)
+[2026-11-11 09:28:52] slot model 21/35 07020850 (existing output reused)
+[2026-11-11 09:28:52] slot model 22/35 07178200 (existing output reused)
+[2026-11-11 09:28:52] slot model 23/35 07374000 (existing output reused)
+[2026-11-11 09:28:52] slot model 24/35 08065350 (existing output reused)
+[2026-11-11 09:28:52] slot model 25/35 08188060 (existing output reused)
+[2026-11-11 09:28:52] slot model 26/35 09149500 (existing output reused)
+[2026-11-11 09:28:52] slot model 27/35 09180500 (existing output reused)
+[2026-11-11 09:28:52] slot model 28/35 11273400 (existing output reused)
+[2026-11-11 09:28:52] slot model 29/35 12100490 (existing output reused)
+[2026-11-11 09:28:52] slot model 30/35 12301933 (existing output reused)
+[2026-11-11 09:28:52] slot model 31/35 13093383 (existing output reused)
+[2026-11-11 09:28:52] slot model 32/35 14181500 (existing output reused)
+[2026-11-11 09:28:52] slot model 33/35 14202980 (existing output reused)
+[2026-11-11 09:28:52] slot model 34/35 14316460 (existing output reused)
+[2026-11-11 09:28:52] slot model 35/35 393259107194801 (existing output reused)
+[2026-11-11 09:28:52] slot model done in 0.0 min; 35 site outputs reused
+[2026-11-11 09:28:52] byte check 1/35 01480870 (existing output reused)
+[2026-11-11 09:28:52] byte check 2/35 01575900 (existing output reused)
+[2026-11-11 09:28:52] byte check 3/35 01645762 (existing output reused)
+[2026-11-11 09:28:52] byte check 4/35 01646305 (existing output reused)
+[2026-11-11 09:28:52] byte check 5/35 01649500 (existing output reused)
+[2026-11-11 09:28:52] byte check 6/35 0208062765 (existing output reused)
+[2026-11-11 09:28:52] byte check 7/35 02203655 (existing output reused)
+[2026-11-11 09:28:52] byte check 8/35 02336300 (existing output reused)
+[2026-11-11 09:28:52] byte check 9/35 02336340 (existing output reused)
+[2026-11-11 09:28:52] byte check 10/35 02336410 (existing output reused)
+[2026-11-11 09:28:52] byte check 11/35 03292500 (existing output reused)
+[2026-11-11 09:28:52] byte check 12/35 03297900 (existing output reused)
+[2026-11-11 09:28:52] byte check 13/35 03301900 (existing output reused)
+[2026-11-11 09:28:52] byte check 14/35 03302060 (existing output reused)
+[2026-11-11 09:28:52] byte check 15/35 04067500 (existing output reused)
+[2026-11-11 09:28:52] byte check 16/35 040851385 (existing output reused)
+[2026-11-11 09:28:52] byte check 17/35 04087170 (existing output reused)
+[2026-11-11 09:28:52] byte check 18/35 04249000 (existing output reused)
+[2026-11-11 09:28:52] byte check 19/35 05474500 (existing output reused)
+[2026-11-11 09:28:52] byte check 20/35 05576100 (existing output reused)
+[2026-11-11 09:28:52] byte check 21/35 07020850 (existing output reused)
+[2026-11-11 09:28:52] byte check 22/35 07178200 (existing output reused)
+[2026-11-11 09:28:52] byte check 23/35 07374000 (existing output reused)
+[2026-11-11 09:28:52] byte check 24/35 08065350 (existing output reused)
+[2026-11-11 09:28:52] byte check 25/35 08188060 (existing output reused)
+[2026-11-11 09:28:52] byte check 26/35 09149500 (existing output reused)
+[2026-11-11 09:29:36] byte check 27/35 09180500
+[2026-11-11 09:30:15] byte check 28/35 11273400
+[2026-11-11 09:30:44] byte check 29/35 12100490
+[2026-11-11 09:31:08] byte check 30/35 12301933
+[2026-11-11 09:31:44] byte check 31/35 13093383
+[2026-11-11 09:32:03] byte check 32/35 14181500
+[2026-11-11 09:32:28] byte check 33/35 14202980
+[2026-11-11 09:32:53] byte check 34/35 14316460
+[2026-11-11 09:33:21] byte check 35/35 393259107194801
+[2026-11-11 09:33:21] byte check done in 4.5 min; 26 site outputs reused
+[2026-11-11 09:33:26] integrity 1/35 01480870
+[2026-11-11 09:33:33] integrity 2/35 01575900
+[2026-11-11 09:33:37] integrity 3/35 01645762
+[2026-11-11 09:33:42] integrity 4/35 01646305
+[2026-11-11 09:33:51] integrity 5/35 01649500
+[2026-11-11 09:33:57] integrity 6/35 0208062765
+[2026-11-11 09:34:03] integrity 7/35 02203655
+[2026-11-11 09:34:10] integrity 8/35 02336300
+[2026-11-11 09:34:17] integrity 9/35 02336340
+[2026-11-11 09:34:24] integrity 10/35 02336410
+[2026-11-11 09:34:32] integrity 11/35 03292500
+[2026-11-11 09:34:38] integrity 12/35 03297900
+[2026-11-11 09:34:44] integrity 13/35 03301900
+[2026-11-11 09:34:50] integrity 14/35 03302060
+[2026-11-11 09:34:56] integrity 15/35 04067500
+[2026-11-11 09:35:07] integrity 16/35 040851385
+[2026-11-11 09:35:12] integrity 17/35 04087170
+[2026-11-11 09:35:19] integrity 18/35 04249000
+[2026-11-11 09:35:21] integrity 19/35 05474500
+[2026-11-11 09:35:27] integrity 20/35 05576100
+[2026-11-11 09:35:33] integrity 21/35 07020850
+[2026-11-11 09:35:35] integrity 22/35 07178200
+[2026-11-11 09:35:39] integrity 23/35 07374000
+[2026-11-11 09:35:44] integrity 24/35 08065350
+[2026-11-11 09:35:48] integrity 25/35 08188060
+[2026-11-11 09:35:55] integrity 26/35 09149500
+[2026-11-11 09:36:00] integrity 27/35 09180500
+[2026-11-11 09:36:05] integrity 28/35 11273400
+[2026-11-11 09:36:10] integrity 29/35 12100490
+[2026-11-11 09:36:16] integrity 30/35 12301933
+[2026-11-11 09:36:22] integrity 31/35 13093383
+[2026-11-11 09:36:27] integrity 32/35 14181500
+[2026-11-11 09:36:33] integrity 33/35 14202980
+[2026-11-11 09:36:39] integrity 34/35 14316460
+[2026-11-11 09:36:44] integrity 35/35 393259107194801
+[2026-11-11 09:36:44] integrity done in 3.4 min; 0 site outputs reused
+[2026-11-11 09:37:45] verdicts written: results/confirm4/verdicts4.md; tests passed 3 of 3 (H2, H3, H4); all rows: {'H1': 'pass', 'H2': 'pass', 'H3': 'pass', 'H4': 'pass', 'H6': 'pass', 'H7': 'not a test', 'H8': 'pass'}

@@ -23,3 +23,11 @@ Last updated: 2026-11-09. This file is not in the freeze (docs/FREEZE3.md).
 
 - Plan: docs/METHOD_V3_PLAN.md (draft, awaiting user and Prof approval; nothing built or downloaded).
 - Correction applied the same day: a record-level check cannot verify units that never arrived, so the remedy text in the Discussion, the Conclusion, and docs/CONFIRM3_RESULTS.md was rewritten (only the exactly-needed class benefits; the other classes need more check bits and an unconditional metric).
+
+## 2026-11-11: manuscript v1.0 (version 3, second confirmation)
+
+- Draft folder draft4/ (copied from draft3/ v0.5 and rewritten): abstract, introduction contributions, model (frame with CRC-24, hardened receiver, designs), data and design (two rounds, freeze-before-download, hypothesis types), results (development, first confirmation and revision, second confirmation, descriptive, integrity), discussion (post-hoc adoption and the comparator error stated in the text), conclusion; supplement S1 (cohort 4 sites), S3 (first confirmation in full), S4 (files and reproduction).
+- Deliverables: draft4/deliverables/Paper3_draft_v1.0.pdf (34 pages), Paper3_draft_v1.0.docx, Paper3_supplement_v1.0.pdf.
+- Generated from results only by paper_tools/make_v1.py (tables and figures) and paper_tools/make_word_v1.py (Word flattener); src/ is frozen (docs/FREEZE4.md), so new paper scripts live in paper_tools/.
+- Checks: src/paper/check_draft.py draft4 passes; paper_tools/check_numbers_v1.py finds every typed number in a source except the constructed example 7.01/7.03 (assumption R illustration).
+- Not yet done: highlights file; related-work section unchanged from v0.5 (check it still matches the version 3 claims); the four small table overflows (4 to 5 pt); an outside review (step 9 of docs/ROADMAP_V3.md) before any preprint or submission.
