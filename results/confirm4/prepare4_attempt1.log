@@ -1,0 +1,158 @@
+35 selected sites
+01480870 2022-01: 2976 values so far
+01480870 2022-02: 6666 values so far
+01480870 2022-03: 18222 values so far
+01480870 2022-04: 29415 values so far
+01480870 2022-05: 41313 values so far
+01480870 2022-06: 52833 values so far
+01480870 2022-07: 64621 values so far
+01480870 2022-08: 76450 values so far
+01480870 2022-09: 87970 values so far
+01480870 2022-10: 99874 values so far
+01480870 2022-11: 111410 values so far
+01480870 2022-12: 114529 values so far
+saved data\raw\usgs\01480870_2022-01-01_2022-12-31.csv (114529 rows) — East Branch Brandywine Creek below Downingtown, PA
+{'file': '01480870_2022-01-01_2022-12-31.csv', 'raw_values': 114529, 'approved_values': 114529, 'timestamps': 35026, 'median_step_min': 15.0}
+01575900 2022-01: 11850 values so far
+01575900 2022-02: 22602 values so far
+01575900 2022-03: 34490 values so far
+01575900 2022-04: 45956 values so far
+01575900 2022-05: 57806 values so far
+01575900 2022-06: 69319 values so far
+01575900 2022-07: 81173 values so far
+01575900 2022-08: 93069 values so far
+01575900 2022-09: 104557 values so far
+01575900 2022-10: 116461 values so far
+01575900 2022-11: 127972 values so far
+01575900 2022-12: 139872 values so far
+saved data\raw\usgs\01575900_2022-01-01_2022-12-31.csv (139872 rows) — Chiques Creek near Marietta, PA
+{'file': '01575900_2022-01-01_2022-12-31.csv', 'raw_values': 139872, 'approved_values': 139872, 'timestamps': 35001, 'median_step_min': 15.0}
+01645762 2022-01: 10986 values so far
+01645762 2022-02: 20690 values so far
+01645762 2022-03: 29842 values so far
+01645762 2022-04: 41360 values so far
+01645762 2022-05: 53069 values so far
+01645762 2022-06: 64474 values so far
+01645762 2022-07: 76206 values so far
+01645762 2022-08: 87703 values so far
+01645762 2022-09: 99143 values so far
+01645762 2022-10: 111046 values so far
+01645762 2022-11: 122384 values so far
+01645762 2022-12: 132980 values so far
+saved data\raw\usgs\01645762_2022-01-01_2022-12-31.csv (132980 rows) — S F LITTLE DIFFICULT RUN ABOVE MOUTH NR VIENNA, VA
+{'file': '01645762_2022-01-01_2022-12-31.csv', 'raw_values': 132980, 'approved_values': 132980, 'timestamps': 34883, 'median_step_min': 15.0}
+01646305 2022-01: 11880 values so far
+01646305 2022-02: 22614 values so far
+01646305 2022-03: 34489 values so far
+01646305 2022-04: 45965 values so far
+01646305 2022-05: 57645 values so far
+01646305 2022-06: 68567 values so far
+01646305 2022-07: 79834 values so far
+01646305 2022-08: 90831 values so far
+01646305 2022-09: 102333 values so far
+01646305 2022-10: 114191 values so far
+01646305 2022-11: 125726 values so far
+01646305 2022-12: 130914 values so far
+saved data\raw\usgs\01646305_2022-01-01_2022-12-31.csv (130914 rows) — DEAD RUN AT WHANN AVENUE NEAR MCLEAN, VA
+{'file': '01646305_2022-01-01_2022-12-31.csv', 'raw_values': 130914, 'approved_values': 130914, 'timestamps': 33144, 'median_step_min': 15.0}
+01649500 2022-01: 35667 values so far
+01649500 2022-02: 67847 values so far
+01649500 2022-03: 103482 values so far
+01649500 2022-04: 138002 values so far
+01649500 2022-05: 172714 values so far
+01649500 2022-06: 207244 values so far
+01649500 2022-07: 242894 values so far
+01649500 2022-08: 277707 values so far
+01649500 2022-09: 312257 values so far
+01649500 2022-10: 347704 values so far
+01649500 2022-11: 382273 values so far
+01649500 2022-12: 417956 values so far
+saved data\raw\usgs\01649500_2022-01-01_2022-12-31.csv (417956 rows) — NORTHEAST BRANCH ANACOSTIA RIVER AT RIVERDALE, MD
+{'file': '01649500_2022-01-01_2022-12-31.csv', 'raw_values': 417956, 'approved_values': 417956, 'timestamps': 104578, 'median_step_min': 5.0}
+0208062765 2022-01: 11894 values so far
+0208062765 2022-02: 22646 values so far
+0208062765 2022-03: 34472 values so far
+0208062765 2022-04: 45990 values so far
+0208062765 2022-05: 57245 values so far
+0208062765 2022-06: 68764 values so far
+0208062765 2022-07: 80650 values so far
+0208062765 2022-08: 92479 values so far
+0208062765 2022-09: 103931 values so far
+0208062765 2022-10: 115827 values so far
+0208062765 2022-11: 127363 values so far
+0208062765 2022-12: 139262 values so far
+saved data\raw\usgs\0208062765_2022-01-01_2022-12-31.csv (139262 rows) — ROANOKE RIVER AT HALIFAX, NC
+{'file': '0208062765_2022-01-01_2022-12-31.csv', 'raw_values': 139262, 'approved_values': 139262, 'timestamps': 34926, 'median_step_min': 15.0}
+02203655 2022-01: 11900 values so far
+02203655 2022-02: 22598 values so far
+02203655 2022-03: 34468 values so far
+02203655 2022-04: 45884 values so far
+02203655 2022-05: 57787 values so far
+02203655 2022-06: 69279 values so far
+02203655 2022-07: 81180 values so far
+02203655 2022-08: 92656 values so far
+02203655 2022-09: 104175 values so far
+02203655 2022-10: 116044 values so far
+02203655 2022-11: 127480 values so far
+02203655 2022-12: 139348 values so far
+saved data\raw\usgs\02203655_2022-01-01_2022-12-31.csv (139348 rows) — SOUTH RIVER AT FORREST PARK ROAD, AT ATLANTA, GA
+{'file': '02203655_2022-01-01_2022-12-31.csv', 'raw_values': 139348, 'approved_values': 139348, 'timestamps': 34996, 'median_step_min': 15.0}
+02336300 2022-01: 11782 values so far
+02336300 2022-02: 22472 values so far
+02336300 2022-03: 34234 values so far
+02336300 2022-04: 45727 values so far
+02336300 2022-05: 57631 values so far
+02336300 2022-06: 69108 values so far
+02336300 2022-07: 80913 values so far
+02336300 2022-08: 92762 values so far
+02336300 2022-09: 104273 values so far
+02336300 2022-10: 116074 values so far
+02336300 2022-11: 127213 values so far
+02336300 2022-12: 139082 values so far
+saved data\raw\usgs\02336300_2022-01-01_2022-12-31.csv (139082 rows) — PEACHTREE CREEK AT ATLANTA, GA
+{'file': '02336300_2022-01-01_2022-12-31.csv', 'raw_values': 139082, 'approved_values': 139082, 'timestamps': 34996, 'median_step_min': 15.0}
+02336340 2022-01: 11867 values so far
+02336340 2022-02: 22423 values so far
+02336340 2022-03: 34056 values so far
+02336340 2022-04: 45259 values so far
+02336340 2022-05: 56968 values so far
+02336340 2022-06: 68460 values so far
+02336340 2022-07: 80291 values so far
+02336340 2022-08: 91974 values so far
+02336340 2022-09: 103486 values so far
+02336340 2022-10: 115363 values so far
+02336340 2022-11: 126870 values so far
+02336340 2022-12: 138660 values so far
+saved data\raw\usgs\02336340_2022-01-01_2022-12-31.csv (138660 rows) — NANCY CREEK AT JOHNSON FERRY RD, AT CHAMBLEE, GA
+{'file': '02336340_2022-01-01_2022-12-31.csv', 'raw_values': 138660, 'approved_values': 138660, 'timestamps': 34935, 'median_step_min': 15.0}
+02336410 2022-01: 11805 values so far
+02336410 2022-02: 22503 values so far
+02336410 2022-03: 34290 values so far
+02336410 2022-04: 45776 values so far
+02336410 2022-05: 57663 values so far
+02336410 2022-06: 69152 values so far
+02336410 2022-07: 81049 values so far
+02336410 2022-08: 92911 values so far
+02336410 2022-09: 104425 values so far
+02336410 2022-10: 116051 values so far
+02336410 2022-11: 127474 values so far
+02336410 2022-12: 138811 values so far
+saved data\raw\usgs\02336410_2022-01-01_2022-12-31.csv (138811 rows) — NANCY CREEK AT WEST WESLEY ROAD, AT ATLANTA, GA
+{'file': '02336410_2022-01-01_2022-12-31.csv', 'raw_values': 138811, 'approved_values': 138811, 'timestamps': 34982, 'median_step_min': 15.0}
+03292500 2022-01: 11839 values so far
+03292500 2022-02: 22584 values so far
+  retry 1 for 2022-03-01: [WinError 10054] An existing connection was forcibly closed by the remote host
+  retry 2 for 2022-03-01: <urlopen error [Errno 11001] getaddrinfo failed>
+  retry 3 for 2022-03-01: <urlopen error [Errno 11001] getaddrinfo failed>
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\WSN_M\Paper3\src\p3v3\prepare_cohort4.py", line 77, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\User\Desktop\WSN_M\Paper3\src\p3v3\prepare_cohort4.py", line 56, in main
+    fetch(site, START, END)
+    ~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\WSN_M\Paper3\src\p3v3\..\data\fetch_usgs.py", line 45, in main
+    d = fetch_month(site, m0.date(), m1.date())
+  File "C:\Users\User\Desktop\WSN_M\Paper3\src\p3v3\..\data\fetch_usgs.py", line 35, in fetch_month
+    raise RuntimeError(f"failed {site} {start}-{end}")
+RuntimeError: failed 03292500 2022-03-01-2022-03-31

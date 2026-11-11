@@ -1,0 +1,364 @@
+35 selected sites
+{'file': '01480870_2022-01-01_2022-12-31.csv', 'raw_values': 114529, 'approved_values': 114529, 'timestamps': 35026, 'median_step_min': 15.0}
+{'file': '01575900_2022-01-01_2022-12-31.csv', 'raw_values': 139872, 'approved_values': 139872, 'timestamps': 35001, 'median_step_min': 15.0}
+{'file': '01645762_2022-01-01_2022-12-31.csv', 'raw_values': 132980, 'approved_values': 132980, 'timestamps': 34883, 'median_step_min': 15.0}
+{'file': '01646305_2022-01-01_2022-12-31.csv', 'raw_values': 130914, 'approved_values': 130914, 'timestamps': 33144, 'median_step_min': 15.0}
+{'file': '01649500_2022-01-01_2022-12-31.csv', 'raw_values': 417956, 'approved_values': 417956, 'timestamps': 104578, 'median_step_min': 5.0}
+{'file': '0208062765_2022-01-01_2022-12-31.csv', 'raw_values': 139262, 'approved_values': 139262, 'timestamps': 34926, 'median_step_min': 15.0}
+{'file': '02203655_2022-01-01_2022-12-31.csv', 'raw_values': 139348, 'approved_values': 139348, 'timestamps': 34996, 'median_step_min': 15.0}
+{'file': '02336300_2022-01-01_2022-12-31.csv', 'raw_values': 139082, 'approved_values': 139082, 'timestamps': 34996, 'median_step_min': 15.0}
+{'file': '02336340_2022-01-01_2022-12-31.csv', 'raw_values': 138660, 'approved_values': 138660, 'timestamps': 34935, 'median_step_min': 15.0}
+{'file': '02336410_2022-01-01_2022-12-31.csv', 'raw_values': 138811, 'approved_values': 138811, 'timestamps': 34982, 'median_step_min': 15.0}
+03292500 2022-01: 11839 values so far
+03292500 2022-02: 22584 values so far
+03292500 2022-03: 34450 values so far
+03292500 2022-04: 45956 values so far
+03292500 2022-05: 57853 values so far
+03292500 2022-06: 69321 values so far
+03292500 2022-07: 81192 values so far
+03292500 2022-08: 93052 values so far
+03292500 2022-09: 104525 values so far
+03292500 2022-10: 116416 values so far
+03292500 2022-11: 127904 values so far
+03292500 2022-12: 139732 values so far
+saved data\raw\usgs\03292500_2022-01-01_2022-12-31.csv (139732 rows) — SOUTH FORK BEARGRASS CREEK AT LOUISVILLE, KY
+{'file': '03292500_2022-01-01_2022-12-31.csv', 'raw_values': 139732, 'approved_values': 139732, 'timestamps': 34971, 'median_step_min': 15.0}
+03297900 2022-01: 9759 values so far
+03297900 2022-02: 20461 values so far
+03297900 2022-03: 31772 values so far
+03297900 2022-04: 43272 values so far
+03297900 2022-05: 55081 values so far
+03297900 2022-06: 66212 values so far
+03297900 2022-07: 77675 values so far
+03297900 2022-08: 89240 values so far
+03297900 2022-09: 100273 values so far
+03297900 2022-10: 110787 values so far
+03297900 2022-11: 122127 values so far
+03297900 2022-12: 133981 values so far
+saved data\raw\usgs\03297900_2022-01-01_2022-12-31.csv (133981 rows) — FLOYDS FORK NEAR PEWEE VALLEY, KY
+{'file': '03297900_2022-01-01_2022-12-31.csv', 'raw_values': 133981, 'approved_values': 133981, 'timestamps': 34743, 'median_step_min': 15.0}
+03301900 2022-01: 11184 values so far
+03301900 2022-02: 21589 values so far
+03301900 2022-03: 33245 values so far
+03301900 2022-04: 44570 values so far
+03301900 2022-05: 56358 values so far
+03301900 2022-06: 67729 values so far
+03301900 2022-07: 79338 values so far
+03301900 2022-08: 91220 values so far
+03301900 2022-09: 102683 values so far
+03301900 2022-10: 114559 values so far
+03301900 2022-11: 126001 values so far
+03301900 2022-12: 137888 values so far
+saved data\raw\usgs\03301900_2022-01-01_2022-12-31.csv (137888 rows) — FERN CREEK AT OLD BARDSTOWN RD AT LOUISVILLE, KY
+{'file': '03301900_2022-01-01_2022-12-31.csv', 'raw_values': 137888, 'approved_values': 137888, 'timestamps': 34839, 'median_step_min': 15.0}
+  retry 1 for 2022-01-01: HTTP Error 502: Proxy Error
+03302060 2022-01: 11862 values so far
+03302060 2022-02: 22578 values so far
+03302060 2022-03: 34411 values so far
+03302060 2022-04: 45899 values so far
+03302060 2022-05: 57795 values so far
+03302060 2022-06: 69265 values so far
+03302060 2022-07: 81137 values so far
+03302060 2022-08: 92567 values so far
+03302060 2022-09: 102165 values so far
+03302060 2022-10: 112107 values so far
+03302060 2022-11: 123603 values so far
+03302060 2022-12: 135465 values so far
+saved data\raw\usgs\03302060_2022-01-01_2022-12-31.csv (135465 rows) — SALT RIVER AT MOUTH AT WEST POINT, KY
+{'file': '03302060_2022-01-01_2022-12-31.csv', 'raw_values': 135465, 'approved_values': 135465, 'timestamps': 34987, 'median_step_min': 15.0}
+04067500 2022-01: 11071 values so far
+04067500 2022-02: 19968 values so far
+04067500 2022-03: 28222 values so far
+04067500 2022-04: 37638 values so far
+04067500 2022-05: 49533 values so far
+04067500 2022-06: 61049 values so far
+04067500 2022-07: 72939 values so far
+04067500 2022-08: 84832 values so far
+04067500 2022-09: 96350 values so far
+04067500 2022-10: 106155 values so far
+04067500 2022-11: 116431 values so far
+04067500 2022-12: 128325 values so far
+saved data\raw\usgs\04067500_2022-01-01_2022-12-31.csv (128325 rows) — MENOMINEE RIVER NEAR MC ALLISTER, WI
+{'file': '04067500_2022-01-01_2022-12-31.csv', 'raw_values': 128325, 'approved_values': 128325, 'timestamps': 33824, 'median_step_min': 15.0}
+040851385 2022-01: 35704 values so far
+040851385 2022-02: 67892 values so far
+040851385 2022-03: 103459 values so far
+040851385 2022-04: 137909 values so far
+040851385 2022-05: 173613 values so far
+040851385 2022-06: 208121 values so far
+040851385 2022-07: 243816 values so far
+040851385 2022-08: 279493 values so far
+040851385 2022-09: 314032 values so far
+040851385 2022-10: 349376 values so far
+040851385 2022-11: 383824 values so far
+040851385 2022-12: 419310 values so far
+saved data\raw\usgs\040851385_2022-01-01_2022-12-31.csv (419310 rows) — FOX RIVER AT OIL TANK DEPOT AT GREEN BAY, WI
+{'file': '040851385_2022-01-01_2022-12-31.csv', 'raw_values': 419310, 'approved_values': 419310, 'timestamps': 104836, 'median_step_min': 5.0}
+04087170 2022-01: 13711 values so far
+04087170 2022-02: 29223 values so far
+04087170 2022-03: 60270 values so far
+04087170 2022-04: 96298 values so far
+04087170 2022-05: 133628 values so far
+04087170 2022-06: 165376 values so far
+04087170 2022-07: 202205 values so far
+04087170 2022-08: 239023 values so far
+04087170 2022-09: 272721 values so far
+04087170 2022-10: 307725 values so far
+04087170 2022-11: 344006 values so far
+04087170 2022-12: 377569 values so far
+saved data\raw\usgs\04087170_2022-01-01_2022-12-31.csv (377569 rows) — MILWAUKEE RIVER AT MOUTH AT MILWAUKEE, WI
+{'file': '04087170_2022-01-01_2022-12-31.csv', 'raw_values': 377569, 'approved_values': 191556, 'timestamps': 49792, 'median_step_min': 10.0}
+04249000 2022-01: 11900 values so far
+04249000 2022-02: 22598 values so far
+04249000 2022-03: 34419 values so far
+04249000 2022-04: 45917 values so far
+04249000 2022-05: 57791 values so far
+04249000 2022-06: 69260 values so far
+04249000 2022-07: 81085 values so far
+04249000 2022-08: 92948 values so far
+04249000 2022-09: 104464 values so far
+04249000 2022-10: 116349 values so far
+04249000 2022-11: 127857 values so far
+04249000 2022-12: 139756 values so far
+saved data\raw\usgs\04249000_2022-01-01_2022-12-31.csv (139756 rows) — OSWEGO RIVER AT LOCK 7, OSWEGO NY
+{'file': '04249000_2022-01-01_2022-12-31.csv', 'raw_values': 139756, 'approved_values': 139756, 'timestamps': 34982, 'median_step_min': 15.0}
+05474500 2022-01: 9204 values so far
+05474500 2022-02: 18834 values so far
+05474500 2022-03: 29287 values so far
+05474500 2022-04: 38239 values so far
+05474500 2022-05: 49492 values so far
+05474500 2022-06: 60517 values so far
+05474500 2022-07: 72329 values so far
+05474500 2022-08: 84128 values so far
+05474500 2022-09: 95399 values so far
+05474500 2022-10: 103503 values so far
+05474500 2022-11: 110677 values so far
+05474500 2022-12: 121165 values so far
+saved data\raw\usgs\05474500_2022-01-01_2022-12-31.csv (121165 rows) — Mississippi River at Keokuk, IA
+{'file': '05474500_2022-01-01_2022-12-31.csv', 'raw_values': 121165, 'approved_values': 121165, 'timestamps': 32569, 'median_step_min': 15.0}
+05576100 2022-01: 7093 values so far
+05576100 2022-02: 17662 values so far
+05576100 2022-03: 29463 values so far
+05576100 2022-04: 40981 values so far
+05576100 2022-05: 52546 values so far
+05576100 2022-06: 63779 values so far
+05576100 2022-07: 74438 values so far
+05576100 2022-08: 85846 values so far
+05576100 2022-09: 97358 values so far
+05576100 2022-10: 109250 values so far
+05576100 2022-11: 120768 values so far
+05576100 2022-12: 132599 values so far
+saved data\raw\usgs\05576100_2022-01-01_2022-12-31.csv (132599 rows) — LICK CREEK NEAR WOODSIDE, IL
+{'file': '05576100_2022-01-01_2022-12-31.csv', 'raw_values': 132599, 'approved_values': 132599, 'timestamps': 33818, 'median_step_min': 15.0}
+07020850 2022-01: 11802 values so far
+07020850 2022-02: 22448 values so far
+07020850 2022-03: 34314 values so far
+07020850 2022-04: 45790 values so far
+07020850 2022-05: 57678 values so far
+07020850 2022-06: 69154 values so far
+07020850 2022-07: 77964 values so far
+07020850 2022-08: 89838 values so far
+07020850 2022-09: 101349 values so far
+07020850 2022-10: 113218 values so far
+07020850 2022-11: 124716 values so far
+07020850 2022-12: 136570 values so far
+saved data\raw\usgs\07020850_2022-01-01_2022-12-31.csv (136570 rows) — Mississippi River at Cape Girardeau, MO
+{'file': '07020850_2022-01-01_2022-12-31.csv', 'raw_values': 136570, 'approved_values': 136474, 'timestamps': 34252, 'median_step_min': 15.0}
+07178200 2022-01: 9143 values so far
+07178200 2022-02: 17326 values so far
+07178200 2022-03: 25673 values so far
+07178200 2022-04: 33602 values so far
+07178200 2022-05: 41778 values so far
+07178200 2022-06: 51899 values so far
+07178200 2022-07: 59655 values so far
+07178200 2022-08: 68303 values so far
+07178200 2022-09: 78346 values so far
+07178200 2022-10: 89577 values so far
+07178200 2022-11: 100913 values so far
+07178200 2022-12: 108575 values so far
+saved data\raw\usgs\07178200_2022-01-01_2022-12-31.csv (108575 rows) — Bird Ck at State Highway 266 near Catoosa, OK
+{'file': '07178200_2022-01-01_2022-12-31.csv', 'raw_values': 108575, 'approved_values': 108575, 'timestamps': 33470, 'median_step_min': 15.0}
+07374000 2022-01: 2912 values so far
+07374000 2022-02: 5564 values so far
+07374000 2022-03: 8476 values so far
+07374000 2022-04: 11320 values so far
+07374000 2022-05: 14241 values so far
+07374000 2022-06: 17105 values so far
+07374000 2022-07: 20070 values so far
+07374000 2022-08: 23008 values so far
+07374000 2022-09: 25868 values so far
+07374000 2022-10: 28221 values so far
+07374000 2022-11: 30982 values so far
+07374000 2022-12: 33441 values so far
+saved data\raw\usgs\07374000_2022-01-01_2022-12-31.csv (33441 rows) — Mississippi River at Baton Rouge, LA
+{'file': '07374000_2022-01-01_2022-12-31.csv', 'raw_values': 33441, 'approved_values': 33441, 'timestamps': 8580, 'median_step_min': 60.0}
+08065350 2022-01: 11900 values so far
+08065350 2022-02: 20676 values so far
+08065350 2022-03: 30406 values so far
+08065350 2022-04: 41805 values so far
+08065350 2022-05: 53557 values so far
+08065350 2022-06: 64185 values so far
+08065350 2022-07: 74103 values so far
+08065350 2022-08: 85573 values so far
+08065350 2022-09: 96870 values so far
+08065350 2022-10: 108758 values so far
+08065350 2022-11: 119346 values so far
+08065350 2022-12: 131250 values so far
+saved data\raw\usgs\08065350_2022-01-01_2022-12-31.csv (131250 rows) — Trinity Rv nr Crockett, TX
+{'file': '08065350_2022-01-01_2022-12-31.csv', 'raw_values': 131250, 'approved_values': 131250, 'timestamps': 34738, 'median_step_min': 15.0}
+08188060 2022-01: 11594 values so far
+08188060 2022-02: 21873 values so far
+08188060 2022-03: 33261 values so far
+08188060 2022-04: 44522 values so far
+08188060 2022-05: 56190 values so far
+08188060 2022-06: 67465 values so far
+08188060 2022-07: 78969 values so far
+08188060 2022-08: 90652 values so far
+08188060 2022-09: 101976 values so far
+08188060 2022-10: 113795 values so far
+08188060 2022-11: 125019 values so far
+08188060 2022-12: 134956 values so far
+saved data\raw\usgs\08188060_2022-01-01_2022-12-31.csv (134956 rows) — San Antonio Rv at SH 72 nr Runge, TX
+{'file': '08188060_2022-01-01_2022-12-31.csv', 'raw_values': 134956, 'approved_values': 134956, 'timestamps': 34292, 'median_step_min': 15.0}
+09149500 2022-01: 11852 values so far
+09149500 2022-02: 22507 values so far
+09149500 2022-03: 34392 values so far
+09149500 2022-04: 45912 values so far
+09149500 2022-05: 57816 values so far
+09149500 2022-06: 69332 values so far
+09149500 2022-07: 81231 values so far
+09149500 2022-08: 93125 values so far
+09149500 2022-09: 104615 values so far
+09149500 2022-10: 116483 values so far
+09149500 2022-11: 128019 values so far
+09149500 2022-12: 139909 values so far
+saved data\raw\usgs\09149500_2022-01-01_2022-12-31.csv (139909 rows) — UNCOMPAHGRE RIVER AT DELTA, CO
+{'file': '09149500_2022-01-01_2022-12-31.csv', 'raw_values': 139909, 'approved_values': 139909, 'timestamps': 35031, 'median_step_min': 15.0}
+09180500 2022-01: 11728 values so far
+09180500 2022-02: 22394 values so far
+09180500 2022-03: 34188 values so far
+09180500 2022-04: 45633 values so far
+09180500 2022-05: 57528 values so far
+09180500 2022-06: 69048 values so far
+09180500 2022-07: 79797 values so far
+09180500 2022-08: 91418 values so far
+09180500 2022-09: 102918 values so far
+09180500 2022-10: 114812 values so far
+09180500 2022-11: 126291 values so far
+09180500 2022-12: 137731 values so far
+saved data\raw\usgs\09180500_2022-01-01_2022-12-31.csv (137731 rows) — COLORADO RIVER NEAR CISCO, UT
+{'file': '09180500_2022-01-01_2022-12-31.csv', 'raw_values': 137731, 'approved_values': 137731, 'timestamps': 34961, 'median_step_min': 15.0}
+11273400 2022-01: 11749 values so far
+11273400 2022-02: 22355 values so far
+11273400 2022-03: 34203 values so far
+11273400 2022-04: 45561 values so far
+11273400 2022-05: 57368 values so far
+11273400 2022-06: 68471 values so far
+11273400 2022-07: 80045 values so far
+11273400 2022-08: 91924 values so far
+11273400 2022-09: 103422 values so far
+11273400 2022-10: 108486 values so far
+11273400 2022-11: 116525 values so far
+11273400 2022-12: 125450 values so far
+saved data\raw\usgs\11273400_2022-01-01_2022-12-31.csv (125450 rows) — SAN JOAQUIN R AB MERCED R NR NEWMAN CA
+{'file': '11273400_2022-01-01_2022-12-31.csv', 'raw_values': 125450, 'approved_values': 125450, 'timestamps': 33141, 'median_step_min': 15.0}
+12100490 2022-01: 11904 values so far
+12100490 2022-02: 22554 values so far
+12100490 2022-03: 32319 values so far
+12100490 2022-04: 42832 values so far
+12100490 2022-05: 54681 values so far
+12100490 2022-06: 65494 values so far
+12100490 2022-07: 75829 values so far
+12100490 2022-08: 87702 values so far
+12100490 2022-09: 98989 values so far
+12100490 2022-10: 109857 values so far
+12100490 2022-11: 118063 values so far
+12100490 2022-12: 129327 values so far
+saved data\raw\usgs\12100490_2022-01-01_2022-12-31.csv (129327 rows) — WHITE RIVER AT R STREET NEAR AUBURN, WA
+{'file': '12100490_2022-01-01_2022-12-31.csv', 'raw_values': 129327, 'approved_values': 129327, 'timestamps': 35016, 'median_step_min': 15.0}
+12301933 2022-01: 11896 values so far
+12301933 2022-02: 22639 values so far
+12301933 2022-03: 34511 values so far
+12301933 2022-04: 46019 values so far
+12301933 2022-05: 57913 values so far
+12301933 2022-06: 69412 values so far
+12301933 2022-07: 81289 values so far
+12301933 2022-08: 93181 values so far
+12301933 2022-09: 104701 values so far
+12301933 2022-10: 116563 values so far
+12301933 2022-11: 128086 values so far
+12301933 2022-12: 139990 values so far
+saved data\raw\usgs\12301933_2022-01-01_2022-12-31.csv (139990 rows) — Kootenai River bl Libby Dam nr Libby MT
+{'file': '12301933_2022-01-01_2022-12-31.csv', 'raw_values': 139990, 'approved_values': 139990, 'timestamps': 35003, 'median_step_min': 15.0}
+13093383 2022-01: 11903 values so far
+13093383 2022-02: 22655 values so far
+13093383 2022-03: 34540 values so far
+13093383 2022-04: 46059 values so far
+13093383 2022-05: 57959 values so far
+13093383 2022-06: 69474 values so far
+13093383 2022-07: 81369 values so far
+13093383 2022-08: 93269 values so far
+13093383 2022-09: 104782 values so far
+13093383 2022-10: 116682 values so far
+13093383 2022-11: 128218 values so far
+13093383 2022-12: 140120 values so far
+saved data\raw\usgs\13093383_2022-01-01_2022-12-31.csv (140120 rows) — SNAKE RIVER AT PIGEON COVE NR TWIN FALLS, ID
+{'file': '13093383_2022-01-01_2022-12-31.csv', 'raw_values': 140120, 'approved_values': 140120, 'timestamps': 35039, 'median_step_min': 15.0}
+14181500 2022-01: 13192 values so far
+14181500 2022-02: 25020 values so far
+14181500 2022-03: 37901 values so far
+14181500 2022-04: 50024 values so far
+14181500 2022-05: 62774 values so far
+14181500 2022-06: 75503 values so far
+14181500 2022-07: 88108 values so far
+14181500 2022-08: 101341 values so far
+14181500 2022-09: 114238 values so far
+14181500 2022-10: 127565 values so far
+14181500 2022-11: 140318 values so far
+14181500 2022-12: 151416 values so far
+saved data\raw\usgs\14181500_2022-01-01_2022-12-31.csv (151416 rows) — NORTH SANTIAM RIVER AT NIAGARA, OR
+{'file': '14181500_2022-01-01_2022-12-31.csv', 'raw_values': 151416, 'approved_values': 151416, 'timestamps': 99467, 'median_step_min': 5.0}
+14202980 2022-01: 5941 values so far
+14202980 2022-02: 11317 values so far
+14202980 2022-03: 17243 values so far
+14202980 2022-04: 22992 values so far
+14202980 2022-05: 28944 values so far
+14202980 2022-06: 34701 values so far
+14202980 2022-07: 40640 values so far
+14202980 2022-08: 46592 values so far
+14202980 2022-09: 52350 values so far
+14202980 2022-10: 58302 values so far
+14202980 2022-11: 64056 values so far
+14202980 2022-12: 70006 values so far
+saved data\raw\usgs\14202980_2022-01-01_2022-12-31.csv (70006 rows) — SCOGGINS CK BLW HENRY HAGG LAKE, NR GASTON, OR
+{'file': '14202980_2022-01-01_2022-12-31.csv', 'raw_values': 70006, 'approved_values': 70006, 'timestamps': 17507, 'median_step_min': 30.0}
+14316460 2022-01: 5950 values so far
+14316460 2022-02: 11326 values so far
+14316460 2022-03: 17244 values so far
+14316460 2022-04: 25151 values so far
+14316460 2022-05: 37054 values so far
+14316460 2022-06: 48569 values so far
+14316460 2022-07: 60473 values so far
+14316460 2022-08: 72372 values so far
+14316460 2022-09: 83876 values so far
+14316460 2022-10: 95766 values so far
+14316460 2022-11: 107302 values so far
+14316460 2022-12: 119202 values so far
+saved data\raw\usgs\14316460_2022-01-01_2022-12-31.csv (119202 rows) — NORTH UMPQUA R AT SODA SPGS, NR TOKETEE FALLS, OR
+{'file': '14316460_2022-01-01_2022-12-31.csv', 'raw_values': 119202, 'approved_values': 119202, 'timestamps': 29833, 'median_step_min': 15.0}
+393259107194801 2022-01: 9959 values so far
+393259107194801 2022-02: 20664 values so far
+393259107194801 2022-03: 32499 values so far
+393259107194801 2022-04: 44006 values so far
+393259107194801 2022-05: 54603 values so far
+393259107194801 2022-06: 65955 values so far
+393259107194801 2022-07: 77831 values so far
+393259107194801 2022-08: 89716 values so far
+393259107194801 2022-09: 101083 values so far
+393259107194801 2022-10: 112490 values so far
+393259107194801 2022-11: 122796 values so far
+393259107194801 2022-12: 134674 values so far
+saved data\raw\usgs\393259107194801_2022-01-01_2022-12-31.csv (134674 rows) — COLORADO R ABV ROARING FORK R AT GLENWOOD SPGS, CO
+{'file': '393259107194801_2022-01-01_2022-12-31.csv', 'raw_values': 134674, 'approved_values': 134674, 'timestamps': 35370, 'median_step_min': 15.0}
+sealed 35 raw and 35 clean files; excluded (no data): []
+next: commit data/raw/usgs_new4_2022.md5 and data/clean/usgs_new4_2022.md5, then run: python -I src/p3v3/confirm4.py data/clean/usgs_new4_2022 confirm4 data/clean/usgs_new4_2022.md5

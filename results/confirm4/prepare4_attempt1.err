@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\WSN_M\Paper3\src\p3v3\prepare_cohort4.py", line 77, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\User\Desktop\WSN_M\Paper3\src\p3v3\prepare_cohort4.py", line 56, in main
+    fetch(site, START, END)
+    ~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\WSN_M\Paper3\src\p3v3\..\data\fetch_usgs.py", line 45, in main
+    d = fetch_month(site, m0.date(), m1.date())
+  File "C:\Users\User\Desktop\WSN_M\Paper3\src\p3v3\..\data\fetch_usgs.py", line 35, in fetch_month
+    raise RuntimeError(f"failed {site} {start}-{end}")
+RuntimeError: failed 03292500 2022-02-01-2022-02-28
