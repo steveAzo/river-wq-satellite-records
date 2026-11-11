@@ -1,10 +1,10 @@
-"""Audit of the typed numbers of the v1.0 manuscript (draft4/): every decimal number with two or more decimals in the prose must occur
+﻿"""Audit of the typed numbers of the v1.0 manuscript (draft4/): every decimal number with two or more decimals in the prose must occur
 in a named results file, or be a stated difference of two numbers in a draft4 table. It does not show that a number is attached to the
 right claim. Run from Paper3/: python -I paper_tools/check_numbers_v1.py"""
 import glob
 import re
 
-FILES = ["results/confirm4/verdicts4.md", "results/rehearsal4_2023/verdicts4.md", "results/rehearsal4v2/verdicts4.md",
+FILES = ["results/confirm4/verdicts4.md", "results/confirm4/robust_stats_rounded.csv", "results/rehearsal4_2023/verdicts4.md", "results/rehearsal4v2/verdicts4.md",
          "docs/CONFIRM4_RESULTS.md", "docs/CONFIRM4_PLAN.md", "docs/V3_DEV_RESULTS.md", "docs/CONFIRM3_RESULTS.md",
          "docs/PROTO_Q_RESULTS.md", "docs/PROTO_J_RESULTS.md", "docs/BASELINES2_RESULTS.md", "docs/CERTIFICATE_SPEC.md"]
 allsrc = "\n".join(open(f, encoding="utf-8").read() for f in FILES)
@@ -27,3 +27,4 @@ for f in sorted(glob.glob("draft4/sec_*.tex")):
         if n not in nums and not any(x.startswith(n) or x == n + "0" for x in nums):
             bad.append((f, n))
 print("numbers not found in any source:", sorted(set(bad)) if bad else "none")
+

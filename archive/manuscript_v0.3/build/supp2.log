@@ -1,0 +1,183 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(supplement.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo))
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty))
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\mathptmx.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cf
+g)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def)
+)) (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
+ex.def) (supplement.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
+i
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-ba
+se.sty
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cf
+g)) (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ztmcm.fd)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlztmcm.fd)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omsztmcm.fd)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omxztmcm.fd)
+Overfull \hbox (19.23975pt too wide) in alignment at lines 13--18
+ [] [] [] [] [] [] [] 
+
+Overfull \hbox (19.23975pt too wide) in alignment at lines 18--22
+ [] [] [] [] [] [] [] 
+
+Underfull \hbox (badness 1057) in paragraph at lines 30--30
+[]|\OT1/ptm/m/n/10.95 Poquessing Creek at Grant Ave. at
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
+[]|\OT1/ptm/m/n/10.95 Frankford Creek at Cas-tor Ave,
+
+Underfull \hbox (badness 4595) in paragraph at lines 33--33
+[]|\OT1/ptm/m/n/10.95 Delaware River at Penn's Land-ing,
+
+Underfull \hbox (badness 1147) in paragraph at lines 38--38
+[]|\OT1/ptm/m/n/10.95 Monongahela River near Ma-son-town,
+
+Overfull \hbox (19.23975pt too wide) in alignment at lines 22--62
+ [] [] [] [] [] [] [] 
+ignored error: Infinite glue shrinkage found in box being split [1{C:/Users/Use
+r/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/User/AppData/Local
+/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
+Overfull \hbox (37.17429pt too wide) in alignment at lines 63--68
+ [] [] [] [] [] [] [] 
+
+Overfull \hbox (37.17429pt too wide) in alignment at lines 68--72
+ [] [] [] [] [] [] [] 
+
+Underfull \hbox (badness 1038) in paragraph at lines 73--73
+[]|\OT1/ptm/m/n/10.95 New Eng-land and
+
+Underfull \hbox (badness 1189) in paragraph at lines 74--74
+[]|\OT1/ptm/m/n/10.95 Mongaup River Near Mon-
+
+Underfull \hbox (badness 1038) in paragraph at lines 74--74
+[]|\OT1/ptm/m/n/10.95 New Eng-land and
+
+Underfull \hbox (badness 3158) in paragraph at lines 78--78
+[]|\OT1/ptm/m/n/10.95 Little Stone Mtn Cr Near
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+[]|\OT1/ptm/m/n/10.95 Little Tal-lapoosa R At
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+\OT1/ptm/m/n/10.95 Reavesville Rd Nr Bow-
+
+Underfull \hbox (badness 6157) in paragraph at lines 83--83
+[]|\OT1/ptm/m/n/10.95 Great Plains and
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--84
+[]|\OT1/ptm/m/n/10.95 Cattaraugus Creek At
+
+Underfull \hbox (badness 1038) in paragraph at lines 84--84
+[]|\OT1/ptm/m/n/10.95 New Eng-land and
+
+Underfull \hbox (badness 1038) in paragraph at lines 85--85
+[]|\OT1/ptm/m/n/10.95 New Eng-land and
+
+Underfull \hbox (badness 6157) in paragraph at lines 86--86
+[]|\OT1/ptm/m/n/10.95 Great Plains and
+
+Underfull \hbox (badness 6157) in paragraph at lines 88--88
+[]|\OT1/ptm/m/n/10.95 Great Plains and
+
+Underfull \hbox (badness 6157) in paragraph at lines 89--89
+[]|\OT1/ptm/m/n/10.95 Great Plains and
+
+Underfull \hbox (badness 6157) in paragraph at lines 90--90
+[]|\OT1/ptm/m/n/10.95 Great Plains and
+
+Underfull \hbox (badness 6157) in paragraph at lines 92--92
+[]|\OT1/ptm/m/n/10.95 Great Plains and
+
+Underfull \hbox (badness 6157) in paragraph at lines 93--93
+[]|\OT1/ptm/m/n/10.95 Great Plains and
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--94
+[]|\OT1/ptm/m/n/10.95 Southwest and
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
+[]|\OT1/ptm/m/n/10.95 Southwest and
+
+Underfull \hbox (badness 10000) in paragraph at lines 96--96
+[]|\OT1/ptm/m/n/10.95 Southwest and
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--97
+[]|\OT1/ptm/m/n/10.95 Southwest and
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--98
+[]|\OT1/ptm/m/n/10.95 Southwest and
+
+Underfull \hbox (badness 10000) in paragraph at lines 99--99
+[]|\OT1/ptm/m/n/10.95 Southwest and
+
+Underfull \hbox (badness 1424) in paragraph at lines 100--100
+[]|\OT1/ptm/m/n/10.95 Rio Grande at Rio Grande
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
+[]|\OT1/ptm/m/n/10.95 Southwest and
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--102
+[]|\OT1/ptm/m/n/10.95 Colorado R Abv South
+
+Underfull \hbox (badness 7468) in paragraph at lines 102--102
+\OT1/ptm/m/n/10.95 Canyon Cr Nr Glen-wood
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
+[]|\OT1/ptm/m/n/10.95 Colorado River Near
+
+Underfull \hbox (badness 1466) in paragraph at lines 105--105
+[]|\OT1/ptm/m/n/10.95 Verde River Be-low Bartlett
+
+Underfull \hbox (badness 10000) in paragraph at lines 105--105
+[]|\OT1/ptm/m/n/10.95 Southwest and
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--106
+[]|\OT1/ptm/m/n/10.95 Silver Creek Near Sil-ver
+
+Underfull \hbox (badness 6157) in paragraph at lines 107--107
+[]|\OT1/ptm/m/n/10.95 Great Plains and
+
+Overfull \hbox (37.17429pt too wide) in alignment at lines 72--110
+ [] [] [] [] [] [] [] 
+ignored error: Infinite glue shrinkage found in box being split [2]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3] [4] [5 <./figs/season.pdf>] (supplement.aux) )
+(see the transcript file for additional information)<C:/Users/User/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/User/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Us
+er/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Use
+r/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/User
+/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on supplement.pdf (5 pages, 101904 bytes).
+Transcript written on supplement.log.

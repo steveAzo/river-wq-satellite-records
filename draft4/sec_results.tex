@@ -48,7 +48,7 @@ The confirmation cohort fell within the range of the two development years on ev
 \caption{The three tests on the two development years and on the confirmation cohort, computed by the same frozen code (point estimate with the lower bound of the 95\% interval in brackets; ind.\ is independent loss and Gil.\ is Gilbert loss).}
 \label{tab:years}
 \scriptsize
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{1.9cm}cccc@{}}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.9cm}>{\raggedright\arraybackslash}p{1.8cm}cccc@{}}
 \toprule
 Test & Year & $Q = 6$, ind. & $Q = 6$, Gil. & $Q = 12$, ind. & $Q = 12$, Gil. \\
 \midrule
@@ -56,6 +56,23 @@ Test & Year & $Q = 6$, ind. & $Q = 6$, Gil. & $Q = 12$, ind. & $Q = 12$, Gil. \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\subsection{Robustness of the estimates (post hoc)}
+\label{sec:robust}
+The confirmatory estimates were re-analysed after the run from the run's own per-site outputs; nothing was re-simulated. The conclusions did not depend on the weighting or the number of resamples:
+\begin{itemize}
+  \item With 10,000 resamples instead of 1,000, every interval of H2 to H4 changed by at most 0.002 at either end.
+  \item With equal weight per site, the H2 contrasts were 0.178 to 0.217 (lowest lower bound 0.154) and the H3 contrasts 0.191 to 0.258 (lowest lower bound 0.159); the H4 costs were 0.025 to 0.080.
+  \item With equal weight per query kind, the H2 contrasts were 0.148 to 0.209 (lowest lower bound 0.125) and the H3 contrasts 0.164 to 0.262 (lowest lower bound 0.130).
+  \item Every one of the 35 sites had a positive H2 and H3 contrast in all four conditions (Fig.~\ref{fig:sites}); for H2 at $Q = 6$ under independent loss the 5th, 50th, and 95th percentiles of the site contrasts were 0.117, 0.207, and 0.361. The record cost varied more between sites: at $Q = 6$ under independent loss the 5th percentile of the site differences was $-$0.160 and the median $-$0.062.
+\end{itemize}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\textwidth]{figs/sites.pdf}
+\caption{Per-site contrasts on the sealed cohort at six messages per day under independent loss (35 sites; the bar is the median; the dashed line is the pre-registered limit of the pooled contrast). Post hoc.}
+\label{fig:sites}
+\end{figure}
 
 \subsection{Descriptive comparison}
 \label{sec:desc}

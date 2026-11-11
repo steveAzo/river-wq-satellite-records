@@ -1,0 +1,930 @@
+ A regulatory-grade river water-quality record in a few
+                   satellite messages a day
+
+                     Kofi Sarpong Adu-Manua,, S. K. Azongoa
+
+           aDepartment of Computer Science, University of Ghana, Accra, Ghana
+
+Abstract
+
+Many polluted rivers, such as those affected by illegal gold mining in Ghana,
+lie beyond terrestrial network coverage, and satellite Internet of Things ser-
+vices that reach them sell a small number of short, one-way messages per day.
+This study asked how much data a regulatory-grade water-quality record re-
+quires, and how such a record can be delivered over these links. A record was
+taken as guaranteed when every reconstructed value stayed within the United
+States Geological Survey (USGS) accuracy rating of an excellent record. On
+39 USGS river sites, the fewest values that guaranteed a day of temperature,
+conductance, dissolved oxygen, and pH needed a median of 15 bytes, 1.8% of
+the raw data, and at most 10 messages of 23 bytes. Because the satellite link
+gives no acknowledgements, the design that protected this minimal record
+with an erasure code across messages was compared with current practice in
+a pre-registered study: designs were tuned on 2023 data and confirmed on
+a sealed 2024 year. At six messages a day with 30% message loss, the pro-
+posed design guaranteed 89% of site-days, against 34% for the same record
+sent without protection and 43% for the scheme used by satellite-linked an-
+imal tags; repetition of the record performed similarly to the code. With a
+buffer, six messages a day kept 90% of days guaranteed within a week at 35
+of 39 sites, and a 28-day pilot selected an adequate message plan for 85% of
+sites. All seven pre-registered hypotheses held.
+
+Keywords: water-quality monitoring, satellite Internet of Things, data
+compression, erasure coding, error-bounded records, remote sensing
+networks
+
+    Corresponding author.
+1. Introduction
+
+    Continuous water-quality monitoring underpins the regulation of rivers
+that supply drinking water and receive pollution. Wireless sensor networks
+have made it possible to measure temperature, specific conductance, dis-
+solved oxygen, and pH every few minutes at low cost (Adu-Manu et al.,
+2017). Deployments in Ghana and Kosovo have shown that such systems
+work in practice, but they relied on cellular backhaul (Adu-Manu et al., 2020;
+Ahmedi and Ahmedi, 2022). The rivers under the greatest pressure are of-
+ten the furthest from that infrastructure. In Ghana, illegal small-scale gold
+mining has degraded rivers in forested catchments where terrestrial coverage
+is sparse (Duncan, 2020).
+
+    Satellite Internet of Things (IoT) services now reach such sites with small,
+low-power terminals (Centenaro et al., 2021). Their capacity, however, is sold
+in messages, not bandwidth. A typical module transmits one-way messages
+of about 23 bytes at 400 bit/s and receives no acknowledgement (Kinéis,
+2023), and service plans offer a few to a few dozen messages per day. A four-
+parameter sensor sampling every 10 minutes produces approximately 1,296
+bytes per day, which would require tens of such messages. The question for
+a monitoring agency is therefore not how to stream every reading, but what
+a credible record of the river costs, and how to deliver that record when
+messages are scarce and may be lost without notice.
+
+    This study addressed that question with a definition of credibility taken
+from regulatory practice. The USGS rates the accuracy of continuous water-
+quality records, and an excellent record keeps temperature within 0.2 °C,
+specific conductance within 3%, dissolved oxygen within 0.3 mg/L or 5%,
+and pH within 0.2 units (Wagner et al., 2006). A day's record was called
+guaranteed when every value reconstructed at the server stayed within these
+limits. The study then asked four research questions:
+1. RQ1: How many bytes per day does a guaranteed record require, and how
+
+   does that need vary across sites, seasons, and parameters?
+2. RQ2: Which satellite message plans can carry the record when a node
+
+   buffers data across days, and with what delay?
+3. RQ3: Which delivery design maximises the share of guaranteed days over
+
+   a one-way link that loses an unknown share of messages, compared with
+   the designs used in practice?
+4. RQ4: Can an adequate message plan be chosen from a short pilot record?
+    Each element of the answer has antecedents. Minimum-size piecewise-
+
+                                                2
+linear approximations with a maximum-error bound are classical (Imai and
+Iri, 1988) and have online versions for sensor streams (Soroush et al., 2008).
+Compressing buffered sensor history to a bandwidth budget, including a
+group leader that gives more bandwidth to the node with the largest er-
+ror, was proposed for multi-hop sensor networks (Deligiannakis et al., 2006).
+Erasure codes and unequal protection of compressed data are standard tools
+(Reed and Solomon, 1960; Albanese et al., 1996). Satellite-linked animal tags
+have long compressed ocean profiles into a few broken-stick points and re-
+sent them pseudo-randomly over the one-way Argos system (Boehme et al.,
+2009; Photopoulou et al., 2015). What has not been established is how
+these elements perform together for regulatory-grade environmental records
+on byte-priced, one-way satellite links, and what such a record costs on real
+rivers. The contributions of this study are the following:
+· A measurement of the cost of a USGS-excellent water-quality record on
+
+   39 rivers over two years: a median of 15 bytes per day (1.8% of the raw
+   data), with its variation across sites, months, and parameters.
+· A delivery design for one-way links that sends the minimum guaranteed
+   set of values protected by an erasure code across messages, together with
+   a server-side certification of which parts of the record are guaranteed,
+   obtained without any feedback.
+· A pre-registered comparison with current practice, tuned on 2023 and
+   confirmed on a sealed 2024 year and on two low-cost deployments, in
+   which all seven hypotheses held.
+· Design guidance for agencies: the message plan that suffices under inde-
+   pendent and bursty loss, and a pilot-based rule that selects it.
+    Section 2 reviews related work. Section 3 defines the record, the link,
+and the designs. Section 4 describes the data and the pre-registered study.
+Section 5 reports the results, Section 6 discusses their implications and limits,
+and Section 7 concludes.
+
+2. Related work
+
+2.1. Error-bounded reduction of sensor records
+
+    Sensor data reduction with guaranteed accuracy has two classical formu-
+lations. The first fixes a precision and minimises communication: Olston
+et al. (2003) adapted per-source filter widths so that continuous queries met
+their precision constraints with the fewest updates, and Deligiannakis et al.
+(2004) redistributed error thresholds within aggregation trees. The second
+
+                                                3
+fixes a budget and minimises error. Self-based regression (SBR) compresses
+the buffered multi-signal history of a sensor node to a bandwidth budget
+and supports a maximum-absolute-error objective; in its localised mode, a
+group leader repeatedly gives residual bandwidth to the member with the
+largest error (Deligiannakis et al., 2006). For a single signal, the fewest ver-
+tices of a piecewise-linear approximation within a maximum error can be
+found in linear time (Imai and Iri, 1988), also online (Soroush et al., 2008),
+and many signals can be archived jointly under one maximum error (Gandhi
+et al., 2009). Storage-side work has produced multi-resolution summaries for
+drill-down queries (Ganesan et al., 2003), predictive archival with on-demand
+retrieval (Desnoyers et al., 2005), and layered time-series encodings that de-
+code at several error levels (Barbarioli et al., 2023). This study used the
+minimum-size approximation as its node encoder. It did not propose a new
+compression algorithm; it measured what that encoder costs for regulatory
+tolerances on rivers, and how its output survives a link without acknowledge-
+ments, which these works assume to be reliable.
+
+2.2. Satellite IoT and one-way delivery
+
+    Direct-to-satellite IoT has been studied mainly at the medium-access
+layer: constellation design for revisit time (Capez et al., 2022), slotted ALOHA
+with erasures at several satellites (Tondo et al., 2021), uplink transmission
+policies (Alvarez et al., 2022), scheduling of LoRa uplinks to passing satel-
+lites (Afhamisis and Palattella, 2022), and message replication for reliability
+(Rathi and Borkotoky, 2025). These works treat packets as interchangeable
+and do not address what the packets should contain. Terrestrial schemes for
+bulk transfer of buffered data aim to deliver every byte (Abdelfadeel et al.,
+2020). The closest practice to this study comes from animal telemetry. Con-
+ductivity­temperature­depth satellite relay data loggers abstract each ocean
+profile to a fixed number of points, store the resulting messages in a buffer,
+and send them pseudo-randomly through the one-way Argos system so that
+losses are spread over an unbiased sample (Boehme et al., 2009; Photopoulou
+et al., 2015). That practice fixes the number of points, not the accuracy, and
+it was included in this study as a baseline.
+
+2.3. Freshness and value of information
+
+    A large literature optimises the age or value of the information held about
+the current state of a source (Yates et al., 2021), including over random-access
+and satellite links (Chen et al., 2021; Talli et al., 2026; Ramachandran and
+
+                                                4
+                 Sensor node
+
+     Sensors   Day buffer     Encoder:    Packing and
+T, SC, DO, pH              fewest values  erasure code
+                           within  ×tol.
+                                            (K of Q)
+
+                                          Q messages/day
+
+ Record and        Server: decode,        One-way satellite link
+certified spans  reconstruct, certify      (loss probability p)
+
+Figure 1: System overview. The node encodes each day's record into at most Q messages;
+no acknowledgement returns over the link.
+
+Banerjee, 2026). These models keep only the newest sample of a synthetic
+process; Chen et al. (2021), for example, assumed a one-packet buffer in
+which new packets replace older ones. Environmental regulation needs the
+whole record, not only its latest value, which is why this study used a record-
+wide maximum error as its objective. A record within tolerance everywhere
+also holds the latest value within tolerance.
+
+3. System model
+
+    Fig. 1 summarises the system. A sensor node at a remote river site sam-
+ples several water-quality parameters, stores them, and once a day encodes
+the day's record into a small number of satellite messages. The link delivers
+each message or loses it, and the node never learns which. The server recon-
+structs the record from the values that arrive and states which parts of it are
+guaranteed.
+
+3.1. Record and tolerance
+
+    For parameter j of a site, let xj(t), t = 1, . . . , n, be the day's readings
+and xj(0) the last reading of the previous day, which the server is assumed
+to hold. The server reconstructs x^j(t) by linear interpolation between the
+values it received, starting from xj(0), and holds the last received value to
+the end of the day. The tolerance of each reading follows the USGS rating
+of an excellent record (Wagner et al., 2006): 0.2 °C for temperature, 3% of
+the value for specific conductance, the greater of 0.3 mg/L and 5% of the
+
+                           5
+value for dissolved oxygen, and 0.2 units for pH. With j(t) the tolerance of
+reading xj(t), the normalised error is
+
+ej (t)  =  |xj(t) - x^j(t)| ,  (1)
+                j (t)
+
+and a day is guaranteed when the error in Eq. (1) satisfies ej(t)  1 for every
+parameter and reading. Because the newest reading is part of the record, a
+guaranteed day also guarantees the current value.
+
+3.2. Node encoder
+
+    For a level  , the encoder selects for each parameter the fewest readings
+Sj( ) such that interpolation through them keeps every ej(t)   . This is
+the minimum-number (min-#) problem of polygonal approximation, which
+has an exact solution in time linear in n for functions of one variable (Imai
+and Iri, 1988); the implementation used an equivalent quadratic dynamic
+program. Given a budget of k values, the encoder uses one level  for all
+parameters, the smallest for which j |Sj( )|  k. The guaranteed record of
+a day is the set at  = 1, and its size is the day's need (RQ1).
+
+3.3. Messages and link
+
+    Each message carries 23 bytes (Kinéis, 2023): a one-byte header with a
+three-bit day index and a five-bit sequence number, followed by seven values
+of three bytes each. A value uses two bits for the parameter, 14 bits for the
+reading (a resolution far finer than any tolerance in Section 3), and one byte
+for its time slot. A plan allows Q messages per day. Plans of 1, 6, 12, 24,
+and 96 messages per day were evaluated as illustrative tiers of commercial
+offers.
+
+    The link is one-way. Two loss models were used, because no measured loss
+rate was available for the target service: independent loss with probability p,
+and a two-state Gilbert channel (Gilbert, 1960; Elliott, 1963) that loses every
+message in its bad state, with mean burst length three messages and the same
+mean loss p. The values p  {0.1, 0.3, 0.5} span the erasure probabilities used
+in direct-to-satellite studies (Tondo et al., 2021).
+
+3.4. Delivery designs
+
+    Table 1 lists the five designs compared. All of them use at most Q mes-
+sages per day.
+
+           6
+Design  Table 1: Delivery designs compared.
+           Content and transmission
+
+Every k-th reading       Every k-th reading of every parameter, newest reading
+Tag practice             included, k set to fill the plan; no guarantee.
+                         A fixed number of broken-stick points per parame-
+Reliable-link design     ter, chosen by largest absolute deviation, packed into
+                         D messages; the Q transmissions pick among them
+Repetition               pseudo-randomly, as satellite-linked animal tags do
+Erasure code (proposed)  (Boehme et al., 2009; Photopoulou et al., 2015).
+                         The guaranteed set at the smallest  that fills 7Q val-
+                         ues, each message sent once; the design that is optimal
+                         when no message is lost, as in budget-constrained com-
+                         pression of sensor history (Deligiannakis et al., 2006).
+                         The guaranteed set at the smallest  that fills 7Q/r
+                         values; every message sent r times, copies interleaved.
+                         The guaranteed set at the smallest  that fills 7K values
+                         in K data messages, plus Q - K parity messages of a
+                         systematic Reed­Solomon code over GF(28) (Reed and
+                         Solomon, 1960); any K arriving messages recover all
+                         data, otherwise the arriving data messages are used.
+
+3.5. Decoding and certification
+
+    The server decodes what arrived and reconstructs each parameter as de-
+scribed above. Because sequence numbers identify which planned values
+arrived, the server can certify, without feedback, every span between two
+consecutive planned values that both arrived: the encoder guaranteed every
+reading inside it within  times its tolerance. The certified share is the share
+of readings inside such spans.
+
+3.6. Buffering across days
+
+    The need of a day varies (Section 5), so a node can carry the guaranteed
+sets of demanding days into the spare capacity of quiet days. In the buffered
+model, each day's guaranteed set joins a first-in, first-out backlog at the end
+of the day. Every day the node sends one coded block of K data and Q - K
+parity messages, filled from the oldest backlog first. A day is guaranteed if
+every block that carried its values decoded, and its delay is the number of
+
+                         7
+days until its last block was sent. Because the link is one-way, a lost block
+is not resent.
+
+4. Data and study design
+
+4.1. Data
+    The main data were approved instantaneous values from 39 USGS river
+
+sites in New Jersey, Pennsylvania, Illinois, and Oregon (U.S. Geological Sur-
+vey, 2016), recorded every 15 minutes at 28 sites, every 30 minutes at 9 sites,
+and every 5 minutes and every hour at one site each. Dissolved oxygen was
+used in mg/L, the unit of the accuracy rating. A site-day was used when
+every gap within it spanned at most two readings; such gaps were bridged
+linearly. The year 2023 (10,978 site-days) served for development and 2024
+(12,221 site-days, 10,164 with all four parameters) for confirmation. Two low-
+cost deployments were added: node 1 of the InWaterSense network on the
+Sitnica River, Kosovo (Ahmedi and Ahmedi, 2022; Ahmedi, 2021), and the
+Weija intake deployment in Ghana (Adu-Manu et al., 2020). InWaterSense
+reports dissolved oxygen in percent saturation, which was converted to mg/L
+with the freshwater solubility of Benson and Krause (1984) at the measured
+temperature. Readings flagged as implausible by earlier cleaning were re-
+moved. For Weija, only temperature and conductivity were used, because its
+pH record was not physically plausible. Both low-cost records contain many
+gaps, which left 22 and 49 complete site-days.
+
+4.2. Pre-registered study
+    The study followed a written plan. All design choices were made on the
+
+2023 data: the repetition count r, the code dimension K, and the share of
+messages used by tag practice were tuned for each plan, loss model, and loss
+probability on half of a stratified sample of 780 site-days, and reported on the
+other half. The plan, the tuned parameters, and the code were then frozen
+and checksummed, and the hypotheses in Table 2 were fixed. Only then were
+the 2024 data opened, once, after their checksums had been verified; the low-
+cost deployments had not been used for any choice either. The confirmatory
+runs applied the frozen parameters without change.
+
+4.3. Metrics
+    The following metrics were used:
+
+                                                8
+Table 2: Pre-registered hypotheses and their outcome on the 2024 confirmation data.
+
+Hypothesis                                       Result Outcome
+
+H1 Median daily need at most 5% of raw data      1.8% Passed
+
+H2 Sites with at least 90% of days guaranteed    35/39 Passed
+
+within 7 d (6 msg/d, independent loss, p =
+
+0.3): at least 75%
+
+H2b Same at 12 msg/d under bursty loss: at       35/39 Passed
+
+least 85%
+
+H3 Median G, code over reliable-link design: at  3.5× Passed
+
+least 2×
+
+H4 Median G, code minus tag practice: at least   0.33 Passed
+
+0.25
+
+H5 Code and repetition each exceed the 12/12 (min. 0.34) Passed
+
+reliable-link design by at least 0.2 in 12 set-
+
+tings
+
+H6 Pilot-based tier sufficient at least 80%; at  85%; 100% Passed
+
+most one tier too large at least 80%
+
+H7 InWaterSense median need at least 3× the      3.9× Passed
+
+USGS median
+
+· Guaranteed share G: the share of site-days whose whole record was within
+   tolerance, averaged over 30 random loss realisations per site-day.
+
+· Certified share: the share of readings that the server could certify (Sec-
+   tion 3).
+
+· Buffered target: for RQ2, the share of a site's days that were guaranteed
+   within seven days; a site met the target when this share reached 90%.
+
+· Plan choice: for RQ4, the plan selected from the first 28 days of a year as
+   the smallest plan that met the buffered target there under independent
+   loss with p = 0.3, compared with the smallest plan that met it over the
+   rest of the year.
+
+5. Results
+
+    All seven pre-registered hypotheses held on the 2024 confirmation data
+(Table 2). This section reports the results by research question; unless stated
+otherwise, numbers refer to the 2024 data.
+
+                    9
+Dissolved oxygen (mg/L)  12      (a) Guaranteed set, 6 values                 (b) Every k-th reading, 6 values
+                         11                  Worst error: 0.9 x tolerance                   Worst error: 2.4 x tolerance
+                         10
+                                 Tolerance band
+                          9      Measured
+                          8      Server picture
+                          7
+                          6      5  10           15  20                    0  5  10  15       20
+
+                              0
+
+                                    Hour of day                                  Hour of day
+
+Figure 2: Dissolved oxygen on one day of 2023 at a development site. (a) The fewest
+values that keep every reading within tolerance. (b) The same number of evenly spaced
+readings. The shaded band is the USGS excellent-record tolerance.
+
+5.1. Cost of a guaranteed record (RQ1)
+
+    Fig. 2 illustrates the encoder on a summer day of dissolved oxygen. Six
+values chosen by the encoder kept the whole day within tolerance, whereas
+six evenly spaced readings missed the steep afternoon rise and exceeded the
+tolerance by a factor of more than two.
+
+    Across all site-days, the guaranteed record was small (Fig. 3). Its median
+size was 15 bytes per day, 1.8% of the raw data; the 90th percentile was 45
+bytes, the 99th percentile 108 bytes, and the largest day needed 201 bytes,
+or 10 messages. The record fitted into a single 23-byte message on 63% of
+site-days. The development year gave almost the same distribution (median
+18 bytes, 99th percentile 111 bytes).
+
+    The need varied with the site and the season. Site medians ranged from
+3 to 57 bytes per day, and within a site the 99th percentile was typically 3.3
+times the median. The median need rose from 6 bytes per day in January to
+24 bytes per day in June (Fig. 4); the highest needs occurred from June to
+August. At sites that measured all four parameters, temperature accounted
+for 41% of the values in the guaranteed records, dissolved oxygen for 26%,
+specific conductance for 23%, and pH for 10%. Temperature, often treated
+as a slowly varying baseline, was therefore the most expensive parameter to
+keep within its tight tolerance.
+
+    The low-cost deployments were more expensive. InWaterSense needed a
+
+                                               10
+1.0
+
+                    USGS 2023 (development)
+Share of site-days
+          USGS 2024 (confirmation)
+                                                                          1 msg
+                                                                                                         6 msg0.8InWaterSense (Kosovo)
+                                                                                                                      12 msg
+          Weija (Ghana)
+
+0.6
+
+0.4
+
+0.2
+
+0.0  100                 101                 102
+
+     Bytes per day for a guaranteed record (3 B per value)
+
+Figure 3: Cumulative distribution of the bytes per day needed for a guaranteed record.
+Vertical lines mark the value capacity of 1, 6, and 12 messages per day. Days that needed
+no value are drawn at 1 byte.
+
+median of 58.5 bytes per day, 3.9 times the USGS median, which confirmed
+hypothesis H7. The cause was not isolated in this study; candidate causes
+include sensor noise and fouling, and the few complete days available. Weija,
+with two parameters, needed 36 bytes per day.
+
+5.2. Delivery over a one-way link (RQ3)
+
+    Table 3 and Fig. 5 compare the designs. At six messages per day and an
+independent loss probability of 0.3, the erasure-code design guaranteed 89%
+of site-days. The reliable-link design, which sends the tighter record without
+protection, guaranteed 34%; tag practice guaranteed 43%; and evenly spaced
+readings guaranteed 28%. By median over site-days, the code reached 3.5
+times the guaranteed share of the reliable-link design (hypothesis H3) and
+exceeded tag practice by 0.33 (H4). The code was better than the reliable-
+link design on 91% of site-days and better than tag practice on 87%. The
+development data had given 0.90 and 0.34 for the code and the reliable-link
+design, so the gap carried over to the new year.
+
+    Repetition of the guaranteed record performed close to the code. Its
+mean was 85% against 89% under independent loss and equal under bursty
+loss (81% and 81%), and its median was slightly higher than that of the
+code. Both exceeded the reliable-link design by at least 0.34 in every setting
+
+                                               11
+               50
+
+Bytes per day  40
+
+                                                                                                                            90th pct.
+
+               30
+
+               20
+
+               10  Interquartile range (shaded)  Median
+
+                   J FMAM J J A S OND
+                                                    Month (2024)
+
+Figure 4: Bytes per day needed for a guaranteed record by month, over all 2024 site-days.
+
+of six, 12, and 24 messages per day with loss probabilities of 0.3 and 0.5 (H5).
+The difference between them appeared on the low-cost records, whose larger
+guaranteed sets left less room for copies: there, the code guaranteed 77% of
+site-days and repetition 58%.
+
+    Two further results bound these conclusions. First, the reliable-link de-
+sign did not recover with more capacity: at 24 messages per day and p = 0.3 it
+still guaranteed only 38% of site-days, because a single lost message removes
+values from a record that has no redundancy. Second, no design reached
+more than 55% at one message per day, since a single message cannot carry
+both a record and protection. The server could certify 91% of readings with
+the code, against 70% with the reliable-link design.
+
+5.3. Buffering across days (RQ2)
+    Fig. 6 shows the share of sites that met the buffered target. Under in-
+
+dependent loss with p = 0.3, six messages per day met it at 35 of 39 sites
+(hypothesis H2), with guaranteed days typically delivered on the following
+day (median delay 1 day in development). Under bursty loss, six messages
+per day met the target at only 17 sites, because one burst can erase a whole
+day's block; 12 messages per day restored it at 35 sites (H2b). One message
+per day met the target at no site.
+
+5.4. Choosing a plan from a pilot (RQ4)
+    The plan chosen from the first 28 days of 2024 was sufficient for the rest
+
+of the year at 85% of sites, and it was never more than one tier larger than
+
+                   12
+Table 3: Mean guaranteed share G at six messages per day. USGS 2024 confirmation data
+
+unless stated.
+
+                         Independent loss  Bursty loss Low-cost sites
+
+Design                   p = 0.1 p = 0.3 p = 0.5 p = 0.3  p = 0.3
+
+Guaranteed set + era- 0.96 0.89 0.80       0.81           0.77
+
+sure code (proposed)
+
+Guaranteed set + rep- 0.93 0.85 0.71       0.81           0.58
+
+etition
+
+Fixed points + ran- 0.55 0.43 0.29         0.41           0.20
+
+dom resending (tag
+
+practice)
+
+Guaranteed set, sent 0.70 0.34 0.18        0.47           0.17
+
+once (reliable-link de-
+
+sign)
+
+Every k-th reading       0.47 0.28 0.17    0.33           0.01
+
+necessary (100% of sites; hypothesis H6). At five of the six sites whose pilot
+underestimated the need, the median need during the pilot was lower than
+over the rest of the year, which is consistent with the seasonal rise in Fig. 4.
+
+6. Discussion
+
+6.1. Guidance for monitoring agencies
+    The results translate into five recommendations for remote river monitor-
+
+ing over satellite IoT:
+1. Send the guaranteed record, not the readings. A day within the USGS
+
+   excellent-record tolerance needed a median of 15 bytes, which is approx-
+   imately one fiftieth of the raw data. Evenly spaced readings at the same
+   size violated the tolerance on most days at every loss probability tested
+   (Table 3).
+2. Protect the record against loss. The design that is optimal on a reliable
+   link guaranteed only 34% of days at a loss probability of 0.3, and more
+   capacity did not repair it. At that loss probability, repetition and an
+   erasure code both raised the guaranteed share above 80%. The code is
+   preferable where records are larger, as at the low-cost sites, and repetition
+   is a simpler choice where they are small.
+
+                         13
+                                                                6 messages/day, independent loss            6 messages/day, bursty loss
+                                                   1.0
+Share of days guaranteed Share of days guaranteed
+                                                   0.8
+
+                                                   0.6
+
+                                                   0.4
+
+                                                   0.2
+
+                                                   0.0                                                      12 messages/day, bursty loss
+                                                               12 messages/day, independent loss
+
+                                                   1.0
+
+                                                   0.8
+
+                                                   0.6
+
+                                                   0.4
+
+                                                   0.2
+
+                                                   0.0
+
+                                                        0.1  0.3                                  0.5  0.1                   0.3          0.5
+
+                                                             Message loss probability                       Message loss probability
+
+                                                             Guaranteed set + erasure code             Tag practice          Every k-th reading
+                                                             Guaranteed set + repetition               Reliable-link design
+
+Figure 5: Guaranteed share of site-days by design, plan size, loss model, and loss proba-
+bility (USGS 2024).
+
+3. Size the plan for the loss process. With buffering, six messages per day
+   sufficed at 90% of sites under independent loss, but bursty loss required
+   12. A single message per day was insufficient at almost every site.
+
+4. Choose the plan from a pilot, with a margin for season. A 28-day pilot
+   selected an adequate plan at 85% of sites. Most shortfalls occurred where
+   the pilot fell in a low-need period, so a pilot in the season of greatest
+   variation, or one tier of margin, is advisable.
+
+5. Do not rank parameters by assumed stability. Temperature consumed the
+   largest share of the guaranteed record (41%), so fixed priority classes that
+   treat it as a baseline would degrade the record where it is most demanding.
+    Neither satellite contact time nor energy was the binding constraint. An
+
+orbit propagation of the Kinéis constellation over the Weija site gave approx-
+imately 40 passes per day above 25° elevation, each lasting a median of 4.5
+
+                                                                                                  14
+                                          Independent loss                 Bursty loss
+
+Share of sites meeting     1.0                              p = 0.1
+   the 90% / 7-day target  0.8                              p = 0.3
+                           0.6                              p = 0.5
+                           0.4
+                           0.2         6  12  24            96       1  6  12           24  96
+                           0.0
+
+                                    1
+
+                                       Messages per day                 Messages per day
+
+Figure 6: Share of sites with at least 90% of days guaranteed within seven days, by plan
+size and loss probability, with buffering and the erasure code (USGS 2024).
+
+minutes. The module draws 500 mA at 5 V while transmitting a message for
+less than one second (Kinéis, 2023), so six messages per day cost at most
+15 J. The constraint was the message quota, which is the quantity this study
+optimised. Where a terrestrial community LoRaWAN network is available,
+its fair-use limit of 30 seconds of airtime per day (The Things Network, 2026)
+allows approximately 510 bytes per day even at the slowest data rate, more
+than the largest daily need observed; the scarcity addressed here is therefore
+specific to satellite plans.
+
+6.2. Relation to earlier work
+
+    The encoder and the code are established techniques (Imai and Iri, 1988;
+Soroush et al., 2008; Reed and Solomon, 1960), and budgeted compression
+of sensor history, including allocation of bandwidth towards the node with
+the largest error, was proposed for multi-hop sensor networks (Deligiannakis
+et al., 2006). The findings of this study qualify that line of work for one-way
+links: the design that is best when every message arrives was the worst of
+the guaranteed-record designs once messages could be lost. They also qualify
+current satellite-tag practice (Boehme et al., 2009; Photopoulou et al., 2015),
+which fixes the number of points rather than the accuracy; by construction,
+such a scheme spends capacity on quiet days and cannot guarantee the toler-
+ance on active ones. Freshness-oriented scheduling (Yates et al., 2021; Talli
+
+                                                            15
+et al., 2026) addresses a different objective, the latest value, which a guaran-
+teed record covers as a special case.
+
+6.3. Limitations
+    The results carry the following limitations:
+
+· Message plans: the tiers of 1 to 96 messages per day were illustrative; the
+   message size and the one-way link followed the module datasheet (Kinéis,
+   2023), but commercial plans differ between providers and change over
+   time.
+
+· Loss: no measured loss rate was available for the service, so loss proba-
+   bilities and burstiness were swept. Field measurements could narrow the
+   plan recommendation.
+
+· Hardware: the study was trace-driven. The encoder and the code are
+   light enough for a microcontroller (Imai and Iri, 1988; Reed and Solomon,
+   1960), but they were not run on a node.
+
+· Tolerances: the USGS rating defines accuracy relative to the measured
+   record. Other agencies use other limits, and the guarantee refers to the
+   sensor readings, not to the river itself; sensor errors are outside its scope.
+
+· Low-cost deployments: both records had many gaps, which left 22 and 49
+   complete days. Their results are indicative.
+
+· Day boundaries: the reconstruction of a day starts from the previous day's
+   last value. A lost anchor weakens the guarantee of the following day until
+   a new value arrives.
+
+7. Conclusions
+
+    This study measured what a regulatory-grade water-quality record costs
+and how it can be delivered over the one-way, message-limited satellite links
+that reach remote rivers. On 39 USGS sites over two years, a record within
+the USGS excellent-record tolerance needed a median of 15 bytes per day and
+at most 10 messages of 23 bytes. Delivered without protection, such a record
+was guaranteed on only 34% of days at a message loss of 30%. Protected
+by an erasure code or by repetition, it was guaranteed on more than 80% of
+days at the same loss with six messages per day, and on most sites within a
+week when a node buffered its data. A 28-day pilot was sufficient to choose
+the plan at 85% of sites. All seven pre-registered hypotheses held on a sealed
+confirmation year.
+
+                                               16
+    For agencies monitoring rivers such as those affected by illegal mining in
+Ghana, the result means that a credible continuous record does not require
+a high-capacity link. It requires the right bytes, protected against loss, on
+a plan sized from local data. Future work should measure message loss on
+operational satellite services, run the encoder on field hardware, and extend
+the guarantee to the event alarms that operators need in real time.
+
+Software and data availability
+
+    The software that produced every result is written in Python 3.13 and
+uses NumPy and pandas. It comprises the encoder, the Reed­Solomon code,
+the loss channels, the delivery designs, the buffered simulation, the analysis
+scripts, and unit tests. Contact: Kofi Sarpong Adu-Manu, Department of
+Computer Science, University of Ghana. The code will be archived with a
+DOI on Zenodo upon acceptance and is available from the authors in the
+meantime. The USGS data are public (U.S. Geological Survey, 2016). The
+InWaterSense data are available under a CC BY 4.0 licence (Ahmedi, 2021).
+The Weija data belong to the deployment team and are available from the
+corresponding author on reasonable request.
+
+CRediT authorship contribution statement
+
+    Kofi Sarpong Adu-Manu: conceptualisation, supervision, resources, writ-
+ing (review and editing). S. K. Azongo: methodology, software, formal anal-
+ysis, investigation, writing (original draft).
+
+Declaration of competing interest
+
+    The authors declare that they have no known competing financial inter-
+ests or personal relationships that could have appeared to influence the work
+reported in this paper.
+
+Acknowledgements
+
+    The authors thank the operators of the USGS National Water Information
+System and the InWaterSense project for making their data available.
+
+                                               17
+References
+
+Abdelfadeel, K.Q., Zorbas, D., Cionca, V., Pesch, D., 2020. FREE: Fine-
+  grained scheduling for reliable and energy-efficient data collection in Lo-
+  RaWAN. IEEE Internet of Things Journal 7, 669­683. doi:10.1109/jiot.
+  2019.2949918.
+
+Adu-Manu, K.S., Katsriku, F.A., Abdulai, J.D., Engmann, F., 2020. Smart
+  river monitoring using wireless sensor networks. Wireless Communications
+  and Mobile Computing 2020, 1­19. doi:10.1155/2020/8897126.
+
+Adu-Manu, K.S., Tapparello, C., Heinzelman, W., Katsriku, F.A., Abdulai,
+  J.D., 2017. Water quality monitoring using wireless sensor networks: Cur-
+  rent trends and future research directions. ACM Transactions on Sensor
+  Networks 13, 1­41. doi:10.1145/3005719.
+
+Afhamisis, M., Palattella, M.R., 2022. SALSA: A scheduling algorithm for
+  LoRa to LEO satellites. IEEE Access 10, 11608­11615. doi:10.1109/
+  access.2022.3146021.
+
+Ahmedi, F., Ahmedi, L., 2022. Dataset on water quality monitoring from
+  a wireless sensor network in a river in Kosovo. Data in Brief 44, 108486.
+  doi:10.1016/j.dib.2022.108486.
+
+Ahmedi, L., 2021. InWaterSense dataset: Data from a wireless sensor net-
+  work on water quality monitoring in a river in Kosovo. doi:10.17632/
+  KRZV3G6D5F.1.
+
+Albanese, A., Blomer, J., Edmonds, J., Luby, M., Sudan, M., 1996. Prior-
+  ity encoding transmission. IEEE Transactions on Information Theory 42,
+  1737­1744. doi:10.1109/18.556670.
+
+Alvarez, G., Fraire, J.A., Hassan, K.A., Cespedes, S., Pesch, D., 2022. Uplink
+  transmission policies for LoRa-based direct-to-satellite IoT. IEEE Access
+  10, 72687­72701. doi:10.1109/access.2022.3189647.
+
+Barbarioli, B., Mersy, G., Sintos, S., Krishnan, S., 2023. Hierarchical residual
+  encoding for multiresolution time series compression. Proceedings of the
+  ACM on Management of Data 1, 1­26. doi:10.1145/3588953.
+
+                                               18
+Benson, B.B., Krause, D., 1984. The concentration and isotopic fractionation
+  of oxygen dissolved in freshwater and seawater in equilibrium with the
+  atmosphere1. Limnology and Oceanography 29, 620­632. doi:10.4319/
+  lo.1984.29.3.0620.
+
+Boehme, L., Lovell, P., Biuw, M., Roquet, F., Nicholson, J., Thorpe, S.E.,
+  Meredith, M.P., Fedak, M., 2009. Technical note: Animal-borne CTD-
+  satellite relay data loggers for real-time oceanographic data collection.
+  Ocean Science 5, 685­695. doi:10.5194/os-5-685-2009.
+
+Capez, G.M., Henn, S., Fraire, J.A., Garello, R., 2022. Sparse satellite con-
+  stellation design for global and regional direct-to-satellite IoT services.
+  IEEE Transactions on Aerospace and Electronic Systems 58, 3786­3801.
+  doi:10.1109/taes.2022.3185970.
+
+Centenaro, M., Costa, C.E., Granelli, F., Sacchi, C., Vangelista, L., 2021.
+  A survey on technologies, standards and open challenges in satellite IoT.
+  IEEE Communications Surveys & Tutorials 23, 1693­1720. doi:10.1109/
+  comst.2021.3078433.
+
+Chen, X., Liao, X., Bidokhti, S.S., 2021. Real-time sampling and estimation
+  on random access channels: Age of information and beyond, in: IEEE
+  INFOCOM 2021 - IEEE Conference on Computer Communications, IEEE.
+  pp. 1­10. doi:10.1109/infocom42981.2021.9488702.
+
+Deligiannakis, A., Kotidis, Y., Roussopoulos, N., 2004. Hierarchical In-
+  Network Data Aggregation with Quality Guarantees. Springer Berlin Hei-
+  delberg. pp. 658­675. doi:10.1007/978-3-540-24741-8_38.
+
+Deligiannakis, A., Kotidis, Y., Roussopoulos, N., 2006. Dissemination of
+  compressed historical information in sensor networks. The VLDB Journal
+  16, 439­461. doi:10.1007/s00778-005-0173-5.
+
+Desnoyers, P., Ganesan, D., Li, H., Li, M., Shenoy, P., 2005. PRESTO: a
+  predictive storage architecture for sensor networks, in: Proceedings of the
+  10th Workshop on Hot Topics in Operating Systems (HotOS X), Santa Fe,
+  NM, USA.
+
+Duncan, A.E., 2020. The dangerous couple: Illegal mining and water
+  pollution--a case study in Fena river in the Ashanti region of Ghana.
+  Journal of Chemistry 2020, 1­9. doi:10.1155/2020/2378560.
+
+                                               19
+Elliott, E.O., 1963. Estimates of error rates for codes on burst-noise channels.
+  Bell System Technical Journal 42, 1977­1997. doi:10.1002/j.1538-7305.
+  1963.tb00955.x.
+
+Gandhi, S., Nath, S., Suri, S., Liu, J., 2009. GAMPS: compressing multi
+  sensor data by grouping and amplitude scaling, in: Proceedings of the
+  2009 ACM SIGMOD International Conference on Management of data,
+  ACM. pp. 771­784. doi:10.1145/1559845.1559926.
+
+Ganesan, D., Greenstein, B., Perelyubskiy, D., Estrin, D., Heidemann, J.,
+  2003. An evaluation of multi-resolution storage for sensor networks, in:
+  Proceedings of the 1st international conference on Embedded networked
+  sensor systems, ACM. pp. 89­102. doi:10.1145/958491.958502.
+
+Gilbert, E.N., 1960. Capacity of a burst-noise channel. Bell System Technical
+  Journal 39, 1253­1265. doi:10.1002/j.1538-7305.1960.tb03959.x.
+
+Imai, H., Iri, M., 1988. Polygonal approximations of a curve: formulations
+  and algorithms, in: Toussaint, G.T. (Ed.), Computational Morphology.
+  North-Holland, Amsterdam, pp. 71­86.
+
+Kinéis, 2023. KIM1 kinéis module: product datasheet (KINEIS-MU-22-
+  0032). Kinéis, Ramonville-Saint-Agne, France. Accessed 23 October 2026.
+
+Olston, C., Jiang, J., Widom, J., 2003. Adaptive filters for continuous queries
+  over distributed data streams, in: Proceedings of the 2003 ACM SIG-
+  MOD international conference on Management of data, ACM. pp. 563­574.
+  doi:10.1145/872757.872825.
+
+Photopoulou, T., Fedak, M.A., Matthiopoulos, J., McConnell, B., Lovell,
+  P., 2015. The generalized data management and collection protocol
+  for conductivity-temperature-depth satellite relay data loggers. Animal
+  Biotelemetry 3, 21. doi:10.1186/s40317-015-0053-8.
+
+Ramachandran, R., Banerjee, S., 2026. Pricing IoT data delivered
+  via LEO satellites. doi:10.48550/ARXIV.2609.37995. arXiv preprint
+  arXiv:2609.37995.
+
+Rathi, S., Borkotoky, S.S., 2025. Message replication for improving reliabil-
+  ity of LR-FHSS direct-to-satellite IoT. doi:10.48550/ARXIV.2501.11984.
+
+                                               20
+  proceedings of the IEEE International Conference on Advanced Networks
+  and Telecommunications Systems (ANTS) 2024; arXiv:2501.11984.
+
+Reed, I.S., Solomon, G., 1960. Polynomial codes over certain finite fields.
+  Journal of the Society for Industrial and Applied Mathematics 8, 300­304.
+  doi:10.1137/0108018.
+
+Soroush, E., Wu, K., Pei, J., 2008. Fast and quality-guaranteed data stream-
+  ing in resource-constrained sensor networks, in: Proceedings of the 9th
+  ACM international symposium on Mobile ad hoc networking and comput-
+  ing, ACM. pp. 391­400. doi:10.1145/1374618.1374670.
+
+Talli, P., Munari, A., Mason, F., Chiariotti, F., Zanella, A., 2026.
+  Value-based massive access through goal-oriented irregular repetition
+  slotted ALOHA. doi:10.48550/ARXIV.2609.20569. arXiv preprint
+  arXiv:2609.20569.
+
+The Things Network, 2026. Duty cycle and fair use policy. https://www.
+  thethingsnetwork.org/docs/lorawan/duty-cycle/. Accessed 16 Octo-
+  ber 2026.
+
+Tondo, F.A., Montejo-Sánchez, S., Pellenz, M.E., Céspedes, S., Souza, R.D.,
+  2021. Direct-to-satellite IoT slotted Aloha systems with multiple satel-
+  lites and unequal erasure probabilities. Sensors 21, 7099. doi:10.3390/
+  s21217099.
+
+U.S. Geological Survey, 2016. National water information system data
+  available on the world wide web (USGS water data for the nation).
+  doi:10.5066/F7P55KJN. instantaneous values for 2023 and 2024, accessed
+  October 2026.
+
+Wagner, R.J., Boulger, Robert W., J., Oblinger, C.J., Smith, B.A., 2006.
+  Guidelines and standard procedures for continuous water-quality monitors:
+  station operation, record computation, and data reporting. Techniques and
+  Methods 1-D3. U.S. Geological Survey. Reston, VA, USA. doi:10.3133/
+  tm1D3.
+
+Yates, R.D., Sun, Y., Brown, D.R., Kaul, S.K., Modiano, E., Ulukus, S.,
+  2021. Age of information: An introduction and survey. IEEE Journal
+  on Selected Areas in Communications 39, 1183­1210. doi:10.1109/jsac.
+  2021.3065072.
+
+                                               21
+

@@ -1,0 +1,5 @@
+A USGS-excellent river record needed a median of 15 bytes a day (1.8% of readings)
+Sent once over a one-way link at 30% loss, it was guaranteed on only 34% of days
+Protected by an erasure code, it was guaranteed on 89% of days at the same loss
+With a buffer, six 23-byte messages a day sufficed at 35 of 39 river sites
+All seven pre-registered hypotheses held on a sealed confirmation year

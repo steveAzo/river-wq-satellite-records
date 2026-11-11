@@ -14,14 +14,37 @@ This is a claim about use, not a measured benefit in the field: the unanticipate
 \subsection{What changed between the two confirmations, and why it matters}
 The first confirmation failed its integrity hypothesis and, read critically, overstated the benefit of witnesses: its flags comparator discarded the record; therefore, the contrast against flags measured the record as much as the witnesses. The revision replaced the comparator by one that uses the record, moved every hypothesis to the byte level, and lengthened the check. The benefit over the fair comparator (H2) is smaller than the earlier contrast against flags (0.53 at six messages per day under independent loss) but it is the contrast that isolates the witnesses, and it held on two development years and on the sealed cohort.
 
-Two decisions taken between the confirmations weaken the evidence and are stated here rather than in a footnote:
-\begin{itemize}
-  \item The 3b rule was adopted although it missed its own record clause: the adoption rule, written before the comparison, allowed a record cost of at most 0.08, and the cost on the CRC-24 frame was about 0.09 at six messages per day. The design was adopted because no other design met the benefit clause at an acceptable cost, and tested the cost (H4) with a looser limit instead. H4 held, but a reader who applies the original rule would reject the design at six messages per day under independent loss (point cost 0.082 in the cohort). At twelve messages per day the cost was 0.03 and met the rule.
-  \item The first argument for that adoption, that the cost was small against the fair comparator, rested on a modelling error that an internal reading found before the freeze: the flags had been charged a record value per message that the frame does not need. The argument was withdrawn, and the hypothesis built on it was dropped. The error did not affect the benefit hypotheses.
-\end{itemize}
+The design that was confirmed failed its own adoption criterion, and the confirmation does not change that. Table~\ref{tab:timeline} lists the order of events. The adoption rule, written before the comparison it governed, required a gain of at least 0.10 over the fair comparator (lower interval bound) and a pooled point cost in whole-record recovery of at most 0.08 against the record alone. On the CRC-24 frame the point cost at six messages per day under independent loss was 0.088 at byte level in development; the criterion therefore failed. The design was adopted because no other design met the benefit clause at a smaller cost, and its cost was then evaluated by a new hypothesis (H4) with looser limits, written before the rehearsals and the cohort. H4 is a later evaluation of the adopted design, not a retrospective satisfaction of the adoption rule: in the cohort the point cost at six messages per day under independent loss was 0.082, again beyond 0.08; at twelve messages per day it was 0.026 to 0.032 and met the rule. H2 and H3 are confirmatory evidence for the frozen design whatever the route by which it was chosen, because the cohort was new, the design and the limits were frozen before the data were downloaded, and the benefit hypotheses were not changed after the rehearsals.
 
-\subsection{Integrity}
-With a 24-bit check on every message, the expected rate of days with a false certificate at an assumed bit-error rate of $10^{-3}$ was at most 0.0035 per million days, and no receiver could exceed 0.084. This bound, not a test, replaces the conditional hypothesis that failed in the first confirmation. The conditional picture did not change: given a forged message that passes the check, 0.11 to 0.22 of the days on which no surplus message arrived received a false certificate, and about 2\% of forged days at six messages per day received a wrong decision. The safety therefore comes from the length of the check under a random-corruption model, not from the receiver rules alone; a structured fault or an adversary would need authentication, which is out of scope.
+The first argument for the adoption, that the cost was small against the fair comparator, rested on a modelling error that an internal reading found before the freeze: the flags had been charged a record value per message that the frame does not need. The argument was withdrawn, and the hypothesis built on it was dropped. The error did not affect the benefit hypotheses.
+
+\begin{table}[!htbp]
+\centering
+\caption{Order of events between the two confirmations (all dates 2026).}
+\label{tab:timeline}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}p{11.0cm}@{}}
+\toprule
+Date & Event \\
+\midrule
+9 November & First confirmation (version 2, 31 sites, 2024) run; its integrity hypothesis failed. An internal review found the flags comparator discarded the record \\
+10 November & Version 3 planned; fair comparator added; adoption rule written before the comparison (gain at least 0.10, lower bound; point cost at most 0.08) \\
+10 November & Integrity study on 2023 data selected the CRC-24 frame by a rule written before it ran \\
+10 November & On the CRC-24 frame the 3b rule missed the cost clause (0.088 at byte level, six messages per day, independent loss); adopted after the fact \\
+10 November & Draft pre-registration with H4 (cost limits $-$0.15 and $-$0.10) written; first rehearsal on the 2024 cohort, now development data \\
+10 November & Second internal reading found the flag-capacity error; comparator corrected, H5 dropped, H7 relabelled, tests moved to byte level; limits unchanged; both rehearsals repeated \\
+11 November & Plan and code frozen (tag and freeze record committed); 2022 cohort downloaded and sealed; one confirmatory run \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Three different guarantees}
+The study provides three guarantees of different strength, and they should not be read as one:
+\begin{itemize}
+  \item Erasure robustness (proved): whatever subset of messages arrives, and in whatever order, every certain answer is correct under the conditions of Proposition 1. Lost messages can only make answers undetermined.
+  \item Detection of accidental corruption (conditional): a 24-bit check lets a corrupted message through with probability $2^{-24}$ under a model of independent random bit errors. At an assumed bit-error rate of $10^{-3}$ (a planning value, not a measurement of any satellite service) the expected rate of days with a false certificate was at most 0.0035 per million days, and no receiver could exceed 0.042 (six messages per day) or 0.084 (twelve). The figure is the expected number of arrived messages times the probability that one is corrupted times the probability that the corruption passes the check, times the measured share of false certificates given such a message; it is conservative because it pairs the mean number of arrived messages with the mean share. Burst errors longer than 24 bits, a faulty radio that repeats a frame, or a different error statistic would change it.
+  \item Adversarial integrity (not provided): a cyclic redundancy check is not authentication. Anyone who can inject messages can compute a valid check, and the integrity study shows what one such message can do: given a forged message that passes the check, 0.11 to 0.22 of the days on which no surplus message arrived received a false certificate, and about 2\% of forged days at six messages per day received a wrong decision. A deployment that must resist deliberate forgery needs a message authentication code, which costs payload bytes and was not studied.
+\end{itemize}
 
 \subsection{Limits}
 \begin{itemize}

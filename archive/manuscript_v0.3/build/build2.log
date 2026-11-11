@@ -1,0 +1,587 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/elsarticle\elsarticle.cl
+s
+Document Class: elsarticle 2026/01/09, 3.5: Elsevier Ltd
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
+ex.def))
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse
+.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo))
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cf
+g)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def)
+)) (main.spl)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty))
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+For additional information on amsmath, use the `?' option.
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty))
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty))
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\mathptmx.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty))
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty)
+
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinek
+eys.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.st
+y (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty)
+
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.
+sty
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.st
+y))) (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+) (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitl
+estring.sty
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty)
+))
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.st
+y) (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.
+sty)))
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfile
+check.sty
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniqueco
+unter.sty))) (numbers.tex)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1ptm.fd)
+(main.aux)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
+i
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-ba
+se.sty
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cf
+g)) (main.out) (main.out) (sec_abstract.tex)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ztmcm.fd)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlztmcm.fd)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omsztmcm.fd)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omxztmcm.fd)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd)
+(sec_intro.tex
+
+Package mathptmx Warning: There are no bold math fonts on input line 1.
+
+
+Package natbib Warning: Citation `rode2016' on page 1 undefined on input line 4
+.
+
+
+Package natbib Warning: Citation `adumanu2017' on page 1 undefined on input lin
+e 4.
+
+
+Package natbib Warning: Citation `adumanu2020' on page 1 undefined on input lin
+e 4.
+
+
+Package natbib Warning: Citation `ahmedi2022' on page 1 undefined on input line
+ 4.
+
+
+Package natbib Warning: Citation `duncan2020' on page 1 undefined on input line
+ 4.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 5.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\cnotenum' on input line 5.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 5.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@corref' on input line 5.
+
+[1{C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Use
+r/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
+
+Package natbib Warning: Citation `centenaro2021' on page 2 undefined on input l
+ine 6.
+
+
+Package natbib Warning: Citation `kineis2023kim1' on page 2 undefined on input 
+line 6.
+
+
+Package natbib Warning: Citation `wagner2006' on page 2 undefined on input line
+ 8.
+
+
+Package natbib Warning: Citation `imai1988' on page 2 undefined on input line 1
+6.
+
+
+Package natbib Warning: Citation `deligiannakis2007' on page 2 undefined on inp
+ut line 16.
+
+
+Package natbib Warning: Citation `reed1960' on page 2 undefined on input line 1
+6.
+
+
+Package natbib Warning: Citation `boehme2009' on page 2 undefined on input line
+ 16.
+
+
+Package natbib Warning: Citation `photopoulou2015' on page 2 undefined on input
+ line 16.
+
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd)
+[2]) (sec_related.tex
+
+Package natbib Warning: Citation `rode2016' on page 3 undefined on input line 5
+.
+
+
+Package natbib Warning: Citation `campbell2013' on page 3 undefined on input li
+ne 5.
+
+
+Package natbib Warning: Citation `horsburgh2015' on page 3 undefined on input l
+ine 5.
+
+
+Package natbib Warning: Citation `wagner2006' on page 3 undefined on input line
+ 5.
+
+
+Package natbib Warning: Citation `appling2018' on page 3 undefined on input lin
+e 5.
+
+
+Package natbib Warning: Citation `olston2003' on page 3 undefined on input line
+ 8.
+
+
+Package natbib Warning: Citation `deligiannakis2004' on page 3 undefined on inp
+ut line 8.
+
+
+Package natbib Warning: Citation `deligiannakis2007' on page 3 undefined on inp
+ut line 8.
+
+
+Package natbib Warning: Citation `imai1988' on page 3 undefined on input line 8
+.
+
+
+Package natbib Warning: Citation `orourke1981' on page 3 undefined on input lin
+e 8.
+
+
+Package natbib Warning: Citation `soroush2008' on page 3 undefined on input lin
+e 8.
+
+
+Package natbib Warning: Citation `gandhi2009' on page 3 undefined on input line
+ 8.
+
+
+Package natbib Warning: Citation `zordan2014' on page 3 undefined on input line
+ 8.
+
+
+Package natbib Warning: Citation `ganesan2003' on page 3 undefined on input lin
+e 8.
+
+
+Package natbib Warning: Citation `barbarioli2023' on page 3 undefined on input 
+line 8.
+
+
+Package natbib Warning: Citation `lin2019' on page 3 undefined on input line 8.
+
+
+
+Package natbib Warning: Citation `lin2025' on page 3 undefined on input line 8.
+
+
+[3]
+
+Package natbib Warning: Citation `capez2022' on page 4 undefined on input line 
+11.
+
+
+Package natbib Warning: Citation `tondo2021' on page 4 undefined on input line 
+11.
+
+
+Package natbib Warning: Citation `alvarez2022' on page 4 undefined on input lin
+e 11.
+
+
+Package natbib Warning: Citation `afhamisis2022' on page 4 undefined on input l
+ine 11.
+
+
+Package natbib Warning: Citation `rathi2025' on page 4 undefined on input line 
+11.
+
+
+Package natbib Warning: Citation `abdelfadeel2020' on page 4 undefined on input
+ line 11.
+
+
+Package natbib Warning: Citation `reed1960' on page 4 undefined on input line 1
+1.
+
+
+Package natbib Warning: Citation `luby2002' on page 4 undefined on input line 1
+1.
+
+
+Package natbib Warning: Citation `ho2006' on page 4 undefined on input line 11.
+
+
+
+Package natbib Warning: Citation `chaubey2022' on page 4 undefined on input lin
+e 11.
+
+
+Package natbib Warning: Citation `albanese1996' on page 4 undefined on input li
+ne 11.
+
+
+Package natbib Warning: Citation `boehme2009' on page 4 undefined on input line
+ 11.
+
+
+Package natbib Warning: Citation `photopoulou2015' on page 4 undefined on input
+ line 11.
+
+
+Package natbib Warning: Citation `yates2021' on page 4 undefined on input line 
+14.
+
+
+Package natbib Warning: Citation `chen2021' on page 4 undefined on input line 1
+4.
+
+
+Package natbib Warning: Citation `talli2026' on page 4 undefined on input line 
+14.
+
+
+Package natbib Warning: Citation `ramachandran2026' on page 4 undefined on inpu
+t line 14.
+
+
+Package natbib Warning: Citation `jakeman2006' on page 4 undefined on input lin
+e 14.
+
+
+Package natbib Warning: Citation `hutton2016' on page 4 undefined on input line
+ 14.
+
+
+Package natbib Warning: Citation `essawy2020' on page 4 undefined on input line
+ 14.
+
+
+Package natbib Warning: Citation `choi2021' on page 4 undefined on input line 1
+4.
+
+[4]
+
+Package natbib Warning: Citation `imai1988' on page 5 undefined on input line 3
+5.
+
+
+Package natbib Warning: Citation `orourke1981' on page 5 undefined on input lin
+e 35.
+
+
+Package natbib Warning: Citation `lin2019' on page 5 undefined on input line 35
+.
+
+
+Package natbib Warning: Citation `lin2025' on page 5 undefined on input line 35
+.
+
+
+Package natbib Warning: Citation `deligiannakis2007' on page 5 undefined on inp
+ut line 35.
+
+
+Underfull \hbox (badness 3428) in paragraph at lines 35--35
+[]|\T1/ptm/m/n/10.95 Minimum-number polyg-
+
+Underfull \hbox (badness 1490) in paragraph at lines 35--35
+\T1/ptm/m/n/10.95 o-nal ap-prox-i-ma-tion (\T1/ptm/b/n/10.95 ??\T1/ptm/m/n/10.9
+5 );
+
+Underfull \hbox (badness 2617) in paragraph at lines 35--35
+[]|\T1/ptm/m/n/10.95 Per-reading USGS tol-er-
+
+Underfull \hbox (badness 5189) in paragraph at lines 35--35
+\T1/ptm/m/n/10.95 ances, quantisation-exact
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
+\T1/ptm/m/n/10.95 bound, self-contained
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
+\T1/ptm/m/n/10.95 days, cen-sor-ing; cost
+
+Package natbib Warning: Citation `reed1960' on page 5 undefined on input line 3
+5.
+
+
+Package natbib Warning: Citation `luby2002' on page 5 undefined on input line 3
+5.
+
+
+Package natbib Warning: Citation `ho2006' on page 5 undefined on input line 35.
+
+
+
+Package natbib Warning: Citation `chaubey2022' on page 5 undefined on input lin
+e 35.
+
+
+Underfull \hbox (badness 1755) in paragraph at lines 35--35
+[]|\T1/ptm/m/n/10.95 Reed--Solomon, foun-tain,
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
+\T1/ptm/m/n/10.95 application-layer cod-ing
+
+Underfull \hbox (badness 1755) in paragraph at lines 35--35
+[]|\T1/ptm/m/n/10.95 Certificate from re-ceived
+
+Package natbib Warning: Citation `boehme2009' on page 5 undefined on input line
+ 35.
+
+
+Package natbib Warning: Citation `photopoulou2015' on page 5 undefined on input
+ line 35.
+
+
+Underfull \hbox (badness 2334) in paragraph at lines 35--35
+[]|\T1/ptm/m/n/10.95 Broken-stick points with
+
+Underfull \hbox (badness 1603) in paragraph at lines 35--35
+\T1/ptm/m/n/10.95 pseudo-random re-send-ing
+
+Underfull \hbox (badness 4981) in paragraph at lines 35--35
+\T1/ptm/m/n/10.95 tent com-pared at equal
+
+Underfull \hbox (badness 4492) in paragraph at lines 35--35
+[]|\T1/ptm/m/n/10.95 Pilot-based choice of a
+
+Underfull \hbox (badness 1642) in paragraph at lines 35--35
+\T1/ptm/m/n/10.95 mes-sage plan, with sea-
+
+Underfull \hbox (badness 3601) in paragraph at lines 35--35
+\T1/ptm/m/n/10.95 single-site data in most
+) (sec_model.tex
+
+Package natbib Warning: Citation `wagner2006' on page 5 undefined on input line
+ 15.
+
+[5] [6]
+
+Package natbib Warning: Citation `imai1988' on page 7 undefined on input line 3
+1.
+
+
+Package natbib Warning: Citation `orourke1981' on page 7 undefined on input lin
+e 31.
+
+[7 <./figs/arch.pdf>]
+
+Package natbib Warning: Citation `kineis2023kim1' on page 8 undefined on input 
+line 35.
+
+
+Package natbib Warning: Citation `kineis2024formats' on page 8 undefined on inp
+ut line 35.
+
+[8]
+
+Package natbib Warning: Citation `reed1960' on page 9 undefined on input line 6
+0.
+
+
+Package natbib Warning: Citation `luby2002' on page 9 undefined on input line 8
+0.
+
+
+Package natbib Warning: Citation `ho2006' on page 9 undefined on input line 80.
+
+
+
+Package natbib Warning: Citation `deligiannakis2007' on page 9 undefined on inp
+ut line 80.
+
+
+Package natbib Warning: Citation `boehme2009' on page 9 undefined on input line
+ 80.
+
+
+Package natbib Warning: Citation `photopoulou2015' on page 9 undefined on input
+ line 80.
+
+[9]) (sec_study.tex [10]
+
+Package natbib Warning: Citation `usgs2016nwis' on page 11 undefined on input l
+ine 6.
+
+(tables/cohorts.tex) (tables/cohorts.tex) (tables/cohorts.tex)
+
+Package natbib Warning: Citation `gilbert1960' on page 11 undefined on input li
+ne 30.
+
+
+Package natbib Warning: Citation `elliott1963' on page 11 undefined on input li
+ne 30.
+
+
+Package natbib Warning: Citation `tondo2021' on page 11 undefined on input line
+ 30.
+
+[11]
+
+Package natbib Warning: Citation `epa1986do' on page 12 undefined on input line
+ 36.
+
+
+Package natbib Warning: Citation `epa1986gold' on page 12 undefined on input li
+ne 37.
+
+
+Package natbib Warning: Citation `epa2003temp' on page 12 undefined on input li
+ne 38.
+
+[12]
+
+Package natbib Warning: Citation `field2007' on page 13 undefined on input line
+ 56.
+
+(tables/hypotheses.tex) (tables/hypotheses.tex) (tables/hypotheses.tex))
+(sec_results.tex [13] [14] [15 <./figs/need_ecdf.pdf>] (tables/delivery.tex)
+(tables/delivery.tex) (tables/delivery.tex) [16] [17 <./figs/delivery.pdf>]
+[18 <./figs/mismatch.pdf>] (tables/env.tex) (tables/env.tex) (tables/env.tex)
+[19 <./figs/multiday.pdf> <./figs/example_day.pdf>]
+
+Package natbib Warning: Citation `kineis2023kim1' on page 20 undefined on input
+ line 104.
+
+[20]
+
+Package natbib Warning: Citation `ahmedi2022' on page 21 undefined on input lin
+e 110.
+
+
+Package natbib Warning: Citation `adumanu2020' on page 21 undefined on input li
+ne 110.
+
+[21]) (sec_discussion.tex
+
+Package natbib Warning: Citation `kineis2023kim1' on page 22 undefined on input
+ line 14.
+
+
+Package natbib Warning: Citation `imai1988' on page 22 undefined on input line 
+17.
+
+
+Package natbib Warning: Citation `reed1960' on page 22 undefined on input line 
+17.
+
+
+Package natbib Warning: Citation `boehme2009' on page 22 undefined on input lin
+e 17.
+
+
+Package natbib Warning: Citation `deligiannakis2007' on page 22 undefined on in
+put line 17.
+
+
+Package natbib Warning: Citation `boehme2009' on page 22 undefined on input lin
+e 17.
+
+
+Package natbib Warning: Citation `photopoulou2015' on page 22 undefined on inpu
+t line 17.
+
+
+Package natbib Warning: Citation `campbell2013' on page 22 undefined on input l
+ine 17.
+
+
+Package natbib Warning: Citation `horsburgh2015' on page 22 undefined on input 
+line 17.
+
+[22]
+
+Package natbib Warning: Citation `kineis2024formats' on page 23 undefined on in
+put line 23.
+
+[23]) (sec_conclusion.tex [24]
+
+Package natbib Warning: Citation `azongo2026code' on page 25 undefined on input
+ line 19.
+
+
+Package natbib Warning: Citation `usgs2016nwis' on page 25 undefined on input l
+ine 21.
+
+
+Package natbib Warning: Citation `ahmedi2022data' on page 25 undefined on input
+ line 21.
+
+) [25] (main.bbl [26] [27] [28] [29] [30] [31])
+
+Package natbib Warning: There were undefined citations.
+
+[32] (main.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+) )
+(see the transcript file for additional information) <C:\Users\User\AppData\Loc
+al\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk><C:/Users/User/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/User
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Use
+rs/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><
+C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C
+:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:
+/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (32 pages, 448454 bytes).
+Transcript written on main.log.
