@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.23)  11 NOV 2026 18:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.23)  11 NOV 2026 20:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -561,12 +561,12 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 LaTeX Warning: Float too large for page by 84.75896pt on input line 50.
 
 ) (sec_model.tex
-<figs/arch5.pdf, id=519, 573.47852pt x 83.25905pt>
+<figs/arch5.pdf, id=515, 573.47852pt x 83.25905pt>
 File: figs/arch5.pdf Graphic file (type pdf)
 <use figs/arch5.pdf>
 Package pdftex.def Info: figs/arch5.pdf  used on input line 9.
 (pdftex.def)             Requested size: 390.0pt x 56.62175pt.
- [8 <./figs/arch5.pdf>] [9] [10] [11]
+ [8] [9 <./figs/arch5.pdf>] [10] [11]
 <figs/intervals.pdf, id=563, 462.52798pt x 187.902pt>
 File: figs/intervals.pdf Graphic file (type pdf)
 <use figs/intervals.pdf>
@@ -575,35 +575,34 @@ Package pdftex.def Info: figs/intervals.pdf  used on input line 65.
  [12 <./figs/intervals.pdf>] [13] [14]) (sec_study.tex [15] [16] [17] (tables/c
 onfirm_hyp.tex)
 ignored error: Infinite glue shrinkage found in box being split [18])
-(sec_results.tex [19] [20]
-<figs/forest.pdf, id=662, 505.89pt x 209.58301pt>
+(sec_results.tex [19] [20] [21]
+<figs/forest.pdf, id=668, 505.89pt x 209.58301pt>
 File: figs/forest.pdf Graphic file (type pdf)
 <use figs/forest.pdf>
 Package pdftex.def Info: figs/forest.pdf  used on input line 39.
 (pdftex.def)             Requested size: 390.0pt x 161.57448pt.
- [21] (tables/years.tex)
-<figs/sites.pdf, id=671, 462.52798pt x 173.448pt>
+ (tables/years.tex) [22 <./figs/forest.pdf>]
+<figs/sites.pdf, id=684, 462.52798pt x 173.448pt>
 File: figs/sites.pdf Graphic file (type pdf)
 <use figs/sites.pdf>
 Package pdftex.def Info: figs/sites.pdf  used on input line 72.
 (pdftex.def)             Requested size: 350.99762pt x 131.63129pt.
- [22 <./figs/forest.pdf>]
 <figs/tradeoff.pdf, id=688, 491.436pt x 231.26399pt>
 File: figs/tradeoff.pdf Graphic file (type pdf)
 <use figs/tradeoff.pdf>
 Package pdftex.def Info: figs/tradeoff.pdf  used on input line 88.
 (pdftex.def)             Requested size: 390.0pt x 183.53992pt.
 
-(tables/confirm_desc.tex) (tables/confirm_desc12.tex) (tables/confirm_kinds.tex
-) [23 <./figs/sites.pdf>] (tables/confirm_region.tex) [24 <./figs/tradeoff.pdf>
-] (tables/confirm_integrity.tex)
-<figs/thresholds.pdf, id=759, 520.34402pt x 173.448pt>
+(tables/confirm_desc.tex) (tables/confirm_desc12.tex) [23 <./figs/sites.pdf>]
+(tables/confirm_kinds.tex) (tables/confirm_region.tex) [24 <./figs/tradeoff.pdf
+>] (tables/confirm_integrity.tex) [25]
+<figs/thresholds.pdf, id=765, 520.34402pt x 173.448pt>
 File: figs/thresholds.pdf Graphic file (type pdf)
 <use figs/thresholds.pdf>
 Package pdftex.def Info: figs/thresholds.pdf  used on input line 189.
 (pdftex.def)             Requested size: 390.0pt x 130.00627pt.
- [25] [26 <./figs/thresholds.pdf>])
-(sec_discussion.tex [27] [28] [29] [30]) (sec_conclusion.tex) [31]
+ [26 <./figs/thresholds.pdf>])
+(sec_discussion.tex [27] [28] [29] [30]) (sec_conclusion.tex [31])
 (C:\Users\User\Desktop\WSN_M\Paper3\draft4\build\main.bbl [32] [33] [34]
 [35] [36] [37]) [38] [39] [40] [41] [42] [43]
 (C:\Users\User\Desktop\WSN_M\Paper3\draft4\build\main.aux)
@@ -617,11 +616,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  11672 strings out of 467871
  181916 string characters out of 5418859
- 633230 words of memory out of 5000000
+ 633440 words of memory out of 5000000
  40138 multiletter control sequences out of 15000+600000
  705818 words of font info for 168 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,14n,79p,1610b,684s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,14n,79p,1610b,672s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\User\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1
 200.pk><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmmi10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/
@@ -632,7 +631,7 @@ type1/urw/times/utmb8a.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/urw/times/utmr8a.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/ty
 pe1/urw/times/utmri8a.pfb>
 Output written on C:\Users\User\Desktop\WSN_M\Paper3\draft4\build\main.pdf (43 
-pages, 480289 bytes).
+pages, 481215 bytes).
 PDF statistics:
  1059 PDF objects out of 1200 (max. 8388607)
  168 named destinations out of 1000 (max. 500000)
