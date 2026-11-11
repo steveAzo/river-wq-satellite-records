@@ -62,6 +62,12 @@ Diaz-Cacho et al. (2017) & Abstract and introduction \\
 Mu\~niz-Cuza et al. (2025), Sun et al. (2025) & Abstract and contribution list \\
 Imai and Iri (1988), Deligiannakis et al. (2007) & Read in earlier rounds of the study (level not recorded in the search log) \\
 Lin et al. (2025, Sensors) & Abstract and introduction (the 2019 Energies paper was not opened) \\
+Silberstein et al. (2007) & Abstract and introduction (added after the outside review) \\
+Silberstein et al. (2006), Tulone and Madden (2006), Deshpande et al. (2004) & Abstract and introduction (added after the outside review) \\
+Kamra et al. (2006), Elmeleegy et al. (2009), Cheng and Prabhakar (2003, SIGMOD Record) & Abstract and introduction (added after the outside review) \\
+Riva and Finochietto (2014) & Abstract and index record only; full text requested (added after the outside review) \\
+Imielinski and Lipski (1984) & Definition of certain answers as stated in later work; full text requested (added after the outside review) \\
+Zhang et al. (2023) & Search summary only; full text requested (added after the outside review) \\
 \end{longtable}
 }
 
@@ -110,4 +116,75 @@ Everything below is in the project repository; commands run from the Paper3 fold
 \textbf{Lemma 2 (when condition B holds).} Let $t \in S \setminus V$ lie in a certified span whose bounding kept values have uncensored codes $c_p, c_q$ at readings $p, q \in V$. The reconstruction $\hat{x}(t)$ is the linear interpolation of $\tilde{x}_p = \tilde{x}(c_p)$ and $\tilde{x}_q = \tilde{x}(c_q)$ (or equals one of them at the ends of the day), so $\min(\tilde{x}_p, \tilde{x}_q) \le \hat{x}(t) \le \max(\tilde{x}_p, \tilde{x}_q)$. By Lemma 1, $\mathrm{hi}(t) \ge \hat{x}(t) + a$ (linear parameters) or $\hat{x}(t)/(1-r)$ (conductance), and by Lemma C, $x(p) \le \tilde{x}_p + s/2$. The tolerance constants exceed half a step for every parameter (at least 0.2 against at most 0.0025 units; 3\% against 0.07\% for conductance); therefore, $\mathrm{hi}(t) \ge \min(x(p), x(q))$ and, symmetrically, $\mathrm{lo}(t) \le \max(x(p), x(q))$. Both bounds survive the effective intervals: a witness bound holds on $V$, so $g_{lo} \le \min(x(p), x(q))$ and $g_{hi} \ge \max(x(p), x(q))$, and the grid move keeps the grid values $x(p), x(q)$ inside. Hence condition B holds with $u, v \in \{p, q\}$. If a bounding kept value has a censored code, its dequantised value is the edge of the range and the argument fails on that side only.
 
 \textbf{Proposition 2 (exactness without witnesses).} Without witnesses, the set of records consistent with the knowledge is the box $\prod_t [\mathrm{lo}(t), \mathrm{hi}(t)]$ over $S$ (taking $S = V$, as when no censored reading is unrecognised). For ``some reading below $\theta$'': over the box, $\min_t x(t)$ ranges exactly over $[\min \mathrm{lo}, \min \mathrm{hi}]$ (each end attained by setting every reading to its lower or upper end). The query is true on every consistent record iff $\min \mathrm{hi} < \theta$, false on every one iff $\min \mathrm{lo} \ge \theta$, and takes both values otherwise; these are exactly the cases in which the rule answers 1, 0, and $-1$. ``Above'' and the extrema are symmetric, and the extremum ends are attained. With a witness, the consistent set is no longer a box: the witness also asserts that some reading lies in its cell. Counterexample: reading 1 in $[3, 10]$, reading 2 in $[4.5, 4.6]$, minimum witness in $[4.0, 4.01]$. Reading 2 cannot be the minimum; therefore, reading 1 lies in $[4.0, 4.01]$ and ``some reading above 5'' is certainly false, but the box rule (which uses only $x \ge g_{lo}$) answers $-1$. The rules are therefore sound (Proposition 1) but not exact with witnesses.
+
+\section*{Supplementary note S6: exploratory analyses after the confirmation (post hoc)}
+Run after the confirmation at the request of an outside reviewer; none is a test. Byte level (CRC-24 frame, hardened receiver, decoded-only decisions), loss draws shared by the designs, 20 draws per day and condition, every analysed day of each year. Code: exploratory/explore4.py and exploratory/run\_baselines.py; summary exploratory/summarise4.py. Unconfigured thresholds are the two alternative sets of the study.
+
+{\footnotesize
+\begin{longtable}{@{}llllll@{}}
+\caption{Loss sweep: contrasts at the unconfigured thresholds (hard cases) and in whole-record recovery (point estimate with the lower bound of the site-clustered 95\% interval; ind.\ is independent loss, Gil.\ Gilbert loss with mean burst length b).}\\
+\toprule
+Year & $Q$ & Loss & 3b $-$ flags plus record & 3b $-$ record only & Record recovered, 3b $-$ record \\
+\midrule
+\endfirsthead
+\toprule
+Year & $Q$ & Loss & 3b $-$ flags plus record & 3b $-$ record only & Record recovered, 3b $-$ record \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\input{tables/explore_loss.tex}
+\end{longtable}
+}
+
+{\footnotesize
+\begin{longtable}{@{}lllllll@{}}
+\caption{Record utility: whole record recovered, share of readings certified within tolerance over all draws, and on draws whose whole record was not recovered.}\\
+\toprule
+Year & $Q$ & Loss & Design & Whole record & Certified, all & Certified, not whole \\
+\midrule
+\endfirsthead
+\toprule
+Year & $Q$ & Loss & Design & Whole record & Certified, all & Certified, not whole \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\input{tables/explore_util.tex}
+\end{longtable}
+}
+
+{\footnotesize
+\begin{longtable}{@{}lllll@{}}
+\caption{Assumption R at six messages per day, independent loss 0.3, configured and alternative thresholds (dissolved oxygen, pH, conductance): share of decisions certain and correct, and certain but wrong, with the inferred resolution, with R off, and with a resolution ten times too coarse (0.1 where none was inferred).}\\
+\toprule
+Year & Design & Resolution & Correct & Wrong \\
+\midrule
+\endfirsthead
+\toprule
+Year & Design & Resolution & Correct & Wrong \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\input{tables/explore_r.tex}
+\end{longtable}
+}
+
+{\footnotesize
+\begin{longtable}{@{}lllllll@{}}
+\caption{Baselines on the final frame in the slot model (four value slots per message): whole record recovered and hard cases decided at configured and unconfigured thresholds. The slot model is pessimistic for the 3b rule (whole slots for the witness group).}\\
+\toprule
+Year & $Q$ & Loss & Design & Record & Hard, configured & Hard, unconfigured \\
+\midrule
+\endfirsthead
+\toprule
+Year & $Q$ & Loss & Design & Record & Hard, configured & Hard, unconfigured \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\input{tables/explore_base.tex}
+\end{longtable}
+}
 \end{document}

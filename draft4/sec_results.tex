@@ -12,7 +12,7 @@ On the 2023 development data, the findings that shaped the method were the follo
   \item Targeting paid: against the same layering on random days, the targeted rule gained 0.10 to 0.15 on near 7DADM windows and 0.17 on hard conductance days.
   \item The exact allocator did not beat the simple rule on hard cases; the simple rule was within 7\% (at $Q = 6$) and 1.6\% (at $Q = 12$) of the optimum of the stated objective.
   \item Send-on-delta needed 1.79 times as many values as the piecewise-linear record, and a tightened tolerance did not improve hard-case decisions at this quota.
-  \item With the flags allowed to use the record, hosting all witnesses in the spare room of the flag design (hybrid 1) added only 0.02 to 0.03 on unanticipated thresholds, and adding the 3b rule to the flags (hybrid 2) lost 0.16 to 0.19 of record recovery against the record alone at $Q = 6$. Of the layered designs, only the 3b rule met the adoption rule written before the run (a gain of at least 0.10 over the fair comparator in all four conditions, and a record cost of at most 0.08 against the record alone).
+  \item With the flags allowed to use the record, hosting all witnesses in the spare room of the flag design (hybrid 1) added only 0.02 to 0.03 on unconfigured thresholds, and adding the 3b rule to the flags (hybrid 2) lost 0.16 to 0.19 of record recovery against the record alone at $Q = 6$. Of the layered designs, only the 3b rule met the adoption rule written before the run (a gain of at least 0.10 over the fair comparator in all four conditions, and a record cost of at most 0.08 against the record alone).
   \item Moving from CRC-16 to CRC-24 cost one record value per message. On the CRC-24 frame the 3b rule's record cost at $Q = 6$ was 0.088 (independent loss) at byte level, beyond the 0.08 of the adoption rule. The 3b rule was adopted nevertheless. An earlier justification, that the cost was small against the fair comparator, rested on the modelling error described in Section~\ref{sec:history} and was withdrawn; the adoption is therefore post hoc, and its cost became hypothesis H4.
 \end{itemize}
 
@@ -78,7 +78,7 @@ The confirmatory estimates were re-analysed after the run from the run's own per
 \label{sec:desc}
 Table~\ref{tab:desc} and Fig.~\ref{fig:tradeoff} show the pooled levels of the designs; these results carry no verdict.
 \begin{itemize}
-  \item The flags-plus-record design decided 0.999 of hard cases at configured thresholds and 0.572 at unanticipated thresholds; the 3b rule decided 0.971 and 0.798. Flags that do not use the record (slot model) decided 0.199 at unanticipated thresholds.
+  \item The flags-plus-record design decided 0.999 of hard cases at configured thresholds and 0.572 at unconfigured thresholds; the 3b rule decided 0.971 and 0.798. Flags that do not use the record (slot model) decided 0.199 at unconfigured thresholds.
   \item The record alone recovered the whole record on 0.842 of days and the 3b rule on 0.760; at $Q = 12$ the figures were 0.964 and 0.937 (Table~\ref{tab:desc12}).
   \item The slot model, run as a cross-check, reproduced the byte frame within 0.001 for the record alone and the flags-plus-record design and was pessimistic for the 3b rule by 0.027 to 0.036 in whole-record recovery, because it assigns the witness group whole slots.
 \end{itemize}
@@ -86,18 +86,18 @@ Table~\ref{tab:desc} and Fig.~\ref{fig:tradeoff} show the pooled levels of the d
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figs/tradeoff.pdf}
-\caption{Hard cases decided at configured and at unanticipated thresholds on the sealed cohort (solid markers six messages per day, faded markers twelve). The flags decide almost every configured hard case; the 3b rule decides the most unanticipated ones.}
+\caption{Hard cases decided at configured and at unconfigured thresholds on the sealed cohort (solid markers six messages per day, faded markers twelve). The flags decide almost every configured hard case; the 3b rule decides the most unconfigured ones.}
 \label{fig:tradeoff}
 \end{figure}
 
 \begin{table}[!htbp]
 \centering
-\caption{Pooled levels at six messages per day on the sealed cohort (record recovered, hard cases at configured (conf.) thresholds, hard cases at unanticipated (unant.) thresholds, and all days at configured thresholds).}
+\caption{Pooled levels at six messages per day on the sealed cohort (record recovered, hard cases at configured (conf.) thresholds, hard cases at unconfigured (unconf.) thresholds, and all days at configured thresholds).}
 \label{tab:desc}
 \small
 \begin{tabular}{@{}lrrrr@{}}
 \toprule
-Design & Record & Hard, conf. & Hard, unant. & All, conf. \\
+Design & Record & Hard, conf. & Hard, unconf. & All, conf. \\
 \midrule
 \tableinput{tables/confirm_desc.tex}
 \bottomrule
@@ -111,7 +111,7 @@ Design & Record & Hard, conf. & Hard, unant. & All, conf. \\
 \small
 \begin{tabular}{@{}lrrrr@{}}
 \toprule
-Design & Record & Hard, conf. & Hard, unant. & All, conf. \\
+Design & Record & Hard, conf. & Hard, unconf. & All, conf. \\
 \midrule
 \tableinput{tables/confirm_desc12.tex}
 \bottomrule
@@ -120,29 +120,29 @@ Design & Record & Hard, conf. & Hard, unant. & All, conf. \\
 
 Table~\ref{tab:kinds} splits the contrasts by query kind, because the pooled hypotheses weight each kind by its number of hard cases.
 \begin{itemize}
-  \item At unanticipated thresholds the 3b rule exceeded the flags-plus-record design for every kind under both loss models, with every interval above zero: by 0.106 (pH) to 0.311 (conductance change) under independent loss. No single kind drove the pooled result.
+  \item At unconfigured thresholds the 3b rule exceeded the flags-plus-record design for every kind under both loss models, with every interval above zero: by 0.106 (pH) to 0.311 (conductance change) under independent loss. No single kind drove the pooled result.
   \item At configured thresholds the flags-plus-record design exceeded the 3b rule for every kind. The largest gap was for the 7DADM under Gilbert loss, where a seven-day window needs an informative day in each of seven blocks and a burst of losses removes the witnesses that the flags do not need.
 \end{itemize}
 
 \begin{table}[!htbp]
 \centering
-\caption{Contrasts at six messages per day by query kind, with 95\% site-clustered intervals: the 3b rule minus flags plus record (F+R) and minus the record alone at unanticipated (unant.) thresholds, and the 3b rule minus F+R at configured (conf.) thresholds.}
+\caption{Contrasts at six messages per day by query kind, with 95\% site-clustered intervals: the 3b rule minus flags plus record (F+R) and minus the record alone at unconfigured (unconf.) thresholds, and the 3b rule minus F+R at configured (conf.) thresholds.}
 \label{tab:kinds}
 \scriptsize
 \begin{tabular}{@{}lccc@{}}
 \toprule
-Kind & 3b $-$ F+R, unant. & 3b $-$ record, unant. & 3b $-$ F+R, conf. \\
+Kind & 3b $-$ F+R, unconf. & 3b $-$ record, unconf. & 3b $-$ F+R, conf. \\
 \midrule
 \tableinput{tables/confirm_kinds.tex}
 \bottomrule
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:region} splits the levels by region. The regions have one to five sites; therefore, the figures carry no interval and no verdict. The 3b rule decided the most unanticipated hard cases in every region. Its record cost relative to the record alone ranged from 0.015 in the Gulf and lower Mississippi region (two sites, where the record alone recovered 0.988 of days) to 0.129 in the Mid-Atlantic and Appalachia region (independent loss).
+Table~\ref{tab:region} splits the levels by region. The regions have one to five sites; therefore, the figures carry no interval and no verdict. The 3b rule decided the most unconfigured hard cases in every region. Its record cost relative to the record alone ranged from 0.015 in the Gulf and lower Mississippi region (two sites, where the record alone recovered 0.988 of days) to 0.129 in the Mid-Atlantic and Appalachia region (independent loss).
 
 \begin{table}[!htbp]
 \centering
-\caption{Levels at six messages per day by region (hard cases decided at unanticipated thresholds, then record recovered, separated by a bar; number of sites in brackets; descriptive).}
+\caption{Levels at six messages per day by region (hard cases decided at unconfigured thresholds, then record recovered, separated by a bar; number of sites in brackets; descriptive).}
 \label{tab:region}
 \footnotesize
 \begin{tabular}{@{}lccc@{}}
@@ -177,3 +177,24 @@ Design & $Q$ & Rejected & More & Exactly & Fewer & Uncoded & Wrong decision \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\subsection{Exploratory analyses after the confirmation (post hoc)}
+\label{sec:explore}
+The analyses in this subsection were run after the confirmation, at the request of an outside reviewer, and none of them is a test. They reuse the frozen decoder and decision code at byte level, with loss draws shared by the three designs, and were run on the two development years first and on the sealed cohort second. Values are for the sealed cohort at six messages per day under independent loss 0.3 unless stated; the full tables are in the supplement (Note S6). No certain decision was wrong in any of these runs, except where a wrong reporting resolution was imposed on purpose. A first version of the threshold sweep reported 215 wrong 7DADM decisions at 22\,\textdegree C on one development site; they came from the evaluation itself, which compared a seven-day mean that is exactly 22.0 in decimal arithmetic but 22.000000000000004 in floating point, and the certificate was right. Computed quantities are now rounded before the truth is evaluated.
+
+Threshold sweep: Fig.~\ref{fig:thresholds} shows the share of hard cases decided correctly as the threshold moves away from the configured one, with a hard case defined at each threshold by the bands of the study. The flags-plus-record design decided 0.999 of hard cases at each configured threshold and fell to the level of the record alone beside it, because a configured answer implies little about another threshold. The 3b rule degraded in one direction only. Toward more extreme thresholds it stayed high: dissolved oxygen below 2 to 4.5\,mg/L 0.934 to 0.984, pH below 6.0 and 6.3 about 0.93, pH above 9.2 and 9.5 0.986 and 0.993, and a conductance change above 20\% and 30\% 0.980 and 0.986 (record alone 0.46 to 0.70). Toward less extreme thresholds it fell to the level of the other designs: dissolved oxygen below 6 and 7\,mg/L 0.740 and 0.745 (record alone 0.687 and 0.724), pH above 8.0 0.686 (0.661), and a conductance change above 2.5\% 0.446 (0.211). The reason is the targeting rule: a day that is hard at a more extreme threshold is also near or across the configured one; therefore, its witnesses had the protected columns; a day that is hard only at a less extreme threshold was easy at the configured one, and its witnesses were only hosted. For the 7DADM, whose daily maxima are carried on hard days on either side, the 3b rule decided 0.840 to 0.954 between 18 and 22\,\textdegree C and 0.706 and 0.682 at 16 and 24\,\textdegree C. The two development years showed the same shapes (grey lines).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figs/thresholds.pdf}
+\caption{Hard cases decided correctly as the threshold moves away from the configured one (dashed), at six messages per day under independent loss 0.3; the sealed cohort in colour, the two development years in grey. Post hoc.}
+\label{fig:thresholds}
+\end{figure}
+
+Loss sweep: Across independent loss of 0.1, 0.3, and 0.5, Gilbert loss of 0.3 with mean bursts of three and six messages, and Gilbert loss of 0.5 with bursts of three, at six and twelve messages per day, the contrast of the 3b rule with flags plus record at the unconfigured thresholds of the study stayed between 0.139 and 0.248 on the three years, with every lower bound at least 0.114; the contrast with the record alone stayed between 0.174 and 0.356. Longer bursts reduced the gain most (on the cohort 0.147 at six messages per day with bursts of six, against 0.191 with bursts of three). The cost in whole-record recovery grew with loss, from 0.053 at loss 0.1 to 0.096 at loss 0.5 on the cohort (six messages per day, independent loss), and stayed at most 0.096 in every condition on the cohort.
+
+Record utility: On days whose whole record was not recovered, a substantial part of each day was still certified within tolerance: 0.416 of the readings for the record alone and 0.429 for the 3b rule at loss 0.3, and 0.28 to 0.29 at loss 0.5. Over all days, the share of readings certified was 0.908 for the record alone and 0.862 for the 3b rule. A failed whole-record recovery is therefore not a lost day, and the cost of the witnesses in certified readings (0.046 of readings) is about half of their cost in whole-record recovery.
+
+Assumption R: With R off, the share of correct certain decisions fell by 0.003 to 0.006 on the three years, and no decision was wrong. With a deliberately wrong resolution (ten times too coarse, or 0.1 where none had been inferred), between 24,031 and 43,247 of about 1.8 million decisions per year and design were certain but wrong (1.3\% to 2.3\%). The assumption is therefore cheap to drop and dangerous to set wrongly: in deployment the resolution must be a declared, verified field of the site profile, not a value inferred from the record, and a site without a verified resolution should run with R off.
+
+Baselines on the final frame: Coded send-on-delta and the record at half the tolerance were compared with the record alone and the 3b rule in the slot model with four value slots per message (the frame of the confirmation); send-on-delta has no byte-level frame. The results are in the supplement (Note S6, Table S7).

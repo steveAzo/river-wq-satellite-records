@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.23)  11 NOV 2026 12:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.23)  11 NOV 2026 18:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -354,8 +354,13 @@ Overfull \hbox (20.93994pt too wide) in paragraph at lines 17--17
 ignored error: Infinite glue shrinkage found in box being split [1
 
 {C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/User/
-AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}] [2] (tables/confirm
-3_hyp.tex
+AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
+Underfull \hbox (badness 1057) in paragraph at lines 66--66
+[]|\T1/ptm/m/n/10 Silberstein et al. (2006), Tu-lone
+ []
+
+ignored error: Infinite glue shrinkage found in box being split [2]
+(tables/confirm3_hyp.tex
 Underfull \hbox (badness 6675) in paragraph at lines 1--1
 \T1/ptm/m/n/10 no frame round-trip
  []
@@ -513,30 +518,36 @@ Underfull \hbox (badness 2600) in paragraph at lines 9--9
  []
 
 )
+ignored error: Infinite glue shrinkage found in box being split [3]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 9
-1.
- (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
+7.
+
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-Overfull \hbox (40.89992pt too wide) in paragraph at lines 91--92
+Overfull \hbox (40.89992pt too wide) in paragraph at lines 97--98
 []\T1/ptm/m/n/12 Second con-fir-ma-tion: frozen plan and freeze record docs/CON
 FIRM4_PLAN.md and docs/FREEZE4.md
  []
 
 
-Overfull \hbox (72.79517pt too wide) in paragraph at lines 91--92
+Overfull \hbox (72.79517pt too wide) in paragraph at lines 97--98
 \T1/ptm/m/n/12 out-puts in re-sults/confirm4 (ver-dicts4.md, ver-dicts4.csv, RU
 N4.log); write-up docs/CONFIRM4_RESULTS.md. 
  []
 
-[3]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 98.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 104.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 98.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 104.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 98.
- [4] [5] (C:\Users\User\Desktop\WSN_M\Paper3\draft4\build\supplement.aux)
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 104.
+[4] [5] (tables/explore_loss.tex)
+ignored error: Infinite glue shrinkage found in box being split [6]
+(tables/explore_util.tex)
+ignored error: Infinite glue shrinkage found in box being split [7]
+(tables/explore_r.tex) (tables/explore_base.tex) [8] [9]
+(C:\Users\User\Desktop\WSN_M\Paper3\draft4\build\supplement.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -545,13 +556,13 @@ Package rerunfilecheck Info: File `supplement.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 9069 strings out of 467871
- 141960 string characters out of 5418859
- 593495 words of memory out of 5000000
- 37817 multiletter control sequences out of 15000+600000
- 668956 words of font info for 110 fonts, out of 8000000 for 9000
+ 9108 strings out of 467871
+ 142812 string characters out of 5418859
+ 593903 words of memory out of 5000000
+ 37833 multiletter control sequences out of 15000+600000
+ 670461 words of font info for 112 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,9n,79p,1284b,621s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,9n,79p,1284b,623s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mmi10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmr10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/publi
@@ -562,9 +573,9 @@ rw/times/utmb8a.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/ur
 w/times/utmr8a.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/urw
 /times/utmri8a.pfb>
 Output written on C:\Users\User\Desktop\WSN_M\Paper3\draft4\build\supplement.pd
-f (5 pages, 102355 bytes).
+f (9 pages, 111082 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 14 named destinations out of 1000 (max. 500000)
+ 103 PDF objects out of 1000 (max. 8388607)
+ 23 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -11,6 +11,7 @@ results/confirm/lowcost_input/Weija.csv
 
 # 2. Copyrighted literature (publisher PDFs and text extracted from them). Our own notes stay.
 papers/pdf/
+papers/round6/
 papers/txt/
 papers/txt_flow/
 papers/standards/*.pdf

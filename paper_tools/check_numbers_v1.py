@@ -6,7 +6,7 @@ import re
 
 FILES = ["results/confirm4/verdicts4.md", "results/confirm4/robust_stats_rounded.csv", "results/rehearsal4_2023/verdicts4.md", "results/rehearsal4v2/verdicts4.md",
          "docs/CONFIRM4_RESULTS.md", "docs/CONFIRM4_PLAN.md", "docs/V3_DEV_RESULTS.md", "docs/CONFIRM3_RESULTS.md",
-         "docs/PROTO_Q_RESULTS.md", "docs/PROTO_J_RESULTS.md", "docs/BASELINES2_RESULTS.md", "docs/CERTIFICATE_SPEC.md"]
+         "docs/PROTO_Q_RESULTS.md", "docs/PROTO_J_RESULTS.md", "docs/BASELINES2_RESULTS.md", "docs/CERTIFICATE_SPEC.md", "exploratory/out/summary_console.txt", "exploratory/out/thresholds_confirm4.csv", "exploratory/out/utility_confirm4.csv", "exploratory/out/summary.md"]
 allsrc = "\n".join(open(f, encoding="utf-8").read() for f in FILES)
 for f in glob.glob("draft4/tables/*.tex"):
     allsrc += "\n" + open(f, encoding="utf-8").read()

@@ -1,0 +1,60 @@
+
+# rehearsal4_2023: 35 sites; wrong certain decisions (all non-R metrics): 0
+Q=6 iid_0.1     H2-like +0.189 (+0.162 to +0.214) | H3-like +0.212 (+0.179 to +0.243) | H4-like -0.061 (-0.083 to -0.042)
+Q=6 iid_0.3     H2-like +0.223 (+0.196 to +0.248) | H3-like +0.271 (+0.236 to +0.305) | H4-like -0.089 (-0.113 to -0.067)
+Q=6 iid_0.5     H2-like +0.218 (+0.194 to +0.241) | H3-like +0.311 (+0.279 to +0.340) | H4-like -0.094 (-0.113 to -0.076)
+Q=6 gil_0.3_b3  H2-like +0.183 (+0.160 to +0.206) | H3-like +0.247 (+0.219 to +0.275) | H4-like -0.071 (-0.089 to -0.055)
+Q=6 gil_0.3_b6  H2-like +0.139 (+0.117 to +0.160) | H3-like +0.199 (+0.175 to +0.222) | H4-like -0.056 (-0.071 to -0.043)
+Q=6 gil_0.5_b3  H2-like +0.162 (+0.141 to +0.182) | H3-like +0.255 (+0.228 to +0.280) | H4-like -0.080 (-0.096 to -0.066)
+Q=12 iid_0.1     H2-like +0.171 (+0.148 to +0.196) | H3-like +0.174 (+0.152 to +0.198) | H4-like -0.014 (-0.023 to -0.007)
+Q=12 iid_0.3     H2-like +0.178 (+0.154 to +0.203) | H3-like +0.186 (+0.162 to +0.210) | H4-like -0.027 (-0.039 to -0.016)
+Q=12 iid_0.5     H2-like +0.204 (+0.178 to +0.230) | H3-like +0.233 (+0.202 to +0.263) | H4-like -0.056 (-0.073 to -0.040)
+Q=12 gil_0.3_b3  H2-like +0.187 (+0.164 to +0.213) | H3-like +0.208 (+0.183 to +0.233) | H4-like -0.032 (-0.043 to -0.022)
+Q=12 gil_0.3_b6  H2-like +0.170 (+0.149 to +0.193) | H3-like +0.205 (+0.183 to +0.226) | H4-like -0.030 (-0.039 to -0.022)
+Q=12 gil_0.5_b3  H2-like +0.209 (+0.185 to +0.234) | H3-like +0.253 (+0.223 to +0.280) | H4-like -0.054 (-0.068 to -0.041)
+R heur R_inferred  correct 0.8208  wrong 0  of 1821060
+R heur R_off       correct 0.8174  wrong 0  of 1821060
+R heur R_wrong     correct 0.8087  wrong 29549  of 1821060
+R rec  R_inferred  correct 0.7865  wrong 0  of 1821060
+R rec  R_off       correct 0.7837  wrong 0  of 1821060
+R rec  R_wrong     correct 0.7797  wrong 28028  of 1821060
+
+# rehearsal4v2: 31 sites; wrong certain decisions (all non-R metrics): 0
+Q=6 iid_0.1     H2-like +0.211 (+0.162 to +0.262) | H3-like +0.250 (+0.179 to +0.333) | H4-like -0.059 (-0.077 to -0.042)
+Q=6 iid_0.3     H2-like +0.248 (+0.204 to +0.294) | H3-like +0.318 (+0.253 to +0.395) | H4-like -0.094 (-0.113 to -0.075)
+Q=6 iid_0.5     H2-like +0.235 (+0.204 to +0.271) | H3-like +0.356 (+0.304 to +0.418) | H4-like -0.108 (-0.127 to -0.092)
+Q=6 gil_0.3_b3  H2-like +0.202 (+0.166 to +0.242) | H3-like +0.288 (+0.233 to +0.357) | H4-like -0.076 (-0.090 to -0.062)
+Q=6 gil_0.3_b6  H2-like +0.151 (+0.114 to +0.189) | H3-like +0.231 (+0.178 to +0.296) | H4-like -0.059 (-0.071 to -0.047)
+Q=6 gil_0.5_b3  H2-like +0.170 (+0.142 to +0.203) | H3-like +0.290 (+0.241 to +0.348) | H4-like -0.090 (-0.104 to -0.077)
+Q=12 iid_0.1     H2-like +0.194 (+0.150 to +0.236) | H3-like +0.211 (+0.154 to +0.271) | H4-like -0.018 (-0.032 to -0.007)
+Q=12 iid_0.3     H2-like +0.202 (+0.156 to +0.246) | H3-like +0.225 (+0.164 to +0.291) | H4-like -0.028 (-0.041 to -0.016)
+Q=12 iid_0.5     H2-like +0.229 (+0.184 to +0.273) | H3-like +0.278 (+0.215 to +0.346) | H4-like -0.056 (-0.070 to -0.042)
+Q=12 gil_0.3_b3  H2-like +0.209 (+0.166 to +0.252) | H3-like +0.247 (+0.188 to +0.309) | H4-like -0.034 (-0.047 to -0.024)
+Q=12 gil_0.3_b6  H2-like +0.189 (+0.150 to +0.228) | H3-like +0.241 (+0.190 to +0.298) | H4-like -0.034 (-0.045 to -0.025)
+Q=12 gil_0.5_b3  H2-like +0.231 (+0.190 to +0.271) | H3-like +0.296 (+0.239 to +0.359) | H4-like -0.057 (-0.070 to -0.046)
+R heur R_inferred  correct 0.8194  wrong 0  of 1817100
+R heur R_off       correct 0.8138  wrong 0  of 1817100
+R heur R_wrong     correct 0.8091  wrong 28704  of 1817100
+R rec  R_inferred  correct 0.7741  wrong 0  of 1817100
+R rec  R_off       correct 0.7698  wrong 0  of 1817100
+R rec  R_wrong     correct 0.7721  wrong 24031  of 1817100
+
+# confirm4: 35 sites; wrong certain decisions (all non-R metrics): 0
+Q=6 iid_0.1     H2-like +0.191 (+0.161 to +0.225) | H3-like +0.215 (+0.171 to +0.264) | H4-like -0.053 (-0.066 to -0.039)
+Q=6 iid_0.3     H2-like +0.226 (+0.197 to +0.257) | H3-like +0.275 (+0.230 to +0.323) | H4-like -0.083 (-0.101 to -0.065)
+Q=6 iid_0.5     H2-like +0.227 (+0.202 to +0.254) | H3-like +0.316 (+0.274 to +0.360) | H4-like -0.096 (-0.112 to -0.080)
+Q=6 gil_0.3_b3  H2-like +0.191 (+0.167 to +0.218) | H3-like +0.252 (+0.213 to +0.292) | H4-like -0.067 (-0.079 to -0.055)
+Q=6 gil_0.3_b6  H2-like +0.147 (+0.125 to +0.171) | H3-like +0.202 (+0.167 to +0.239) | H4-like -0.052 (-0.061 to -0.042)
+Q=6 gil_0.5_b3  H2-like +0.174 (+0.153 to +0.197) | H3-like +0.261 (+0.224 to +0.299) | H4-like -0.080 (-0.093 to -0.068)
+Q=12 iid_0.1     H2-like +0.176 (+0.149 to +0.207) | H3-like +0.188 (+0.151 to +0.229) | H4-like -0.016 (-0.024 to -0.009)
+Q=12 iid_0.3     H2-like +0.182 (+0.154 to +0.214) | H3-like +0.197 (+0.158 to +0.241) | H4-like -0.026 (-0.035 to -0.018)
+Q=12 iid_0.5     H2-like +0.208 (+0.179 to +0.239) | H3-like +0.242 (+0.201 to +0.287) | H4-like -0.051 (-0.063 to -0.039)
+Q=12 gil_0.3_b3  H2-like +0.191 (+0.164 to +0.222) | H3-like +0.216 (+0.179 to +0.258) | H4-like -0.031 (-0.039 to -0.023)
+Q=12 gil_0.3_b6  H2-like +0.173 (+0.149 to +0.200) | H3-like +0.212 (+0.177 to +0.249) | H4-like -0.030 (-0.038 to -0.024)
+Q=12 gil_0.5_b3  H2-like +0.214 (+0.187 to +0.243) | H3-like +0.261 (+0.222 to +0.303) | H4-like -0.052 (-0.062 to -0.041)
+R heur R_inferred  correct 0.8216  wrong 0  of 1875060
+R heur R_off       correct 0.8171  wrong 0  of 1875060
+R heur R_wrong     correct 0.8010  wrong 43247  of 1875060
+R rec  R_inferred  correct 0.7910  wrong 0  of 1875060
+R rec  R_off       correct 0.7861  wrong 0  of 1875060
+R rec  R_wrong     correct 0.7766  wrong 39107  of 1875060

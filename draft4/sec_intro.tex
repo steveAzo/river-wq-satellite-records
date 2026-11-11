@@ -16,6 +16,17 @@ The study asked five research questions:
   \item RQ5: How much does a message that is corrupted but passes its check endanger the soundness of the decisions?
 \end{enumerate}
 
+Five terms recur throughout:
+\begin{itemize}
+  \item Certificate: the server's three-valued answer to a threshold query for one day (exceeded, not exceeded, or undetermined), computed only from the bytes that arrived; a certain answer (exceeded or not exceeded) is correct under the conditions stated in Section~\ref{sec:model}.
+  \item Witness: a compact value sent beside the record that settles a decision the record alone may not, such as the quantised daily minimum of dissolved oxygen.
+  \item Hard case: a day on which the record alone may not settle a query, because the relevant value lies near the threshold or the threshold is crossed; the bands that define it are given in Section~\ref{sec:model}.
+  \item Configured and unconfigured thresholds: configured thresholds are known to the node when it is set up; unconfigured thresholds are thresholds the node was not set up for, such as a criterion revised after deployment. In this study the unconfigured thresholds were chosen by the analysts and are close to the configured ones.
+  \item Whole-record recovery: the share of days on which every planned value of the error-bounded record arrived; on such days every reading is certified within tolerance.
+\end{itemize}
+
+The broader principle is that a severely bandwidth-limited monitoring system should keep the information that the decisions of a future receiver need, rather than only the information that reconstructs the record; the study tests one implementation of that principle for four water-quality parameters.
+
 The building blocks are established, and the study does not claim otherwise: minimum-size piecewise-linear approximation within a maximum error \citep{imai1988,orourke1981}; budgeted compression of sensor history \citep{deligiannakis2007}; priority encoding transmission, which protects parts of a message unequally \citep{albanese1996,boucheron2000pet}; deterministic interval answers from compressed or uncertain data \citep{cheng2003probabilistic,brito2017platodb,lin2019plato}; possible-minimum and possible-maximum filtering of predicates \citep{taurone2024treat}; and send-on-delta sampling \citep{diazcacho2017sod}. The contributions of this study are the following:
 \begin{itemize}
   \item A certificate language for a one-way lossy link: every piece of received information becomes an interval on a reading; threshold, extremum, conductance-change, and rolling-mean queries receive three-valued answers; the answers are sound when the intervals are valid (proved and checked exhaustively on small cases); and two limits are stated, namely that the rules are exact only without witnesses and that the tolerance makes near-threshold readings undecidable from a record alone.

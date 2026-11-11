@@ -63,8 +63,8 @@ def write(name, rows):
 def table_hyp():
     v = verdicts("confirm4")
     lab = {"H1": ("Code check", "No wrong certain decision; no decoded value differing from the plan; no decision-layer error; no round-trip mismatch", "all 0"),
-           "H2": ("Test", "3b rule minus flags plus record, hard cases at unanticipated thresholds", "lower bound at least 0.10"),
-           "H3": ("Test", "3b rule minus record only, hard cases at unanticipated thresholds", "lower bound at least 0.10"),
+           "H2": ("Test", "3b rule minus flags plus record, hard cases at unconfigured thresholds", "lower bound at least 0.10"),
+           "H3": ("Test", "3b rule minus record only, hard cases at unconfigured thresholds", "lower bound at least 0.10"),
            "H4": ("Test", "Whole record recovered, 3b rule minus record only (the cost of the adopted design)", "lower bound at least $-$0.15 ($Q = 6$), $-$0.10 ($Q = 12$)"),
            "H6": ("Known limit", "3b rule minus flags plus record, hard cases at configured thresholds, $Q = 6$", "upper bound below 0"),
            "H7": ("Analytic bound", "Expected false-certificate days per million days, bit-error rate $10^{-3}$", "none (cannot fail)"),
@@ -136,7 +136,7 @@ def table_region():
     g = pe.load_agg("confirm4", 6, "byte4").merge(sel, left_on="site", right_on="site_no")
     rows = []
     for cond, cl in CONDS:
-        rows.append(f"\\multicolumn{{4}}{{@{{}}l}}{{{cl.capitalize()} loss, $Q = 6$ (hard cases decided at unanticipated thresholds | record recovered)}} \\\\")
+        rows.append(f"\\multicolumn{{4}}{{@{{}}l}}{{{cl.capitalize()} loss, $Q = 6$ (hard cases decided at unconfigured thresholds | record recovered)}} \\\\")
         for region, z in g.groupby("region"):
             cells = []
             for d in ("rec", "heur", "flagsrec"):
@@ -185,8 +185,8 @@ def fig_forest():
     v = {yr: verdicts(tag) for yr, tag in RUNS.items()}
     conf = v["2022, cohort 4 (confirmation)"]
     lim = {"H2": [0.10] * 4, "H3": [0.10] * 4, "H4": [-0.15, -0.15, -0.10, -0.10]}
-    title = {"H2": "H2  3b rule minus flags plus record\n(hard cases, unanticipated thresholds)",
-             "H3": "H3  3b rule minus record only\n(hard cases, unanticipated thresholds)",
+    title = {"H2": "H2  3b rule minus flags plus record\n(hard cases, unconfigured thresholds)",
+             "H3": "H3  3b rule minus record only\n(hard cases, unconfigured thresholds)",
              "H4": "H4  3b rule minus record only\n(whole record recovered)"}
     clab = ["Q = 6, independent", "Q = 6, Gilbert", "Q = 12, independent", "Q = 12, Gilbert"]
     fig, axes = plt.subplots(1, 3, figsize=(7.0, 2.9), sharey=True)
@@ -237,7 +237,7 @@ def fig_tradeoff():
         ax.set_ylim(0.15, 0.9)
         ax.grid(color="#e6e5e1", lw=0.6)
         ax.set_axisbelow(True)
-    axes[0].set_ylabel("Hard cases decided, unanticipated thresholds")
+    axes[0].set_ylabel("Hard cases decided, unconfigured thresholds")
     fig.tight_layout()
     fig.savefig(f"{OUT}/figs/tradeoff.pdf")
     fig.savefig(f"{OUT}/figs/tradeoff.png", dpi=300)

@@ -102,3 +102,12 @@ Round 4 file 98 was the wrong article (my DOI was wrong; it is Brassard et al., 
 | Save as | Link |
 |---|---|
 | 98_Albanese1996_Priority_Encoding_Transmission_IEEETIT.pdf | Search the TITLE, do not trust a DOI: "Priority encoding transmission" by A. Albanese, J. Blomer, J. Edmonds, M. Luby, M. Sudan. IEEE Transactions on Information Theory, vol. 42, no. 6, Nov 1996, pp. 1737-1744. Check the first page before saving (it must say Priority Encoding Transmission). A free copy may exist at ICSI (icsi.berkeley.edu, technical report TR-94-039). |
+
+## Round 6 (2026-11-11): outside review of manuscript v1.0 (point 11)
+Open-access papers of this round are already in `Paper3/papers/round6/` (109 to 116, except 115). These three could not be downloaded automatically; please save them into `Paper3/papers/round6/` under exactly these names.
+
+| Save as | Link | Why |
+|---|---|---|
+| 115_Riva2014_InNetwork_Filtering_TypeThreshold_IJDSN.pdf | https://doi.org/10.1155/2014/245924 (open access; the site blocks scripts) | Named by the outside reviewer as the closest omission |
+| 117_Imielinski1984_Incomplete_Information_JACM.pdf | https://doi.org/10.1145/1634.1886 | Original definition of certain answers, which the certificates instantiate |
+| 118_Zhang2023_Semantic_Communications_Review_NSO.pdf | https://doi.org/10.1360/nso/20230029 (open access; the site blocks scripts) | Semantic and task-oriented communication, cited as the broader frame |
