@@ -25,7 +25,7 @@ We agree that the condition must be operationally verifiable, and we have measur
 
 ## Fatal 3. CRC integrity and adversaries
 
-We agree. Section 6.3 now separates three guarantees: erasure robustness (proved), detection of accidental corruption (conditional on a random bit-error model; the per-million figure and its assumptions are explained, and it is called a planning value, not a measurement), and adversarial integrity (not provided; a message authentication code would be needed). The abstract says that the check guards against random corruption, not deliberate forgery.
+We agree. Section 6.3 now separates three guarantees: erasure robustness (proved), detection of accidental corruption (conditional on a random bit-error model; the per-million figure and its assumptions are explained, and it is called a planning value, not a measurement), and adversarial integrity (not provided; a message authentication code would be needed). Section 6.3 and the limits state that the check guards against random corruption, not deliberate forgery (the abstract had to drop this sentence to meet the journal's 150-word limit).
 
 ## Must fix 4. Post-hoc adoption
 
@@ -69,7 +69,7 @@ The authors will make the repository public and deposit the frozen commit, the d
 
 ## Minor 14. Abstract and terminology
 
-The abstract was rewritten (exact 0.082; "no certain decision was wrong in the tested configurations"; the two confirmations separated; the check's scope stated), and five key terms are defined in the introduction. The reviewer's closing suggestion, the general principle of keeping the information that a future receiver's decisions need, is stated in the introduction with the claims kept narrow.
+The abstract was rewritten to the journal's 150-word limit (exact range 0.026 to 0.082, the exceeded limit, and the post hoc adoption; "no certain decision was wrong in the tested configurations"; flags stated as better on their own thresholds). The first confirmation and the check's scope (random corruption, not forgery) moved from the abstract to the highlights and Section 6.3 for lack of space. Five key terms are defined in the introduction. The reviewer's closing suggestion, the general principle of keeping the information that a future receiver's decisions need, is stated in the introduction with the claims kept narrow.
 
 ## A further point found while answering
 

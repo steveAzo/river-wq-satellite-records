@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.23)  12 NOV 2026 14:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.23)  12 NOV 2026 14:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -556,42 +556,42 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
 (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-[3]) (sec_related.tex [4] [5] [6] [7]) (sec_model.tex
-<figs/arch5.pdf, id=531, 537.11665pt x 236.27373pt>
+[3]) (sec_related.tex [4] [5] [6] [7]) (sec_model.tex [8]
+<figs/arch5.pdf, id=546, 537.11665pt x 236.27373pt>
 File: figs/arch5.pdf Graphic file (type pdf)
 <use figs/arch5.pdf>
 Package pdftex.def Info: figs/arch5.pdf  used on input line 9.
 (pdftex.def)             Requested size: 390.0pt x 171.56264pt.
- [8] [9] [10 <./figs/arch5.pdf>] [11] [12] [13]
-<figs/intervals.pdf, id=615, 462.52798pt x 187.902pt>
+ [9 <./figs/arch5.pdf>] [10] [11] [12]
+<figs/intervals.pdf, id=609, 462.52798pt x 187.902pt>
 File: figs/intervals.pdf Graphic file (type pdf)
 <use figs/intervals.pdf>
 Package pdftex.def Info: figs/intervals.pdf  used on input line 107.
 (pdftex.def)             Requested size: 331.50238pt x 134.67862pt.
- [14 <./figs/intervals.pdf>] [15] [16]) (sec_study.tex
-[17] [18] [19] (tables/confirm_hyp.tex)
+ [13] [14 <./figs/intervals.pdf>] [15] [16]) (sec_study.tex
+[17] [18] (tables/confirm_hyp.tex) [19]
 ignored error: Infinite glue shrinkage found in box being split [20])
-(sec_results.tex [21] [22] [23]
-<figs/forest.pdf, id=725, 505.89pt x 209.58301pt>
+(sec_results.tex [21] [22]
+<figs/forest.pdf, id=719, 505.89pt x 209.58301pt>
 File: figs/forest.pdf Graphic file (type pdf)
 <use figs/forest.pdf>
 Package pdftex.def Info: figs/forest.pdf  used on input line 39.
 (pdftex.def)             Requested size: 390.0pt x 161.57448pt.
- (tables/years.tex) [24 <./figs/forest.pdf>]
-<figs/sites.pdf, id=741, 462.52798pt x 173.448pt>
+ [23] (tables/years.tex) [24 <./figs/forest.pdf>]
+<figs/sites.pdf, id=740, 462.52798pt x 173.448pt>
 File: figs/sites.pdf Graphic file (type pdf)
 <use figs/sites.pdf>
 Package pdftex.def Info: figs/sites.pdf  used on input line 72.
 (pdftex.def)             Requested size: 350.99762pt x 131.63129pt.
 
 [25 <./figs/sites.pdf>]
-<figs/tradeoff.pdf, id=793, 491.436pt x 231.26399pt>
+<figs/tradeoff.pdf, id=795, 491.436pt x 231.26399pt>
 File: figs/tradeoff.pdf Graphic file (type pdf)
 <use figs/tradeoff.pdf>
 Package pdftex.def Info: figs/tradeoff.pdf  used on input line 88.
 (pdftex.def)             Requested size: 390.0pt x 183.53992pt.
  (tables/confirm_desc.tex) (tables/confirm_desc12.tex)
-[26 <./figs/tradeoff.pdf>] (tables/confirm_kinds.tex)
+(tables/confirm_kinds.tex) [26 <./figs/tradeoff.pdf>]
 (tables/confirm_region.tex) [27] [28] (tables/confirm_integrity.tex) [29]
 <figs/thresholds.pdf, id=838, 520.34402pt x 173.448pt>
 File: figs/thresholds.pdf Graphic file (type pdf)
@@ -606,13 +606,14 @@ Overfull \hbox (43.88611pt too wide) in paragraph at lines 11--12
 i.org/10.5281/zenodo.24163716
  []
 
-[37]) (sec_appendix.tex [38] [39] (tables/sites.tex) [40]
+[37]) (sec_appendix.tex [38] [39] (tables/sites.tex)
+ignored error: Infinite glue shrinkage found in box being split [40]
 ignored error: Infinite glue shrinkage found in box being split [41]
 (tables/confirm3_hyp.tex)
-ignored error: Infinite glue shrinkage found in box being split [42] [43]
-(tables/explore_loss.tex) (tables/explore_util.tex) [44]
-ignored error: Infinite glue shrinkage found in box being split [45]
-(tables/explore_r.tex) (tables/explore_base.tex)
+ignored error: Infinite glue shrinkage found in box being split [42]
+(tables/explore_loss.tex) [43] (tables/explore_util.tex)
+ignored error: Infinite glue shrinkage found in box being split [44]
+(tables/explore_r.tex) [45] (tables/explore_base.tex)
 ignored error: Infinite glue shrinkage found in box being split [46])
 (C:\Users\User\Desktop\WSN_M\Paper3\draft4\build\main.bbl [47] [48] [49]
 [50] [51] [52]) [53] (C:\Users\User\Desktop\WSN_M\Paper3\draft4\build\main.aux)
@@ -626,11 +627,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  11774 strings out of 467871
  183663 string characters out of 5418859
- 634470 words of memory out of 5000000
+ 635469 words of memory out of 5000000
  40181 multiletter control sequences out of 15000+600000
  706596 words of font info for 171 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,14n,79p,1593b,672s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,14n,79p,1612b,672s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\User\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1
 200.pk><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmex10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/
@@ -643,7 +644,7 @@ fonts/type1/urw/times/utmb8a.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/f
 onts/type1/urw/times/utmr8a.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fo
 nts/type1/urw/times/utmri8a.pfb>
 Output written on C:\Users\User\Desktop\WSN_M\Paper3\draft4\build\main.pdf (53 
-pages, 534388 bytes).
+pages, 534197 bytes).
 PDF statistics:
  1173 PDF objects out of 1200 (max. 8388607)
  200 named destinations out of 1000 (max. 500000)

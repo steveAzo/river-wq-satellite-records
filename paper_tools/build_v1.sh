@@ -13,7 +13,7 @@ pdflatex -interaction=nonstopmode -output-directory=build main.tex > /dev/null |
 pdflatex -interaction=nonstopmode -output-directory=build main.tex > /dev/null || true
 if grep -q "^!\|undefined\|multiply defined" build/main.log; then grep -n "^!\|undefined\|multiply defined" build/main.log; exit 1; fi
 cd ..
-python -I src/paper/check_draft.py draft4 | tail -1
+python -I paper_tools/check_draft_v1.py draft4 | tail -1
 python -I paper_tools/check_numbers_v1.py
 cd draft4
 cp build/main.aux main.aux
