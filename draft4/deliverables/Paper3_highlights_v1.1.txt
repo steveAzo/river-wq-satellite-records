@@ -1,5 +1,5 @@
 ﻿Server decides river thresholds soundly from whichever satellite messages arrive
-Witnesses of hard cases decided 0.18 to 0.23 more unconfigured thresholds than flags
+At unconfigured thresholds, witnesses decided 0.18 to 0.23 more hard cases than flags
 Record cost was 0.03 to 0.08; at six messages a day it exceeded the design's limit
-No certain decision was wrong on 35 sealed rivers; three of three tests held
+No certain decision was wrong on 35 sealed sites; three of three tests held
 Two sealed confirmations reported in full, including the failure that revised it

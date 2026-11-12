@@ -1,0 +1,2 @@
+20000 random days: manuscript rules and frozen decoder agreed on every comparison {'below': 44979, 'above': 44979, 'min': 19991, 'max': 19991, 'change': 4998}
+soundness on days with known truth: 108291 certain answers, wrong (manuscript rules) 0, wrong (decoder) 0; every extremum interval contained the true extremum

@@ -5,6 +5,7 @@
 set -e
 VER=${1:?version, e.g. v1.1}
 python -I -W ignore exploratory/summarise4.py rehearsal4_2023 rehearsal4v2 confirm4 > /dev/null
+python -I -W ignore exploratory/summarise_bands.py > /dev/null
 cd draft4
 pdflatex -interaction=nonstopmode -output-directory=build main.tex > /dev/null || true
 cp refs.bib build/
