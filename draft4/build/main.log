@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.23)  12 NOV 2026 11:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.23)  12 NOV 2026 14:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -557,13 +557,13 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 [3]) (sec_related.tex [4] [5] [6] [7]) (sec_model.tex
-<figs/arch5.pdf, id=535, 537.11665pt x 236.27373pt>
+<figs/arch5.pdf, id=531, 537.11665pt x 236.27373pt>
 File: figs/arch5.pdf Graphic file (type pdf)
 <use figs/arch5.pdf>
 Package pdftex.def Info: figs/arch5.pdf  used on input line 9.
 (pdftex.def)             Requested size: 390.0pt x 171.56264pt.
  [8] [9] [10 <./figs/arch5.pdf>] [11] [12] [13]
-<figs/intervals.pdf, id=619, 462.52798pt x 187.902pt>
+<figs/intervals.pdf, id=615, 462.52798pt x 187.902pt>
 File: figs/intervals.pdf Graphic file (type pdf)
 <use figs/intervals.pdf>
 Package pdftex.def Info: figs/intervals.pdf  used on input line 107.
@@ -572,20 +572,20 @@ Package pdftex.def Info: figs/intervals.pdf  used on input line 107.
 [17] [18] [19] (tables/confirm_hyp.tex)
 ignored error: Infinite glue shrinkage found in box being split [20])
 (sec_results.tex [21] [22] [23]
-<figs/forest.pdf, id=729, 505.89pt x 209.58301pt>
+<figs/forest.pdf, id=725, 505.89pt x 209.58301pt>
 File: figs/forest.pdf Graphic file (type pdf)
 <use figs/forest.pdf>
 Package pdftex.def Info: figs/forest.pdf  used on input line 39.
 (pdftex.def)             Requested size: 390.0pt x 161.57448pt.
  (tables/years.tex) [24 <./figs/forest.pdf>]
-<figs/sites.pdf, id=745, 462.52798pt x 173.448pt>
+<figs/sites.pdf, id=741, 462.52798pt x 173.448pt>
 File: figs/sites.pdf Graphic file (type pdf)
 <use figs/sites.pdf>
 Package pdftex.def Info: figs/sites.pdf  used on input line 72.
 (pdftex.def)             Requested size: 350.99762pt x 131.63129pt.
 
 [25 <./figs/sites.pdf>]
-<figs/tradeoff.pdf, id=797, 491.436pt x 231.26399pt>
+<figs/tradeoff.pdf, id=793, 491.436pt x 231.26399pt>
 File: figs/tradeoff.pdf Graphic file (type pdf)
 <use figs/tradeoff.pdf>
 Package pdftex.def Info: figs/tradeoff.pdf  used on input line 88.
@@ -593,7 +593,7 @@ Package pdftex.def Info: figs/tradeoff.pdf  used on input line 88.
  (tables/confirm_desc.tex) (tables/confirm_desc12.tex)
 [26 <./figs/tradeoff.pdf>] (tables/confirm_kinds.tex)
 (tables/confirm_region.tex) [27] [28] (tables/confirm_integrity.tex) [29]
-<figs/thresholds.pdf, id=842, 520.34402pt x 173.448pt>
+<figs/thresholds.pdf, id=838, 520.34402pt x 173.448pt>
 File: figs/thresholds.pdf Graphic file (type pdf)
 <use figs/thresholds.pdf>
 Package pdftex.def Info: figs/thresholds.pdf  used on input line 189.
@@ -601,81 +601,36 @@ Package pdftex.def Info: figs/thresholds.pdf  used on input line 189.
 
 [30 <./figs/thresholds.pdf>]) (sec_discussion.tex [31] [32] [33] [34] [35])
 (sec_conclusion.tex [36]) (sec_backmatter.tex
-Underfull \hbox (badness 1762) in paragraph at lines 11--12
-[]\T1/ptm/m/n/12 Repository: https://github.com/steveAzo/river-wq-satellite-rec
-ords; archive:
+Overfull \hbox (43.88611pt too wide) in paragraph at lines 11--12
+\T1/ptm/m/n/12 ver-sion v3.0.0, which ac-com-pa-nies this ar-ti-cle: https://do
+i.org/10.5281/zenodo.24163716
  []
 
-[37]) (sec_appendix.tex [38] [39]
-Underfull \hbox (badness 2635) in paragraph at lines 29--31
-\T1/ptm/m/n/12 (seed 20261113, at most five per re-gion; the full se-lec-tion l
-og is re-
- []
-
-(tables/sites.tex) [40]
+[37]) (sec_appendix.tex [38] [39] (tables/sites.tex) [40]
 ignored error: Infinite glue shrinkage found in box being split [41]
 (tables/confirm3_hyp.tex)
-ignored error: Infinite glue shrinkage found in box being split [42]
-Underfull \hbox (badness 1365) in paragraph at lines 70--71
-\T1/ptm/m/n/12 hard-ened re-ceiver, decoded-only de-ci-sions), loss draws share
-d by the de-
- []
-
-[43] (tables/explore_loss.tex) (tables/explore_util.tex) [44]
+ignored error: Infinite glue shrinkage found in box being split [42] [43]
+(tables/explore_loss.tex) (tables/explore_util.tex) [44]
 ignored error: Infinite glue shrinkage found in box being split [45]
 (tables/explore_r.tex) (tables/explore_base.tex)
-ignored error: Infinite glue shrinkage found in box being split [46]
-Underfull \hbox (badness 10000) in paragraph at lines 144--145
-[]\T1/ptm/m/n/12 Second con-fir-ma-tion: frozen plan and freeze record
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 144--145
-\T1/ptm/m/n/12 docs/CONFIRM4_PLAN.md and docs/FREEZE4.md (tag confirm4-
- []
-
-
-Underfull \hbox (badness 6995) in paragraph at lines 144--145
-\T1/ptm/m/n/12 freeze); data prepa-ra-tion python -I src/p3v3/prepare_cohort4.p
-y; run
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 144--145
-\T1/ptm/m/n/12 python -I src/p3v3/confirm4.py data/clean/usgs_new4_2022 con-fir
-m4
- []
-
-
-Underfull \hbox (badness 1540) in paragraph at lines 146--147
-[]\T1/ptm/m/n/12 First con-fir-ma-tion: docs/CONFIRM3_PLAN.md, docs/FREEZE3.md 
-(tag
- []
-
-
-Underfull \hbox (badness 7722) in paragraph at lines 147--148
-[]\T1/ptm/m/n/12 Tables and fig-ures of the manuscript: python -I -W ig-nore pa
--
- []
-
-) (C:\Users\User\Desktop\WSN_M\Paper3\draft4\build\main.bbl [47] [48] [49]
-[50] [51] [52] [53]) [54]
-(C:\Users\User\Desktop\WSN_M\Paper3\draft4\build\main.aux)
+ignored error: Infinite glue shrinkage found in box being split [46])
+(C:\Users\User\Desktop\WSN_M\Paper3\draft4\build\main.bbl [47] [48] [49]
+[50] [51] [52]) [53] (C:\Users\User\Desktop\WSN_M\Paper3\draft4\build\main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5B5808FE3BBDB8BEC3201304A15AFC08;8385.
+(rerunfilecheck)             Checksum: FE9376B236ECB43E728DECAE6AB6B674;8224.
  ) 
 Here is how much of TeX's memory you used:
- 11779 strings out of 467871
- 183713 string characters out of 5418859
- 633526 words of memory out of 5000000
- 40183 multiletter control sequences out of 15000+600000
+ 11774 strings out of 467871
+ 183663 string characters out of 5418859
+ 634470 words of memory out of 5000000
+ 40181 multiletter control sequences out of 15000+600000
  706596 words of font info for 171 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,14n,79p,1610b,676s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,14n,79p,1593b,672s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\User\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1
 200.pk><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmex10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/
@@ -687,10 +642,10 @@ X/fonts/type1/urw/symbol/usyr.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/
 fonts/type1/urw/times/utmb8a.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/f
 onts/type1/urw/times/utmr8a.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fo
 nts/type1/urw/times/utmri8a.pfb>
-Output written on C:\Users\User\Desktop\WSN_M\Paper3\draft4\build\main.pdf (54 
-pages, 536972 bytes).
+Output written on C:\Users\User\Desktop\WSN_M\Paper3\draft4\build\main.pdf (53 
+pages, 534388 bytes).
 PDF statistics:
- 1183 PDF objects out of 1200 (max. 8388607)
- 203 named destinations out of 1000 (max. 500000)
- 335 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1173 PDF objects out of 1200 (max. 8388607)
+ 200 named destinations out of 1000 (max. 500000)
+ 327 words of extra memory for PDF output out of 10000 (max. 10000000)
 

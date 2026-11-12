@@ -10,6 +10,9 @@ identifiers:
     value: "10.5281/zenodo.23617664"
     description: "Concept DOI (all versions)"
   - type: doi
+    value: "10.5281/zenodo.24163716"
+    description: "Version v3.0.0"
+  - type: doi
     value: "10.5281/zenodo.23711183"
     description: "Version v2.0.0"
 repository-code: "https://github.com/steveAzo/river-wq-satellite-records"

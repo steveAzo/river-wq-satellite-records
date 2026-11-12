@@ -4,7 +4,7 @@ Code and data for the paper by Kofi Sarpong Adu-Manu and Stephen Kwaku Azongo (D
 University of Ghana), prepared for Environmental Modelling & Software.
 
 Archive (Zenodo):
-- Version v3.0.0, this version (method version 3, manuscript v1.1): DOI to be added after deposit
+- Version v3.0.0, this version (method version 3, manuscript v1.1): https://doi.org/10.5281/zenodo.24163716
 - Version v2.0.0: https://doi.org/10.5281/zenodo.23711183
 - Version v1.0.0, the first round: https://doi.org/10.5281/zenodo.23617665
 - All versions (always resolves to the latest): https://doi.org/10.5281/zenodo.23617664

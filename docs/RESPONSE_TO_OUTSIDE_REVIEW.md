@@ -4,7 +4,7 @@ Manuscript: Certified threshold decisions from error-bounded river water-quality
 
 One principle governed the response. The confirmation on the sealed 2022 cohort was frozen before the data were downloaded, and its verdicts are not re-run or re-scored. Every new analysis the review asked for was run after the confirmation, is labelled post hoc in the manuscript, and was run on the two development years first and on the sealed cohort second. No part of the method was changed; where the review points to a method change, it is stated as a limit.
 
-Changes of form in version 1.1: the former supplement is now part of the manuscript as Appendices A to E (its tables are numbered B.1 to D.4); the key definitions and decision rules are numbered display equations (1) to (7); and Fig. 1 was redrawn as an architecture diagram of the node, the link, and the server.
+Changes of form in version 1.1: the former supplement is now part of the manuscript as Appendices A to D (its tables are numbered B.1 to D.4); the key definitions and decision rules are numbered display equations (1) to (7); and Fig. 1 was redrawn as an architecture diagram of the node, the link, and the server.
 
 ## Fatal 1. Proposition 1 broader than its proof
 

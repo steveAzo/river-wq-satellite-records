@@ -26,7 +26,7 @@ Proposition 2 (exactness without witnesses): Without witnesses, the set of recor
 
 \section{Sites of the sealed confirmation cohort}
 \label{app:sites}
-The 35 sites of the second confirmation were selected by metadata only (seed 20261113, at most five per region; the full selection log is results/confirm4/selection.csv). The days are four-parameter days with a record plan in the confirmation run (10,417 in total).
+The 35 sites of the second confirmation were selected by metadata only (seed 20261113, at most five per region; the full selection log is in the repository). The days are four-parameter days with a record plan in the confirmation run (10,417 in total).
 {\footnotesize
 \begin{longtable}{@{}p{2.7cm}p{6.8cm}p{0.9cm}r@{}}
 \caption{Sites of the sealed 2022 cohort by region.}\label{tab:sites}\\
@@ -46,7 +46,7 @@ Site & Name & State & Days \\
 
 \section{The first confirmation (version 2 of the method)}
 \label{app:confirm3}
-The first confirmation tested version 2 of the method (CRC-16 frame, slot-model comparisons, flags that do not use the record) on 31 sealed sites of 2024 (plan docs/CONFIRM3\_PLAN.md, results docs/CONFIRM3\_RESULTS.md). It is reported here in full because it shaped the revision. Pairs of values are independent and Gilbert loss at six messages per day. Caveats found after that run: H7 and the configured and record parts of H9 hold by construction; the flags comparator of H5 discarded the record; flags were modelled at 4.75 values per message; and the forgery study of H8 changed body bytes only. After that run its cohort became development data.
+The first confirmation tested version 2 of the method (CRC-16 frame, slot-model comparisons, flags that do not use the record) on 31 sealed sites of 2024. It is reported here in full because it shaped the revision. Pairs of values are independent and Gilbert loss at six messages per day. Caveats found after that run: H7 and the configured and record parts of H9 hold by construction; the flags comparator of H5 discarded the record; flags were modelled at 4.75 values per message; and the forgery study of H8 changed body bytes only. After that run its cohort became development data.
 
 {\footnotesize
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.6cm}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{4.7cm}>{\raggedright\arraybackslash}p{1.5cm}@{}}
@@ -67,7 +67,7 @@ ID & Statement & Limit & Result (95\% interval) & Outcome \\
 
 \section{Exploratory analyses after the confirmation (post hoc)}
 \label{app:explore}
-Run after the confirmation; none is a test. Byte level (CRC-24 frame, hardened receiver, decoded-only decisions), loss draws shared by the designs, 20 draws per day and condition, every analysed day of each year. Code: exploratory/explore4.py and exploratory/run\_baselines.py; summary exploratory/summarise4.py. Unconfigured thresholds are the two alternative sets of the study.
+Run after the confirmation; none is a test. Byte level (CRC-24 frame, hardened receiver, decoded-only decisions), loss draws shared by the designs, 20 draws per day and condition, every analysed day of each year. Unconfigured thresholds are the two alternative sets of the study.
 
 {\scriptsize\setlength{\tabcolsep}{4pt}
 \begin{longtable}{@{}llllll@{}}
@@ -136,13 +136,3 @@ Year & $Q$ & Loss & Design & Record & Hard, configured & Hard, unconfigured \\
 \tableinput{tables/explore_base.tex}
 \end{longtable}
 }
-
-\section{Files and reproduction}
-\label{app:files}
-Everything below is in the project repository; commands run from the Paper3 folder.
-\begin{itemize}
-  \item Second confirmation: frozen plan and freeze record docs/CONFIRM4\_PLAN.md and docs/FREEZE4.md (tag confirm4-freeze); data preparation python -I src/p3v3/prepare\_cohort4.py; run python -I src/p3v3/confirm4.py data/clean/usgs\_new4\_2022 confirm4 data/clean/usgs\_new4\_2022.md5; outputs in results/confirm4 (verdicts4.md, verdicts4.csv, RUN4.log); write-up docs/CONFIRM4\_RESULTS.md.
-  \item Development rehearsals with the same code: results/rehearsal4\_2023 and results/rehearsal4v2; development record docs/V3\_DEV\_RESULTS.md and docs/METHOD\_V3\_PLAN.md.
-  \item First confirmation: docs/CONFIRM3\_PLAN.md, docs/FREEZE3.md (tag confirm3-freeze), results/confirm3, docs/CONFIRM3\_RESULTS.md.
-  \item Tables and figures of the manuscript: python -I -W ignore paper\_tools/make\_v1.py.
-\end{itemize}
