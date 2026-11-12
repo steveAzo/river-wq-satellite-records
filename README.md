@@ -3,7 +3,8 @@
 Code and data for the paper by Kofi Sarpong Adu-Manu and Stephen Kwaku Azongo (Department of Computer Science,
 University of Ghana), prepared for Environmental Modelling & Software.
 
-Archive (Zenodo; these are earlier versions of the work, the current version is not yet deposited):
+Archive (Zenodo):
+- Version v3.0.0, this version (method version 3, manuscript v1.1): DOI to be added after deposit
 - Version v2.0.0: https://doi.org/10.5281/zenodo.23711183
 - Version v1.0.0, the first round: https://doi.org/10.5281/zenodo.23617665
 - All versions (always resolves to the latest): https://doi.org/10.5281/zenodo.23617664
@@ -40,8 +41,9 @@ Second confirmation (version 3 of the method; frozen at tag `confirm4-freeze`; 3
 | `tests/`, `tests/v3/` | Unit, property, and fuzz tests (`python -m pytest -q -p no:cacheprovider tests`) |
 | `docs/` | Plans, results, reviews, and handoffs; start with `docs/ROADMAP_V3.md` and `docs/CONFIRM4_PLAN.md` |
 | `data/clean/` | Development data (`usgs/` 2023, `usgs_new3_2024/` 2024) and the sealed cohort (`usgs_new4_2022/`, seal `usgs_new4_2022.md5`) |
+| `exploratory/` | Post hoc analyses for the outside review (assumption R, threshold and loss sweeps, record utility, baselines); outputs in `exploratory/out/` |
 | `results/` | `confirm4/` (the confirmation), `rehearsal4_2023/` and `rehearsal4v2/` (development rehearsals), `v3dev/`, and earlier rounds |
-| `draft4/` | Manuscript v1.0 (elsarticle); deliverables in `draft4/deliverables/` |
+| `draft4/` | Manuscript v1.1 (elsarticle); deliverables in `draft4/deliverables/` |
 | `paper_tools/` | Tables, figures, Word copy, and number audit of the manuscript |
 | `archive/` | Superseded manuscripts, rehearsals, and early reviews (`archive/README.md`) |
 

@@ -4,13 +4,15 @@ Manuscript: Certified threshold decisions from error-bounded river water-quality
 
 One principle governed the response. The confirmation on the sealed 2022 cohort was frozen before the data were downloaded, and its verdicts are not re-run or re-scored. Every new analysis the review asked for was run after the confirmation, is labelled post hoc in the manuscript, and was run on the two development years first and on the sealed cohort second. No part of the method was changed; where the review points to a method change, it is stated as a limit.
 
+Changes of form in version 1.1: the former supplement is now part of the manuscript as Appendices A to E (its tables are numbered B.1 to D.4); the key definitions and decision rules are numbered display equations (1) to (7); and Fig. 1 was redrawn as an architecture diagram of the node, the link, and the server.
+
 ## Fatal 1. Proposition 1 broader than its proof
 
 We agree, and the gap was slightly wider than stated: a censored kept value next to an unrecognised censored reading can pull the reconstruction to the edge of the quantiser range, which can affect the threshold queries on that side as well as the conductance chain and the 7DADM.
 
 - Proposition 1 is restated in three parts (Section 3.2): answers that hold over any superset of readings (all answers 0, the outer ends of the extremum intervals); answers that need condition B (every unrecognised censored reading has an interval that reaches genuine readings on both sides), which covers all answers 1 of the threshold rules, both ends of the extremum intervals, and the 7DADM; and the conductance rule's answer 1, which needs no unrecognised censored conductance reading.
 - Lemma 2 gives the condition under which B holds (the span is bounded by kept values with uncensored codes) and the side on which it can fail.
-- Complete proofs of Propositions 1 and 2 are in the supplement (Note S5).
+- Complete proofs of Propositions 1 and 2 are in Appendix A.
 - Empirical scope, counted after the confirmation: censored readings occurred on 4 of 30,854 analysed days in the three cohorts, all small negative dissolved-oxygen values at one 2022 site, each kept as a censored value; no conductance reading was censored. On those days condition B could fail on the low side only, and the true answer to every dissolved-oxygen query was yes; a low-side failure can only add a spurious yes. No reported decision depended on an uncovered case.
 
 ## Fatal 2. Assumption R
@@ -18,7 +20,7 @@ We agree, and the gap was slightly wider than stated: a censored kept value next
 We agree that the condition must be operationally verifiable, and we have measured what it costs.
 
 - The inference is stated precisely (Section 3.2): the coarsest decimal resolution of which every value of the site's record is a multiple; it was inferred for 26 of the 35 cohort sites.
-- Post hoc, on all three years (Section 5.7, Table S6): with R off, the share of correct certain decisions fell by 0.003 to 0.006 and no decision was wrong; with a resolution ten times too coarse, 1.3% to 2.3% of decisions were certain but wrong.
+- Post hoc, on all three years (Section 5.7, Table D.3): with R off, the share of correct certain decisions fell by 0.003 to 0.006 and no decision was wrong; with a resolution ten times too coarse, 1.3% to 2.3% of decisions were certain but wrong.
 - The Discussion now states the operational rule: in deployment the resolution is a declared field of the site profile, taken from the instrument's reporting precision and checked against the logger configuration; a site without a verified resolution runs with R off. H1 is described as a code check conditional on R.
 
 ## Fatal 3. CRC integrity and adversaries
@@ -31,7 +33,7 @@ We agree with the distinction. Section 6.2 now states that the design failed its
 
 ## Must fix 5. Final-version comparisons
 
-We agree that the strongest alternatives had to be compared with the final design. Post hoc, coded send-on-delta (the strongest event-triggered alternative) and the record at half the tolerance (the strongest accuracy-first alternative) were run against the record alone and the 3b rule on the final frame (four value slots per message), on the sealed cohort, in the slot model; send-on-delta has no byte-level frame, and the slot model understates the 3b rule by about 0.03 in whole-record recovery (Section 5.7, Table S7). Send-on-delta was the weakest design in every condition (at six messages per day under independent loss: whole record 0.449, hard cases at unconfigured thresholds 0.302, against 0.842 and 0.525 for the record alone). The half-tolerance record lost whole-record recovery in every condition and decided more hard cases than the record alone only at twelve messages per day (0.731 against 0.647), still below the 3b rule (0.820). The 3b rule decided the most hard cases in every condition. We do not claim it is the best possible strategy; among the alternatives tested, none matched its decisions or preserved the record better than the record alone. The control for targeting, the exact allocator, and the hybrids were not re-run (stated as a limit). The flags-plus-record comparator is now described as idealised and modelled (Section 3.5).
+We agree that the strongest alternatives had to be compared with the final design. Post hoc, coded send-on-delta (the strongest event-triggered alternative) and the record at half the tolerance (the strongest accuracy-first alternative) were run against the record alone and the 3b rule on the final frame (four value slots per message), on the sealed cohort, in the slot model; send-on-delta has no byte-level frame, and the slot model understates the 3b rule by about 0.03 in whole-record recovery (Section 5.7, Table D.4). Send-on-delta was the weakest design in every condition (at six messages per day under independent loss: whole record 0.449, hard cases at unconfigured thresholds 0.302, against 0.842 and 0.525 for the record alone). The half-tolerance record lost whole-record recovery in every condition and decided more hard cases than the record alone only at twelve messages per day (0.731 against 0.647), still below the 3b rule (0.820). The 3b rule decided the most hard cases in every condition. We do not claim it is the best possible strategy; among the alternatives tested, none matched its decisions or preserved the record better than the record alone. The control for targeting, the exact allocator, and the hybrids were not re-run (stated as a limit). The flags-plus-record comparator is now described as idealised and modelled (Section 3.5).
 
 ## Must fix 6. Unconfigured thresholds
 
@@ -39,11 +41,11 @@ We agree, and the threshold sweep the reviewer proposed is now the main explorat
 
 ## Must fix 7. Loss models
 
-Post hoc, on all three years (Section 5.7, Table S4): independent loss 0.1, 0.3, 0.5; Gilbert loss 0.3 with bursts of 3 and 6 and 0.5 with bursts of 3; six and twelve messages per day. The contrast with flags plus record stayed between 0.139 and 0.248 (every lower bound at least 0.114), and with the record alone between 0.174 and 0.356. Longer bursts reduced the gain most. The record cost grew with loss, to at most 0.096 on the cohort.
+Post hoc, on all three years (Section 5.7, Table D.1): independent loss 0.1, 0.3, 0.5; Gilbert loss 0.3 with bursts of 3 and 6 and 0.5 with bursts of 3; six and twelve messages per day. The contrast with flags plus record stayed between 0.139 and 0.248 (every lower bound at least 0.114), and with the record alone between 0.174 and 0.356. Longer bursts reduced the gain most. The record cost grew with loss, to at most 0.096 on the cohort.
 
 ## Must fix 8. What is lost with the whole record
 
-Post hoc (Section 5.7, Table S5): on days whose whole record was not recovered, 0.42 to 0.43 of readings were still certified within tolerance at loss 0.3. Over all days the witnesses cost 0.046 of certified readings against 0.082 of whole-record recovery.
+Post hoc (Section 5.7, Table D.2): on days whose whole record was not recovered, 0.42 to 0.43 of readings were still certified within tolerance at loss 0.3. Over all days the witnesses cost 0.046 of certified readings against 0.082 of whole-record recovery.
 
 ## Must fix 9. Statistical uncertainty
 
@@ -55,7 +57,7 @@ Section 6.1 now has a worked use case on the sealed cohort (a dissolved-oxygen c
 
 ## Should fix 11. Related work
 
-The related-work section was rewritten (Section 2, Table 1). New sources: suppression and model-based monitoring under message failure (Silberstein et al. 2006 and 2007, Tulone and Madden 2006, Deshpande et al. 2004), filtering for type-threshold functions (Riva and Finochietto 2014), data persistence (Kamra et al. 2006), certain answers over incomplete information (Imielinski and Lipski 1984) and interval answers in sensor databases (Cheng and Prabhakar 2003), online error-bounded approximation (Elmeleegy et al. 2009), and semantic communication (Zhang et al. 2023). Table 1 now compares what each line of work shares with this study and where its setting differs. The novelty statement is narrowed to the reviewer's formulation and states which databases were not searched. Table S2 records how far each source was read.
+The related-work section was rewritten (Section 2, Table 1). New sources: suppression and model-based monitoring under message failure (Silberstein et al. 2006 and 2007, Tulone and Madden 2006, Deshpande et al. 2004), filtering for type-threshold functions (Riva and Finochietto 2014), data persistence (Kamra et al. 2006), certain answers over incomplete information (Imielinski and Lipski 1984) and interval answers in sensor databases (Cheng and Prabhakar 2003), online error-bounded approximation (Elmeleegy et al. 2009), and semantic communication (Zhang et al. 2023). Table 1 now compares what each line of work shares with this study and where its setting differs. The novelty statement is narrowed to the reviewer's formulation.
 
 ## Should fix 12. Thresholds
 

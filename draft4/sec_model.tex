@@ -7,13 +7,18 @@ Fig.~\ref{fig:arch} summarises the method. A sensor node at a remote river site 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figs/arch5.pdf}
-\caption{Workflow of the method. The node never learns which messages arrived; the receiver uses only accepted messages and the site profile.}
+\caption{Architecture of the method. The sensor node encodes each day into $Q$ messages; the one-way satellite link delivers or loses each message without acknowledgement; the server decides from accepted messages and the site profile only.}
 \label{fig:arch}
 \end{figure}
 
 \subsection{Record, tolerance, and encoder}
 \label{sec:record}
-A channel-day is one parameter of one site on one UTC day, with readings $x(t)$, $t = 0, \dots, n-1$, on the parameter's own sampling grid. The tolerance of a reading is $\delta(x) = \max(a, r|x|)$ with the accuracy that the USGS requires of an excellent continuous record \citep{wagner2006}: 0.2\,\textdegree C for temperature; 3\% of the value for specific conductance; the greater of 0.3\,mg/L and 5\% of the value for dissolved oxygen; and 0.2 units for pH. The tolerance is relative to the sensor record; the accuracy of the sensor itself (calibration, fouling, and drift) is outside it.
+A channel-day is one parameter of one site on one UTC day, with readings $x(t)$, $t = 0, \dots, n-1$, on the parameter's own sampling grid. The tolerance of a reading is
+\begin{equation}
+\delta(x) = \max(a,\ r|x|),
+\label{eq:tol}
+\end{equation}
+where the absolute part $a$ and the relative part $r$ follow the accuracy that the USGS requires of an excellent continuous record \citep{wagner2006}: 0.2\,\textdegree C for temperature; 3\% of the value for specific conductance; the greater of 0.3\,mg/L and 5\% of the value for dissolved oxygen; and 0.2 units for pH. The tolerance is relative to the sensor record; the accuracy of the sensor itself (calibration, fouling, and drift) is outside it.
 
 The encoder selects the fewest kept slots whose piecewise-linear reconstruction keeps every reading within tolerance. This is the minimum-number problem of polygonal approximation \citep{imai1988} with per-reading tolerances, solved exactly by a forward dynamic program over slope windows \citep{orourke1981} in $O(n^2)$ time and $O(n)$ memory per channel-day. Three features make the bound exact and the record self-contained:
 \begin{itemize}
@@ -31,28 +36,65 @@ Sources of information and the intervals they provide:
 \begin{itemize}
   \item Base range: the quantiser range of the parameter, valid by the definition of censoring.
   \item Kept value with code $c$: the quantiser cell of $c$, which is far narrower than the tolerance (0 to 0.0025 units for temperature, dissolved oxygen, and pH, and 0.07\% for conductance).
-  \item Certified span: the tolerance interval around the reconstruction, valid when the day's bound flag is true and the bounding values of the span arrived. Lemma 1: for $r < 1$ and $x \ge 0$, the set $\{x : |x - \hat{x}| \le \max(a, rx)\}$ is the interval $[\min(\hat{x} - a, \hat{x}/(1 + r)),\ \max(\hat{x} + a, \hat{x}/(1 - r))]$. The two sets whose union defines it share the point $\hat{x}$, such that the union is an interval with the extreme endpoints.
+  \item Certified span: the tolerance interval of Eq.~(\ref{eq:tol}) around the reconstruction, valid when the day's bound flag is true and the bounding values of the span arrived. Lemma 1: for $r < 1$ and $x \ge 0$, the set $\{x : |x - \hat{x}| \le \max(a, rx)\}$ is the interval
+  \begin{equation}
+  \left[\min\!\left(\hat{x} - a,\ \frac{\hat{x}}{1 + r}\right),\ \max\!\left(\hat{x} + a,\ \frac{\hat{x}}{1 - r}\right)\right].
+  \label{eq:lemma1}
+  \end{equation}
+  The two sets whose union defines it share the point $\hat{x}$, such that the union is an interval with the extreme endpoints.
   \item Minimum witness: the cell of the kept extremum value, together with the assertion that every uncensored reading of the day is at least the lower end of that cell; the maximum witness is symmetric.
 \end{itemize}
 A reading with no information has the base range, such that it blocks a certain no.
 
-Queries have three-valued answers: 1 (certainly yes), 0 (certainly no), or $-1$ (undetermined). Let lo$_\mathrm{eff}(t)$ and hi$_\mathrm{eff}(t)$ be the intervals intersected with the global bounds:
+Queries have three-valued answers: 1 (certainly yes), 0 (certainly no), or $-1$ (undetermined). With global bounds $g_{lo}$ and $g_{hi}$ (from witnesses), the effective interval of reading $t$ is
+\begin{equation}
+\mathrm{lo}_\mathrm{eff}(t) = \max(\mathrm{lo}(t),\ g_{lo}), \qquad \mathrm{hi}_\mathrm{eff}(t) = \min(\mathrm{hi}(t),\ g_{hi}).
+\label{eq:eff}
+\end{equation}
+The rules are as follows:
 \begin{itemize}
-  \item Exceeds below $\theta$ (low dissolved oxygen, low pH): 1 if some hi$_\mathrm{eff}(t) < \theta$; 0 if every lo$_\mathrm{eff}(t) \ge \theta$; otherwise $-1$. The rule for exceeding above $\theta$ is symmetric.
-  \item Day minimum and maximum: the minimum lies in $[\min \mathrm{lo}_\mathrm{eff}, \min \mathrm{hi}_\mathrm{eff}]$ and the maximum in $[\max \mathrm{lo}_\mathrm{eff}, \max \mathrm{hi}_\mathrm{eff}]$.
-  \item Conductance change: some pair of readings one hour apart with a relative change above 10\%. For readings with intervals $[L_a, U_a]$ and $[L_b, U_b]$, the ratio lies in $[L_b/U_a, U_b/L_a]$ and both ends are attained. A certain no holds when every pair is within 10\% for all values of the intervals. A certain yes holds when no assignment of readings within their intervals keeps every pair within 10\%; for one lag, the pairs form chains, and the set of readings reachable under ``all pairs within 10\%'' is propagated along each chain until it is empty. The pairwise rule ``some single pair is certainly changed'' is sound but incomplete (readings 100, an interval of 100 to 130, and 130 always contain a change, but no pair is certain); therefore, the chain rule is used.
-  \item Seven-day mean of daily maxima above 20\,\textdegree C (7DADM): the mean of the seven daily-maximum intervals lies in $[\text{mean of lower ends}, \text{mean of upper ends}]$. A day with no information contributes the base range, never zero and never omission; one missing day therefore blocks a certain no but not a certain yes that the other six days already force.
+  \item Exceeds below $\theta$ (low dissolved oxygen, low pH):
+  \begin{equation}
+  A_\theta =
+  \begin{cases}
+  1 & \text{if } \mathrm{hi}_\mathrm{eff}(t) < \theta \text{ for some } t,\\
+  0 & \text{if } \mathrm{lo}_\mathrm{eff}(t) \ge \theta \text{ for every } t,\\
+  -1 & \text{otherwise.}
+  \end{cases}
+  \label{eq:rule}
+  \end{equation}
+  The rule for exceeding above $\theta$ is symmetric.
+  \item Day minimum and maximum:
+  \begin{equation}
+  \begin{gathered}
+  \min_t x(t) \in \left[\min_t \mathrm{lo}_\mathrm{eff}(t),\ \min_t \mathrm{hi}_\mathrm{eff}(t)\right],\\
+  \max_t x(t) \in \left[\max_t \mathrm{lo}_\mathrm{eff}(t),\ \max_t \mathrm{hi}_\mathrm{eff}(t)\right].
+  \end{gathered}
+  \label{eq:extrema}
+  \end{equation}
+  \item Conductance change: some pair of readings one hour apart with a relative change above 10\%. For readings $a$ and $b$ with intervals $[L_a, U_a]$ and $[L_b, U_b]$,
+  \begin{equation}
+  \frac{x(b)}{x(a)} \in \left[\frac{L_b}{U_a},\ \frac{U_b}{L_a}\right],
+  \label{eq:ratio}
+  \end{equation}
+  and both ends are attained. A certain no holds when every pair is within 10\% for all values of the intervals. A certain yes holds when no assignment of readings within their intervals keeps every pair within 10\%; for one lag, the pairs form chains, and the set of readings reachable under ``all pairs within 10\%'' is propagated along each chain until it is empty. The pairwise rule ``some single pair is certainly changed'' is sound but incomplete (readings 100, an interval of 100 to 130, and 130 always contain a change, but no pair is certain); therefore, the chain rule is used.
+  \item Seven-day mean of daily maxima above 20\,\textdegree C (7DADM): with daily-maximum intervals $[m^{lo}_d, m^{hi}_d]$ for the seven days $d$ of the window,
+  \begin{equation}
+  \frac{1}{7}\sum_{d} \max_t x_d(t) \in \left[\frac{1}{7}\sum_{d} m^{lo}_d,\ \frac{1}{7}\sum_{d} m^{hi}_d\right].
+  \label{eq:7dadm}
+  \end{equation}
+  A day with no information contributes the base range, never zero and never omission; one missing day therefore blocks a certain no but not a certain yes that the other six days already force.
 \end{itemize}
 
 Let $V$ be the uncensored readings of a channel-day (the domain of every query) and $S \supseteq V$ the readings that the server treats as uncensored; a reading in $S \setminus V$ is censored but not known to the server, because it lies inside a certified span and its own code did not arrive. The knowledge is valid on $V$ when every reading in $V$ lies in its interval, every global bound holds on $V$, and every reading that the server holds as censored is censored.
 
-Proposition 1 (soundness): let the knowledge be valid on $V$.
+Proposition 1 (soundness of the rules of Eqs.~(\ref{eq:eff}) to (\ref{eq:7dadm})): let the knowledge be valid on $V$.
 \begin{enumerate}
   \item Every answer 0 of the threshold rules and of the conductance rule, the lower end of every day-minimum interval, and the upper end of every day-maximum interval are correct, whatever $S \setminus V$ is.
   \item Condition B: every reading $t$ in $S \setminus V$ has an interval that reaches the values of genuine readings on both sides, that is, $\mathrm{lo}(t) \le x(u)$ and $\mathrm{hi}(t) \ge x(v)$ for some $u, v$ in $V$. Under condition B, every answer 1 of the threshold rules, both ends of the day-extremum intervals, and every answer of the 7DADM rule are also correct.
   \item Every answer 1 of the conductance rule is correct when no conductance reading of the day is in $S \setminus V$.
 \end{enumerate}
-Lemma 2 (when condition B holds): a reading in $S \setminus V$ whose certified span is bounded by kept values with uncensored codes satisfies condition B, because its reconstruction lies between the dequantised bounding values, each within half a quantiser step of its true reading, and the half-width of the tolerance interval exceeds half a step for every parameter. Condition B can fail only when a bounding kept value is itself censored; the reconstruction is then pulled to that edge of the quantiser range, and only the queries on that side (below and minimum at the low edge, above and maximum at the high edge) are affected. The proofs are in the supplement (Note S5). As a check, an exhaustive test over every subset of arrived values on small days, with and without each witness, found no interval that excluded the truth and no wrong answer.
+Lemma 2 (when condition B holds): a reading in $S \setminus V$ whose certified span is bounded by kept values with uncensored codes satisfies condition B, because its reconstruction lies between the dequantised bounding values, each within half a quantiser step of its true reading, and the half-width of the tolerance interval exceeds half a step for every parameter. Condition B can fail only when a bounding kept value is itself censored; the reconstruction is then pulled to that edge of the quantiser range, and only the queries on that side (below and minimum at the low edge, above and maximum at the high edge) are affected. The proofs are in \ref{app:proofs}. As a check, an exhaustive test over every subset of arrived values on small days, with and without each witness, found no interval that excluded the truth and no wrong answer.
 
 The empirical scope of the conditions was counted after the confirmation (post hoc). In the three cohorts (30,854 analysed days), censored readings occurred on 4 days, all at one 2022 site (05576100) and all small negative dissolved-oxygen values; no conductance reading was censored; therefore, part 3 was never at risk. On those 4 days condition B could fail on the low side; the true answer to every dissolved-oxygen query on them was yes at all three threshold sets, and a low-side failure can only add a spurious yes. No reported decision therefore depended on a case that Proposition 1 does not cover.
 

@@ -22,6 +22,8 @@ bad = []
 for f in sorted(glob.glob("draft4/sec_*.tex")):
     s = open(f, encoding="utf-8").read()
     s = re.sub(r"\\cite[pt]?\{[^}]*\}|\\ref\{[^}]*\}|\\label\{[^}]*\}|\\includegraphics[^}]*\}", "", s)
+    # back matter: URLs, DOIs, and software versions are identifiers, not results
+    s = re.sub(r"https?://\S+|Python \d+\.\d+", "", s)
     for m in re.finditer(r"(?<![\w.])(\d+\.\d{2,})", s):
         n = m.group(1)
         if n not in nums and not any(x.startswith(n) or x == n + "0" for x in nums):

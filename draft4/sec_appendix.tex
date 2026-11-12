@@ -1,0 +1,148 @@
+% Appendices (formerly the separate supplement; merged 2026-11-12)
+\appendix
+% file paths are long words: let the appendix break lines loosely rather than overrun the margin
+\sloppy
+% appendix tables are numbered per appendix (A.1, B.1, ...)
+\counterwithin{table}{section}
+\renewcommand{\thetable}{\Alph{section}.\arabic{table}}
+
+\section{Proofs of Propositions 1 and 2}
+\label{app:proofs}
+Setting: A channel-day has readings $x(0), \dots, x(n-1)$. A reading is censored when it lies outside the quantiser range; $V$ is the set of uncensored readings, and every query is defined on $V$. The server holds for every reading an interval $[\mathrm{lo}(t), \mathrm{hi}(t)]$, a set $E$ of readings known to be censored, and optional global bounds $g_{lo}, g_{hi}$ (from witnesses); it treats $S$, the complement of $E$, as uncensored. The knowledge is valid on $V$ when $x(t) \in [\mathrm{lo}(t), \mathrm{hi}(t)]$ for all $t \in V$, $g_{lo} \le x(t) \le g_{hi}$ for all $t \in V$, and $E \cap V = \emptyset$; then $V \subseteq S$. All rules use the effective intervals of Eq.~(\ref{eq:eff}), written here $\mathrm{lo}'$ and $\mathrm{hi}'$, which are valid on $V$ when the knowledge is. Under assumption R both ends are moved inward to the reporting grid; because every reading in $V$ lies on the grid, the moved interval still contains it, and the arguments below hold for the moved intervals unchanged.
+
+Lemma 1 (tolerance interval): For $r < 1$ and $x \ge 0$, $\{x : |x - \hat{x}| \le \max(a, rx)\}$ is the interval of Eq.~(\ref{eq:lemma1}), with the tolerance of Eq.~(\ref{eq:tol}). Proof: the set is the union of $\{|x - \hat{x}| \le a\}$ and $\{|x - \hat{x}| \le rx\}$; both contain $\hat{x}$, the first is $[\hat{x} - a, \hat{x} + a]$, and the second, for $x \ge 0$, is $[\hat{x}/(1+r), \hat{x}/(1-r)]$. Two intervals that share a point have an interval as union, with the extreme endpoints.
+
+Lemma C (cell): Nearest rounding maps $x$ to code $c$ only if $|x - \tilde{x}(c)| \le s/2$, where $\tilde{x}(c)$ is the dequantised value and $s$ the step (on the logarithmic grid of conductance, a factor of $10^{s/2}$).
+
+Proposition 1, part 1 (answers that hold over any superset): Let the knowledge be valid on $V \subseteq S$. (i) Threshold rule of Eq.~(\ref{eq:rule}), ``some reading below $\theta$'', answer 0: every $t \in S$ has $\mathrm{lo}'(t) \ge \theta$; since $V \subseteq S$ and each $x(t) \ge \mathrm{lo}'(t)$ on $V$, no reading of $V$ is below $\theta$. The rule ``some reading above $\theta$'' is symmetric. (ii) Conductance rule, answer 0: every pair of $S$ at the lag is certainly within the fraction; the pairs of $V$ are a subset, and each pair's ratio lies in the image of its intervals, Eq.~(\ref{eq:ratio}) (exact for a box); therefore, every pair of $V$ is within the fraction. (iii) Day extrema of Eq.~(\ref{eq:extrema}). Day minimum, lower end: $\min_{S} \mathrm{lo}' \le \min_{V} \mathrm{lo}' \le \min_{V} x$. Day maximum, upper end: $\max_{S} \mathrm{hi}' \ge \max_{V} \mathrm{hi}' \ge \max_{V} x$. None of these uses $S \setminus V$.
+
+Proposition 1, part 2 (answers that need condition B): Condition B: for every $t \in S \setminus V$ there are $u, v \in V$ with $\mathrm{lo}'(t) \le x(u)$ and $\mathrm{hi}'(t) \ge x(v)$. (i) ``Some reading below $\theta$'', answer 1: some $t \in S$ has $\mathrm{hi}'(t) < \theta$. If $t \in V$, then $x(t) \le \mathrm{hi}'(t) < \theta$. If $t \in S \setminus V$, then $x(v) \le \mathrm{hi}'(t) < \theta$ for some $v \in V$. In both cases a reading of $V$ is below $\theta$. ``Above'' is symmetric. (ii) Day minimum, upper end: $\min_{S} \mathrm{hi}'$ is attained at some $t$. If $t \in V$, then $\min_V x \le x(t) \le \mathrm{hi}'(t)$; if $t \in S \setminus V$, then $\min_V x \le x(v) \le \mathrm{hi}'(t)$. Hence $\min_V x \le \min_S \mathrm{hi}'$, and with part 1 the minimum lies in its interval. The maximum is symmetric. (iii) 7DADM, Eq.~(\ref{eq:7dadm}): each daily-maximum interval contains the true daily maximum by (ii) and part 1 (a day with no information contributes the base range, which contains it as well); the mean of seven values lies between the means of the lower and of the upper ends; therefore, answer 1 (lower mean above the threshold) and answer 0 (upper mean at most the threshold) are correct.
+
+Proposition 1, part 3 (conductance, answer 1): If no conductance reading is in $S \setminus V$, then $S = V$ on that channel, the knowledge is valid on every reading the rule uses, and the rule is the exact image of the box under ``all pairs within the fraction'' along each chain (a reachable interval propagated by $[0.9a, 1.1b]$ and intersected with the next interval); an empty reachable set means no assignment of the true readings avoids a change; therefore, the answer 1 is correct. With an unrecognised censored conductance reading the chain would pass through a reading outside the domain, and part 3 makes no claim.
+
+Lemma 2 (when condition B holds): Let $t \in S \setminus V$ lie in a certified span whose bounding kept values have uncensored codes $c_p, c_q$ at readings $p, q \in V$. The reconstruction $\hat{x}(t)$ is the linear interpolation of $\tilde{x}_p = \tilde{x}(c_p)$ and $\tilde{x}_q = \tilde{x}(c_q)$ (or equals one of them at the ends of the day); therefore, $\min(\tilde{x}_p, \tilde{x}_q) \le \hat{x}(t) \le \max(\tilde{x}_p, \tilde{x}_q)$. By Lemma 1, $\mathrm{hi}(t) \ge \hat{x}(t) + a$ (linear parameters) or $\hat{x}(t)/(1-r)$ (conductance), and by Lemma C, $x(p) \le \tilde{x}_p + s/2$. The tolerance constants exceed half a step for every parameter (at least 0.2 against at most 0.0025 units; 3\% against 0.07\% for conductance); therefore, $\mathrm{hi}(t) \ge \min(x(p), x(q))$ and, symmetrically, $\mathrm{lo}(t) \le \max(x(p), x(q))$. Both bounds survive the effective intervals: a witness bound holds on $V$; therefore, $g_{lo} \le \min(x(p), x(q))$ and $g_{hi} \ge \max(x(p), x(q))$, and the grid move keeps the grid values $x(p), x(q)$ inside. Hence condition B holds with $u, v \in \{p, q\}$. If a bounding kept value has a censored code, its dequantised value is the edge of the range and the argument fails on that side only.
+
+Proposition 2 (exactness without witnesses): Without witnesses, the set of records consistent with the knowledge is the box $\prod_t [\mathrm{lo}(t), \mathrm{hi}(t)]$ over $S$ (taking $S = V$, as when no censored reading is unrecognised). For ``some reading below $\theta$'': over the box, $\min_t x(t)$ ranges exactly over $[\min \mathrm{lo}, \min \mathrm{hi}]$ (each end attained by setting every reading to its lower or upper end). The query is true on every consistent record iff $\min \mathrm{hi} < \theta$, false on every one iff $\min \mathrm{lo} \ge \theta$, and takes both values otherwise; these are exactly the cases in which the rule answers 1, 0, and $-1$. ``Above'' and the extrema are symmetric, and the extremum ends are attained. With a witness, the consistent set is no longer a box: the witness also asserts that some reading lies in its cell. Counterexample: reading 1 in $[3, 10]$, reading 2 in $[4.5, 4.6]$, minimum witness in $[4.0, 4.01]$. Reading 2 cannot be the minimum; therefore, reading 1 lies in $[4.0, 4.01]$ and ``some reading above 5'' is certainly false, but the box rule (which uses only $x \ge g_{lo}$) answers $-1$. The rules are therefore sound (Proposition 1) but not exact with witnesses.
+
+\section{Sites of the sealed confirmation cohort}
+\label{app:sites}
+The 35 sites of the second confirmation were selected by metadata only (seed 20261113, at most five per region; the full selection log is results/confirm4/selection.csv). The days are four-parameter days with a record plan in the confirmation run (10,417 in total).
+{\footnotesize
+\begin{longtable}{@{}p{2.7cm}p{6.8cm}p{0.9cm}r@{}}
+\caption{Sites of the sealed 2022 cohort by region.}\label{tab:sites}\\
+\toprule
+Site & Name & State & Days \\
+\midrule
+\endfirsthead
+\toprule
+Site & Name & State & Days \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\tableinput{tables/sites.tex}
+\end{longtable}
+}
+
+\section{The first confirmation (version 2 of the method)}
+\label{app:confirm3}
+The first confirmation tested version 2 of the method (CRC-16 frame, slot-model comparisons, flags that do not use the record) on 31 sealed sites of 2024 (plan docs/CONFIRM3\_PLAN.md, results docs/CONFIRM3\_RESULTS.md). It is reported here in full because it shaped the revision. Pairs of values are independent and Gilbert loss at six messages per day. Caveats found after that run: H7 and the configured and record parts of H9 hold by construction; the flags comparator of H5 discarded the record; flags were modelled at 4.75 values per message; and the forgery study of H8 changed body bytes only. After that run its cohort became development data.
+
+{\footnotesize
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.6cm}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{4.7cm}>{\raggedright\arraybackslash}p{1.5cm}@{}}
+\caption{Hypotheses of the first confirmation and their outcome on its 31 sealed sites.}\label{tab:confirm3}\\
+\toprule
+ID & Statement & Limit & Result (95\% interval) & Outcome \\
+\midrule
+\endfirsthead
+\toprule
+ID & Statement & Limit & Result (95\% interval) & Outcome \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\tableinput{tables/confirm3_hyp.tex}
+\end{longtable}
+}
+
+\section{Exploratory analyses after the confirmation (post hoc)}
+\label{app:explore}
+Run after the confirmation; none is a test. Byte level (CRC-24 frame, hardened receiver, decoded-only decisions), loss draws shared by the designs, 20 draws per day and condition, every analysed day of each year. Code: exploratory/explore4.py and exploratory/run\_baselines.py; summary exploratory/summarise4.py. Unconfigured thresholds are the two alternative sets of the study.
+
+{\scriptsize\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}llllll@{}}
+\caption{Loss sweep: contrasts at the unconfigured thresholds (hard cases) and in whole-record recovery (point estimate with the lower bound of the site-clustered 95\% interval; ind.\ is independent loss, Gil.\ Gilbert loss with mean burst length b).}\label{tab:exploss}\\
+\toprule
+Year & $Q$ & Loss & 3b $-$ flags plus record & 3b $-$ record only & Record recovered, 3b $-$ record \\
+\midrule
+\endfirsthead
+\toprule
+Year & $Q$ & Loss & 3b $-$ flags plus record & 3b $-$ record only & Record recovered, 3b $-$ record \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\tableinput{tables/explore_loss.tex}
+\end{longtable}
+}
+
+{\scriptsize\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}lllllll@{}}
+\caption{Record utility: whole record recovered, share of readings certified within tolerance over all draws, and on draws whose whole record was not recovered.}\label{tab:exputil}\\
+\toprule
+Year & $Q$ & Loss & Design & Whole record & Certified, all & Certified, not whole \\
+\midrule
+\endfirsthead
+\toprule
+Year & $Q$ & Loss & Design & Whole record & Certified, all & Certified, not whole \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\tableinput{tables/explore_util.tex}
+\end{longtable}
+}
+
+{\scriptsize\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}lllll@{}}
+\caption{Assumption R at six messages per day, independent loss 0.3, configured and alternative thresholds (dissolved oxygen, pH, conductance): share of decisions certain and correct, and certain but wrong, with the inferred resolution, with R off, and with a resolution ten times too coarse (0.1 where none was inferred).}\label{tab:expr}\\
+\toprule
+Year & Design & Resolution & Correct & Wrong \\
+\midrule
+\endfirsthead
+\toprule
+Year & Design & Resolution & Correct & Wrong \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\tableinput{tables/explore_r.tex}
+\end{longtable}
+}
+
+{\scriptsize\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}lllllll@{}}
+\caption{Baselines on the final frame in the slot model (four value slots per message): whole record recovered and hard cases decided at configured and unconfigured thresholds. The slot model is pessimistic for the 3b rule (whole slots for the witness group).}\label{tab:expbase}\\
+\toprule
+Year & $Q$ & Loss & Design & Record & Hard, configured & Hard, unconfigured \\
+\midrule
+\endfirsthead
+\toprule
+Year & $Q$ & Loss & Design & Record & Hard, configured & Hard, unconfigured \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\tableinput{tables/explore_base.tex}
+\end{longtable}
+}
+
+\section{Files and reproduction}
+\label{app:files}
+Everything below is in the project repository; commands run from the Paper3 folder.
+\begin{itemize}
+  \item Second confirmation: frozen plan and freeze record docs/CONFIRM4\_PLAN.md and docs/FREEZE4.md (tag confirm4-freeze); data preparation python -I src/p3v3/prepare\_cohort4.py; run python -I src/p3v3/confirm4.py data/clean/usgs\_new4\_2022 confirm4 data/clean/usgs\_new4\_2022.md5; outputs in results/confirm4 (verdicts4.md, verdicts4.csv, RUN4.log); write-up docs/CONFIRM4\_RESULTS.md.
+  \item Development rehearsals with the same code: results/rehearsal4\_2023 and results/rehearsal4v2; development record docs/V3\_DEV\_RESULTS.md and docs/METHOD\_V3\_PLAN.md.
+  \item First confirmation: docs/CONFIRM3\_PLAN.md, docs/FREEZE3.md (tag confirm3-freeze), results/confirm3, docs/CONFIRM3\_RESULTS.md.
+  \item Tables and figures of the manuscript: python -I -W ignore paper\_tools/make\_v1.py.
+\end{itemize}

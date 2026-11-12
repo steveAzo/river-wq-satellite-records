@@ -23,6 +23,17 @@ s = re.sub(r"\\tableinput\{(tables/[a-z_0-9]+\.tex)\}", lambda m: open(f"{d}/{m.
 s = re.sub(r"\{\\footnotesize\s*\\begin\{longtable\}\{[^\n]*\}\s*\\caption\{(.*?)\}\\label\{(tab:hyp)\}\\\\(.*?)\\endfoot\s*(.*?)\\end\{longtable\}\s*\}",
            lambda m: "\\begin{table}[t]\n\\caption{" + m.group(1) + "}\n\\label{" + m.group(2) + "}\n\\begin{tabularx}{\\textwidth}{llllll}\n\\toprule\nID & Type & Statement & Limit & Result (95\\% interval) & Outcome \\\\\n\\midrule\n" + m.group(4) + "\\bottomrule\n\\end{tabularx}\n\\end{table}",
            s, flags=re.S)
+# any other long table (the appendices) becomes an ordinary table with as many plain columns as its header
+def plain_longtable(m):
+    cap, lab, head, body = m.group(1), m.group(2), m.group(3), m.group(4)
+    ncol = max(line.count("&") for line in head.splitlines()) + 1
+    return ("\\begin{table}[t]\n\\caption{" + cap + "}\n\\label{" + lab + "}\n\\begin{tabularx}{\\textwidth}{" + "l" * ncol + "}\n"
+            + head.strip() + "\n" + body.strip() + "\n\\bottomrule\n\\end{tabularx}\n\\end{table}")
+
+
+s = re.sub(r"\{\\(?:footnotesize|scriptsize)[^\n]*\n\\begin\{longtable\}[^\n]*\n\\caption\{(.*?)\}\\label\{([^}]+)\}\\\\(.*?)\\endfirsthead.*?\\endfoot\s*(.*?)\\end\{longtable\}\s*\}",
+           plain_longtable, s, flags=re.S)
+assert r"\begin{longtable}" not in s, "a long table was not converted"
 s = s.replace("$-$", "\u2212")   # one run: a separate math minus is dropped by text extraction (review 2, C7 interval)
 s = re.sub(r"\\includegraphics(\[[^\]]*\])?\{figs/([a-z_0-9]+)\.pdf\}",
            lambda m: r"\includegraphics" + (m.group(1) or "") + "{figs/" + m.group(2) + ".png}", s)
@@ -59,11 +70,20 @@ s = re.sub(r"\\journal\{[^\n]*\}\n", "", s)
 sec, sub = 0, 0
 
 
+APPENDIX_AT = s.find("\\appendix")   # sections after this point are lettered as elsarticle prints them
+
+
 def heading(m):
     global sec, sub
     kind, star, text = m.group(1), m.group(2), m.group(3)
     if star:
         return r"\paragraph*{@@H1U@@" + text + "}"
+    if APPENDIX_AT >= 0 and m.start() > APPENDIX_AT:
+        if kind == "section":
+            sec, sub = (sec + 1 if isinstance(sec, int) and sec >= 100 else 100), 0
+            return rf"\paragraph*{{@@H1@@Appendix {chr(ord('A') + sec - 100)}. {text}}}"
+        sub += 1
+        return rf"\paragraph*{{@@H2@@{chr(ord('A') + sec - 100)}.{sub}. {text}}}"
     if kind == "section":
         sec, sub = sec + 1, 0
         return rf"\paragraph*{{@@H1@@{sec}. {text}}}"
@@ -72,6 +92,8 @@ def heading(m):
 
 
 s = re.sub(r"\\(section|subsection)(\*?)\{([^{}]*)\}", heading, s)
+# layout commands of the appendix have no Word meaning
+s = re.sub(r"\\appendix\n|\\sloppy\n|\\counterwithin\{[^}]*\}\{[^}]*\}\n|\\renewcommand\{\\thetable\}[^\n]*\n", "", s)
 # check against LaTeX's own numbering
 for lab, num in aux.items():
     if lab.startswith("sec:"):
